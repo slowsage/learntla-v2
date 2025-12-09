@@ -203,7 +203,7 @@ In a spec I once wrote, I had to assign tasks to CPUs. Some tasks needed to be a
   variables
     assignments = [t \in Tasks |-> {}] 
 
-Then I could write ``assignment[t] := assignment[t] \union {cpu}`` to assign ``cpu`` to task ``t``. For my invariant, I said no two tasks shared a CPU assignment.
+Then I could write ``assignments[t] := assignments[t] \union {cpu}`` to assign ``cpu`` to task ``t``. For my invariant, I said no two tasks shared a CPU assignment.
 
 ::
 
