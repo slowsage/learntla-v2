@@ -1,4 +1,9 @@
 {% extends "!layout.html" %}
 
+{% block extrahead %}
+{{ super() }}
+<meta name="robots" content="noindex, nofollow">
+{% endblock %}
+
 {% block sidebarlogo %}
 {% endblock %}
