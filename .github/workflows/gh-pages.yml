@@ -1,0 +1,36 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - feat/copybutton
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install graphviz
+        run: sudo apt-get install -y graphviz
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Build Sphinx
+        run: sphinx-build -D todo_include_todos=0 docs ./docs/_build/html/
+
+      - name: Copy CNAME
+        run: cp CNAME ./docs/_build/html/
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs/_build/html
