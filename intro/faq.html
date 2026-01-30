@@ -1,0 +1,348 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>FAQ &#8212; Learn TLA+</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <script src="../_static/js/petite-vue.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="What’s New" href="../whatsnew.html" />
+    <link rel="prev" title="Learn TLA+" href="../index.html" /> 
+  </head><body data-dark_mode_code_blocks="true">
+
+<div id="top_nav">
+    
+
+    <nav>
+        
+            
+        
+
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+        <h1><a href="../index.html" title="Go to homepage">Learn TLA+</a></h1>
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="../search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Intro</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew.html">What’s New</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conceptual-overview.html">Conceptual Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">TLA+</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../core/index.html">Core</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topics/index.html">Topics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html#pluscal-specs">PlusCal Specs</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/standard-library.html">Standard Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/other-resources.html">Other Resources</a></li>
+</ul>
+
+<ul>
+  <li class="toctree-l1"><a href= "../genindex.html">Index</a></li>
+</ul>
+        </div>
+      </div>
+
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="faq">
+<h1>FAQ<a class="headerlink" href="#faq" title="Permalink to this headline">¶</a></h1>
+<p>These are some of the questions I get regularly asked about TLA+. If you have one you’d like to see me answer, feel free to <a class="reference external" href="https://github.com/hwayne/learntla-v2/issues">ask me!</a></p>
+<section id="what-s-tla">
+<h2>What’s TLA+?<a class="headerlink" href="#what-s-tla" title="Permalink to this headline">¶</a></h2>
+<p>TLA+ is a language for writing and checking “specifications”, or system designs. Once you have your specification, you can then test the specification <em>directly</em> for bugs, even before you’ve written any code.</p>
+<section id="who-made-it">
+<h3>Who made it?<a class="headerlink" href="#who-made-it" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Leslie_Lamport">Leslie Lamport</a>, who’s also the man behind Byzantine fault tolerance, Paxos, and LaTeX.</p>
+<p>Fun fact: LaTeX is short for “Lamport’s TeX”!</p>
+</section>
+<section id="what-s-pluscal">
+<h3>What’s PlusCal?<a class="headerlink" href="#what-s-pluscal" title="Permalink to this headline">¶</a></h3>
+<p>PlusCal is a <abbr title="Domain Specific Language">DSL</abbr> that compiles down to TLA+. Most engineers find it an easier place to start than with pure TLA+, and it works great for a lot of specifications. The <a class="reference internal" href="../core/index.html"><span class="doc">Core</span></a> starts off with PlusCal (<a class="reference internal" href="../core/index.html#pluscal-vs-tla"><span class="std std-ref">here's why</span></a>) but fully teaches TLA+ by the end. I wrote <a class="reference internal" href="../topics/index.html#topics"><span class="std std-ref">topics</span></a> and <a class="reference internal" href="../examples/index.html#examples"><span class="std std-ref">examples</span></a> for both TLA+ and PlusCal.</p>
+</section>
+<section id="i-ve-heard-that-tla-is-a-formal-method-what-s-that">
+<h3>I’ve heard that TLA+ is a “formal method”. What’s that?<a class="headerlink" href="#i-ve-heard-that-tla-is-a-formal-method-what-s-that" title="Permalink to this headline">¶</a></h3>
+<p>“Formal methods” is, very roughly, the field of computer science dedicated to writing correct programs. This is usually done by first writing a rigorous mathematical definition of what “correct” means (“formal specification”), and then showing that the code satisfies that definition (“formal verification”). You can see what this process looks like in practice at <a class="reference external" href="https://github.com/hwayne/lets-prove-leftpad">Let’s Prove Leftpad</a>, which is another project I run.</p>
+<p>You don’t see formal verification a lot because it’s <em>really, really hard.</em> There’s just too many complicated things in general-purpose code. One way to get around this is to focus on verifying a much simpler domain, like abstract designs. That’s what TLA+ does, making it easier to use at the cost of losing some power.</p>
+</section>
+<section id="what-does-tla-stand-for">
+<h3>What does TLA stand for?<a class="headerlink" href="#what-does-tla-stand-for" title="Permalink to this headline">¶</a></h3>
+<p>“Three Letter Acronym.”<a class="footnote-reference brackets" href="#tla" id="id1">1</a></p>
+</section>
+</section>
+<section id="how-does-tla-test-specifications">
+<h2>How does TLA+ test specifications?<a class="headerlink" href="#how-does-tla-test-specifications" title="Permalink to this headline">¶</a></h2>
+<p>There are a few different tools that work with TLA+, but the main one is called TLC, which does <a class="reference internal" href="../reference/glossary.html#term-Model-checking"><span class="xref std std-term">model checking</span></a>. That means it checker takes your specification and requirements, then checks <em>every possible behavior of the spec</em> against those requirements.</p>
+<p>This gives much more thorough coverage than something like unit tests. Consider a system where three processes each do four sequential steps in parallel. There are 34,650 possible interleavings and 415,800 possible distinct states. TLC will check every single one.</p>
+<section id="what-s-the-catch">
+<h3>What’s the catch?<a class="headerlink" href="#what-s-the-catch" title="Permalink to this headline">¶</a></h3>
+<p>The big one is that TLA+ tests <em>designs</em>, not <em>code</em>. There’s no built-in way to generate code from designs or check designs against code. This is in part because high level-designs are so much denser than code: a 50 line design could take thousands of lines of code to implement.</p>
+<p>(There are <a class="reference external" href="http://www.vldb.org/pvldb/vol13/p1346-davis.pdf">some techniques</a> that help keep them in sync. I plan to write them up as a <a class="reference internal" href="../topics/index.html#topics"><span class="std std-ref">topic</span></a>.)</p>
+<p>TLA+ also can’t tell you if a design is good, practical, or even <em>implementable</em>, just whether it satisfies your requirements. It can help you in finding a good design, but you still need to put the work in. No tool can excuse us from being good engineers.</p>
+</section>
+<section id="does-tla-actually-find-bugs">
+<h3>Does TLA+ actually find bugs?<a class="headerlink" href="#does-tla-actually-find-bugs" title="Permalink to this headline">¶</a></h3>
+<p>Yes! Here are just a few of the (public!) successful use cases:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://medium.com/espark-engineering-blog/formal-methods-in-practice-8f20d72bce4f">Espark Learning</a>, an edtech company with just ten engineers, used TLA+ to find complex bugs in a distributed app installer, saving weeks of development and hundreds of thousands in revenue per year.<a class="footnote-reference brackets" href="#espark" id="id3">2</a></p></li>
+<li><p><a class="reference external" href="https://cacm.acm.org/magazines/2015/4/184701-how-amazon-web-services-uses-formal-methods/fulltext">Amazon Web Services</a> used TLA+ to model parts of S3 and DynamoDB, finding a 35-step bug that escaped all their tests and two code reviews.</p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=QKCG3tz4mOU">CrowdStrike</a> found multiple failure cases over just five days of workshops.</p></li>
+</ul>
+<p>TLA+ has also been used by Azure, MongoDB, Confluent, Elastic, and Cockroach Labs to find bugs.</p>
+</section>
+</section>
+<section id="what-s-tla-good-for">
+<h2>What’s TLA+ good for?<a class="headerlink" href="#what-s-tla-good-for" title="Permalink to this headline">¶</a></h2>
+<p>TLA+ is great for modeling and finding bugs in concurrent and distributed systems. It’s also good for modeling systems that span more than one codebase. Something like an <a class="reference external" href="https://aws.amazon.com/step-functions/?step-functions.sort-by=item.additionalFields.postDateTime&amp;step-functions.sort-order=desc">AWS Step Function</a> involves multiple programs, services, and even human actors working together. All of these can be incorporated into a single system design and checked for errors.</p>
+</section>
+<section id="what-s-tla-bad-for">
+<h2>What’s TLA+ bad for?<a class="headerlink" href="#what-s-tla-bad-for" title="Permalink to this headline">¶</a></h2>
+<p>Like any tool, TLA+ has limitations. Aside from the obvious one (can’t test your code), there are some TLA+ weak spots:</p>
+<ul class="simple">
+<li><p>Numerical code. TLA+ supports integers but not decimals or floating-point.</p></li>
+<li><p>String manipulation. You can represent strings as a sequence of characters for basic manipulation, but it gets awkward.</p></li>
+<li><p>Probabilistic properties. You can say “X definitely happens” or “X never happens”, but not “X happens at least 90% of the time”. There are <a class="reference external" href="https://www.prismmodelchecker.org/">special tools</a> for checking those kinds of properties.</p></li>
+<li><p>Reachability properties. You can’t say “it’s always <em>possible</em> for X to eventually happen, even if it doesn’t <em>have</em> to happen.”</p></li>
+<li><p>Realtime properties, like “If Y happens, X has to happen within five real actual seconds”.</p></li>
+</ul>
+<p>There’s also some limitations to the current tooling. There’s not yet official features for interactive spec exploration or visualization.</p>
+</section>
+<section id="do-i-need-a-strong-math-background-to-use-tla">
+<h2>Do I need a strong math background to use TLA+?<a class="headerlink" href="#do-i-need-a-strong-math-background-to-use-tla" title="Permalink to this headline">¶</a></h2>
+<p>TLA+ does use a bit of math that’s not often used in regular programming, but it’s all learnable as you go. The <a class="reference internal" href="../core/index.html"><span class="doc">Core</span></a> gradually explains it as you go along.</p>
+<p>(If you want to know what to expect, the new math concepts are the boolean statement “X implies Y” and the set quantifiers “forall/some x in set”.)</p>
+</section>
+<section id="does-using-tla-mean-i-don-t-have-to-write-tests">
+<h2>Does using TLA+ mean I don’t have to write tests?<a class="headerlink" href="#does-using-tla-mean-i-don-t-have-to-write-tests" title="Permalink to this headline">¶</a></h2>
+<p>Absolutely not. It only verifies the design is correct, not that the code is correct. Write your tests.</p>
+</section>
+<section id="how-does-tla-compare-to">
+<h2>How does TLA+ compare to:<a class="headerlink" href="#how-does-tla-compare-to" title="Permalink to this headline">¶</a></h2>
+<section id="unit-tests-cucumber-tdd-pbt">
+<h3>Unit Tests/Cucumber/TDD/PBT?<a class="headerlink" href="#unit-tests-cucumber-tdd-pbt" title="Permalink to this headline">¶</a></h3>
+<p>All of these act on <em>code</em>. You use them to check that you didn’t make a mistake writing the code. TLA+, by contrast, acts on <em>designs</em>. You use it to check that your design actually does what you want it to do.</p>
+<p>Checking designs has an obvious drawback: you can make a mistake implementing your design. But checking designs also has some big benefits: you can make a design faster and test it more thoroughly than you can its implementation. Take “our microservices architecture never submits the same payment twice, even if services go down”. Testing that thoroughly would be a major undertaking. In TLA+ it’d be a couple-dozen lines.</p>
+<p>Tradeoffs matter, and TLA+ is not “better than” testing. And if you’re not already testing, TLA+ isn’t the best investment.<a class="footnote-reference brackets" href="#investment" id="id4">3</a> But if you’re already testing, then TLA+ is a fantastic addition to your toolbox.</p>
+</section>
+<section id="spark-idris-dafny-frama-c-f">
+<h3>SPARK/Idris/Dafny/Frama-C/F*?<a class="headerlink" href="#spark-idris-dafny-frama-c-f" title="Permalink to this headline">¶</a></h3>
+<p>These are all about formally verifying code; you can see examples of what they all look like at <a class="reference external" href="https://github.com/hwayne/lets-prove-leftpad">Let’s Prove Leftpad</a>. As mentioned, formally verifying code is extremely difficult, which is why TLA+ focuses instead on verifying designs.</p>
+<p>(Comparing “testing code” to “verifying code” is a whole ‘nother can of worms I can’t really get into here. I wrote a very rough overview <a class="reference external" href="https://www.hillelwayne.com/post/why-dont-people-use-formal-methods/">here</a> but it’s a few years out of date now.)</p>
+</section>
+<section id="alloy-spin-event-b-mcrl2">
+<h3>Alloy/Spin/Event-B/mCRL2?<a class="headerlink" href="#alloy-spin-event-b-mcrl2" title="Permalink to this headline">¶</a></h3>
+<p>Now we’re getting into the hard stuff. These are all other formal specification languages with the same domain as TLA+: verifying abstract designs instead of working code. They’re close enough for the subtle tradeoffs to matter. In my opinion, any comparisons of these tools needs to be be its own page, written by experts in both languages.</p>
+</section>
+<section id="p">
+<h3>P?<a class="headerlink" href="#p" title="Permalink to this headline">¶</a></h3>
+<p>I gotta be honest, I haven’t tried out P yet, so I have no idea how it compares to TLA+.</p>
+</section>
+<section id="ctl">
+<h3>CTL*?<a class="headerlink" href="#ctl" title="Permalink to this headline">¶</a></h3>
+<p>Dude if you know what CTL* is then you’re clearly just messing with me</p>
+<dl class="footnote brackets">
+<dt class="label" id="tla"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>Okay okay, it’s actually “Temporal Logic of Actions”. TLA+ is designed around the “core” of TLA. TLA+ users are a little shy about sharing the acronym because it intimidates beginners who’d otherwise have little trouble learning TLA+.</p>
+</dd>
+<dt class="label" id="espark"><span class="brackets"><a class="fn-backref" href="#id3">2</a></span></dt>
+<dd><p>Disclaimer, I worked on this project. In fact it was how I started using TLA+!</p>
+</dd>
+<dt class="label" id="investment"><span class="brackets"><a class="fn-backref" href="#id4">3</a></span></dt>
+<dd><p>I’ve turned down potential clients for this reason.</p>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&lt;</span><span>Page contents</span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&gt;</span><span>Page contents:</span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">FAQ</a><ul>
+<li><a class="reference internal" href="#what-s-tla">What’s TLA+?</a><ul>
+<li><a class="reference internal" href="#who-made-it">Who made it?</a></li>
+<li><a class="reference internal" href="#what-s-pluscal">What’s PlusCal?</a></li>
+<li><a class="reference internal" href="#i-ve-heard-that-tla-is-a-formal-method-what-s-that">I’ve heard that TLA+ is a “formal method”. What’s that?</a></li>
+<li><a class="reference internal" href="#what-does-tla-stand-for">What does TLA stand for?</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#how-does-tla-test-specifications">How does TLA+ test specifications?</a><ul>
+<li><a class="reference internal" href="#what-s-the-catch">What’s the catch?</a></li>
+<li><a class="reference internal" href="#does-tla-actually-find-bugs">Does TLA+ actually find bugs?</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#what-s-tla-good-for">What’s TLA+ good for?</a></li>
+<li><a class="reference internal" href="#what-s-tla-bad-for">What’s TLA+ bad for?</a></li>
+<li><a class="reference internal" href="#do-i-need-a-strong-math-background-to-use-tla">Do I need a strong math background to use TLA+?</a></li>
+<li><a class="reference internal" href="#does-using-tla-mean-i-don-t-have-to-write-tests">Does using TLA+ mean I don’t have to write tests?</a></li>
+<li><a class="reference internal" href="#how-does-tla-compare-to">How does TLA+ compare to:</a><ul>
+<li><a class="reference internal" href="#unit-tests-cucumber-tdd-pbt">Unit Tests/Cucumber/TDD/PBT?</a></li>
+<li><a class="reference internal" href="#spark-idris-dafny-frama-c-f">SPARK/Idris/Dafny/Frama-C/F*?</a></li>
+<li><a class="reference internal" href="#alloy-spin-event-b-mcrl2">Alloy/Spin/Event-B/mCRL2?</a></li>
+<li><a class="reference internal" href="#p">P?</a></li>
+<li><a class="reference internal" href="#ctl">CTL*?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+                <a href="../index.html">
+                    <span class="icon">&lt;</span><span>Learn TLA+</span></a>
+                
+            </div>
+
+            <div class="right">
+                
+                    <a href="../whatsnew.html"><span>What’s New</span><span class="icon">&gt;</span></a>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Hillel Wayne.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+    </div>
+
+<p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
+  </body>
+</html>

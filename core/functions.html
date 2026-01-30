@@ -1,0 +1,631 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Structured Data &#8212; Learn TLA+</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <script src="../_static/js/petite-vue.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Nondeterminism" href="nondeterminism.html" />
+    <link rel="prev" title="Parameterizing Specs" href="constants.html" /> 
+  </head><body data-dark_mode_code_blocks="true">
+
+<div id="top_nav">
+    
+
+    <nav>
+        
+            
+        
+
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+        <h1><a href="../index.html" title="Go to homepage">Learn TLA+</a></h1>
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="../search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew.html">What’s New</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/conceptual-overview.html">Conceptual Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">TLA+</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Core</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="setup.html">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operators.html">Operators and Values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pluscal.html">Writing Specifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="invariants.html">Writing an Invariant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="constants.html">Parameterizing Specs</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Structured Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nondeterminism.html">Nondeterminism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concurrency.html">Concurrency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="temporal-logic.html">Temporal Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced-operators.html">More Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="action-properties.html">Action Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tla.html">TLA+</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html">Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="next-steps.html">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../topics/index.html">Topics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html#pluscal-specs">PlusCal Specs</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/standard-library.html">Standard Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/other-resources.html">Other Resources</a></li>
+</ul>
+
+<ul>
+  <li class="toctree-l1"><a href= "../genindex.html">Index</a></li>
+</ul>
+        </div>
+      </div>
+
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="structured-data">
+<span id="chapter-functions"></span><h1>Structured Data<a class="headerlink" href="#structured-data" title="Permalink to this headline">¶</a></h1>
+<section id="structures">
+<span id="struct"></span><h2>Structures<a class="headerlink" href="#structures" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="operators.html#sequence"><span class="std std-ref">Sequences</span></a> cover tuples and arrays, now we need something to represent string hashmaps. In TLA+, this is the struct:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">struct</span> <span class="o">==</span> <span class="p">[</span><span class="n">a</span> <span class="o">|-&gt;</span> <span class="m">1</span><span class="p">,</span> <span class="n">b</span> <span class="o">|-&gt;</span> <span class="n">{}</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>You index structs the same way you do sequences so <code class="docutils literal notranslate"><span class="pre">struct[&quot;a&quot;]</span> <span class="pre">=</span> <span class="pre">1</span></code>. You can also write it in a more “object” like with a dot instead: <code class="docutils literal notranslate"><span class="pre">struct.a</span> <span class="pre">=</span> <span class="pre">1</span></code>.</p>
+<div class="admonition-troubleshooting admonition" id="id1">
+<p class="admonition-title">Troubleshooting</p>
+<p>If you get</p>
+<blockquote>
+<div><p>Encountered “|-&gt;” at line X, column Y and token “key”</p>
+</div></blockquote>
+<p>It’s because you wrote <code class="docutils literal notranslate"><span class="pre">[&quot;key&quot;</span> <span class="pre">|-&gt;</span> <span class="pre">val]</span></code> instead of <code class="docutils literal notranslate"><span class="pre">[key</span> <span class="pre">|-&gt;</span> <span class="pre">val]</span></code>.</p>
+</div>
+<p>Unsurprisingly, structs are mainly used to represent organized collections of data. For example, a <code class="docutils literal notranslate"><span class="pre">BankTransaction</span></code> might consist of an account, an amount, and whether it was a deposit or withdrawal.</p>
+<p>Just like sequences, sets, and primitive values, we want some way to generate sets of structs, so we can stick them in our type invariants. Here’s how:</p>
+<div class="highlight-tla notranslate" id="struct-set"><div class="highlight"><pre><span></span><span class="c">\* Accounts is a set of model values</span>
+<span class="n">BankTransactionType</span> <span class="o">==</span> <span class="p">[</span><span class="n">acct</span><span class="p">:</span> <span class="n">Accounts</span><span class="p">,</span> <span class="n">amnt</span><span class="p">:</span> <span class="m">1</span><span class="o">..</span><span class="m">10</span><span class="p">,</span> <span class="n">type</span><span class="p">:</span> <span class="n">{</span><span class="s">&quot;deposit&quot;</span><span class="p">,</span> <span class="s">&quot;withdraw&quot;</span><span class="n">}</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>This is the set of all structures where <code class="docutils literal notranslate"><span class="pre">s.acct</span> <span class="pre">\in</span> <span class="pre">Accounts</span></code>, <code class="docutils literal notranslate"><span class="pre">s.amnt</span> <span class="pre">\in</span> <span class="pre">1..10</span></code>, etc.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>With complex types especially, it’s good idea to regularly estimate how many elements are in the set. Here, for in a model with three accounts, BankTransactionType will have <span class="math notranslate nohighlight">\(3 \cdot 10 \cdot 2 = 60\)</span> elements.</p>
+</div>
+<div class="admonition-troubleshooting admonition" id="id2">
+<p class="admonition-title">Troubleshooting</p>
+<p>If you get</p>
+<blockquote>
+<div><p>Attempted to compute the number of elements in the string “val”</p>
+</div></blockquote>
+<p><em>at model-checking time</em>, it’s because you wrote <code class="docutils literal notranslate"><span class="pre">[key:</span> <span class="pre">&quot;val&quot;]</span></code> instead of <code class="docutils literal notranslate"><span class="pre">[key:</span> <span class="pre">{&quot;val&quot;}]</span></code>.</p>
+</div>
+<section id="getting-a-struct-s-keys">
+<span id="domain"></span><span id="index-0"></span><h3>Getting a Struct’s Keys<a class="headerlink" href="#getting-a-struct-s-keys" title="Permalink to this headline">¶</a></h3>
+<p>If I wanted to find all of the values of a <em>sequence</em>, I could get it like this:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">RangeSeq</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span> <span class="o">==</span> <span class="n">{seq</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span> <span class="n">i</span> <span class="s">\in</span> <span class="m">1</span><span class="o">..</span><span class="n">Len</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span><span class="n">}</span>
+</pre></div>
+</div>
+<p>How can I get all the values of a structure? <code class="docutils literal notranslate"><span class="pre">Len</span></code> isn’t defined for structures. Instead, we have the special keyword <code class="docutils literal notranslate"><span class="pre">DOMAIN</span></code>. <code class="docutils literal notranslate"><span class="pre">DOMAIN</span> <span class="pre">struct</span></code> is the set of all keys of a structure.</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">RangeStruct</span><span class="p">(</span><span class="n">struct</span><span class="p">)</span> <span class="o">==</span> <span class="n">{struct</span><span class="p">[</span><span class="n">key</span><span class="p">]:</span> <span class="n">key</span> <span class="s">\in</span> <span class="n">DOMAIN</span> <span class="n">struct}</span>
+</pre></div>
+</div>
+<p>Now for the fun bit. What happens if we pass a <em>sequence</em> into <code class="docutils literal notranslate"><span class="pre">RangeStruct</span></code>?</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">RangeStruct</span><span class="p">(</span><span class="o">&lt;&lt;</span><span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="s">&quot;b&quot;</span><span class="p">,</span> <span class="s">&quot;a&quot;</span><span class="o">&gt;&gt;</span><span class="p">)</span>
+
+<span class="n">{</span><span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="s">&quot;b&quot;</span><span class="n">}</span>
+</pre></div>
+</div>
+<p>It looks like <code class="docutils literal notranslate"><span class="pre">DOMAIN</span> <span class="pre">seq</span> <span class="pre">==</span> <span class="pre">1..Len(seq)</span></code>! In fact, it’s actually <em>the other way around</em>: <code class="docutils literal notranslate"><span class="pre">Len</span></code> is defined in terms of <code class="docutils literal notranslate"><span class="pre">DOMAIN</span></code>!</p>
+<p>Here’s the punchline: <em>both sequences and structures are just syntactic sugar</em>. TLA+ has only two “real” collections: sets and functions. Sequences and structures are both particular classes of functions, the ones that we as programmers are most familiar with. It’s time to finally introduce the true data type.</p>
+</section>
+</section>
+<section id="function">
+<span id="functions"></span><span id="index-1"></span><span id="id3"></span><h2>Functions<a class="headerlink" href="#function" title="Permalink to this headline">¶</a></h2>
+<p>First of all, throw away the programming definition of “function”. The closest thing TLA+ has to a programmatic function are operators. A function follows the <em>mathematical</em> definition, a mapping of values in one set to another set.</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">F</span> <span class="o">==</span> <span class="p">[</span><span class="n">x</span> <span class="s">\in</span> <span class="n">S</span> <span class="o">|-&gt;</span> <span class="n">expr</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>The set we’re mapping from, <code class="docutils literal notranslate"><span class="pre">S</span></code>, is the <strong>domain</strong> of the function, and can be retrieved by writing <code class="docutils literal notranslate"><span class="pre">DOMAIN</span> <span class="pre">F</span></code>. That’s why we could also use <code class="docutils literal notranslate"><span class="pre">DOMAIN</span></code> with sequences and structures:</p>
+<ol class="arabic simple">
+<li><p>A sequence is just a function where the domain is <code class="docutils literal notranslate"><span class="pre">1..n</span></code>.</p></li>
+<li><p>A struct is just a function where the domain is a set of strings.</p></li>
+</ol>
+<p>But functions are a more general than that, and can map <em>any</em> set of values. For example, we can have pairs of numbers in the domain of the function.</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">Prod</span> <span class="o">==</span>
+  <span class="k k-Conditional">LET</span> <span class="n">S</span> <span class="o">==</span> <span class="m">1</span><span class="o">..</span><span class="m">10</span> <span class="n">IN</span>
+  <span class="p">[</span><span class="n">p</span> <span class="s">\in</span> <span class="n">S</span> <span class="s">\X</span> <span class="n">S</span> <span class="o">|-&gt;</span> <span class="n">p</span><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">p</span><span class="p">[</span><span class="m">2</span><span class="p">]]</span>
+
+<span class="c">\* Prod[&lt;&lt;3, 5&gt;&gt;] = 15</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can also write that as <code class="docutils literal notranslate"><span class="pre">Prod</span> <span class="pre">==</span> <span class="pre">[x</span> <span class="pre">\in</span> <span class="pre">S,</span> <span class="pre">y</span> <span class="pre">\in</span> <span class="pre">S</span> <span class="pre">|-&gt;</span> <span class="pre">x</span> <span class="pre">*</span> <span class="pre">y]</span></code>, or <code class="docutils literal notranslate"><span class="pre">G</span> <span class="pre">==</span> <span class="pre">[x,</span> <span class="pre">y</span> <span class="pre">\in</span> <span class="pre">S</span> <span class="pre">|-&gt;</span> <span class="pre">x</span> <span class="pre">*</span> <span class="pre">y]</span></code>. You can also call the function with <code class="docutils literal notranslate"><span class="pre">Prod[3,</span> <span class="pre">5]</span></code> and leave out the angle brackets.</p>
+<p>(Internally, TLA+ will represent it as a tuple, so <code class="docutils literal notranslate"><span class="pre">DOMAIN</span> <span class="pre">F</span> <span class="pre">=</span> <span class="pre">S</span> <span class="pre">\X</span> <span class="pre">T</span></code>.)</p>
+</div>
+<p>I like using functions to show me the results of an expression for various inputs. For what values of P and Q is <code class="docutils literal notranslate"><span class="pre">P</span> <span class="pre">=&gt;</span> <span class="pre">Q</span></code> true?</p>
+<blockquote>
+<div><div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">TruthTable</span> <span class="o">==</span> <span class="p">[</span><span class="n">p</span><span class="p">,</span> <span class="n">q</span> <span class="s">\in</span> <span class="bp">BOOLEAN</span> <span class="o">|-&gt;</span> <span class="n">p</span> <span class="o">=&gt;</span> <span class="n">q</span><span class="p">]</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>If you run this in <a class="reference internal" href="setup.html#scratch"><span class="std std-ref">scratch</span></a>, you’ll get the results, though they’ll be in an unusual format:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; TruthTable
+
+( &lt;&lt;FALSE, FALSE&gt;&gt; :&gt; TRUE @@
+&lt;&lt;FALSE, TRUE&gt;&gt; :&gt; TRUE @@
+&lt;&lt;TRUE, FALSE&gt;&gt; :&gt; FALSE @@
+&lt;&lt;TRUE, TRUE&gt;&gt; :&gt; TRUE )
+</pre></div>
+</div>
+<p id="index-2">This is in “expanded form”: <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">:&gt;</span> <span class="pre">y</span></code> is the single-valued function mapping x to y (so <code class="docutils literal notranslate"><span class="pre">[s</span> <span class="pre">\in</span> <span class="pre">{x}</span> <span class="pre">|-&gt;</span> <span class="pre">y]</span></code>), and <code class="docutils literal notranslate"><span class="pre">&#64;&#64;</span></code> merges two functions. If the two functions share a key, then <code class="docutils literal notranslate"><span class="pre">&#64;&#64;</span></code> <strong>keeps the value on the left</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">&#64;&#64;</span></code> and <code class="docutils literal notranslate"><span class="pre">:&gt;</span></code> are only available in your spec if you extend <code class="docutils literal notranslate"><span class="pre">TLC</span></code>.</p>
+</div>
+<p>With this, <a class="reference internal" href="setup.html#scratch"><span class="std std-ref">we can see</span></a> how sequences and structures are just functions:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; 1 :&gt; &quot;a&quot; @@ 2 :&gt; &quot;b&quot;
+&lt;&lt;&quot;a&quot;, &quot;b&quot;&gt;&gt;
+
+&gt;&gt;&gt; &quot;a&quot; :&gt; 1 @@ &quot;b&quot; :&gt; 2
+[a |-&gt; 1, b |-&gt; 2]
+</pre></div>
+</div>
+<p class="rubric">Example: Zip</p>
+<p>Python has a function called <code class="docutils literal notranslate"><span class="pre">zip</span></code>. It takes two iterables and returns a single sequence, where the elements are pairs of elements from the two inputs. If one is larger than the other, it only does up to the length of the shorter.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">]))</span>
+<span class="go">[(1, &#39;a&#39;), (2, &#39;b&#39;)]</span>
+</pre></div>
+</div>
+<p>Normally programming languages implement zip with iteration or recursion. We don’t need that here because we can “see” the entire sequence at once.</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">Zip1</span><span class="p">(</span><span class="n">seq1</span><span class="p">,</span> <span class="n">seq2</span><span class="p">)</span> <span class="o">==</span>
+  <span class="k k-Conditional">LET</span> <span class="n">Min</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="o">==</span> <span class="k k-Conditional">IF</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span> <span class="k k-Conditional">THEN</span> <span class="n">a</span> <span class="k k-Conditional">ELSE</span> <span class="n">b</span>
+      <span class="n">N</span> <span class="o">==</span> <span class="n">Min</span><span class="p">(</span><span class="n">Len</span><span class="p">(</span><span class="n">seq1</span><span class="p">),</span> <span class="n">Len</span><span class="p">(</span><span class="n">seq2</span><span class="p">))</span>
+  <span class="n">IN</span>
+    <span class="p">[</span><span class="n">i</span> <span class="s">\in</span> <span class="m">1</span><span class="o">..</span><span class="n">N</span> <span class="o">|-&gt;</span> <span class="o">&lt;&lt;</span><span class="n">seq1</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">seq2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&gt;&gt;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Another way we could write this would be to notice that the <a class="reference internal" href="operators.html#set-operators"><span class="std std-ref">intersection</span></a> of <code class="docutils literal notranslate"><span class="pre">1..a</span></code> and <code class="docutils literal notranslate"><span class="pre">1..b</span></code> is <code class="docutils literal notranslate"><span class="pre">1..Min(a,b)</span></code>. So we can simplify <code class="docutils literal notranslate"><span class="pre">Zip</span></code> to:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">Zip2</span><span class="p">(</span><span class="n">seq1</span><span class="p">,</span> <span class="n">seq2</span><span class="p">)</span> <span class="o">==</span>
+  <span class="k k-Conditional">LET</span> <span class="n">N</span> <span class="o">==</span> <span class="p">(</span><span class="n">DOMAIN</span> <span class="n">seq1</span><span class="p">)</span> <span class="nb">\intersect</span> <span class="p">(</span><span class="n">DOMAIN</span> <span class="n">seq2</span><span class="p">)</span>
+  <span class="n">IN</span>
+    <span class="p">[</span><span class="n">i</span> <span class="s">\in</span> <span class="n">N</span> <span class="o">|-&gt;</span> <span class="o">&lt;&lt;</span><span class="n">seq1</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">seq2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&gt;&gt;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>We can check that these are equivalent by writing a quantifier check:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="k k-Conditional">LET</span>
+  <span class="n">S</span> <span class="o">==</span> <span class="m">1</span><span class="o">..</span><span class="m">4</span>
+  <span class="n">Input</span> <span class="o">==</span> <span class="p">(</span><span class="n">S</span> <span class="s">\X</span> <span class="n">S</span> <span class="s">\X</span> <span class="n">S</span><span class="p">)</span> <span class="nb">\union</span> <span class="p">(</span><span class="n">S</span> <span class="s">\X</span> <span class="n">S</span><span class="p">)</span>
+<span class="n">IN</span>
+  <span class="s">\A</span> <span class="n">s1</span><span class="p">,</span> <span class="n">s2</span> <span class="s">\in</span> <span class="n">Input</span><span class="p">:</span>
+    <span class="n">Zip1</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">)</span> <span class="o">=</span> <span class="n">Zip2</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">)</span>
+</pre></div>
+</div>
+<section id="using-functions">
+<h3>Using Functions<a class="headerlink" href="#using-functions" title="Permalink to this headline">¶</a></h3>
+<p>Why functions over operators? We rarely use functions for computations— operators are far superior for that. Functions are important as <em>values</em>. We can assign them to variables and manipulate them like any other value.</p>
+<p>In a spec I once wrote, I had to assign tasks to CPUs. Some tasks needed to be assigned to many CPUs, but each CPU should only have one task. In that spec, the best solution was to store assignments as functions, where each task mapped to a set of CPUs.</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">variables</span>
+  <span class="n">assignments</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span> <span class="s">\in</span> <span class="n">Tasks</span> <span class="o">|-&gt;</span> <span class="n">{}</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Then I could write <code class="docutils literal notranslate"><span class="pre">assignments[t]</span> <span class="pre">:=</span> <span class="pre">assignments[t]</span> <span class="pre">\union</span> <span class="pre">{cpu}</span></code> to assign <code class="docutils literal notranslate"><span class="pre">cpu</span></code> to task <code class="docutils literal notranslate"><span class="pre">t</span></code>. For my invariant, I said no two tasks shared a CPU assignment.</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">OnlyOneTaskPerCpu</span> <span class="o">==</span>
+  <span class="s">\A</span> <span class="n">t1</span><span class="p">,</span> <span class="n">t2</span> <span class="s">\in</span> <span class="n">Tasks</span><span class="p">,</span> <span class="n">c</span> <span class="s">\in</span> <span class="n">CPU</span><span class="p">:</span>
+    <span class="o">/\</span> <span class="p">(</span><span class="n">t1</span> <span class="o">#</span> <span class="n">t2</span><span class="p">)</span>
+    <span class="o">/\</span> <span class="n">c</span> <span class="s">\in</span> <span class="n">assignments</span><span class="p">[</span><span class="n">t1</span><span class="p">]</span>
+    <span class="o">=&gt;</span> <span class="n">c</span> <span class="s">\notin</span> <span class="n">assignments</span><span class="p">[</span><span class="n">t2</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>We could also write this invariant by noticing that “tasks don’t share CPUs” is the same as saying “assignment sets are disjoint”:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">OnlyOneTaskPerCpu</span> <span class="o">==</span>
+  <span class="s">\A</span> <span class="n">t1</span><span class="p">,</span> <span class="n">t2</span> <span class="s">\in</span> <span class="n">Tasks</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">t1</span> <span class="o">#</span> <span class="n">t2</span><span class="p">)</span>
+    <span class="o">=&gt;</span> <span class="n">assignments</span><span class="p">[</span><span class="n">t1</span><span class="p">]</span> <span class="nb">\intersect</span> <span class="n">assignments</span><span class="p">[</span><span class="n">t2</span><span class="p">]</span> <span class="o">=</span> <span class="n">{}</span>
+</pre></div>
+</div>
+</section>
+<section id="function-sets">
+<span id="function-set"></span><span id="index-3"></span><span id="id4"></span><h3>Function sets<a class="headerlink" href="#function-sets" title="Permalink to this headline">¶</a></h3>
+<p>You know the drill: new class of value, new need for a way to generate sets of that value. We need to add function values to our type invariants, too!</p>
+<p>The syntax for function sets is <code class="docutils literal notranslate"><span class="pre">[S</span> <span class="pre">-&gt;</span> <span class="pre">T]</span></code> and is “every function where the domain is <code class="docutils literal notranslate"><span class="pre">S</span></code> and all of the values are in <code class="docutils literal notranslate"><span class="pre">T</span></code>.”<a class="footnote-reference brackets" href="#codomain" id="id5">1</a> In the prior task example, <code class="docutils literal notranslate"><span class="pre">assignments</span></code> was always a function in the function set <code class="docutils literal notranslate"><span class="pre">[Tasks</span> <span class="pre">-&gt;</span> <span class="pre">SUBSET</span> <span class="pre">CPUs]</span></code>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>A function set of form <code class="docutils literal notranslate"><span class="pre">[A</span> <span class="pre">-&gt;</span> <span class="pre">B]</span></code> will have <span class="math notranslate nohighlight">\(\#B^{\#A}\)</span> elements in it. If there were two tasks and three CPUs, that would be <span class="math notranslate nohighlight">\((2^3)^2 = 64\)</span> possible functions.</p>
+<p>A good way to remember this: <code class="docutils literal notranslate"><span class="pre">[1..n</span> <span class="pre">-&gt;</span> <span class="pre">BOOLEAN]</span></code> is the set of all binary strings of length <code class="docutils literal notranslate"><span class="pre">n</span></code>, and we know there are <span class="math notranslate nohighlight">\(2^n\)</span> such strings.</p>
+</div>
+<p>I can also use <a class="reference internal" href="operators.html#map"><span class="std std-ref">set maps</span></a> and filters here. Let’s say a task can only be assigned to at most two CPUs. If I wanted to, I could fold that into the type invariant, using a function set:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">TypeInvariant</span> <span class="o">==</span>
+  <span class="c">\* ...</span>
+  <span class="o">/\</span> <span class="n">assignments</span> <span class="s">\in</span>
+    <span class="k k-Conditional">LET</span> <span class="n">LeqTwoCPUs</span> <span class="o">==</span> <span class="n">{set</span> <span class="s">\in</span> <span class="n">SUBSET</span> <span class="n">CPUs</span><span class="p">:</span> <span class="n">Cardinality</span><span class="p">(</span><span class="n">set</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="m">2</span><span class="n">}</span>
+    <span class="n">IN</span> <span class="p">[</span><span class="n">Tasks</span> <span class="o">-&gt;</span> <span class="n">LeqTwoCPUs</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Though in this case I’d prefer to keep the type invariant simple and write a second invariant with the additional restriction:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">TypeInvariant</span> <span class="o">==</span>
+  <span class="o">/\</span> <span class="n">assignments</span> <span class="s">\in</span> <span class="p">[</span><span class="n">Tasks</span> <span class="o">-&gt;</span> <span class="n">SUBSET</span> <span class="n">CPUs</span><span class="p">]</span>
+
+<span class="n">AnotherInvariant</span> <span class="o">==</span>
+  <span class="s">\A</span> <span class="n">t</span> <span class="s">\in</span> <span class="n">Tasks</span><span class="p">:</span> <span class="n">Cardinality</span><span class="p">(</span><span class="n">assignments</span><span class="p">[</span><span class="n">t</span><span class="p">])</span> <span class="o">&lt;=</span> <span class="m">2</span>
+</pre></div>
+</div>
+<p>Some more examples of function sets:</p>
+<ol class="arabic simple">
+<li><p>We have a set of servers, which can have one of three states. Then <code class="docutils literal notranslate"><span class="pre">status</span> <span class="pre">\in</span> <span class="pre">[Server</span> <span class="pre">-&gt;</span> <span class="pre">{&quot;online&quot;,</span> <span class="pre">&quot;booting&quot;,</span> <span class="pre">&quot;offline&quot;}]</span></code>.</p></li>
+<li><p>We represent a directed graph as a function on pairs of points, which is true iff there’s an edge between the two points. Then <code class="docutils literal notranslate"><span class="pre">graph</span> <span class="pre">\in</span> <span class="pre">[Node</span> <span class="pre">\X</span> <span class="pre">Node</span> <span class="pre">-&gt;</span> <span class="pre">BOOLEAN]</span></code>.</p></li>
+<li><p>If we define the previous set as the operator <code class="docutils literal notranslate"><span class="pre">GraphType</span></code>, we could get the set of all <em>undirected</em> graphs with <code class="docutils literal notranslate"><span class="pre">{g</span> <span class="pre">\in</span> <span class="pre">GraphType:</span> <span class="pre">\A</span> <span class="pre">n1,</span> <span class="pre">n2</span> <span class="pre">\in</span> <span class="pre">Node:</span> <span class="pre">g[n1,n2]</span> <span class="pre">=</span> <span class="pre">g[n2,n1]}</span></code>.</p></li>
+<li><p>If we have a set of users and resources, the set of all possible allocations could be <code class="docutils literal notranslate"><span class="pre">[Resource</span> <span class="pre">-&gt;</span> <span class="pre">User]</span></code>. If some resources could be unallocated, it would instead be <code class="docutils literal notranslate"><span class="pre">[Resource</span> <span class="pre">-&gt;</span> <span class="pre">User</span> <span class="pre">\union</span> <span class="pre">{NULL}]</span></code> (where NULL is a <a class="reference internal" href="constants.html#model-value"><span class="std std-ref">model value</span></a>).</p></li>
+</ol>
+<div class="admonition-troubleshooting admonition" id="id7">
+<p class="admonition-title">Troubleshooting</p>
+<p>If you get</p>
+<blockquote>
+<div><p>Encountered “|-&gt;” in line X, column Y</p>
+</div></blockquote>
+<p>In a function set, then you probably wrote <code class="docutils literal notranslate"><span class="pre">[S</span> <span class="pre">|-&gt;</span> <span class="pre">T]</span></code> instead of <code class="docutils literal notranslate"><span class="pre">[S</span> <span class="pre">-&gt;</span> <span class="pre">T]</span></code>. Similarly, if you get</p>
+<blockquote>
+<div><p>Encountered “-&gt;” in line X, column Y</p>
+</div></blockquote>
+<p>In a function, then you probably wrote <code class="docutils literal notranslate"><span class="pre">[x</span> <span class="pre">\in</span> <span class="pre">S</span> <span class="pre">-&gt;</span> <span class="pre">T]</span></code> instead of <code class="docutils literal notranslate"><span class="pre">[x</span> <span class="pre">\in</span> <span class="pre">S</span> <span class="pre">|-&gt;</span> <span class="pre">T]</span></code>. Don’t worry, everybody gets the two mixed up at some point.</p>
+</div>
+<p class="rubric">Example: Sorting</p>
+<p>Let’s put function sets to good use. If we want to test if a sequence is sorted in ascending order, we can write it like this:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">IsSorted</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span> <span class="o">==</span>
+  <span class="s">\A</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="s">\in</span> <span class="m">1</span><span class="o">..</span><span class="n">Len</span><span class="p">(</span><span class="n">seq</span><span class="p">):</span>
+    <span class="n">i</span> <span class="o">&lt;</span> <span class="n">j</span> <span class="o">=&gt;</span> <span class="n">seq</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">seq</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Now what about an operator that <em>sorts</em> as a sequence? Specifically, one such that <code class="docutils literal notranslate"><span class="pre">IsSorted(SortSeq(seq))</span></code> is always true. That’s easy:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">Sort</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span> <span class="o">==</span>
+  <span class="o">&lt;&lt;&gt;&gt;</span>
+</pre></div>
+</div>
+<p>We had to tweak the definition a bit and make sure that the output sequence has all the same elements, too.</p>
+<p>Now you might remember from our discussion of <a class="reference internal" href="operators.html#choose"><span class="std std-ref">CHOOSE</span></a> that instead of manually constructing the sequence with the desired properties, it’s easier to instead take a set of sequences and pluck out the one that has the properties we want.</p>
+<p>We know we can get the set of elements in a sequence this way:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">Range</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="o">==</span> <span class="n">{f</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="p">:</span> <span class="n">x</span> <span class="s">\in</span> <span class="n">DOMAIN</span> <span class="n">f}</span>
+</pre></div>
+</div>
+<p>Then <code class="docutils literal notranslate"><span class="pre">[DOMAIN</span> <span class="pre">seq</span> <span class="pre">-&gt;</span> <span class="pre">Range(seq)]</span></code> is the set of all sequences which have the same elements as <code class="docutils literal notranslate"><span class="pre">seq</span></code>. Our operator will then look something like this:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">Sort</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span> <span class="o">==</span>
+  <span class="s">CHOOSE</span> <span class="n">sorted</span> <span class="s">\in</span> <span class="p">[</span><span class="n">DOMAIN</span> <span class="n">seq</span> <span class="o">-&gt;</span> <span class="n">Range</span><span class="p">(</span><span class="n">seq</span><span class="p">)]:</span>
+    <span class="o">/\</span> <span class="c">\* sorted has the same number of each element as seq</span>
+    <span class="o">/\</span> <span class="n">IsSorted</span><span class="p">(</span><span class="n">sorted</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>To figure out if two sequences have the same number of each element, let’s define a <code class="docutils literal notranslate"><span class="pre">CountMatching(f,</span> <span class="pre">val)</span></code> operator that tells us the number of inputs matching <code class="docutils literal notranslate"><span class="pre">val</span></code>. To get the size of a set, we need <a class="reference internal" href="operators.html#cardinality"><span class="std std-ref">Cardinality</span></a> from the <code class="docutils literal notranslate"><span class="pre">FiniteSets</span></code> module.</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">CountMatching</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span> <span class="o">==</span>
+  <span class="n">Cardinality</span><span class="p">(</span><span class="n">{key</span> <span class="s">\in</span> <span class="n">DOMAIN</span> <span class="n">f</span><span class="p">:</span> <span class="n">f</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">val}</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Then we just need to test to check this over every element in the sequence:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">Sort</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span> <span class="o">==</span>
+  <span class="s">CHOOSE</span> <span class="n">sorted</span> <span class="s">\in</span> <span class="p">[</span><span class="n">DOMAIN</span> <span class="n">seq</span> <span class="o">-&gt;</span> <span class="n">Range</span><span class="p">(</span><span class="n">seq</span><span class="p">)]:</span>
+    <span class="o">/\</span> <span class="s">\A</span> <span class="n">i</span> <span class="s">\in</span> <span class="n">DOMAIN</span> <span class="n">seq</span><span class="p">:</span>
+      <span class="n">CountMatching</span><span class="p">(</span><span class="n">seq</span><span class="p">,</span> <span class="n">seq</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">=</span> <span class="n">CountMatching</span><span class="p">(</span><span class="n">sorted</span><span class="p">,</span> <span class="n">seq</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="o">/\</span> <span class="n">IsSorted</span><span class="p">(</span><span class="n">sorted</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Let’s try this on some input:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">Sort</span><span class="p">(</span><span class="o">&lt;&lt;</span><span class="m">8</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">3</span><span class="o">&gt;&gt;</span><span class="p">)</span>
+<span class="o">&lt;&lt;</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">7</span><span class="p">,</span> <span class="m">8</span><span class="o">&gt;&gt;</span>
+</pre></div>
+</div>
+<p>Perfect!</p>
+</section>
+</section>
+<section id="the-duplicate-checker-again">
+<span id="index-4"></span><h2>The Duplicate Checker Again<a class="headerlink" href="#the-duplicate-checker-again" title="Permalink to this headline">¶</a></h2>
+<p>Last time, I promise.</p>
+<p>Our last version of the duplicate checker was this:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">S</span> <span class="pre">&lt;-</span> <span class="pre">1..10</span></code> for all these examples.</p>
+</div>
+<div class="literal-block-wrapper docutils container" id="id8">
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="c c-PreProc">----</span> <span class="c c-PreProc">MODULE</span> <span class="c c-PreProc">duplicates</span> <span class="c c-PreProc">----</span>
+<span class="kn">EXTENDS</span> <span class="n">Integers</span><span class="p">,</span> <span class="n">Sequences</span><span class="p">,</span> <span class="n">TLC</span><span class="p">,</span> <span class="n">FiniteSets</span>
+<span class="kn">CONSTANT</span> <span class="n">S</span>
+<span class="kn">ASSUME</span> <span class="n">Cardinality</span><span class="p">(</span><span class="n">S</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="m">4</span>
+
+<span class="nf">(*--algorithm dup</span>
+  <span class="n">variable</span> <span class="n">seq</span> <span class="s">\in</span> <span class="n">S</span> <span class="s">\X</span> <span class="n">S</span> <span class="s">\X</span> <span class="n">S</span> <span class="s">\X</span> <span class="n">S</span><span class="p">;</span>
+  <span class="n">index</span> <span class="o">=</span> <span class="m">1</span><span class="p">;</span>
+  <span class="n">seen</span> <span class="o">=</span> <span class="n">{}</span><span class="p">;</span>
+  <span class="n">is_unique</span> <span class="o">=</span> <span class="bp">TRUE</span><span class="p">;</span>
+
+<span class="nf">define</span>
+  <span class="n">TypeInvariant</span> <span class="o">==</span>
+    <span class="o">/\</span> <span class="n">is_unique</span> <span class="s">\in</span> <span class="bp">BOOLEAN</span>
+    <span class="o">/\</span> <span class="n">seen</span> <span class="nb">\subseteq</span> <span class="n">S</span>
+    <span class="o">/\</span> <span class="n">index</span> <span class="s">\in</span> <span class="m">1</span><span class="o">..</span><span class="n">Len</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span><span class="o">+</span><span class="m">1</span>
+    
+  <span class="n">IsUnique</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">==</span> 
+    <span class="s">\A</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="s">\in</span> <span class="m">1</span><span class="o">..</span><span class="n">Len</span><span class="p">(</span><span class="n">s</span><span class="p">):</span> 
+      <span class="n">i</span> <span class="o">#</span> <span class="n">j</span> <span class="o">=&gt;</span> <span class="n">seq</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">#</span> <span class="n">seq</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> 
+
+  <span class="n">IsCorrect</span> <span class="o">==</span> <span class="n">pc</span> <span class="o">=</span> <span class="s">&quot;Done&quot;</span> <span class="o">=&gt;</span> <span class="n">is_unique</span> <span class="o">=</span> <span class="n">IsUnique</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
+<span class="nf">end define</span><span class="p">;</span> 
+
+<span class="nf">begin</span>
+<span class="nt">  Iterate:</span>
+    <span class="k">while</span> <span class="n">index</span> <span class="o">&lt;=</span> <span class="n">Len</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span> <span class="k">do</span>
+      <span class="k">if</span> <span class="n">seq</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="s">\notin</span> <span class="n">seen</span> <span class="k">then</span>
+        <span class="n">seen</span> <span class="o">:=</span> <span class="n">seen</span> <span class="nb">\union</span> <span class="n">{seq</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="n">}</span><span class="p">;</span>
+      <span class="k">else</span>
+        <span class="n">is_unique</span> <span class="o">:=</span> <span class="bp">FALSE</span><span class="p">;</span>
+      <span class="k">end</span> <span class="k">if</span><span class="p">;</span>
+      <span class="n">index</span> <span class="o">:=</span> <span class="n">index</span> <span class="o">+</span> <span class="m">1</span><span class="p">;</span>
+    <span class="k">end</span> <span class="k">while</span><span class="p">;</span>
+<span class="nf">end algorithm; *)</span>
+<span class="c c-PreProc">====</span>
+</pre></div>
+</div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference download internal" download="" href="../_downloads/3c408b27272468c05dd64c21080001c5/duplicates.tla"><code class="xref download docutils literal notranslate"><span class="pre">spec</span></code></a></span><a class="headerlink" href="#id8" title="Permalink to this code">¶</a></div>
+</div>
+<p>Currently we can control the value of <code class="docutils literal notranslate"><span class="pre">S</span></code> per model, it would be good if we could control the length of <code class="docutils literal notranslate"><span class="pre">seq</span></code> too. Then we can test both 2-element sequences and 20-element sequences. But currently the length is hardcoded by the number of <code class="docutils literal notranslate"><span class="pre">\X</span></code> cross-products we used.</p>
+<p>We can simplify this with function sets. <code class="docutils literal notranslate"><span class="pre">S</span> <span class="pre">\X</span> <span class="pre">S</span> <span class="pre">\X</span> <span class="pre">S</span></code> is going to be a set of 3-tuples. We now know that a 3-tuple is a function with domain <code class="docutils literal notranslate"><span class="pre">1..3</span></code>. Then <code class="docutils literal notranslate"><span class="pre">[1..3</span> <span class="pre">-&gt;</span> <span class="pre">S]</span> <span class="pre">=</span> <span class="pre">S</span> <span class="pre">\X</span> <span class="pre">S</span> <span class="pre">\X</span> <span class="pre">S</span></code>: the set of all 3-tuples where each element of each tuple is a value in <code class="docutils literal notranslate"><span class="pre">S</span></code>.</p>
+<p>From this, extending this to five-element sequences is trivial:</p>
+<div class="literal-block-wrapper docutils container" id="id9">
+<div class="highlight-udiff notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>ASSUME Cardinality(S) &gt;= 4<span class="w"></span>
+<span class="w"> </span>
+<span class="w"> </span>(*--algorithm dup<span class="w"></span>
+<span class="gd">-  variable seq \in S \X S \X S \X S;</span><span class="w"></span>
+<span class="gi">+variable</span><span class="w"></span>
+<span class="gi">+  seq \in [1..5 -&gt; S];</span><span class="w"></span>
+<span class="w"> </span>  index = 1;<span class="w"></span>
+<span class="w"> </span>  seen = {};<span class="w"></span>
+<span class="w"> </span>  is_unique = TRUE;<span class="w"></span>
+</pre></div>
+</div>
+<div class="code-block-caption"><span class="caption-text"><span>800000 states / 700000 distinct</span> <a class="reference download internal" download="" href="../_downloads/61e369d7d7e266bf7519e903e2cea0a6/duplicates.tla"><code class="xref download docutils literal notranslate"><span class="pre">spec</span></code></a></span><a class="headerlink" href="#id9" title="Permalink to this code">¶</a></div>
+</div>
+<p>Notice now that, while <code class="docutils literal notranslate"><span class="pre">S</span> <span class="pre">\X</span> <span class="pre">S</span> <span class="pre">\X</span> <span class="pre">S</span></code> has a <em>hardcoded</em> length, <code class="docutils literal notranslate"><span class="pre">[1..3</span> <span class="pre">-&gt;</span> <span class="pre">S]</span></code> is based on a <em>value</em> — the size of the domain set. This means we can pull it into a constant!</p>
+<div class="literal-block-wrapper docutils container" id="id10">
+<div class="highlight-udiff notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>---- MODULE duplicates ----<span class="w"></span>
+<span class="w"> </span>EXTENDS Integers, Sequences, TLC, FiniteSets<span class="w"></span>
+<span class="gd">-CONSTANT S</span><span class="w"></span>
+<span class="gi">+CONSTANT S, Size</span><span class="w"></span>
+<span class="w"> </span>ASSUME Cardinality(S) &gt;= 4<span class="w"></span>
+<span class="gi">+ASSUME Size &gt; 0</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w"> </span>(*--algorithm dup<span class="w"></span>
+<span class="w"> </span>variable<span class="w"></span>
+<span class="gd">-  seq \in [1..5 -&gt; S];</span><span class="w"></span>
+<span class="gi">+  seq \in [1..Size -&gt; S];</span><span class="w"></span>
+<span class="w"> </span>  index = 1;<span class="w"></span>
+<span class="w"> </span>  seen = {};<span class="w"></span>
+<span class="w"> </span>  is_unique = TRUE;<span class="w"></span>
+</pre></div>
+</div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference download internal" download="" href="../_downloads/6e167aa694cb15fb549e16db1ff67804/duplicates.tla"><code class="xref download docutils literal notranslate"><span class="pre">spec</span></code></a></span><a class="headerlink" href="#id10" title="Permalink to this code">¶</a></div>
+</div>
+<div class="admonition tip" id="state-sweeping">
+<p class="admonition-title">Tip</p>
+<p><em>State sweeping</em> is when we use an initial starting state variable to control the parameters for other variables. For example, we could have one variable determine the length of an input sequence, or the maximum size of a bounded buffer.</p>
+<div class="literal-block-wrapper docutils container" id="id11">
+<div class="highlight-udiff notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>
+<span class="w"> </span>(*--algorithm dup<span class="w"></span>
+<span class="w"> </span>variable<span class="w"></span>
+<span class="gd">-  seq \in [1..Size -&gt; S];</span><span class="w"></span>
+<span class="gi">+  n \in 1..Size;</span><span class="w"></span>
+<span class="gi">+  seq \in [1..n -&gt; S];</span><span class="w"></span>
+<span class="w"> </span>  index = 1;<span class="w"></span>
+<span class="w"> </span>  seen = {};<span class="w"></span>
+<span class="w"> </span>  is_unique = TRUE;<span class="w"></span>
+</pre></div>
+</div>
+<div class="code-block-caption"><span class="caption-text"><span>876540 states / 765430 distinct</span> <a class="reference download internal" download="" href="../_downloads/c7d259e58f717cdace720ef6656fde19/duplicates.tla"><code class="xref download docutils literal notranslate"><span class="pre">spec</span></code></a></span><a class="headerlink" href="#id11" title="Permalink to this code">¶</a></div>
+</div>
+<p>Now, instead of checking all length 5 sequences, we’re checking all length 5 <em>or smaller</em> sequences!</p>
+<p>Strictly speaking, sweeping isn’t <em>necessary</em>: we can, with sufficient cleverness, construct a complex operator that does the same thing. Sweeping, however, is often much <em>easier</em> than doing that, and frees up your brainpower for the actual process of specification.</p>
+</div>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>Functions map a set of values to another set of values. They are written <code class="docutils literal notranslate"><span class="pre">[x</span> <span class="pre">\in</span> <span class="pre">set</span> <span class="pre">|-&gt;</span> <span class="pre">Expr(x)]</span></code> and called with <code class="docutils literal notranslate"><span class="pre">f[value]</span></code>.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Functions can also be written <code class="docutils literal notranslate"><span class="pre">[x,</span> <span class="pre">y</span> <span class="pre">\in</span> <span class="pre">Set1,</span> <span class="pre">z</span> <span class="pre">\in</span> <span class="pre">Set2</span> <span class="pre">|-&gt;</span> <span class="pre">P(x,</span> <span class="pre">y,</span> <span class="pre">z)]</span></code> and called with <code class="docutils literal notranslate"><span class="pre">f[a,</span> <span class="pre">b,</span> <span class="pre">c]</span></code> (or <code class="docutils literal notranslate"><span class="pre">f[&lt;&lt;a,</span> <span class="pre">b,</span> <span class="pre">c&gt;&gt;]</span></code>).</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>The domain of a function, the set we’re mapping from, is <code class="docutils literal notranslate"><span class="pre">DOMAIN</span> <span class="pre">f</span></code>.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">:&gt;</span> <span class="pre">b</span></code> is the function <code class="docutils literal notranslate"><span class="pre">[x</span> <span class="pre">\in</span> <span class="pre">{a}</span> <span class="pre">|-&gt;</span> <span class="pre">b]</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">&#64;&#64;</span> <span class="pre">g</span></code> merges <code class="docutils literal notranslate"><span class="pre">f</span></code> and <code class="docutils literal notranslate"><span class="pre">g</span></code>, <strong>preferring keys in f</strong>.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Sequences are just a special kind of function, where the domain is <code class="docutils literal notranslate"><span class="pre">1..n</span></code>.</p></li>
+<li><p>Structures are another special kind of function, written <code class="docutils literal notranslate"><span class="pre">[key1</span> <span class="pre">|-&gt;</span> <span class="pre">val1,</span> <span class="pre">key2</span> <span class="pre">|-&gt;</span> <span class="pre">val2]</span></code>. They are called with <code class="docutils literal notranslate"><span class="pre">struct[&quot;key1&quot;]</span></code> (or <code class="docutils literal notranslate"><span class="pre">struct.key1</span></code>).</p></li>
+<li><p>Functions and structures both have special set syntax. For structures, it is <code class="docutils literal notranslate"><span class="pre">[key1:</span> <span class="pre">set1]</span></code>. For functions, it’s <code class="docutils literal notranslate"><span class="pre">[A</span> <span class="pre">-&gt;</span> <span class="pre">B]</span></code>.</p></li>
+</ul>
+<dl class="footnote brackets">
+<dt class="label" id="codomain"><span class="brackets"><a class="fn-backref" href="#id5">1</a></span></dt>
+<dd><p>T is sometimes referred to as the “codomain”.</p>
+</dd>
+</dl>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&lt;</span><span>Page contents</span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&gt;</span><span>Page contents:</span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">Structured Data</a><ul>
+<li><a class="reference internal" href="#structures">Structures</a><ul>
+<li><a class="reference internal" href="#getting-a-struct-s-keys">Getting a Struct’s Keys</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#function">Functions</a><ul>
+<li><a class="reference internal" href="#using-functions">Using Functions</a></li>
+<li><a class="reference internal" href="#function-sets">Function sets</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-duplicate-checker-again">The Duplicate Checker Again</a></li>
+<li><a class="reference internal" href="#summary">Summary</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+                <a href="constants.html">
+                    <span class="icon">&lt;</span><span>Parameterizing Specs</span></a>
+                
+            </div>
+
+            <div class="right">
+                
+                    <a href="nondeterminism.html"><span>Nondeterminism</span><span class="icon">&gt;</span></a>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Hillel Wayne.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+    </div>
+
+<p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
+  </body>
+</html>

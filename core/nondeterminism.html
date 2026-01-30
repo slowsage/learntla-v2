@@ -1,0 +1,495 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Nondeterminism &#8212; Learn TLA+</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <script src="../_static/js/petite-vue.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Concurrency" href="concurrency.html" />
+    <link rel="prev" title="Structured Data" href="functions.html" /> 
+  </head><body data-dark_mode_code_blocks="true">
+
+<div id="top_nav">
+    
+
+    <nav>
+        
+            
+        
+
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+        <h1><a href="../index.html" title="Go to homepage">Learn TLA+</a></h1>
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="../search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew.html">What’s New</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/conceptual-overview.html">Conceptual Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">TLA+</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Core</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="setup.html">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operators.html">Operators and Values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pluscal.html">Writing Specifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="invariants.html">Writing an Invariant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="constants.html">Parameterizing Specs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html">Structured Data</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Nondeterminism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concurrency.html">Concurrency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="temporal-logic.html">Temporal Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced-operators.html">More Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="action-properties.html">Action Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tla.html">TLA+</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html">Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="next-steps.html">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../topics/index.html">Topics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html#pluscal-specs">PlusCal Specs</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/standard-library.html">Standard Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/other-resources.html">Other Resources</a></li>
+</ul>
+
+<ul>
+  <li class="toctree-l1"><a href= "../genindex.html">Index</a></li>
+</ul>
+        </div>
+      </div>
+
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="nondeterminism">
+<span id="chapter-nondeterminism"></span><h1>Nondeterminism<a class="headerlink" href="#nondeterminism" title="Permalink to this headline">¶</a></h1>
+<section id="id1">
+<h2>Nondeterminism<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>So far all of our specs have been <strong>deterministic</strong>. While there are multiple possible starting states, the behavior from each starting state is fixed. Most systems aren’t deterministic. Some examples:</p>
+<ul class="simple">
+<li><p>Randomness creates a new possible behavior for each possible random value.</p></li>
+<li><p>Interactive systems aren’t deterministic, since we don’t know what the user is going to do and in what order they do it.</p></li>
+<li><p>We might know the range of readings a sensor could get, but not what specific reading it <em>will</em> get.</p></li>
+<li><p>If the system has many moving independent parts, we don’t know in which order they’ll run.</p></li>
+</ul>
+<p>The last case, concurrency, we’ll cover in the <a class="reference internal" href="concurrency.html"><span class="doc">next chapter</span></a>. To handle the rest, PlusCal has a couple of new constructs.</p>
+<section id="with">
+<span id="nondet-with"></span><span id="index-0"></span><h3>with<a class="headerlink" href="#with" title="Permalink to this headline">¶</a></h3>
+<p>We’ve already seen <a class="reference internal" href="pluscal.html#with"><span class="std std-ref">with</span></a> used to create local variables:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">tmpx</span> <span class="o">=</span> <span class="n">x</span><span class="p">,</span> <span class="n">tmpy</span> <span class="o">=</span> <span class="n">y</span> <span class="k">do</span>
+  <span class="n">y</span> <span class="o">:=</span> <span class="n">tmpx</span><span class="p">;</span>
+  <span class="n">x</span> <span class="o">:=</span> <span class="n">tmpy</span><span class="p">;</span>
+<span class="k">end</span> <span class="k">with</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Remember how, when defining the spec variables, we can write <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">\in</span> <span class="pre">set</span></code> instead of <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">val</span></code>? We can do the same here, too.</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">roll</span> <span class="s">\in</span> <span class="m">1</span><span class="o">..</span><span class="m">6</span> <span class="k">do</span>
+  <span class="n">sum</span> <span class="o">:=</span> <span class="n">sum</span> <span class="o">+</span> <span class="n">roll</span><span class="p">;</span>
+<span class="k">end</span> <span class="k">with</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Inside this block, <code class="docutils literal notranslate"><span class="pre">roll</span></code> can be any one of those six values. The model checker will try <em>all six</em>, effectively creating six new behaviors from that single statement.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can combine deterministic and nondeterministic assignments in a single <code class="docutils literal notranslate"><span class="pre">with</span></code> statement. The following is valid:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="k">with</span>
+  <span class="n">x</span> <span class="s">\in</span> <span class="bp">BOOLEAN</span><span class="p">,</span>
+  <span class="n">y</span> <span class="s">\in</span> <span class="m">1</span><span class="o">..</span><span class="m">10</span><span class="p">,</span>
+  <span class="n">z</span> <span class="o">=</span> <span class="bp">TRUE</span>
+<span class="k">do</span>
+  <span class="c">\* ...</span>
+<span class="k">end</span> <span class="k">with</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<p>You can also nondeterministically pull from a variable set:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">thread</span> <span class="s">\in</span> <span class="n">sleeping</span> <span class="k">do</span>
+  <span class="n">sleeping</span> <span class="o">:=</span> <span class="n">sleeping</span> <span class="o">\</span> <span class="n">{thread}</span><span class="p">;</span>
+<span class="k">end</span> <span class="k">with</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the variable set is empty, the <code class="docutils literal notranslate"><span class="pre">with</span></code> will block, which can lead to a <a class="reference internal" href="concurrency.html#deadlock"><span class="std std-ref">deadlock</span></a>. We’ll talk about deadlocks more in the <a class="reference internal" href="concurrency.html"><span class="doc">next chapter</span></a>, when we cover concurrency.</p>
+</div>
+</section>
+<section id="either-or">
+<span id="either"></span><span id="index-1"></span><h3>either-or<a class="headerlink" href="#either-or" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">either</span></code> is nondeterministic control flow.</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="k">either</span>
+  <span class="n">approve_pull_request</span><span class="p">();</span>
+<span class="k">or</span>
+  <span class="n">request_changes</span><span class="p">();</span>
+<span class="k">or</span>
+  <span class="n">reject_request</span><span class="p">();</span>
+<span class="k">end</span> <span class="k">either</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>On evaluating this, TLC will create three branches:</p>
+<figure class="align-default" id="tmp-link">
+<div class="graphviz"><img src="../_images/graphviz-3787ec8876af7b863daa4e0ef1d62ffc40ac56fd.png" alt="digraph either {
+branch[label=either, shape=point];
+A -&gt; branch[arrowhead=none, label=either];
+branch -&gt; {approve request reject};
+}" class="graphviz align-default" /></div>
+<figcaption>
+<p><span class="caption-text"></span><a class="headerlink" href="#tmp-link" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>You <em>can</em> have labels inside an either statement. Either statements are especially useful for implementing <a class="reference internal" href="../topics/state-machines.html#topic-state-machines"><span class="std std-ref">state machines</span></a>.</p>
+</section>
+<section id="using-nondeterminism">
+<h3>Using Nondeterminism<a class="headerlink" href="#using-nondeterminism" title="Permalink to this headline">¶</a></h3>
+<p>Nondeterminism is the first major break between specifications and programming languages. It’s also the first thing that significantly raises our level of abstraction. In particular, it lets us abstract over “sad paths” in our program.</p>
+<p>Say we’re specifying a large business workflow, and as one step in it, an employee requests access to a resource. In the happy path, she makes the request, it’s assigned to her, and the workflow continues. There are many business reasons the assignment might be rejected:</p>
+<ul class="simple">
+<li><p>The employee isn’t authorized to use the resource</p></li>
+<li><p>The resource is in use and cannot be reassigned until it’s free</p></li>
+<li><p>The resource can only be assigned if a CI check passes, and it failed</p></li>
+<li><p>The request was rejected by a higher-up</p></li>
+<li><p>The code to reassign the resource had a bug and crashed</p></li>
+</ul>
+<p>To fully represent all of these possible error states, we’d have to include a <em>lot</em> of information in our specification: the authorization policies, reserve policies, the CI process, checkout code, etc. Not to mention all of the other possible errors! This is a <em>lot</em> of work, and if the resource checkout is only a small part of our workflow, then it’s a lot of work that <em>could</em> have been spent on studying the bigger picture.</p>
+<p>This is where nondeterminism is really useful. We don’t <em>need</em> to put in the details for all those errors. We only need to say the assignment succeeds, <em>or</em> there’s an error:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="nf">macro</span> <span class="n">request_resource</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="nf">begin</span>
+  <span class="k">either</span>
+    <span class="n">reserved</span> <span class="o">:=</span> <span class="n">reserved</span> <span class="nb">\union</span> <span class="n">{r}</span><span class="p">;</span>
+  <span class="k">or</span>
+    <span class="c">\* Request failed</span>
+    <span class="n">skip</span><span class="p">;</span>
+  <span class="k">end</span> <span class="k">either</span><span class="p">;</span>
+<span class="nf">end macro</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>If we need to also model the type of error (if that affects our recovery logic), we can represent exactly as many as we care about:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="nf">macro</span> <span class="n">request_resource</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="nf">begin</span>
+  <span class="k">either</span>
+    <span class="n">reserved</span> <span class="o">:=</span> <span class="n">reserved</span> <span class="nb">\union</span> <span class="n">{r}</span><span class="p">;</span>
+    <span class="n">failure_reason</span> <span class="o">:=</span> <span class="s">&quot;&quot;</span><span class="p">;</span>
+  <span class="k">or</span>
+    <span class="k">with</span> <span class="n">reason</span> <span class="s">\in</span> <span class="n">{</span><span class="s">&quot;unauthorized&quot;</span><span class="p">,</span> <span class="s">&quot;in_use&quot;</span><span class="p">,</span> <span class="s">&quot;other&quot;</span><span class="n">}</span> <span class="k">do</span>
+      <span class="n">failure_reason</span> <span class="o">:=</span> <span class="n">reason</span><span class="p">;</span>
+    <span class="k">end</span> <span class="k">with</span><span class="p">;</span>
+  <span class="k">or</span>
+    <span class="c">\* some other error</span>
+    <span class="n">skip</span><span class="p">;</span>
+  <span class="k">end</span> <span class="k">either</span><span class="p">;</span>
+<span class="nf">end macro</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">either</span> <span class="pre">or</span> <span class="pre">skip</span></code> is a common nondeterminism pattern and it’s quite useful in a lot of places.</p>
+<p>We can also use nondeterminism to represent outside actions. If we’re modeling requests that are coming into a system, we don’t need to pick a specific request to spec. Instead we can define a <code class="docutils literal notranslate"><span class="pre">RequestType</span></code> and pull from that on every inbound request.</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">RequestType</span> <span class="o">==</span> <span class="p">[</span><span class="n">from</span><span class="p">:</span> <span class="n">Client</span><span class="p">,</span> <span class="n">type</span><span class="p">:</span> <span class="n">{</span><span class="s">&quot;GET&quot;</span><span class="p">,</span> <span class="s">&quot;POST&quot;</span><span class="n">}</span><span class="p">,</span> <span class="n">params</span><span class="p">:</span> <span class="n">ParamType</span><span class="p">]</span>
+
+<span class="k">with</span> <span class="n">request</span> <span class="s">\in</span> <span class="n">RequestType</span> <span class="k">do</span>
+  <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="s">&quot;GET&quot;</span> <span class="k">then</span>
+    <span class="c">\* get logic</span>
+  <span class="k">elsif</span> <span class="n">request</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="s">&quot;POST&quot;</span> <span class="k">then</span>
+    <span class="c">\* post logic</span>
+  <span class="k">else</span>
+    <span class="c">\* something&#39;s wrong with our spec!</span>
+    <span class="kr">assert</span> <span class="bp">FALSE</span><span class="p">;</span>
+  <span class="k">end</span> <span class="k">if</span><span class="p">;</span>
+<span class="k">end</span> <span class="k">with</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="example-a-calculator">
+<h2>Example: A Calculator<a class="headerlink" href="#example-a-calculator" title="Permalink to this headline">¶</a></h2>
+<p>One way we use nondeterminism is to simulate user input. Our system has to handle all user actions properly, so we model them as nondeterministically taking actions from a valid set. As an example, let’s specify an extremely simple calculator. While TLA+ can’t represent decimal numbers, we can do addition, multiplication, and subtraction. First, let’s allow users to add any digit to a current sum:</p>
+<div class="literal-block-wrapper docutils container" id="calculator-1">
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="c c-PreProc">----</span> <span class="c c-PreProc">MODULE</span> <span class="c c-PreProc">calculator</span> <span class="c c-PreProc">----</span>
+<span class="kn">EXTENDS</span> <span class="n">Integers</span><span class="p">,</span> <span class="n">TLC</span>
+<span class="kn">CONSTANT</span> <span class="n">NumInputs</span>
+
+<span class="n">Digits</span> <span class="o">==</span> <span class="m">0</span><span class="o">..</span><span class="m">9</span>
+
+<span class="nf">(* --algorithm calculator</span>
+<span class="n">variables</span> 
+  <span class="n">i</span> <span class="o">=</span> <span class="m">0</span><span class="p">;</span>
+  <span class="n">sum</span> <span class="o">=</span> <span class="m">0</span><span class="p">;</span>
+
+<span class="nf">begin</span>
+<span class="nt">  Calculator:</span>
+    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">NumInputs</span> <span class="k">do</span>
+      <span class="k">with</span> <span class="n">x</span> <span class="s">\in</span> <span class="n">Digits</span> <span class="k">do</span>
+          <span class="c">\* Add</span>
+          <span class="n">sum</span> <span class="o">:=</span> <span class="n">sum</span> <span class="o">+</span> <span class="n">x</span><span class="p">;</span>
+      <span class="k">end</span> <span class="k">with</span><span class="p">;</span>
+      <span class="n">i</span> <span class="o">:=</span> <span class="n">i</span> <span class="o">+</span> <span class="m">1</span><span class="p">;</span>
+    <span class="k">end</span> <span class="k">while</span><span class="p">;</span>
+<span class="nf">end algorithm; *)</span>
+<span class="c c-PreProc">====</span>
+</pre></div>
+</div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference download internal" download="" href="../_downloads/243ff7a836268ca9dd13e0b495dd3c6c/calculator.tla"><code class="xref download docutils literal notranslate"><span class="pre">spec</span></code></a></span><a class="headerlink" href="#calculator-1" title="Permalink to this code">¶</a></div>
+</div>
+<p>Two things to notice:</p>
+<ol class="arabic simple">
+<li><p>The user can input any single digit, which is represented with a <code class="docutils literal notranslate"><span class="pre">with</span></code>. We restrict their options to <code class="docutils literal notranslate"><span class="pre">0..9</span></code> to keep the state space smaller.</p></li>
+<li><p>We restrict the spec to only <code class="docutils literal notranslate"><span class="pre">NumInputs</span></code> operations per behavior. If we instead did <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">TRUE</span></code>, <code class="docutils literal notranslate"><span class="pre">sum</span></code> would be unbounded, the state space would be infinitely large, and the model checker would run forever. I do make <code class="docutils literal notranslate"><span class="pre">NumInputs</span></code> a <a class="reference internal" href="constants.html#constant"><span class="std std-ref">Model Constants</span></a> for easy modification.</p></li>
+</ol>
+<p>For all this spec, I’m using <code class="docutils literal notranslate"><span class="pre">NumInputs</span> <span class="pre">&lt;-</span> <span class="pre">5</span></code>, for <span>1043 states / 187 distinct</span>. This is a much higher ratio of (seen states / distinct states) than we’ve seen before: adding 5 and then 3 gives the same state as adding 3 and then 5. There’s also a much higher ratio of (seen states / initial states). Before, we only had one behavior from each starting state, but now we have many.</p>
+<p>To allow users to also subtract and multiply, we can place the addition logic in an <code class="docutils literal notranslate"><span class="pre">either</span></code> branch, and then create two more branches.</p>
+<div class="literal-block-wrapper docutils container" id="calculator-2">
+<div class="highlight-udiff notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>  Calculator:<span class="w"></span>
+<span class="w"> </span>    while i &lt; NumInputs do<span class="w"></span>
+<span class="w"> </span>      with x \in Digits do<span class="w"></span>
+<span class="gi">+        either</span><span class="w"></span>
+<span class="w"> </span>          \* Add<span class="w"></span>
+<span class="w"> </span>          sum := sum + x;<span class="w"></span>
+<span class="gi">+        or</span><span class="w"></span>
+<span class="gi">+          \* Subtract</span><span class="w"></span>
+<span class="gi">+          sum := sum - x;</span><span class="w"></span>
+<span class="gi">+        or</span><span class="w"></span>
+<span class="gi">+          \* Multiply</span><span class="w"></span>
+<span class="gi">+          sum := sum * x;</span><span class="w"></span>
+<span class="gi">+        end either;</span><span class="w"></span>
+<span class="w"> </span>      end with;<span class="w"></span>
+<span class="w"> </span>      i := i + 1;<span class="w"></span>
+<span class="w"> </span>    end while;<span class="w"></span>
+</pre></div>
+</div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference download internal" download="" href="../_downloads/6069361e594b17d524e671d38bfbddc0/calculator.tla"><code class="xref download docutils literal notranslate"><span class="pre">spec</span></code></a></span><a class="headerlink" href="#calculator-2" title="Permalink to this code">¶</a></div>
+</div>
+<p>Allowing a nondeterministic choice of operator bloats the state space further <span>71333 states / 16551 distinct</span>. When dealing with nondeterminism, there are lots of possible states, which is one reason it’s harder to reason about.</p>
+<p>Normally we’d write an invariant to test that this spec is working correctly, but aside from a type invariant or two there’s not much to check here. So let’s instead turn things around and see if we can use TLA+ to <em>find</em> a solution to something. Can we reach some number, say <code class="docutils literal notranslate"><span class="pre">417</span></code>, in five inputs?</p>
+<p>To find this, let’s add an invariant saying <code class="docutils literal notranslate"><span class="pre">sum</span></code> is <em>not</em> 417. Then, if <code class="docutils literal notranslate"><span class="pre">sum</span></code> is reachable, the model checker will <em>fail</em>, and give us an error trace representing a path to 417.</p>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="highlight-udiff notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>---- MODULE calculator ----<span class="w"></span>
+<span class="w"> </span>EXTENDS Integers, TLC<span class="w"></span>
+<span class="gd">-CONSTANT NumInputs</span><span class="w"></span>
+<span class="gi">+CONSTANT NumInputs, Target</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w"> </span>Digits == 0..9<span class="w"></span>
+<span class="w"> </span>
+<span class="gu">@@ -8,6 +8,9 @@</span><span class="w"></span>
+<span class="w"> </span>variables <span class="w"></span>
+<span class="w"> </span>  i = 0;<span class="w"></span>
+<span class="w"> </span>  sum = 0;<span class="w"></span>
+<span class="gi">+define</span><span class="w"></span>
+<span class="gi">+  Invariant == sum # Target</span><span class="w"></span>
+<span class="gi">+end define;</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w"> </span>begin<span class="w"></span>
+<span class="w"> </span>  Calculator:<span class="w"></span>
+</pre></div>
+</div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference download internal" download="" href="../_downloads/672e9d0a93d23dc6e5effb6df074e598/calculator.tla"><code class="xref download docutils literal notranslate"><span class="pre">spec</span></code></a></span><a class="headerlink" href="#id5" title="Permalink to this code">¶</a></div>
+</div>
+<p>Now running the checker with <code class="docutils literal notranslate"><span class="pre">INVARIANT</span> <span class="pre">Invariant</span></code> and <code class="docutils literal notranslate"><span class="pre">NumInputs</span> <span class="pre">&lt;-</span> <span class="pre">5,</span> <span class="pre">Target</span> <span class="pre">&lt;-</span> <span class="pre">417</span></code>, we get this error trace:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">State</span> <span class="m">1</span><span class="p">:</span>
+<span class="o">/\</span> <span class="n">sum</span> <span class="o">=</span> <span class="m">0</span>
+<span class="o">/\</span> <span class="n">i</span> <span class="o">=</span> <span class="m">0</span>
+
+<span class="n">State</span> <span class="m">2</span><span class="p">:</span>
+<span class="o">/\</span> <span class="n">sum</span> <span class="o">=</span> <span class="m">1</span>
+<span class="o">/\</span> <span class="n">i</span> <span class="o">=</span> <span class="m">1</span>
+
+<span class="n">State</span> <span class="m">3</span><span class="p">:</span>
+<span class="o">/\</span> <span class="n">sum</span> <span class="o">=</span> <span class="m">10</span>
+<span class="o">/\</span> <span class="n">i</span> <span class="o">=</span> <span class="m">2</span>
+
+<span class="n">State</span> <span class="m">4</span><span class="p">:</span>
+<span class="o">/\</span> <span class="n">sum</span> <span class="o">=</span> <span class="m">60</span>
+<span class="o">/\</span> <span class="n">i</span> <span class="o">=</span> <span class="m">3</span>
+
+<span class="n">State</span> <span class="m">5</span><span class="p">:</span>
+<span class="o">/\</span> <span class="n">sum</span> <span class="o">=</span> <span class="m">420</span>
+<span class="o">/\</span> <span class="n">i</span> <span class="o">=</span> <span class="m">4</span>
+
+<span class="n">State</span> <span class="m">6</span><span class="p">:</span>
+<span class="o">/\</span> <span class="n">sum</span> <span class="o">=</span> <span class="m">417</span>
+<span class="o">/\</span> <span class="n">i</span> <span class="o">=</span> <span class="m">5</span>
+</pre></div>
+</div>
+<p>So 417 is ((((0+1)+9)*6)*7)-3.</p>
+<p>(This spec got me curious: what’s the <em>smallest</em> number we can’t reach in 5 inputs? There’s no <em>easy</em> way to do this as a single model-check. Instead I wrote a script to run the model checker <a class="reference internal" href="../topics/cli.html#topic-cli"><span class="std std-ref">from the command line</span></a> with every value of <code class="docutils literal notranslate"><span class="pre">Target</span></code> from 0 to 1000. The first number that doesn’t produce an error trace is 851.)</p>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Nondeterminism is when the spec can do one of several different things in one step.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">with</span> <span class="pre">x</span> <span class="pre">\in</span> <span class="pre">set</span></code> nondeterministically chooses a value from <code class="docutils literal notranslate"><span class="pre">set</span></code> for <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">either</span> <span class="pre">branch1</span> <span class="pre">or</span> <span class="pre">branch2</span></code> nondeterministically chooses a branch to execute.</p></li>
+<li><p>Nondeterminism can be used to abstract implementation details into a high-level step.</p></li>
+</ul>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&lt;</span><span>Page contents</span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&gt;</span><span>Page contents:</span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">Nondeterminism</a><ul>
+<li><a class="reference internal" href="#id1">Nondeterminism</a><ul>
+<li><a class="reference internal" href="#with">with</a></li>
+<li><a class="reference internal" href="#either-or">either-or</a></li>
+<li><a class="reference internal" href="#using-nondeterminism">Using Nondeterminism</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#example-a-calculator">Example: A Calculator</a></li>
+<li><a class="reference internal" href="#summary">Summary</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+                <a href="functions.html">
+                    <span class="icon">&lt;</span><span>Structured Data</span></a>
+                
+            </div>
+
+            <div class="right">
+                
+                    <a href="concurrency.html"><span>Concurrency</span><span class="icon">&gt;</span></a>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Hillel Wayne.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+    </div>
+
+<p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
+  </body>
+</html>

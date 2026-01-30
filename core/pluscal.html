@@ -1,0 +1,628 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Writing Specifications &#8212; Learn TLA+</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <script src="../_static/js/petite-vue.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Writing an Invariant" href="invariants.html" />
+    <link rel="prev" title="Operators and Values" href="operators.html" /> 
+  </head><body data-dark_mode_code_blocks="true">
+
+<div id="top_nav">
+    
+
+    <nav>
+        
+            
+        
+
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+        <h1><a href="../index.html" title="Go to homepage">Learn TLA+</a></h1>
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="../search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew.html">What’s New</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/conceptual-overview.html">Conceptual Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">TLA+</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Core</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="setup.html">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operators.html">Operators and Values</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Writing Specifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="invariants.html">Writing an Invariant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="constants.html">Parameterizing Specs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html">Structured Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nondeterminism.html">Nondeterminism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concurrency.html">Concurrency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="temporal-logic.html">Temporal Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced-operators.html">More Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="action-properties.html">Action Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tla.html">TLA+</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html">Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="next-steps.html">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../topics/index.html">Topics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html#pluscal-specs">PlusCal Specs</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/standard-library.html">Standard Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/other-resources.html">Other Resources</a></li>
+</ul>
+
+<ul>
+  <li class="toctree-l1"><a href= "../genindex.html">Index</a></li>
+</ul>
+        </div>
+      </div>
+
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="writing-specifications">
+<span id="chapter-pluscal"></span><h1>Writing Specifications<a class="headerlink" href="#writing-specifications" title="Permalink to this headline">¶</a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>In the <a class="reference internal" href="operators.html"><span class="doc">last chapter</span></a>, we introduced operators, sets, and values, and did some simple computation with them. Now that we have that groundwork done, it’s time to actually talk about specifications.</p>
+<p id="index-0">TLA+ is the <em>Temporal Logic of Actions</em>, where the “actions” are descriptions of state changes in the system. It’s a powerful way of expressing mutation, but it is also very general, accepting a large degree of complexity to be able to express more powerful systems. Many engineers struggle to start learning it. So in 2009, Leslie Lamport created a DSL called PlusCal: a more programming-like syntax that compiles to TLA+ actions.</p>
+<p>PlusCal isn’t as powerful as “raw” TLA+, and there are some types of specifications you cannot write in it. But for many other kinds of specifications, it is <em>simpler</em> than doing everything in TLA+, and it is easier to learn. In my experience as an educator, I’ve found that most programmers have an easier time learning PlusCal and then raw TLA+ than they do if they start with raw TLA+. So the rest of the beginner part of this text will use PlusCal.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you’re more mathematically inclined, or already know PlusCal and want to go further, you can skip to the section on <a class="reference internal" href="tla.html"><span class="doc">learning TLA+</span></a>.</p>
+</div>
+</section>
+<section id="pluscal">
+<h2>PlusCal<a class="headerlink" href="#pluscal" title="Permalink to this headline">¶</a></h2>
+<p>Let’s start with a very simple spec:</p>
+<div class="literal-block-wrapper docutils container" id="id9">
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="c c-PreProc">----</span> <span class="c c-PreProc">MODULE</span> <span class="c c-PreProc">pluscal</span> <span class="c c-PreProc">----</span>
+<span class="kn">EXTENDS</span> <span class="n">Integers</span><span class="p">,</span> <span class="n">TLC</span>
+
+<span class="nf">(* --algorithm pluscal</span>
+<span class="n">variables</span>
+ <span class="n">x</span> <span class="o">=</span> <span class="m">2</span><span class="p">;</span>
+ <span class="n">y</span> <span class="o">=</span> <span class="bp">TRUE</span><span class="p">;</span>
+
+<span class="nf">begin</span>
+<span class="nt">  A:</span>
+    <span class="n">x</span> <span class="o">:=</span> <span class="n">x</span> <span class="o">+</span> <span class="m">1</span><span class="p">;</span>
+<span class="nt">  B:</span>
+    <span class="n">x</span> <span class="o">:=</span> <span class="n">x</span> <span class="o">+</span> <span class="m">1</span><span class="p">;</span>
+    <span class="n">y</span> <span class="o">:=</span> <span class="bp">FALSE</span><span class="p">;</span>
+<span class="nf">end algorithm; *)</span>
+<span class="c c-PreProc">====</span>
+</pre></div>
+</div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference download internal" download="" href="../_downloads/f615300b4162cdeb1883839fcfbf6062/pluscal.tla"><code class="xref download docutils literal notranslate"><span class="pre">spec</span></code></a></span><a class="headerlink" href="#id9" title="Permalink to this code">¶</a></div>
+</div>
+<p>Inside the comment block (<code class="docutils literal notranslate"><span class="pre">(*</span> <span class="pre">*)</span></code>) is our PlusCal algorithm. We need to do this because this is a valid TLA+ file; the pluscal algorithm will be compiled to TLA+ below. The algorithm must start with <code class="docutils literal notranslate"><span class="pre">--algorithm</span> <span class="pre">$name</span></code>, otherwise it will be treated like a regular comment. Unlike the module name, the algorithm <code class="docutils literal notranslate"><span class="pre">$name</span></code> doesn’t need to correspond to anything, and can be your root password for all anyone cares.</p>
+<p>Next, we have a variables block. Any TLA+ value can be a variable. We open the body of the algorithm with <code class="docutils literal notranslate"><span class="pre">begin</span></code> and close it with <code class="docutils literal notranslate"><span class="pre">end</span> <span class="pre">algorithm</span></code>. Inside that we have two <em class="dfn">labels</em>, <code class="docutils literal notranslate"><span class="pre">A</span></code> and <code class="docutils literal notranslate"><span class="pre">B</span></code>, which we will discuss more in the next section. Inside the labels we have update statements, which use <code class="docutils literal notranslate"><span class="pre">:=</span></code>. <code class="docutils literal notranslate"><span class="pre">:=</span></code> is <strong>only</strong> used when we have an existing variable and want to update its value. Otherwise, we use <code class="docutils literal notranslate"><span class="pre">=</span></code>.</p>
+<p>We discussed how to translate the pluscal in <a class="reference internal" href="setup.html"><span class="doc">Setup</span></a>, but as a refresher, we can do this in the menu bar:</p>
+<figure class="align-default">
+<img alt="../_images/translate_pluscal.png" src="../_images/translate_pluscal.png" />
+</figure>
+<p>Alternatively, we can use <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">cmd</kbd>-<kbd class="kbd docutils literal notranslate">T</kbd></kbd> on Mac or <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">ctrl</kbd>-<kbd class="kbd docutils literal notranslate">T</kbd></kbd> on Windows and Linux. This puts a translation below the comment block:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="c">\* BEGIN TRANSLATION</span>
+<span class="c">\* \* A bunch of TLA+ code</span>
+<span class="c">\* END TRANSLATION</span>
+</pre></div>
+</div>
+<p>That’s what’s actually run when we model check this spec.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you right-click in the spec, there’s an option at the bottom of the context menu to “Translate PlusCal Automatically”. This helps if you keep forgetting to translate, though it raises an error if you’re writing a <a class="reference internal" href="tla.html"><span class="doc">pure TLA+ spec</span></a>.</p>
+</div>
+<section id="labels">
+<span id="label"></span><span id="id1"></span><h3>Labels<a class="headerlink" href="#labels" title="Permalink to this headline">¶</a></h3>
+<p>We’re learning TLA+ to work on complex systems, so let’s frame the motivation and existence of labels in that context. What are we building up to?</p>
+<p>Complex systems have lots of <em>concurrency</em>, and many things are going on at once. Events aren’t instantaneous, and may take some time to complete. But they can happen on different timescales. Compare these two steps:</p>
+<ol class="arabic simple">
+<li><p>Summing a list of 100 numbers.</p></li>
+<li><p>Making an HTTP request and receiving the response.</p></li>
+</ol>
+<p>The first line of code takes tens of nanoseconds to run, and the second tens of milliseconds. That’s a time difference of six orders of magnitude. It might be possible for the summation to happen in between the request and response, but it’s virtually impossible for the HTTP request to happen in between starting and finishing the summation. In our system, the first event would be “instantaneous”, while the second would not.</p>
+<p>Which brings us to labels. Labels represent everything that can happen in a single step of the system. If I write</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="nt">Label1:</span>
+  <span class="n">x</span> <span class="o">:=</span> <span class="n">Sum</span><span class="p">(</span><span class="n">seq</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>I am saying that the summation happens in a single step, and no time passes between the start and end of the summation. By contrast, if I write</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="nt">SendRequest:</span>
+  <span class="c">\* blah blah blah</span>
+<span class="nt">GetResponse:</span>
+  <span class="c">\* blah blah blah</span>
+</pre></div>
+</div>
+<p>Then <em>time passes</em> between <code class="docutils literal notranslate"><span class="pre">SendRequest</span></code> and <code class="docutils literal notranslate"><span class="pre">GetResponse</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The labels represent the titular “actions” in the <em>Temporal Logic of Actions</em>.</p>
+</div>
+<p>If I wanted to, I could <em>choose</em> to make the summation nonatomic. Here’s how I’d do it in PlusCal:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="nt">Sum:</span>
+  <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">Len</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span> <span class="k">do</span>
+    <span class="n">x</span> <span class="o">:=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">seq</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+    <span class="n">i</span> <span class="o">:=</span> <span class="n">i</span> <span class="o">+</span> <span class="m">1</span><span class="p">;</span>
+  <span class="k">end</span> <span class="k">while</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>We’ll talk about the nuances of <a class="reference internal" href="#while"><span class="std std-ref">while</span></a> later, but the basic idea is that now <em>each iteration</em> of the summation is nonatomic. We could add two numbers, start an http request, add two more, receive the response, and add the rest. Or we could add them all before both steps of the http, or all after. Concurrency is weird.</p>
+<p>The point is this: the labels let us specify just how concurrent our system is. If we want to express that something is atomic, we can do that. If we want it to be interruptable, we can do that too. This is what gives us the flexibility to model systems in a way that actually finds relevant issues.</p>
+</section>
+<section id="label-rules">
+<h3>Label Rules<a class="headerlink" href="#label-rules" title="Permalink to this headline">¶</a></h3>
+<p>We’re modeling time here, so there are restrictions on where we can place the labels. We’ll recap all of the label rules <a class="reference internal" href="#label-rules-summary"><span class="std std-ref">at the end</span></a>.</p>
+<p>First, <strong>all statements must belong to a label.</strong> This means, among other things, that you must always start the algorithm with a label.</p>
+<p>Second, <strong>any variable can only be updated once per label.</strong> Remember, each label only represents one single instant of time. If the variable is updated twice, that means it’s gone through two separate values in a single instant of time, meaning… it’s not an instant of time anymore.</p>
+<p>This poses a problem when updating sequences. This is invalid:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="nt">Label:</span>
+  <span class="n">seq</span><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="o">:=</span> <span class="n">seq</span><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="o">+</span> <span class="m">1</span><span class="p">;</span>
+  <span class="n">seq</span><span class="p">[</span><span class="m">2</span><span class="p">]</span> <span class="o">:=</span> <span class="n">seq</span><span class="p">[</span><span class="m">2</span><span class="p">]</span> <span class="o">-</span> <span class="m">1</span><span class="p">;</span>
+</pre></div>
+</div>
+<p id="id3"><span id="index-1"></span>Because we’re updating the <code class="docutils literal notranslate"><span class="pre">seq</span></code> variable twice in one label. To get around this, PlusCal has the “simultaneous assignment” operator <code class="docutils literal notranslate"><span class="pre">||</span></code>:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="nt">Label:</span>
+
+  <span class="n">seq</span><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="o">:=</span> <span class="n">seq</span><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="o">+</span> <span class="m">1</span> <span class="o">||</span>
+  <span class="n">seq</span><span class="p">[</span><span class="m">2</span><span class="p">]</span> <span class="o">:=</span> <span class="n">seq</span><span class="p">[</span><span class="m">2</span><span class="p">]</span> <span class="o">-</span> <span class="m">1</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The rest of the label rules relate to <em>specific</em> constructs in PlusCal, so let’s go over those constructs now.</p>
+</section>
+<section id="pluscal-expressions">
+<h3>PlusCal expressions<a class="headerlink" href="#pluscal-expressions" title="Permalink to this headline">¶</a></h3>
+<p>In addition to updates, there are three other statement-level constructs:</p>
+<span id="goto"></span><span id="index-2"></span><ul id="assert">
+<li><p><code class="docutils literal notranslate"><span class="pre">skip</span></code>: a noop.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">assert</span> <span class="pre">expr</span></code>: TLC immediately fails the model check if <code class="docutils literal notranslate"><span class="pre">expr</span></code> is false. (This breaks the “everything in the label happens at once”, as TLC will stop <em>as soon</em> as it finds a failing <code class="docutils literal notranslate"><span class="pre">assert</span></code>.) To use <code class="docutils literal notranslate"><span class="pre">assert</span></code> you need to extend <code class="docutils literal notranslate"><span class="pre">TLC</span></code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The error trace will <em>not</em> show the step that triggered the failing assert! For that reason, prefer invariants to asserts.</p>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">goto</span> <span class="pre">L</span></code>: jumps to label <code class="docutils literal notranslate"><span class="pre">L</span></code>. <strong>A label must immediately follow any goto statement</strong>.</p></li>
+</ul>
+<p>Everything else in PlusCal is a block-level construct.</p>
+<section id="if">
+<span id="if-pluscal"></span><span id="index-3"></span><h4>if<a class="headerlink" href="#if" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">Expr</span> <span class="k">then</span>
+  <span class="n">skip</span><span class="p">;</span>
+<span class="k">elsif</span> <span class="n">Expr2</span> <span class="k">then</span>
+  <span class="n">skip</span><span class="p">;</span>
+<span class="k">else</span>
+  <span class="n">skip</span><span class="p">;</span>
+<span class="k">end</span> <span class="k">if</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>You <em>can</em> put labels inside an if block. This is useful if your logic branches, and some of the branches represent more complicated behavior. You don’t need to balance the labels in an if block— some conditionals can have labels and others do not. <strong>However, if any branch has a label, you must follow the entire block with a label</strong>. To see why, consider the following:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="nt">A:</span>
+  <span class="k">if</span> <span class="n">bool</span> <span class="k">then</span>
+<span class="nt">    B:</span>
+      <span class="n">skip</span><span class="p">;</span>
+  <span class="k">else</span>
+    <span class="n">skip</span><span class="p">;</span>
+  <span class="k">end</span> <span class="k">if</span><span class="p">;</span>
+  <span class="n">x</span> <span class="o">:=</span> <span class="m">1</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>If <code class="docutils literal notranslate"><span class="pre">bool</span></code> is true, then  <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">:=</span> <span class="pre">1</span></code> would happen as part of label B. But if <code class="docutils literal notranslate"><span class="pre">bool</span></code> is false, then it would happen as part of label A. Since statements must <em>unambiguously</em> belong to a single label, this is invalid PlusCal, and we need to add an extra label <code class="docutils literal notranslate"><span class="pre">C</span></code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>A common misunderstanding I see in beginners is thinking the B label is <em>nested in</em> the A label, like we’re in both at the same time. This isn’t how it works: we stop being in the A label as soon as we enter the B label. A better mental model is that since <code class="docutils literal notranslate"><span class="pre">B:</span></code> is inside a condition from <code class="docutils literal notranslate"><span class="pre">A:</span></code>, the B label is only <em>reachable</em> from A.</p>
+</div>
+<p>Not all blocks have to have the <em>same</em> number of labels! Conditionals trigger different behavior, which can take different amounts of time.</p>
+</section>
+<section id="macro">
+<span id="index-4"></span><span id="id5"></span><h4>macro<a class="headerlink" href="#macro" title="Permalink to this headline">¶</a></h4>
+<p>Macros are simple rewrite rules, designed to help clean up repetitive bits of logic. They must be placed above the <code class="docutils literal notranslate"><span class="pre">begin</span></code> block of the algorithm. <strong>Macros may not contain labels.</strong></p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="nf">macro</span> <span class="n">inc</span><span class="p">(</span><span class="n">var</span><span class="p">)</span> <span class="nf">begin</span>
+  <span class="k">if</span> <span class="n">var</span> <span class="o">&lt;</span> <span class="m">10</span> <span class="k">then</span>
+    <span class="n">var</span> <span class="o">:=</span> <span class="n">var</span> <span class="o">+</span> <span class="m">1</span><span class="p">;</span>
+  <span class="k">end</span> <span class="k">if</span><span class="p">;</span>
+<span class="nf">end macro</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Macros count as <em>textual</em> substitutions. If we passed in <code class="docutils literal notranslate"><span class="pre">some_inc(x)</span></code> then it would increment the <code class="docutils literal notranslate"><span class="pre">x</span></code> variable.</p>
+</section>
+<section id="with">
+<span id="id6"></span><h4>with<a class="headerlink" href="#with" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">with</span></code> statements let you create temporary assignments in the middle of a label.</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">tmp_x</span> <span class="o">=</span> <span class="n">x</span><span class="p">,</span> <span class="n">tmp_y</span> <span class="o">=</span> <span class="n">y</span> <span class="k">do</span>
+  <span class="n">y</span> <span class="o">:=</span> <span class="n">tmp_x</span><span class="p">;</span>
+  <span class="n">x</span> <span class="o">:=</span> <span class="n">tmp_y</span><span class="p">;</span>
+<span class="k">end</span> <span class="k">with</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Inside the <code class="docutils literal notranslate"><span class="pre">with</span></code> definition, we do the temporary assignments with <code class="docutils literal notranslate"><span class="pre">=</span></code>, not <code class="docutils literal notranslate"><span class="pre">:=</span></code>. Remember the rule: <code class="docutils literal notranslate"><span class="pre">:=</span></code> is only used for updating an existing variable.</p>
+<p>As with macros, <code class="docutils literal notranslate"><span class="pre">with</span></code> <strong>statements cannot have labels.</strong></p>
+</section>
+<section id="while">
+<span id="index-5"></span><span id="id7"></span><h4>while<a class="headerlink" href="#while" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">while</span></code> is the only form of loop we have. <strong>A while loop must always be preceded with a label.</strong></p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="nt">Sum:</span>
+  <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">Len</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span> <span class="k">do</span>
+    <span class="n">x</span> <span class="o">:=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">seq</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+<span class="nt">    Inc:</span>
+      <span class="n">i</span> <span class="o">:=</span> <span class="n">i</span> <span class="o">+</span> <span class="m">1</span><span class="p">;</span>
+  <span class="k">end</span> <span class="k">while</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><strong>While is nonatomic</strong>. After each iteration of the while loop, we’re back at the <code class="docutils literal notranslate"><span class="pre">Sum</span></code> label. Other processes can run before the next iteration. This doesn’t change things for single process algorithms, but it will matter a lot when we start adding in concurrency.</p>
+</section>
+</section>
+</section>
+<section id="a-duplication-checker">
+<span id="duplicates"></span><span id="index-6"></span><h2>A Duplication Checker<a class="headerlink" href="#a-duplication-checker" title="Permalink to this headline">¶</a></h2>
+<p>Now that we know the basics of PlusCal, let’s apply it to a small problem. I like to start with simple array algorithms, because we already have the tools to specify them. First we write an operator that expresses the high-level goal of the algorithm, then we write the algorithm, then we verify the algorithm matches the operator.</p>
+<p>For example, if we were writing an algorithm to check if <code class="docutils literal notranslate"><span class="pre">seq</span></code> has any duplicate elements, the operator might be <code class="docutils literal notranslate"><span class="pre">IsUnique(seq)</span></code>, and then the algorithm could work like this:</p>
+<ol class="arabic">
+<li><p>Create an empty set <code class="docutils literal notranslate"><span class="pre">seen</span></code>, then step through the elements of <code class="docutils literal notranslate"><span class="pre">seq</span></code>.</p></li>
+<li><p>Every time we see a number, we check if it’s already in <code class="docutils literal notranslate"><span class="pre">seen</span></code>.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>If it is, we say the list is not unique.</p></li>
+<li><p>Otherwise, we add the element to <code class="docutils literal notranslate"><span class="pre">seen</span></code> and continue.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>If we reach the end and haven’t seen any duplicate elements, we say the list is unique.</p></li>
+<li><p>Our decision should match the operator <code class="docutils literal notranslate"><span class="pre">IsUnique(seq)</span></code>.</p></li>
+</ol>
+<p>In this chapter we’ll focus on just writing out the spec, parts (2) and (3). In <a class="reference internal" href="invariants.html"><span class="doc">the next chapter</span></a> we’ll do steps (1) and (4), actually verifying the algorithm.</p>
+<p>I called this spec <code class="docutils literal notranslate"><span class="pre">duplicates</span></code>, but the name isn’t too important for this.</p>
+<div class="literal-block-wrapper docutils container" id="id10">
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="c c-PreProc">----</span> <span class="c c-PreProc">MODULE</span> <span class="c c-PreProc">duplicates</span> <span class="c c-PreProc">----</span>
+<span class="kn">EXTENDS</span> <span class="n">Integers</span><span class="p">,</span> <span class="n">Sequences</span><span class="p">,</span> <span class="n">TLC</span>
+
+<span class="nf">(*--algorithm dup</span>
+  <span class="n">variable</span> <span class="n">seq</span> <span class="o">=</span> <span class="o">&lt;&lt;</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">2</span><span class="o">&gt;&gt;</span><span class="p">;</span>
+  <span class="n">index</span> <span class="o">=</span> <span class="m">1</span><span class="p">;</span>
+  <span class="n">seen</span> <span class="o">=</span> <span class="n">{}</span><span class="p">;</span>
+  <span class="n">is_unique</span> <span class="o">=</span> <span class="bp">TRUE</span><span class="p">;</span>
+
+<span class="nf">begin</span>
+<span class="nt">  Iterate:</span>
+    <span class="k">while</span> <span class="n">index</span> <span class="o">&lt;=</span> <span class="n">Len</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span> <span class="k">do</span>
+      <span class="k">if</span> <span class="n">seq</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="s">\notin</span> <span class="n">seen</span> <span class="k">then</span>
+        <span class="n">seen</span> <span class="o">:=</span> <span class="n">seen</span> <span class="nb">\union</span> <span class="n">{seq</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="n">}</span><span class="p">;</span>
+      <span class="k">else</span>
+        <span class="n">is_unique</span> <span class="o">:=</span> <span class="bp">FALSE</span><span class="p">;</span>
+      <span class="k">end</span> <span class="k">if</span><span class="p">;</span>
+      <span class="n">index</span> <span class="o">:=</span> <span class="n">index</span> <span class="o">+</span> <span class="m">1</span><span class="p">;</span>
+    <span class="k">end</span> <span class="k">while</span><span class="p">;</span>
+<span class="nf">end algorithm; *)</span>
+<span class="c c-PreProc">====</span>
+</pre></div>
+</div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference download internal" download="" href="../_downloads/53a13df4b96b3e1932a79ad9184e0eb4/duplicates.tla"><code class="xref download docutils literal notranslate"><span class="pre">spec</span></code></a></span><a class="headerlink" href="#id10" title="Permalink to this code">¶</a></div>
+</div>
+<p>(I <em>think</em> this is self-explanatory, but I’ve been doing this so long I have no idea what is or isn’t explanatory anymore. If enough people say otherwise I’ll put a fuller description here.)</p>
+<p>If you <a class="reference internal" href="setup.html#running-models"><span class="std std-ref">run it</span></a>, you will see a page like this:</p>
+<figure class="align-default" id="id11">
+<a class="reference internal image-reference" href="../_images/pluscal_run.png"><img alt="../_images/pluscal_run.png" src="../_images/pluscal_run.png" style="width: 768.0px; height: 176.7px;" /></a>
+<figcaption>
+<p><span class="caption-text">(Click to zoom in)</span><a class="headerlink" href="#id11" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>I know this completed successfully because otherwise a big error bar would have appeared on the right-hand side. Everything on this page is statistics to help you understand the run better:</p>
+<ol class="arabic simple">
+<li><p>Since complicated models can take a long time to check, the “state space progress” tab updates roughly once a minute.</p></li>
+</ol>
+<ol class="arabic simple" id="index-7" start="2">
+<li><p>Diameter is the length of the longest behavior. If TLC found a thousand behaviors with length 2 and one with length 20, the diameter will be reported as 20.</p></li>
+<li><p>States found is how many system states the model checker has explored. This includes duplicate states the checker found in different paths.</p></li>
+<li><p>The number of <em>unique</em> states found.</p></li>
+<li><p>How many states TLC knows <em>for certain</em> it’ll have to check. Some of these states will add more states to check, and so on and so forth.</p></li>
+<li><p>TLC stores explored states as hashes, this is the chance that there’s a hash collision. In practice this never goes above one in a million billion and can be ignored.</p></li>
+<li><p>How often each label was run and how many states that lead to. If one label has 0 states then there’s probably a bug in your spec.</p></li>
+</ol>
+<figure class="align-default" id="id12">
+<div class="graphviz"><img src="../_images/graphviz-461f60caf2c10786c856f951afae43859fb31a67.png" alt="digraph duplicates_1 {
+edge[arrowhead=vee];
+
+I1 [label=&quot;i=1\nseq[i]=1&quot;];
+I2 [label=&quot;i=2\nseq[i]=2&quot;];
+I3 [label=&quot;i=3\nseq[i]=3&quot;];
+I4 [label=&quot;i=4\nseq[i]=4&quot;];
+
+I1 -&gt; I2 -&gt; I3 -&gt; I4;
+}" class="graphviz" /></div>
+<figcaption>
+<p><span class="caption-text">Four iterate loops, plus Initial and Done states, makes 6 distinct states.</span><a class="headerlink" href="#id12" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>To make sure that you’re following properly, you can check that that you got the same number of states and distinct states I did. In my case, I got <span>7 states / 6 distinct</span>; you should see that too. If you get a different number, you may have made a mistake in transcribing the spec. The states and distinct states make a partial “fingerprint” of the model. Going forward, whenever I show a spec, I’ll list the states and distinct states of the model check under the code listing.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You’ll get a different number than me if the spec <em>fails</em>, because TLC will terminate execution early. In that case, I will note that the modelcheck should fail when showing the code listing.</p>
+</div>
+<span class="target" id="multiple-starting-states"></span><section id="testing-more-inputs">
+<span id="index-8"></span><h3>Testing More Inputs<a class="headerlink" href="#testing-more-inputs" title="Permalink to this headline">¶</a></h3>
+<p>We now have a basic implementation of our duplication checker. When we run it, though, we want to make sure it’s working properly for both unique and non-unique sequences. Right now we’ve only hardcoded a single sequence, so we can only check one of the two cases.</p>
+<p>To check both, we can use multiple starting states. TLA+ doesn’t just let us assign values to variables, it also lets us say a variable starts out as <em>some</em> element in a set. It looks like this:</p>
+<div class="literal-block-wrapper docutils container" id="id13">
+<div class="highlight-udiff notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>EXTENDS Integers, Sequences, TLC<span class="w"></span>
+<span class="w"> </span>
+<span class="w"> </span>(*--algorithm dup<span class="w"></span>
+<span class="gd">-  variable seq = &lt;&lt;1, 2, 3, 2&gt;&gt;;</span><span class="w"></span>
+<span class="gi">+  variable seq \in {&lt;&lt;1, 2, 3, 2&gt;&gt;, &lt;&lt;1, 2, 3, 4&gt;&gt;};</span><span class="w"></span>
+<span class="w"> </span>  index = 1;<span class="w"></span>
+<span class="w"> </span>  seen = {};<span class="w"></span>
+<span class="w"> </span>  is_unique = TRUE;<span class="w"></span>
+</pre></div>
+</div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference download internal" download="" href="../_downloads/5655c7a2c37c9d85f5107fd2f1e8c096/duplicates.tla"><code class="xref download docutils literal notranslate"><span class="pre">spec</span></code></a></span><a class="headerlink" href="#id13" title="Permalink to this code">¶</a></div>
+</div>
+<p>The model checker will now check <em>both</em> <code class="docutils literal notranslate"><span class="pre">&lt;&lt;1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">2&gt;&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4&gt;&gt;</span></code> as the value of <code class="docutils literal notranslate"><span class="pre">seq</span></code>. More specifically, does two complete runs, one for each possible value. If either complete run, or <em class="dfn">behavior</em>, would lead to an error, TLC will let us know.</p>
+<figure class="align-default" id="id14">
+<img alt="../_images/duplicates_2.gv.png" src="../_images/duplicates_2.gv.png" />
+<figcaption>
+<p><span class="caption-text">There are two possible starting states, each with its own behavior.</span><a class="headerlink" href="#id14" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Adding multiple starting states increases the complexity of our model. If, in a spec, TLC will normally have to check 10 states, adding 100 initial states could increase the state space to a maximum of 1,000. In practice, it will often be lower, because sometimes initial states will converge:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">variables</span> <span class="n">x</span> <span class="s">\in</span> <span class="m">1</span><span class="o">..</span><span class="m">1000</span><span class="p">;</span>
+<span class="nf">begin</span>
+<span class="nt">  A:</span>
+    <span class="n">x</span> <span class="o">:=</span> <span class="m">0</span><span class="p">;</span>
+<span class="nt">  B:</span>
+    <span class="n">x</span> <span class="o">:=</span> <span class="n">x</span><span class="o">+</span><span class="m">1</span><span class="p">;</span>
+<span class="nf">end algorithm;</span>
+</pre></div>
+</div>
+<p>We might think, with 1000 initial states and 2 labels, there will be 3,000 total states. In practice, the first label “collapses” the state space. So the number of <em>distinct</em> states will be far smaller.</p>
+</section>
+<section id="starting-states">
+<h3>10,000 starting states<a class="headerlink" href="#starting-states" title="Permalink to this headline">¶</a></h3>
+<p>So now we’re testing two inputs. That’s twice as good as one input. Even better than that would be testing 10,000 inputs. Remember how in the last chapter we talked about generating <a class="reference internal" href="operators.html#sets-of-values"><span class="std std-ref">sets of values</span></a>? This is just one of the many places it’s really useful.</p>
+<div class="literal-block-wrapper docutils container" id="id15">
+<div class="highlight-udiff notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>---- MODULE duplicates ----<span class="w"></span>
+<span class="w"> </span>EXTENDS Integers, Sequences, TLC<span class="w"></span>
+<span class="w"> </span>
+<span class="gi">+S == 1..10</span><span class="w"></span>
+<span class="gi">+</span><span class="w"></span>
+<span class="w"> </span>(*--algorithm dup<span class="w"></span>
+<span class="gd">-  variable seq = &lt;&lt;1, 2, 3, 2&gt;&gt;;</span><span class="w"></span>
+<span class="gi">+  variable seq \in S \X S \X S \X S;</span><span class="w"></span>
+<span class="w"> </span>  index = 1;<span class="w"></span>
+<span class="w"> </span>  seen = {};<span class="w"></span>
+<span class="w"> </span>  is_unique = TRUE;<span class="w"></span>
+</pre></div>
+</div>
+<div class="code-block-caption"><span class="caption-text"><span>70000 states / 60000 distinct</span> <a class="reference download internal" download="" href="../_downloads/141ebf7bccb611071d2a3d925dbabd13/duplicates.tla"><code class="xref download docutils literal notranslate"><span class="pre">spec</span></code></a></span><a class="headerlink" href="#id15" title="Permalink to this code">¶</a></div>
+</div>
+<p>We’re now significantly more likely to cover all interesting edge cases. This isn’t <em>guaranteed</em>: maybe there’s a bug that <em>only</em> triggers if we have <code class="docutils literal notranslate"><span class="pre">-187</span></code> in there somewhere. TLA+ can only augment your engineering judgement, not replace it. But my judgement is telling me that it’s unlikely for <code class="docutils literal notranslate"><span class="pre">-187</span></code> to be the edge case, so I’m confident calling this good coverage.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Okay, there’s one big gap: while we’re trying a lot of different elements, we’re only looking at one fixed <em>length</em>. Maybe there’s an issue with 1 or 0-length sequences. We’ll be able to fix this once we learn about <a class="reference internal" href="functions.html#function-set"><span class="std std-ref">function sets</span></a>.</p>
+</div>
+<p>Now that we have broad state-space coverage, it’s time to write some properties. In <a class="reference internal" href="invariants.html"><span class="doc">the next chapter</span></a> we’ll specify that our checker always gets the correct result.</p>
+</section>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Specifications have variables. These can either be a fixed value (using <code class="docutils literal notranslate"><span class="pre">=</span></code>) or an element in a set (using <code class="docutils literal notranslate"><span class="pre">\in</span></code>). Any TLC value can be a variable.</p>
+<ul>
+<li><p>If an element of a set, then TLC will test the model on <em>every possible starting state</em>.</p></li>
+</ul>
+</li>
+<li><p>PlusCal is a language that makes writing specifications easier.</p>
+<ul>
+<li><p>In the PlusCal algorithm body, variables are updated with <code class="docutils literal notranslate"><span class="pre">:=</span></code>. <code class="docutils literal notranslate"><span class="pre">=</span></code> is comparison.</p></li>
+</ul>
+</li>
+<li><p>PlusCal specs are broken up into <em>labels</em>, units of computations that happen atomically. Everything in the label happens <em>at once</em>. Labels have restrictions on where they can be placed.</p></li>
+<li><p>Macros are the primary unit of spec deduplication.</p></li>
+<li><p>PlusCal has several block constructs, including <code class="docutils literal notranslate"><span class="pre">with</span></code>, <code class="docutils literal notranslate"><span class="pre">if</span></code>, and <code class="docutils literal notranslate"><span class="pre">while</span></code>.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">with</span></code> creates temporary identifiers in a block.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">while</span></code> statements are nonatomic: every loop happens in a separate step.</p></li>
+</ul>
+</li>
+</ul>
+<section id="summary-of-label-rules">
+<span id="label-rules-summary"></span><h3>Summary of Label Rules<a class="headerlink" href="#summary-of-label-rules" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>All algorithms must begin with a label.</p></li>
+<li><p>While statements must begin with a label.</p></li>
+<li><p>Each variable can only be updated once in a label. (You can assign to multiple parts of a sequence with <a class="reference internal" href="#id3"><span class="std std-ref">||</span></a>.)</p></li>
+<li><p>Macros and <code class="docutils literal notranslate"><span class="pre">with</span></code> statements cannot contain labels.</p></li>
+<li><p>A <a class="reference internal" href="#goto"><span class="std std-ref">goto</span></a> must be followed by a new label.</p></li>
+<li><p>If a branch in a block contains a label inside it, the end of the block must be followed with a label.</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&lt;</span><span>Page contents</span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&gt;</span><span>Page contents:</span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">Writing Specifications</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#pluscal">PlusCal</a><ul>
+<li><a class="reference internal" href="#labels">Labels</a></li>
+<li><a class="reference internal" href="#label-rules">Label Rules</a></li>
+<li><a class="reference internal" href="#pluscal-expressions">PlusCal expressions</a><ul>
+<li><a class="reference internal" href="#if">if</a></li>
+<li><a class="reference internal" href="#macro">macro</a></li>
+<li><a class="reference internal" href="#with">with</a></li>
+<li><a class="reference internal" href="#while">while</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#a-duplication-checker">A Duplication Checker</a><ul>
+<li><a class="reference internal" href="#testing-more-inputs">Testing More Inputs</a></li>
+<li><a class="reference internal" href="#starting-states">10,000 starting states</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#summary">Summary</a><ul>
+<li><a class="reference internal" href="#summary-of-label-rules">Summary of Label Rules</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+                <a href="operators.html">
+                    <span class="icon">&lt;</span><span>Operators and Values</span></a>
+                
+            </div>
+
+            <div class="right">
+                
+                    <a href="invariants.html"><span>Writing an Invariant</span><span class="icon">&gt;</span></a>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Hillel Wayne.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+    </div>
+
+<p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
+  </body>
+</html>

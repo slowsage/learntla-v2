@@ -1,0 +1,768 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Index &#8212; Learn TLA+</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/petite-vue.js"></script>
+    <link rel="index" title="Index" href="#" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head><body data-dark_mode_code_blocks="true">
+
+<div id="top_nav">
+    
+
+    <nav>
+        
+            
+        
+
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+        <h1><a href="index.html" title="Go to homepage">Learn TLA+</a></h1>
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro/faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatsnew.html">What’s New</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro/conceptual-overview.html">Conceptual Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">TLA+</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="core/index.html">Core</a></li>
+<li class="toctree-l1"><a class="reference internal" href="topics/index.html">Topics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples/index.html">Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/index.html#pluscal-specs">PlusCal Specs</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="reference/glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference/standard-library.html">Standard Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference/other-resources.html">Other Resources</a></li>
+</ul>
+
+<ul>
+  <li class="toctree-l1"><a href= "#">Index</a></li>
+</ul>
+        </div>
+      </div>
+
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+
+<h1 id="index">Index</h1>
+
+<div class="genindex-jumpbox">
+ <a href="#Symbols"><strong>Symbols</strong></a>
+ | <a href="#A"><strong>A</strong></a>
+ | <a href="#B"><strong>B</strong></a>
+ | <a href="#C"><strong>C</strong></a>
+ | <a href="#D"><strong>D</strong></a>
+ | <a href="#E"><strong>E</strong></a>
+ | <a href="#F"><strong>F</strong></a>
+ | <a href="#G"><strong>G</strong></a>
+ | <a href="#H"><strong>H</strong></a>
+ | <a href="#I"><strong>I</strong></a>
+ | <a href="#L"><strong>L</strong></a>
+ | <a href="#M"><strong>M</strong></a>
+ | <a href="#O"><strong>O</strong></a>
+ | <a href="#P"><strong>P</strong></a>
+ | <a href="#Q"><strong>Q</strong></a>
+ | <a href="#R"><strong>R</strong></a>
+ | <a href="#S"><strong>S</strong></a>
+ | <a href="#T"><strong>T</strong></a>
+ | <a href="#U"><strong>U</strong></a>
+ | <a href="#W"><strong>W</strong></a>
+ 
+</div>
+<h2 id="Symbols">Symbols</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="core/operators.html#index-2"># (not equals)</a>
+</li>
+      <li><a href="core/action-properties.html#index-2">&#39; (next value)</a>
+</li>
+      <li><a href="core/operators.html#index-11">.. (set interval)</a>
+</li>
+      <li><a href="core/operators.html#index-3">/\ (and)</a>
+</li>
+      <li><a href="core/functions.html#index-2">:&gt; (map function)</a>
+</li>
+      <li><a href="core/modules.html#index-4">&lt;-</a>
+</li>
+      <li><a href="core/temporal-logic.html#index-3">&lt;&gt; (eventually)</a>
+</li>
+      <li><a href="core/temporal-logic.html#index-4">&lt;&gt;[]</a>
+</li>
+      <li><a href="core/operators.html#index-2">=</a>
+</li>
+      <li><a href="core/operators.html#index-0">==</a>
+</li>
+      <li><a href="core/invariants.html#index-4">=&gt; (implies)</a>, <a href="core/invariants.html#index-6">[1]</a>, <a href="core/operators.html#index-4">[2]</a>
+</li>
+      <li><a href="core/setup.html#index-0">&gt;&gt;&gt;</a>
+</li>
+      <li><a href="core/tla.html#index-3">@</a>
+</li>
+      <li><a href="core/functions.html#index-2">@@ (merge)</a>
+</li>
+      <li><a href="core/temporal-logic.html#index-1">[] (always)</a>
+</li>
+      <li><a href="core/functions.html#index-3">[A -&gt; B]</a>
+</li>
+      <li><a href="core/action-properties.html#index-4">[P]_x</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="core/operators.html#index-10">\ (set difference)</a>
+</li>
+      <li><a href="core/operators.html#index-3">\/ (or)</a>
+</li>
+      <li><a href="core/invariants.html#index-5">\A (forall)</a>
+</li>
+      <li><a href="core/invariants.html#index-5">\E (exists)</a>
+</li>
+      <li>
+    \in
+
+      <ul>
+        <li><a href="core/pluscal.html#index-8">variable definition</a>
+</li>
+        <li><a href="core/operators.html#index-14">x \in set</a>, <a href="core/operators.html#index-7">[1]</a>
+</li>
+      </ul></li>
+      <li><a href="core/operators.html#index-10">\intersect</a>
+</li>
+      <li><a href="core/operators.html#index-8">\notin</a>
+</li>
+      <li><a href="core/operators.html#index-6">\o (concat)</a>
+</li>
+      <li><a href="core/operators.html#index-9">\subseteq</a>
+</li>
+      <li><a href="core/operators.html#index-10">\union</a>
+</li>
+      <li><a href="core/operators.html#index-12">\X</a>
+</li>
+      <li><a href="core/modules.html#index-2">`!` (Namespace lookup)</a>
+</li>
+      <li><a href="core/pluscal.html#index-1">||</a>
+</li>
+      <li><a href="core/operators.html#index-3">~ (not)</a>
+</li>
+      <li><a href="core/temporal-logic.html#index-5">~&gt;</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="A">A</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/glossary.html#term-Action"><strong>Action</strong></a>
+</li>
+      <li><a href="core/action-properties.html#index-1">action</a>, <a href="core/tla.html#index-0">[1]</a>, <a href="core/tla.html#index-1">[2]</a>
+</li>
+      <li><a href="core/action-properties.html#index-0">action property</a>
+</li>
+      <li>
+    always
+
+      <ul>
+        <li>
+    see []
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="core/operators.html#index-5">Append</a>
+</li>
+      <li><a href="core/pluscal.html#index-2">assert</a>
+</li>
+      <li><a href="core/constants.html#index-1">ASSUME</a>
+</li>
+      <li><a href="topics/aux-vars.html#index-0">auxiliary variable</a>
+</li>
+      <li><a href="core/concurrency.html#index-4">await</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="B">B</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/glossary.html#term-Behavior"><strong>Behavior</strong></a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="core/operators.html#index-11">BOOLEAN</a>
+</li>
+      <li><a href="core/action-properties.html#index-1">box action formula</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="C">C</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="core/concurrency.html#index-6">call</a>
+
+      <ul>
+        <li>
+    see also procedure
+</li>
+      </ul></li>
+      <li><a href="core/advanced-operators.html#index-3">CASE</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="core/operators.html#index-14">CHOOSE</a>
+</li>
+      <li><a href="core/constants.html#index-0">CONSTANT</a>
+</li>
+      <li><a href="core/constants.html#index-0">constants</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="D">D</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="core/concurrency.html#index-5">Deadlocks</a>
+</li>
+      <li><a href="core/invariants.html#index-1">define</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="core/pluscal.html#index-7">diameter</a>
+</li>
+      <li><a href="core/functions.html#index-0">DOMAIN</a>
+</li>
+      <li><a href="core/pluscal.html#index-6"><strong>duplicates</strong></a>, <a href="core/functions.html#index-4">[1]</a>, <a href="core/invariants.html#index-2">[2]</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="E">E</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="core/nondeterminism.html#index-1">either</a>
+</li>
+      <li><a href="core/tla.html#index-4">ENABLED</a>
+</li>
+      <li><a href="reference/glossary.html#term-Enabled"><strong>Enabled</strong></a>
+</li>
+      <li>
+    eventually
+
+      <ul>
+        <li>
+    see &lt;&gt;
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="core/tla.html#index-3">EXCEPT</a>
+
+      <ul>
+        <li>
+    see also function
+</li>
+      </ul></li>
+      <li><a href="core/modules.html#index-0">EXTENDS</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="F">F</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/glossary.html#term-Fairness"><strong>Fairness</strong></a>
+</li>
+      <li>
+    fairness
+
+      <ul>
+        <li><a href="core/temporal-logic.html#index-2">in PlusCal</a>
+</li>
+        <li><a href="core/tla.html#index-4">in TLA+</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/glossary.html#term-Formal-Methods"><strong>Formal Methods</strong></a>
+</li>
+      <li><a href="reference/glossary.html#term-Formal-Specification-Language"><strong>Formal Specification Language</strong></a>
+</li>
+      <li><a href="reference/glossary.html#term-Function"><strong>Function</strong></a>
+</li>
+      <li><a href="core/functions.html#index-1">function</a>
+
+      <ul>
+        <li><a href="core/functions.html#index-3">function sets</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="G">G</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="core/pluscal.html#index-2">goto</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="H">H</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="core/operators.html#index-5">Head</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="I">I</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="core/operators.html#index-1">IF</a>
+</li>
+      <li><a href="core/pluscal.html#index-3">if (pluscal)</a>
+</li>
+      <li><a href="core/modules.html#index-1">INSTANCE</a>
+
+      <ul>
+        <li><a href="core/modules.html#index-3">Parameterized Modules</a>
+</li>
+        <li><a href="core/modules.html#index-4">WITH</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/glossary.html#term-Invariant"><strong>Invariant</strong></a>, <a href="core/invariants.html#index-0">[1]</a>
+
+      <ul>
+        <li><a href="topics/unbound-models.html#index-1">Model Invariants</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="L">L</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="core/pluscal.html#label">Labels</a>
+</li>
+      <li><a href="core/advanced-operators.html#index-1">LAMBDA</a>
+</li>
+      <li>
+    leads-to
+
+      <ul>
+        <li>
+    see ~&gt;
+</li>
+      </ul></li>
+      <li><a href="core/operators.html#index-5">Len</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="core/operators.html#index-15">LET</a>
+</li>
+      <li><a href="reference/glossary.html#term-Liveness"><strong>Liveness</strong></a>
+</li>
+      <li><a href="core/temporal-logic.html#index-0">liveness</a>
+</li>
+      <li><a href="core/modules.html#index-0">LOCAL</a>
+
+      <ul>
+        <li>
+    see also INSTANCE
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="M">M</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="core/pluscal.html#index-4">macro</a>
+</li>
+      <li><a href="reference/glossary.html#term-Model"><strong>Model</strong></a>
+
+      <ul>
+        <li><a href="topics/unbound-models.html#index-0">unbound models</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/glossary.html#term-Model-checking"><strong>Model checking</strong></a>
+</li>
+      <li><a href="core/constants.html#index-2">model value</a>
+
+      <ul>
+        <li><a href="core/constants.html#index-3">model value sets</a>
+</li>
+        <li><a href="core/constants.html#index-4">symmetry sets</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="O">O</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/glossary.html#term-Operator"><strong>Operator</strong></a>
+</li>
+      <li><a href="core/operators.html#index-0">operator</a>
+</li>
+      <li>
+    Operators
+
+      <ul>
+        <li><a href="core/advanced-operators.html#index-2">Binary Operators</a>
+</li>
+        <li><a href="core/advanced-operators.html#index-1">Higher-order operators</a>
+</li>
+        <li><a href="core/advanced-operators.html#index-0">Recursive Operators</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="P">P</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="core/invariants.html#index-3">pc</a>
+</li>
+      <li><a href="reference/glossary.html#term-PlusCal"><strong>PlusCal</strong></a>
+</li>
+      <li><a href="core/index.html#index-0"><strong>pluscal</strong></a>, <a href="core/pluscal.html#index-0">[1]</a>
+</li>
+      <li><a href="reference/glossary.html#term-Predicate"><strong>Predicate</strong></a>
+</li>
+      <li><a href="core/concurrency.html#index-6">procedure</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="core/concurrency.html#index-0">process</a>
+
+      <ul>
+        <li><a href="core/concurrency.html#index-1">local variables</a>
+</li>
+        <li><a href="core/concurrency.html#index-2">process sets</a>
+</li>
+      </ul></li>
+      <li><a href="reference/glossary.html#term-Property"><strong>Property</strong></a>
+</li>
+      <li>
+    property
+
+      <ul>
+        <li><a href="core/action-properties.html#index-0">action property</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="Q">Q</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="core/invariants.html#index-5">quantifier</a>
+
+      <ul>
+        <li><a href="core/invariants.html#index-5">\A</a>
+</li>
+        <li><a href="core/invariants.html#index-5">\E</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="R">R</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="core/advanced-operators.html#index-0">RECURSIVE</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="core/concurrency.html#index-6">return</a>, <a href="core/concurrency.html#return">[1]</a>
+
+      <ul>
+        <li>
+    see also procedure
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="S">S</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/glossary.html#term-Safety"><strong>Safety</strong></a>
+</li>
+      <li><a href="core/temporal-logic.html#index-0">safety</a>
+</li>
+      <li><a href="core/concurrency.html#index-3">self</a>
+</li>
+      <li><a href="core/operators.html#sequence">sequence</a>
+
+      <ul>
+        <li><a href="core/operators.html#index-12">sequence sets</a>
+</li>
+      </ul></li>
+      <li><a href="core/operators.html#set">set</a>
+
+      <ul>
+        <li><a href="core/operators.html#index-7">set operators</a>
+</li>
+        <li><a href="core/operators.html#index-13">set sets</a>
+</li>
+      </ul></li>
+      <li>
+    sets of
+
+      <ul>
+        <li><a href="core/operators.html#index-11">booleans</a>
+</li>
+        <li><a href="core/functions.html#index-3">functions</a>
+</li>
+        <li><a href="core/constants.html#index-3">model values</a>
+</li>
+        <li><a href="core/operators.html#index-11">numbers</a>
+</li>
+        <li><a href="core/operators.html#index-12">sequences</a>
+</li>
+        <li><a href="core/operators.html#index-13">sets</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="core/tla.html#index-4">SF_vars</a>
+</li>
+      <li><a href="core/pluscal.html#index-2">skip</a>
+</li>
+      <li><a href="reference/glossary.html#term-Spec"><strong>Spec</strong></a>
+</li>
+      <li><a href="reference/glossary.html#term-Specification"><strong>Specification</strong></a>
+</li>
+      <li><a href="reference/glossary.html#term-State-space"><strong>State space</strong></a>
+</li>
+      <li><a href="reference/glossary.html#term-Step"><strong>Step</strong></a>
+</li>
+      <li><a href="reference/glossary.html#term-Stutter-Step"><strong>Stutter Step</strong></a>
+</li>
+      <li><a href="core/temporal-logic.html#stuttering">stuttering</a>
+</li>
+      <li><a href="core/operators.html#index-5">SubSeq</a>
+</li>
+      <li><a href="core/operators.html#index-13">SUBSET</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="T">T</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="core/operators.html#index-5">Tail</a>
+</li>
+      <li><a href="reference/glossary.html#term-Temporal-Property"><strong>Temporal Property</strong></a>
+</li>
+      <li><a href="reference/glossary.html#term-Theorem-Prover"><strong>Theorem Prover</strong></a>
+</li>
+      <li><a href="reference/glossary.html#term-TLA"><strong>TLA+</strong></a>
+</li>
+      <li><a href="reference/glossary.html#term-TLA-Toolbox"><strong>TLA+ Toolbox</strong></a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="reference/glossary.html#term-TLC"><strong>TLC</strong></a>
+</li>
+      <li>
+    tuple
+
+      <ul>
+        <li><a href="core/constants.html#index-3">see sequence</a>
+</li>
+      </ul></li>
+      <li>
+    types
+
+      <ul>
+        <li><a href="core/functions.html#index-1">function</a>
+</li>
+        <li><a href="core/operators.html#sequence">sequence</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="U">U</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="topics/unbound-models.html#index-0">unbound models</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="core/action-properties.html#index-3">UNCHANGED</a>, <a href="core/tla.html#index-2">[1]</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="W">W</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="core/tla.html#index-4">WF_vars</a>
+</li>
+      <li><a href="core/pluscal.html#index-5">while</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="core/modules.html#index-4">WITH</a>
+</li>
+      <li><a href="core/pluscal.html#with"><strong>with</strong></a>
+
+      <ul>
+        <li><a href="core/nondeterminism.html#index-0">nondeterministic</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+            </div>
+
+            <div class="right">
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Hillel Wayne.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+    </div>
+
+<p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
+  </body>
+</html>

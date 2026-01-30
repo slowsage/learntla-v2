@@ -1,0 +1,577 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Standard Modules &#8212; Learn TLA+</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <script src="../_static/js/petite-vue.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Other Resources" href="other-resources.html" />
+    <link rel="prev" title="Glossary" href="glossary.html" /> 
+  </head><body data-dark_mode_code_blocks="true">
+
+<div id="top_nav">
+    
+
+    <nav>
+        
+            
+        
+
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+        <h1><a href="../index.html" title="Go to homepage">Learn TLA+</a></h1>
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="../search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew.html">What’s New</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/conceptual-overview.html">Conceptual Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">TLA+</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../core/index.html">Core</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topics/index.html">Topics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html#pluscal-specs">PlusCal Specs</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Standard Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other-resources.html">Other Resources</a></li>
+</ul>
+
+<ul>
+  <li class="toctree-l1"><a href= "../genindex.html">Index</a></li>
+</ul>
+        </div>
+      </div>
+
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="standard-modules">
+<span id="reference-standard-modules"></span><h1>Standard Modules<a class="headerlink" href="#standard-modules" title="Permalink to this headline">¶</a></h1>
+<p>This only includes models that are usable by TLC. Reals and RealTime are not covered.</p>
+<section id="naturals">
+<h2>Naturals<a class="headerlink" href="#naturals" title="Permalink to this headline">¶</a></h2>
+<p>Defines <code class="docutils literal notranslate"><span class="pre">+</span> <span class="pre">-</span> <span class="pre">*</span> <span class="pre">^</span> <span class="pre">%</span> <span class="pre">&lt;</span> <span class="pre">&gt;</span> <span class="pre">&lt;=</span> <span class="pre">&gt;=</span></code> as well as</p>
+<dl class="simple">
+<dt>Nat</dt><dd><p>The set <code class="docutils literal notranslate"><span class="pre">{0,</span> <span class="pre">1,</span> <span class="pre">...}</span></code>. Cannot be enumerated by TLC (used in a <a class="reference internal" href="../core/invariants.html#quantifier"><span class="std std-ref">quantifier</span></a> or a <a class="reference internal" href="../core/operators.html#choose"><span class="std std-ref">CHOOSE</span></a>), but can be used for membership checking.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">a..b</span></code></dt><dd><p>The set <code class="docutils literal notranslate"><span class="pre">{a,</span> <span class="pre">a</span> <span class="pre">+</span> <span class="pre">1,</span> <span class="pre">...,</span> <span class="pre">b}</span></code>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">\div</span> <span class="pre">b</span></code></dt><dd><p>Floor division: <code class="docutils literal notranslate"><span class="pre">10</span> <span class="pre">\div</span> <span class="pre">3</span> <span class="pre">=</span> <span class="pre">3</span></code>.</p>
+</dd>
+</dl>
+</section>
+<section id="integers">
+<h2>Integers<a class="headerlink" href="#integers" title="Permalink to this headline">¶</a></h2>
+<p>Defines everything in <code class="docutils literal notranslate"><span class="pre">Naturals</span></code> as well as</p>
+<dl class="simple">
+<dt>Int</dt><dd><p>The set of all integers. Cannot be enumerated by TLC (used in a <a class="reference internal" href="../core/invariants.html#quantifier"><span class="std std-ref">quantifier</span></a> or a <a class="reference internal" href="../core/operators.html#choose"><span class="std std-ref">CHOOSE</span></a>), but can be used for membership checking.</p>
+</dd>
+</dl>
+<dl class="option-list">
+<dt><kbd><span class="option">-a</span></kbd></dt>
+<dd><p>Negative numbers.</p>
+</dd>
+</dl>
+</section>
+<section id="sequences">
+<h2>Sequences<a class="headerlink" href="#sequences" title="Permalink to this headline">¶</a></h2>
+<p>Required for <a class="reference internal" href="../core/concurrency.html#procedure"><span class="std std-ref">pluscal procedures</span></a>. A sequence is like a list in any other language. You write it like <code class="docutils literal notranslate"><span class="pre">&lt;&lt;a,</span> <span class="pre">b,</span> <span class="pre">c&gt;&gt;</span></code>, and the elements can be any other values (including other sequences).
+Check the related section on <a class="reference internal" href="../core/operators.html"><span class="doc">sequences</span></a>.</p>
+<dl>
+<dt>Seq(set)</dt><dd><p>The set of all sequences where the values are all elements of <code class="docutils literal notranslate"><span class="pre">set</span></code>. TLC has special code to check if you’re testing membership, this is not memory/cpu intensive. Cannot be enumerated by TLC (used in a <a class="reference internal" href="../core/invariants.html#quantifier"><span class="std std-ref">quantifier</span></a> or a <a class="reference internal" href="../core/operators.html#choose"><span class="std std-ref">CHOOSE</span></a>), but can be used for membership checking.</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;&lt;</span><span class="n">a</span><span class="o">&gt;&gt;</span>          <span class="s">\in</span> <span class="n">Seq</span><span class="p">(</span><span class="n">{a</span><span class="p">,</span> <span class="n">b}</span><span class="p">)</span>
+<span class="o">&lt;&lt;</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">&gt;&gt;</span>       <span class="s">\in</span> <span class="n">Seq</span><span class="p">(</span><span class="n">{a</span><span class="p">,</span> <span class="n">b}</span><span class="p">)</span>
+<span class="o">&lt;&lt;</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="o">&gt;&gt;</span> <span class="s">\in</span> <span class="n">Seq</span><span class="p">(</span><span class="n">{a</span><span class="p">,</span> <span class="n">b}</span><span class="p">)</span>
+<span class="c">\* in practice, the output is a set that contains all sequences made from &#39;a&#39;s and &#39;b&#39;s,</span>
+<span class="c">\* so it also includes the sequence &lt;&lt;a, a, a, a, b, a, b&gt;&gt; for example. That&#39;s why it&#39;s nonenumerable.</span>
+</pre></div>
+</div>
+</dd>
+<dt>Len(seq)</dt><dd><p>Length of <code class="docutils literal notranslate"><span class="pre">seq</span></code>.</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">Len</span><span class="p">(</span><span class="o">&lt;&lt;</span><span class="m">2</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="m">6</span><span class="o">&gt;&gt;</span><span class="p">)</span> <span class="o">=</span> <span class="m">3</span>
+</pre></div>
+</div>
+</dd>
+<dt>Head(seq)</dt><dd><p>First element of <code class="docutils literal notranslate"><span class="pre">seq</span></code>.</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">Head</span><span class="p">(</span><span class="o">&lt;&lt;</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="o">&gt;&gt;</span><span class="p">)</span> <span class="o">=</span> <span class="m">1</span>
+</pre></div>
+</div>
+</dd>
+<dt>Tail(seq)</dt><dd><p>All but first element of <code class="docutils literal notranslate"><span class="pre">seq</span></code>.</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">Tail</span><span class="p">(</span><span class="o">&lt;&lt;</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="o">&gt;&gt;</span><span class="p">)</span> <span class="o">=</span> <span class="o">&lt;&lt;</span><span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="o">&gt;&gt;</span>
+</pre></div>
+</div>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">seq1</span> <span class="pre">\o</span> <span class="pre">seq2</span></code></dt><dd><p>Concatenates two sequences.</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;&lt;</span><span class="m">1</span><span class="o">&gt;&gt;</span> <span class="nb">\o</span> <span class="o">&lt;&lt;</span><span class="m">2</span> <span class="p">,</span> <span class="m">3</span><span class="o">&gt;&gt;</span> <span class="o">=</span> <span class="o">&lt;&lt;</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="o">&gt;&gt;</span>
+</pre></div>
+</div>
+</dd>
+<dt>Append(seq, e)</dt><dd><p>Append <code class="docutils literal notranslate"><span class="pre">e</span></code> at the end of <code class="docutils literal notranslate"><span class="pre">seq</span></code>. Equivalent to <code class="docutils literal notranslate"><span class="pre">seq1</span> <span class="pre">\o</span> <span class="pre">&lt;&lt;e&gt;&gt;</span></code>.</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">Append</span><span class="p">(</span><span class="o">&lt;&lt;</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="o">&gt;&gt;</span><span class="p">,</span> <span class="m">3</span><span class="p">)</span> <span class="o">=</span> <span class="o">&lt;&lt;</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="o">&gt;&gt;</span>
+</pre></div>
+</div>
+</dd>
+<dt>SubSeq(seq, m, n)</dt><dd><p>Used to select the subsequence <code class="docutils literal notranslate"><span class="pre">&lt;&lt;s[m],</span> <span class="pre">s[m+1],</span> <span class="pre">...</span> <span class="pre">,</span> <span class="pre">s[n]&gt;&gt;</span></code> in seq. Indices are inclusive. [taken from docs]</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">SubSeq</span><span class="p">(</span><span class="o">&lt;&lt;</span><span class="m">7</span><span class="p">,</span> <span class="m">8</span><span class="p">,</span> <span class="m">9</span><span class="o">&gt;&gt;</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">)</span> <span class="o">=</span> <span class="o">&lt;&lt;</span><span class="m">7</span><span class="p">,</span> <span class="m">8</span><span class="o">&gt;&gt;</span>
+</pre></div>
+</div>
+</dd>
+<dt>SelectSeq(seq, Op(_))</dt><dd><p>Sequence filter using Op.</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">IsEven</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="n">x</span> <span class="o">%</span> <span class="m">2</span>
+<span class="n">SelectSeq</span><span class="p">(</span><span class="o">&lt;&lt;</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="o">&gt;&gt;</span><span class="p">,</span> <span class="n">IsEven</span><span class="p">)</span> <span class="o">=</span> <span class="o">&lt;&lt;</span><span class="m">2</span><span class="o">&gt;&gt;</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</section>
+<section id="finitesets">
+<h2>FiniteSets<a class="headerlink" href="#finitesets" title="Permalink to this headline">¶</a></h2>
+<dl>
+<dt>IsFiniteSet(set)</dt><dd><p>Tests if <code class="docutils literal notranslate"><span class="pre">set</span></code> is not an infinite set.</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">IsFiniteSet</span><span class="p">(</span><span class="n">{</span><span class="m">2</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">7</span><span class="n">}</span><span class="p">)</span> <span class="o">=</span> <span class="bp">TRUE</span>
+<span class="n">IsFiniteSet</span><span class="p">(</span><span class="n">Seq</span><span class="p">(</span><span class="n">{</span><span class="m">1</span><span class="n">}</span><span class="p">))</span> <span class="o">=</span> <span class="bp">FALSE</span>
+<span class="n">IsFiniteSet</span><span class="p">(</span><span class="n">Nat</span><span class="p">)</span> <span class="o">=</span> <span class="bp">FALSE</span>
+</pre></div>
+</div>
+</dd>
+<dt>Cardinality(set)</dt><dd><p>The number of elements in <code class="docutils literal notranslate"><span class="pre">set</span></code>.</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">Cardinality</span><span class="p">(</span><span class="n">{</span><span class="m">2</span><span class="p">,</span> <span class="m">5</span><span class="p">,</span> <span class="m">7</span><span class="n">}</span><span class="p">)</span> <span class="o">=</span> <span class="m">3</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</section>
+<section id="bags">
+<span id="bag"></span><h2>Bags<a class="headerlink" href="#bags" title="Permalink to this headline">¶</a></h2>
+<p>Also known as multisets. Bags are functions items to “counts” of items. IE the struct <code class="docutils literal notranslate"><span class="pre">[a</span> <span class="pre">|-&gt;</span> <span class="pre">1,</span> <span class="pre">b</span> <span class="pre">|-&gt;</span> <span class="pre">2]</span></code> is a bag. The values of a bag must be positive integers.</p>
+<dl>
+<dt>IsABag(func)</dt><dd><p>Tests if <code class="docutils literal notranslate"><span class="pre">func</span></code> is a bag.</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">IsABag</span><span class="p">([</span><span class="n">a</span> <span class="o">|-&gt;</span> <span class="m">3</span><span class="p">,</span> <span class="n">b</span> <span class="o">|-&gt;</span> <span class="m">7</span><span class="p">])</span> <span class="o">=</span> <span class="bp">TRUE</span>
+</pre></div>
+</div>
+</dd>
+<dt>BagToSet(bag)</dt><dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">DOMAIN</span> <span class="pre">bag</span></code>.</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">BagToSet</span><span class="p">([</span><span class="n">a</span> <span class="o">|-&gt;</span> <span class="m">3</span><span class="p">,</span> <span class="n">b</span> <span class="o">|-&gt;</span> <span class="m">7</span><span class="p">])</span> <span class="o">=</span> <span class="n">{</span><span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="s">&quot;b&quot;</span><span class="n">}</span>
+</pre></div>
+</div>
+</dd>
+<dt>SetToBag(set)</dt><dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">[x</span> <span class="pre">\in</span> <span class="pre">set</span> <span class="pre">|-&gt;</span> <span class="pre">1]</span></code>.</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">SetToBag</span><span class="p">(</span><span class="n">{}</span><span class="p">)</span> <span class="o">=</span> <span class="o">&lt;&lt;&gt;&gt;</span>
+<span class="n">SetToBag</span><span class="p">(</span><span class="n">{</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="s">&quot;b&quot;</span><span class="n">}</span><span class="p">)</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span> <span class="o">|-&gt;</span> <span class="m">1</span><span class="p">,</span> <span class="n">b</span> <span class="o">|-&gt;</span> <span class="m">1</span><span class="p">]</span>
+<span class="n">SetToBag</span><span class="p">(</span><span class="n">{</span><span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="s">&quot;b&quot;</span><span class="p">,</span> <span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="s">&quot;a&quot;</span><span class="n">}</span><span class="p">)</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span> <span class="o">|-&gt;</span> <span class="m">1</span><span class="p">,</span> <span class="n">b</span> <span class="o">|-&gt;</span> <span class="m">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</dd>
+<dt>BagIn(e, bag)</dt><dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">e</span> <span class="pre">\in</span> <span class="pre">DOMAIN</span> <span class="pre">bag</span></code>.</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">BagIn</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">a</span> <span class="o">|-&gt;</span> <span class="m">1</span><span class="p">,</span> <span class="n">b</span> <span class="o">|-&gt;</span> <span class="m">1</span><span class="p">])</span> <span class="o">=</span> <span class="bp">TRUE</span>
+<span class="n">BagIn</span><span class="p">(</span><span class="s">&quot;c&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">a</span> <span class="o">|-&gt;</span> <span class="m">1</span><span class="p">,</span> <span class="n">b</span> <span class="o">|-&gt;</span> <span class="m">1</span><span class="p">])</span> <span class="o">=</span> <span class="bp">FALSE</span>
+</pre></div>
+</div>
+</dd>
+<dt>EmptyBag</dt><dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">&lt;&lt;&gt;&gt;</span></code>.</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">EmptyBag</span> <span class="o">=</span> <span class="o">&lt;&lt;&gt;&gt;</span>
+</pre></div>
+</div>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">bag1</span> <span class="pre">(+)</span> <span class="pre">bag2</span></code></dt><dd><p>Bag addition. Creates a new bag where each key is the sum of the values of that key in each bag.</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">a</span> <span class="o">|-&gt;</span> <span class="m">1</span><span class="p">,</span> <span class="n">b</span> <span class="o">|-&gt;</span> <span class="m">3</span><span class="p">]</span> <span class="p">(</span><span class="o">+</span><span class="p">)</span> <span class="n">EmptyBag</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span> <span class="o">|-&gt;</span> <span class="m">1</span><span class="p">,</span> <span class="n">b</span> <span class="o">|-&gt;</span> <span class="m">3</span><span class="p">]</span>
+<span class="p">[</span><span class="n">a</span> <span class="o">|-&gt;</span> <span class="m">1</span><span class="p">,</span> <span class="n">b</span> <span class="o">|-&gt;</span> <span class="m">3</span><span class="p">]</span> <span class="p">(</span><span class="o">+</span><span class="p">)</span> <span class="p">[</span><span class="n">a</span> <span class="o">|-&gt;</span> <span class="m">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span> <span class="o">|-&gt;</span> <span class="m">2</span><span class="p">,</span> <span class="n">b</span> <span class="o">|-&gt;</span> <span class="m">3</span><span class="p">]</span>
+<span class="p">[</span><span class="n">a</span> <span class="o">|-&gt;</span> <span class="m">1</span><span class="p">,</span> <span class="n">b</span> <span class="o">|-&gt;</span> <span class="m">3</span><span class="p">]</span> <span class="p">(</span><span class="o">+</span><span class="p">)</span> <span class="p">[</span><span class="n">c</span> <span class="o">|-&gt;</span> <span class="m">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span> <span class="o">|-&gt;</span> <span class="m">1</span><span class="p">,</span> <span class="n">b</span> <span class="o">|-&gt;</span> <span class="m">3</span><span class="p">,</span> <span class="n">c</span> <span class="o">|-&gt;</span> <span class="m">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">bag1</span> <span class="pre">(-)</span> <span class="pre">bag2</span></code></dt><dd><p>Bad subtraction. If <code class="docutils literal notranslate"><span class="pre">bag2[e]</span> <span class="pre">&gt;=</span> <span class="pre">bag1[e]</span></code>, then <code class="docutils literal notranslate"><span class="pre">e</span></code> is dropped from the final bag’s keys.</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="c">\* Nothing changes:</span>
+<span class="p">[</span><span class="n">a</span> <span class="o">|-&gt;</span> <span class="m">1</span><span class="p">,</span> <span class="n">b</span> <span class="o">|-&gt;</span> <span class="m">3</span><span class="p">]</span> <span class="p">(</span><span class="o">-</span><span class="p">)</span> <span class="n">EmptyBag</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span> <span class="o">|-&gt;</span> <span class="m">1</span><span class="p">,</span> <span class="n">b</span> <span class="o">|-&gt;</span> <span class="m">3</span><span class="p">]</span>
+<span class="c">\* a is removed from the bag:</span>
+<span class="p">[</span><span class="n">a</span> <span class="o">|-&gt;</span> <span class="m">1</span><span class="p">,</span> <span class="n">b</span> <span class="o">|-&gt;</span> <span class="m">3</span><span class="p">]</span> <span class="p">(</span><span class="o">-</span><span class="p">)</span> <span class="p">[</span><span class="n">a</span> <span class="o">|-&gt;</span> <span class="m">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">b</span> <span class="o">|-&gt;</span> <span class="m">3</span><span class="p">]</span>
+<span class="c">\* a is decreased by the amount of the second bag:</span>
+<span class="p">[</span><span class="n">a</span> <span class="o">|-&gt;</span> <span class="m">2</span><span class="p">,</span> <span class="n">b</span> <span class="o">|-&gt;</span> <span class="m">3</span><span class="p">]</span> <span class="p">(</span><span class="o">-</span><span class="p">)</span> <span class="p">[</span><span class="n">a</span> <span class="o">|-&gt;</span> <span class="m">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span> <span class="o">|-&gt;</span> <span class="m">1</span><span class="p">,</span> <span class="n">b</span> <span class="o">|-&gt;</span> <span class="m">3</span><span class="p">]</span>
+<span class="c">\* c is not in the domain of the bag on the left, hence nothing changes:</span>
+<span class="p">[</span><span class="n">a</span> <span class="o">|-&gt;</span> <span class="m">1</span><span class="p">,</span> <span class="n">b</span> <span class="o">|-&gt;</span> <span class="m">3</span><span class="p">]</span> <span class="p">(</span><span class="o">-</span><span class="p">)</span> <span class="p">[</span><span class="n">c</span> <span class="o">|-&gt;</span> <span class="m">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span> <span class="o">|-&gt;</span> <span class="m">1</span><span class="p">,</span> <span class="n">b</span> <span class="o">|-&gt;</span> <span class="m">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</dd>
+<dt>BagUnion(set)</dt><dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">bag1</span> <span class="pre">(+)</span> <span class="pre">bag2</span> <span class="pre">(+)</span> <span class="pre">...</span></code>, where <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">=</span> <span class="pre">{bag1,</span> <span class="pre">bag2,</span> <span class="pre">...}</span></code>.</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">BagUnion</span><span class="p">(</span><span class="n">{}</span><span class="p">)</span> <span class="o">=</span> <span class="o">&lt;&lt;&gt;&gt;</span>
+<span class="n">BagUnion</span><span class="p">(</span><span class="n">{</span><span class="p">[</span><span class="n">a</span> <span class="o">|-&gt;</span> <span class="m">2</span><span class="p">]</span><span class="n">}</span><span class="p">)</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span> <span class="o">|-&gt;</span> <span class="m">2</span><span class="p">]</span>
+<span class="n">BagUnion</span><span class="p">(</span><span class="n">{</span><span class="p">[</span><span class="n">a</span> <span class="o">|-&gt;</span> <span class="m">2</span><span class="p">],</span> <span class="p">[</span><span class="n">b</span> <span class="o">|-&gt;</span> <span class="m">3</span><span class="p">]</span><span class="n">}</span><span class="p">)</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span> <span class="o">|-&gt;</span> <span class="m">2</span><span class="p">,</span> <span class="n">b</span> <span class="o">|-&gt;</span> <span class="m">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">B1</span> <span class="pre">\sqsubseteq</span> <span class="pre">B2</span></code></dt><dd><p>B1 sqsubseteq B2 iff, for all e in DOMAIN B1, bag B2 has at least as many copies of e as bag B1 does. [taken from docs]</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">a</span> <span class="o">|-&gt;</span> <span class="m">2</span><span class="p">,</span> <span class="n">b</span> <span class="o">|-&gt;</span> <span class="m">3</span><span class="p">]</span> <span class="nb">\sqsubseteq</span> <span class="p">[</span><span class="n">b</span> <span class="o">|-&gt;</span> <span class="m">2</span><span class="p">]</span> <span class="o">=</span> <span class="bp">FALSE</span>
+<span class="p">[</span><span class="n">a</span> <span class="o">|-&gt;</span> <span class="m">2</span><span class="p">,</span> <span class="n">b</span> <span class="o">|-&gt;</span> <span class="m">3</span><span class="p">]</span> <span class="nb">\sqsubseteq</span> <span class="p">[</span><span class="n">a</span> <span class="o">|-&gt;</span> <span class="m">2</span><span class="p">,</span> <span class="n">b</span> <span class="o">|-&gt;</span> <span class="m">2</span><span class="p">]</span> <span class="o">=</span> <span class="bp">FALSE</span>
+<span class="p">[</span><span class="n">a</span> <span class="o">|-&gt;</span> <span class="m">2</span><span class="p">,</span> <span class="n">b</span> <span class="o">|-&gt;</span> <span class="m">3</span><span class="p">]</span> <span class="nb">\sqsubseteq</span> <span class="p">[</span><span class="n">a</span> <span class="o">|-&gt;</span> <span class="m">2</span><span class="p">,</span> <span class="n">b</span> <span class="o">|-&gt;</span> <span class="m">3</span><span class="p">]</span> <span class="o">=</span> <span class="bp">TRUE</span>
+<span class="c">\* it doesn&#39;t matter if B2 has &quot;c |-&gt; 1&quot;, because has enough copies of a and b.</span>
+<span class="p">[</span><span class="n">a</span> <span class="o">|-&gt;</span> <span class="m">2</span><span class="p">,</span> <span class="n">b</span> <span class="o">|-&gt;</span> <span class="m">3</span><span class="p">]</span> <span class="nb">\sqsubseteq</span> <span class="p">[</span><span class="n">a</span> <span class="o">|-&gt;</span> <span class="m">2</span><span class="p">,</span> <span class="n">b</span> <span class="o">|-&gt;</span> <span class="m">3</span><span class="p">,</span> <span class="n">c</span> <span class="o">|-&gt;</span> <span class="m">1</span><span class="p">]</span> <span class="o">=</span> <span class="bp">TRUE</span>
+<span class="p">[</span><span class="n">a</span> <span class="o">|-&gt;</span> <span class="m">2</span><span class="p">,</span> <span class="n">b</span> <span class="o">|-&gt;</span> <span class="m">3</span><span class="p">]</span> <span class="nb">\sqsubseteq</span> <span class="p">[</span><span class="n">a</span> <span class="o">|-&gt;</span> <span class="m">5</span><span class="p">,</span> <span class="n">b</span> <span class="o">|-&gt;</span> <span class="m">3</span><span class="p">,</span> <span class="n">c</span> <span class="o">|-&gt;</span> <span class="m">1</span><span class="p">]</span> <span class="o">=</span> <span class="bp">TRUE</span>
+</pre></div>
+</div>
+</dd>
+<dt>SubBag(bag)</dt><dd><p>The set of all subbags of <code class="docutils literal notranslate"><span class="pre">bag</span></code>.</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">SubBag</span><span class="p">(</span><span class="n">EmptyBag</span><span class="p">)</span> <span class="o">=</span> <span class="n">{</span><span class="o">&lt;&lt;&gt;&gt;</span><span class="n">}</span>
+<span class="n">SubBag</span><span class="p">([</span><span class="n">a</span> <span class="o">|-&gt;</span> <span class="m">2</span><span class="p">])</span> <span class="o">=</span> <span class="n">{</span><span class="o">&lt;&lt;&gt;&gt;</span><span class="p">,</span> <span class="p">[</span><span class="n">a</span> <span class="o">|-&gt;</span> <span class="m">1</span><span class="p">],</span> <span class="p">[</span><span class="n">a</span> <span class="o">|-&gt;</span> <span class="m">2</span><span class="p">]</span><span class="n">}</span>
+</pre></div>
+</div>
+</dd>
+<dt>BagOfAll(Op(_), bag)</dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">bag[e]</span> <span class="pre">=</span> <span class="pre">x</span></code>, then <code class="docutils literal notranslate"><span class="pre">out[Op(e)]</span> <span class="pre">=</span> <span class="pre">x</span></code>. eg</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">==</span> <span class="o">&lt;&lt;</span><span class="m">1</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">5</span><span class="o">&gt;&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">BagOfAll</span><span class="p">(</span><span class="n">LAMBDA</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">^</span><span class="m">2</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+
+<span class="p">(</span><span class="m">1</span> <span class="p">:</span><span class="o">&gt;</span> <span class="m">1</span> <span class="o">@@</span> <span class="m">4</span> <span class="p">:</span><span class="o">&gt;</span> <span class="m">3</span> <span class="o">@@</span> <span class="m">9</span> <span class="p">:</span><span class="o">&gt;</span> <span class="m">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+<dt>BagCardinality(bag)</dt><dd><p>The sum of all values in <code class="docutils literal notranslate"><span class="pre">bag</span></code>.</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">BagCardinality</span><span class="p">(</span><span class="n">EmptyBag</span><span class="p">)</span> <span class="o">=</span> <span class="m">0</span>
+<span class="n">BagCardinality</span><span class="p">([</span><span class="n">a</span> <span class="o">|-&gt;</span> <span class="m">2</span><span class="p">])</span> <span class="o">=</span> <span class="m">2</span>
+<span class="n">BagCardinality</span><span class="p">([</span><span class="n">a</span> <span class="o">|-&gt;</span> <span class="m">5</span><span class="p">,</span> <span class="n">b</span> <span class="o">|-&gt;</span> <span class="m">3</span><span class="p">,</span> <span class="n">c</span> <span class="o">|-&gt;</span> <span class="m">1</span><span class="p">])</span> <span class="o">=</span> <span class="m">9</span>
+</pre></div>
+</div>
+</dd>
+<dt>CopiesIn(e, bag)</dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">e</span></code> is in <code class="docutils literal notranslate"><span class="pre">bag</span></code>, then <code class="docutils literal notranslate"><span class="pre">bag[e]</span></code>, otherwise 0.</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">CopiesIn</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="n">EmptyBag</span><span class="p">)</span> <span class="o">=</span> <span class="m">0</span>
+<span class="n">CopiesIn</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">a</span> <span class="o">|-&gt;</span> <span class="m">5</span><span class="p">,</span> <span class="n">b</span> <span class="o">|-&gt;</span> <span class="m">3</span><span class="p">])</span> <span class="o">=</span> <span class="m">5</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</section>
+<section id="tlc">
+<span id="tlc-module"></span><h2>TLC<a class="headerlink" href="#tlc" title="Permalink to this headline">¶</a></h2>
+<p>Required for PlusCal <a class="reference internal" href="../core/pluscal.html#assert"><span class="std std-ref">assert</span></a>. Many of the operators in TLC break core assumptions about TLA+, such as referential transparency. Use with caution!</p>
+<dl>
+<dt><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">:&gt;</span> <span class="pre">b</span></code></dt><dd><p>The function <code class="docutils literal notranslate"><span class="pre">[x</span> <span class="pre">\in</span> <span class="pre">{a}</span> <span class="pre">|-&gt;</span> <span class="pre">b]</span></code>.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">func1</span> <span class="pre">&#64;&#64;</span> <span class="pre">func2</span></code></dt><dd><p>Function merge. If two functions share the same key, uses the value from <code class="docutils literal notranslate"><span class="pre">func1</span></code> (<strong>NOT</strong> <code class="docutils literal notranslate"><span class="pre">func2</span></code>).</p>
+</dd>
+<dt>Permutations(set)</dt><dd><p>The set of all functions that act as permutations of <code class="docutils literal notranslate"><span class="pre">set</span></code>. eg</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">Permutations</span><span class="p">(</span><span class="n">{</span><span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="s">&quot;b&quot;</span><span class="n">}</span><span class="p">)</span>
+
+<span class="n">{</span><span class="p">[</span><span class="n">b</span> <span class="o">|-&gt;</span> <span class="s">&quot;b&quot;</span><span class="p">,</span> <span class="n">a</span> <span class="o">|-&gt;</span> <span class="s">&quot;a&quot;</span><span class="p">],</span>
+ <span class="p">[</span><span class="n">b</span> <span class="o">|-&gt;</span> <span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="n">a</span> <span class="o">|-&gt;</span> <span class="s">&quot;b&quot;</span><span class="p">]</span><span class="n">}</span>
+</pre></div>
+</div>
+</dd>
+<dt>SortSeq(seq, Op(_, _))</dt><dd><p>Sorts the sequence with comparator <code class="docutils literal notranslate"><span class="pre">Op</span></code>.</p>
+</dd>
+<dt>ToString(val)</dt><dd><p>String conversion.</p>
+</dd>
+<dt>JavaTime</dt><dd><p>The current epoch time.</p>
+</dd>
+<dt>Print(val, out)</dt><dd><p>Prints <code class="docutils literal notranslate"><span class="pre">ToString(val)</span></code>, and evaluates to <code class="docutils literal notranslate"><span class="pre">out</span></code> as an expression.</p>
+</dd>
+<dt>PrintT(val)</dt><dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">Print(val,</span> <span class="pre">TRUE)</span></code>.</p>
+</dd>
+<dt>Any</dt><dd><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">\in</span> <span class="pre">Any</span></code> for <em>any</em> value <code class="docutils literal notranslate"><span class="pre">x</span></code>. Don’t use this as part of a <code class="docutils literal notranslate"><span class="pre">Spec</span></code>, but it’s occasionally useful for modeling properties.</p>
+</dd>
+<dt>Assert(bool, errmsg)</dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">bool</span></code> is false, then terminates model checking with <code class="docutils literal notranslate"><span class="pre">errmsg</span></code>. Otherwise, evaluates to TRUE.</p>
+</dd>
+<dt>RandomElement(set)</dt><dd><p><em>Randomly</em> pulls an element from <code class="docutils literal notranslate"><span class="pre">set</span></code>. The value can be different on different runs!</p>
+</dd>
+<dt>TLCEval(v)</dt><dd><p>Evaluates the expression <code class="docutils literal notranslate"><span class="pre">v</span></code> and caches the result. Can be used to speed up recursive definitions.</p>
+</dd>
+</dl>
+<dl id="tlcget">
+<dt>TLCGet(val)</dt><dd><p>val can be either an integer or a string. If an integer, retrieves the value from the corresponding TLCSet. If a string, retrieves statistics from the current model run. The following strings are valid:</p>
+<ul class="simple">
+<li><p>“queue”</p></li>
+<li><p>“generated”</p></li>
+<li><p>“distinct”</p></li>
+<li><p>“duration”: number of seconds elapsed since the beginning of model checking</p></li>
+<li><p>“level”: the length of the <em>current</em> behavior</p></li>
+<li><p>“diameter”: the length of the longest <em>global</em> behavior</p></li>
+<li><p>“stats”: all of the global stats (everything excluding “level”), as a struct.</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">TLCGet(&quot;level&quot;)</span></code> can be used to <a class="reference internal" href="../topics/unbound-models.html#topic-unbound-models"><span class="std std-ref">bound an unbound model</span></a>.</p>
+</dd>
+<dt>TLCSet(i, val)</dt><dd><p>Sets the value for <code class="docutils literal notranslate"><span class="pre">TLCGet(i)</span></code>. <code class="docutils literal notranslate"><span class="pre">i</span></code> must be a positive integer. TLCSet can be called multiple times in the same step.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Each TLC worker thread carries a distinct “cache” for the values of <code class="docutils literal notranslate"><span class="pre">TLCGet(i)</span></code>. As such, it’s generally inadvisable to use <code class="docutils literal notranslate"><span class="pre">TLCSet</span></code> to profile information that lasts beyond a single step.</p>
+<p>TLCSet statements evaluated during the initial state, however, <em>will</em> be propagated to all workers.</p>
+</div>
+</dd>
+</dl>
+<section id="tlcext">
+<h3>TLCExt<a class="headerlink" href="#tlcext" title="Permalink to this headline">¶</a></h3>
+<dl>
+<dt>AssertEq(a, b)</dt><dd><p>Equivalent to <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">b</span></code>, except that if <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">#</span> <span class="pre">b</span></code>, it also prints the values of <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code>. This <em>does not</em> terminate model checking!</p>
+</dd>
+<dt>AssertError(str, exp)</dt><dd><p>True if <code class="docutils literal notranslate"><span class="pre">exp</span></code> doesn’t throw an error, or if <code class="docutils literal notranslate"><span class="pre">exp</span></code> throws an error that <em>exactly</em> matches <code class="docutils literal notranslate"><span class="pre">str</span></code>. False otherwise.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>AssertError catches the thrown error, meaning model checking will continue.</p>
+</div>
+</dd>
+<dt>Trace</dt><dd><p>Returns the “history” of the current behavior, as a sequence of structs.</p>
+</dd>
+<dt>TLCModelValue(str)</dt><dd><p>Creates a new model value with name <code class="docutils literal notranslate"><span class="pre">str</span></code>. Can only be used in constant definitions, as part of an ordinary assignment.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>CONSTANT Threads &lt;- {
+  TLCModelValue(ToString(i)): i \in 1..3
+}
+</pre></div>
+</div>
+</dd>
+</dl>
+</section>
+</section>
+<section id="json">
+<h2>Json<a class="headerlink" href="#json" title="Permalink to this headline">¶</a></h2>
+<dl>
+<dt>ToJson(val)</dt><dd><p>Converts <code class="docutils literal notranslate"><span class="pre">val</span></code> to a JSON string. Sets and sequences are encoded as arrays, functions are encoded as objects with string keys.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; ToJson(1..3)
+&quot;[1,2,3]&quot;
+
+&gt;&gt;&gt; ToJson([x \in 0..2 |-&gt; x^2])
+
+&quot;{\&quot;0\&quot;:0,\&quot;1\&quot;:1,\&quot;2\&quot;:4}&quot;
+</pre></div>
+</div>
+<p>Multi-arity functions are encoded with keys that use the TLA+ tuple notation.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; ToJson([p, q \in BOOLEAN |-&gt; p =&gt; q])
+
+&quot;{\&quot;&lt;&lt;FALSE, FALSE&gt;&gt;\&quot;:true,
+  \&quot;&lt;&lt;TRUE, FALSE&gt;&gt;\&quot;:false,
+  \* ...
+</pre></div>
+</div>
+</dd>
+<dt>JsonSerialize(absoluteFilename, value)</dt><dd><p>Exports <code class="docutils literal notranslate"><span class="pre">value</span></code> as a JSON object to a file.</p>
+</dd>
+<dt>JsonDeserialize(absoluteFilename)</dt><dd><p>Imports a JSON object from a file.</p>
+</dd>
+</dl>
+</section>
+<section id="randomization">
+<h2>Randomization<a class="headerlink" href="#randomization" title="Permalink to this headline">¶</a></h2>
+<p>This module defines operators for choosing pseudo-random subsets of a set. If you use this, <strong>TLC will not check all possible states.</strong> For example, consider the spec</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="kn">EXTENDS</span> <span class="n">Integers</span><span class="p">,</span> <span class="n">TLC</span><span class="p">,</span> <span class="n">Randomization</span>
+<span class="kn">VARIABLE</span> <span class="n">x</span>
+
+<span class="n">Init</span> <span class="o">==</span>
+    <span class="o">/\</span> <span class="n">x</span> <span class="o">=</span> <span class="m">0</span>
+
+<span class="n">Next</span> <span class="o">==</span>
+    <span class="o">\/</span> <span class="o">/\</span> <span class="n">x</span> <span class="o">=</span> <span class="m">0</span>
+       <span class="o">/\</span> <span class="n">x&#39;</span> <span class="s">\in</span> <span class="n">{</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="n">}</span>
+    <span class="o">\/</span> <span class="o">/\</span> <span class="n">PrintT</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+       <span class="o">/\</span> <span class="n">UNCHANGED</span> <span class="n">x</span>
+
+<span class="c">\* Magic magic magic</span>
+<span class="n">Spec</span> <span class="o">==</span> <span class="n">Init</span> <span class="o">/\</span> <span class="ni">[]</span><span class="p">[</span><span class="n">Next</span><span class="p">]</span><span class="n">_x</span>
+</pre></div>
+</div>
+<p>Running this will print the numbers {0, 1, 2, 3}. If we replace <code class="docutils literal notranslate"><span class="pre">{1,</span> <span class="pre">2,</span> <span class="pre">3}</span></code> with <code class="docutils literal notranslate"><span class="pre">RandomSubset(2,</span> <span class="pre">{1,</span> <span class="pre">2,</span> <span class="pre">3})</span></code>, then it will only print two of those three numbers, and <em>which two</em> may change from run to run. This makes <code class="docutils literal notranslate"><span class="pre">Randomization</span></code> useful for optimization, but you need to be careful.</p>
+<dl>
+<dt>RandomSubset(k, S)</dt><dd><p>Returns a random size-k subset of S.</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">RandomSubset</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="n">{</span><span class="s">&quot;a&quot;</span><span class="n">}</span><span class="p">)</span> <span class="o">=</span> <span class="n">{</span><span class="s">&quot;a&quot;</span><span class="n">}</span>
+<span class="c">\* Running multiple times will yield different subsets</span>
+<span class="n">RandomSubset</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="n">{</span><span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="s">&quot;b&quot;</span><span class="p">,</span> <span class="s">&quot;c&quot;</span><span class="n">}</span><span class="p">)</span> <span class="o">=</span> <span class="n">{</span><span class="s">&quot;b&quot;</span><span class="p">,</span> <span class="s">&quot;c&quot;</span><span class="n">}</span>
+<span class="n">RandomSubset</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="n">{</span><span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="s">&quot;b&quot;</span><span class="p">,</span> <span class="s">&quot;c&quot;</span><span class="n">}</span><span class="p">)</span> <span class="o">=</span> <span class="n">{</span><span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="s">&quot;c&quot;</span><span class="n">}</span>
+</pre></div>
+</div>
+</dd>
+<dt>RandomSetOfSubsets(k, n, S)</dt><dd><p>Selects k random subsets of S, where each random subset has <em>on average</em> n elements. Since this process may result in some duplicate subsets, the operator can potentially return fewer than k subsets. This can also potentially return the empty set.</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">RandomSetOfSubsets</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="n">{</span><span class="s">&quot;a&quot;</span><span class="n">}</span><span class="p">)</span> <span class="o">=</span> <span class="n">{{</span><span class="s">&quot;a&quot;</span><span class="n">}}</span>
+
+<span class="c">\* Each element has a 3-in-5 chance of appearing in each subset</span>
+<span class="n">RandomSetOfSubsets</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="n">{</span><span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="s">&quot;b&quot;</span><span class="p">,</span> <span class="s">&quot;c&quot;</span><span class="p">,</span> <span class="s">&quot;d&quot;</span><span class="p">,</span> <span class="s">&quot;e&quot;</span><span class="n">}</span><span class="p">)</span> <span class="o">=</span> <span class="n">{{</span><span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="s">&quot;d&quot;</span><span class="p">,</span> <span class="s">&quot;c&quot;</span><span class="n">}</span><span class="p">,</span> <span class="n">{</span><span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="s">&quot;b&quot;</span><span class="p">,</span> <span class="s">&quot;e&quot;</span><span class="p">,</span> <span class="s">&quot;c&quot;</span><span class="n">}}</span>
+<span class="n">RandomSetOfSubsets</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="n">{</span><span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="s">&quot;b&quot;</span><span class="p">,</span> <span class="s">&quot;c&quot;</span><span class="p">,</span> <span class="s">&quot;d&quot;</span><span class="p">,</span> <span class="s">&quot;e&quot;</span><span class="n">}</span><span class="p">)</span> <span class="o">=</span> <span class="n">{{</span><span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="s">&quot;e&quot;</span><span class="n">}</span><span class="p">,</span> <span class="n">{</span><span class="s">&quot;d&quot;</span><span class="p">,</span> <span class="s">&quot;e&quot;</span><span class="p">,</span> <span class="s">&quot;b&quot;</span><span class="p">,</span> <span class="s">&quot;c&quot;</span><span class="n">}}</span>
+
+<span class="c">\* Fewer than 4 results because it generated a duplicate</span>
+<span class="n">RandomSetOfSubsets</span><span class="p">(</span><span class="m">4</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="n">{</span><span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="s">&quot;b&quot;</span><span class="n">}</span><span class="p">)</span> <span class="o">=</span> <span class="n">{{}</span><span class="p">,</span> <span class="n">{</span><span class="s">&quot;b&quot;</span><span class="n">}</span><span class="p">,</span> <span class="n">{</span><span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="s">&quot;b&quot;</span><span class="n">}}</span>
+</pre></div>
+</div>
+</dd>
+<dt>TestRandomSetOfSubsets(k, n, S)</dt><dd><p>Calls <code class="docutils literal notranslate"><span class="pre">RandomSetOfSubsets(k,</span> <span class="pre">n,</span> <span class="pre">s)</span></code> five times and returns the number of unique sets returned each time.</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">TestRandomSetOfSubsets</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="n">{</span><span class="s">&quot;a&quot;</span><span class="n">}</span><span class="p">)</span> <span class="o">=</span> <span class="o">&lt;&lt;</span><span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="o">&gt;&gt;</span>
+<span class="c">\* Different executions will yield different results:</span>
+<span class="n">TestRandomSetOfSubsets</span><span class="p">(</span><span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="p">,</span> <span class="n">{</span><span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="s">&quot;b&quot;</span><span class="p">,</span> <span class="s">&quot;c&quot;</span><span class="p">,</span> <span class="s">&quot;d&quot;</span><span class="p">,</span> <span class="s">&quot;e&quot;</span><span class="n">}</span><span class="p">)</span> <span class="o">=</span> <span class="o">&lt;&lt;</span><span class="m">3</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">2</span><span class="o">&gt;&gt;</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&lt;</span><span>Page contents</span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&gt;</span><span>Page contents:</span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">Standard Modules</a><ul>
+<li><a class="reference internal" href="#naturals">Naturals</a></li>
+<li><a class="reference internal" href="#integers">Integers</a></li>
+<li><a class="reference internal" href="#sequences">Sequences</a></li>
+<li><a class="reference internal" href="#finitesets">FiniteSets</a></li>
+<li><a class="reference internal" href="#bags">Bags</a></li>
+<li><a class="reference internal" href="#tlc">TLC</a><ul>
+<li><a class="reference internal" href="#tlcext">TLCExt</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#json">Json</a></li>
+<li><a class="reference internal" href="#randomization">Randomization</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+                <a href="glossary.html">
+                    <span class="icon">&lt;</span><span>Glossary</span></a>
+                
+            </div>
+
+            <div class="right">
+                
+                    <a href="other-resources.html"><span>Other Resources</span><span class="icon">&gt;</span></a>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Hillel Wayne.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+    </div>
+
+<p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
+  </body>
+</html>

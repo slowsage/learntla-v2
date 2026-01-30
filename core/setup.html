@@ -1,0 +1,335 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Setup &#8212; Learn TLA+</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <script src="../_static/js/petite-vue.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Operators and Values" href="operators.html" />
+    <link rel="prev" title="Core" href="index.html" /> 
+  </head><body data-dark_mode_code_blocks="true">
+
+<div id="top_nav">
+    
+
+    <nav>
+        
+            
+        
+
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+        <h1><a href="../index.html" title="Go to homepage">Learn TLA+</a></h1>
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="../search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew.html">What’s New</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/conceptual-overview.html">Conceptual Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">TLA+</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Core</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operators.html">Operators and Values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pluscal.html">Writing Specifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="invariants.html">Writing an Invariant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="constants.html">Parameterizing Specs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html">Structured Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nondeterminism.html">Nondeterminism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concurrency.html">Concurrency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="temporal-logic.html">Temporal Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced-operators.html">More Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="action-properties.html">Action Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tla.html">TLA+</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html">Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="next-steps.html">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../topics/index.html">Topics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html#pluscal-specs">PlusCal Specs</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/standard-library.html">Standard Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/other-resources.html">Other Resources</a></li>
+</ul>
+
+<ul>
+  <li class="toctree-l1"><a href= "../genindex.html">Index</a></li>
+</ul>
+        </div>
+      </div>
+
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="setup">
+<span id="id1"></span><h1>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h1>
+<p>This section is a quick introduction to setting up and running the tooling. We’ll use the <a class="reference internal" href="../intro/conceptual-overview.html#wire"><span class="std std-ref">wire</span></a> spec from the <a class="reference internal" href="../intro/conceptual-overview.html#chapter-overview"><span class="std std-ref">Conceptual Overview</span></a>.</p>
+<section id="setting-up-a-project">
+<h2>Setting Up a Project<a class="headerlink" href="#setting-up-a-project" title="Permalink to this headline">¶</a></h2>
+<p>For teaching purposes, I like to start people off using the TLA+ IDE. It abstracts out some parts of TLA+ that can be difficult for beginners. You can download the most recent version of the Toolbox <a class="reference external" href="https://github.com/tlaplus/tlaplus/releases/tag/v1.8.0">here</a>. You will need Java for it to work.</p>
+<p>Once you have the toolbox, you’ll see an image like this:</p>
+<figure class="align-default">
+<img alt="../_images/init_page.png" src="../_images/init_page.png" />
+</figure>
+<p>Create a new specification under <code class="docutils literal notranslate"><span class="pre">File</span> <span class="pre">&gt;</span> <span class="pre">Open</span> <span class="pre">Spec</span> <span class="pre">&gt;</span> <span class="pre">Add</span> <span class="pre">New</span> <span class="pre">Spec</span></code>.</p>
+<figure class="align-default">
+<img alt="../_images/add_new_spec.png" src="../_images/add_new_spec.png" />
+</figure>
+<figure class="align-default">
+<img alt="../_images/new_file.png" src="../_images/new_file.png" />
+</figure>
+<p>Once you do that, you should see something like this:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="c c-PreProc">----</span> <span class="c c-PreProc">MODULE</span> <span class="c c-PreProc">wire</span> <span class="c c-PreProc">----</span>
+
+<span class="c c-PreProc">====</span>
+</pre></div>
+</div>
+<p>For Historical Reasons, the <code class="docutils literal notranslate"><span class="pre">MODULE</span> <span class="pre">$name</span></code> must be surrounded by at least four dashes, the module must end with at least four equal-signs, and the <code class="docutils literal notranslate"><span class="pre">$name</span></code> of the module must match the filename (case sensitive). Everything above the module name and below the <code class="docutils literal notranslate"><span class="pre">====</span></code> is ignored, making those good places to store notes.</p>
+<p>Let’s replace it with the contents of <a class="reference internal" href="../intro/conceptual-overview.html#wire"><span class="std std-ref">wire</span></a>, so you get this:</p>
+<figure class="align-default">
+<img alt="../_images/wire_spec.png" src="../_images/wire_spec.png" />
+</figure>
+<p>(There should only be one <code class="docutils literal notranslate"><span class="pre">MODULE</span></code> row at the top and one <code class="docutils literal notranslate"><span class="pre">====</span></code> row at the bottom. Make sure to change the name of the module in the first line if you named your spec <code class="docutils literal notranslate"><span class="pre">Wire.tla</span></code> instead!)</p>
+</section>
+<section id="translating-specs">
+<h2>Translating Specs<a class="headerlink" href="#translating-specs" title="Permalink to this headline">¶</a></h2>
+<p>As mentioned in the <a class="reference internal" href="index.html"><span class="doc">core outline</span></a>, we’re going to be teaching pluscal. Translate it under <code class="docutils literal notranslate"><span class="pre">File</span> <span class="pre">&gt;</span> <span class="pre">Translate</span> <span class="pre">PlusCal</span> <span class="pre">Algorithm</span></code>.</p>
+<figure class="align-default">
+<img alt="../_images/translate_pluscal.png" src="../_images/translate_pluscal.png" />
+</figure>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can use the shortcut ctrl+T on Windows/Linux and cmd+T on Mac.</p>
+</div>
+<p>Once you do that, you should see this:</p>
+<figure class="align-default">
+<img alt="../_images/translated_output.png" src="../_images/translated_output.png" />
+</figure>
+</section>
+<section id="running-models">
+<span id="id2"></span><h2>Running Models<a class="headerlink" href="#running-models" title="Permalink to this headline">¶</a></h2>
+<p>To actually check this with TLC, we have to create a new model to check. Do that under <code class="docutils literal notranslate"><span class="pre">TLC</span> <span class="pre">Model</span> <span class="pre">Checker</span> <span class="pre">&gt;</span> <span class="pre">New</span> <span class="pre">Model</span></code>.</p>
+<figure class="align-default">
+<img alt="../_images/new_model.png" src="../_images/new_model.png" />
+</figure>
+<p>Once you do that, you should see this page:</p>
+<figure class="align-default" id="id3">
+<img alt="../_images/setup_model.png" src="../_images/setup_model.png" />
+<figcaption>
+<p><span class="caption-text">You might need to open this in a new tab to see the numbers</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple">
+<li><p>“What is the behavior spec” should be “Temporal Formula” and “Spec”. If it’s not, make sure you have only one set of <code class="docutils literal notranslate"><span class="pre">====</span></code> in the spec, and the translated TLA+ is above it, then manually set the two fields.</p></li>
+<li><p>Click the “Invariants” box to open it up.</p></li>
+<li><p>Click “Add”, and then insert the text <code class="docutils literal notranslate"><span class="pre">NoOverdrafts</span></code>.</p></li>
+<li><p>Run the model, or press <code class="docutils literal notranslate"><span class="pre">F11</span></code>.</p></li>
+</ol>
+<p>When you run this, you will see an error pop up on the right side:</p>
+<figure class="align-default">
+<img alt="../_images/error_trace.png" src="../_images/error_trace.png" />
+</figure>
+<p>This is an <em>error trace</em>, showing the exact set of steps that lead to an invariant being violated. We’ll talk about it a bit more when we get into <a class="reference internal" href="invariants.html"><span class="doc">invariants in depth</span></a>.</p>
+</section>
+<section id="making-a-scratchfile">
+<span id="scratch"></span><h2>Making a Scratchfile<a class="headerlink" href="#making-a-scratchfile" title="Permalink to this headline">¶</a></h2>
+<p>I often like to test the outputs of operators without having to run the entire spec. To do that, I have a separate spec that I call “scratch”:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="c c-PreProc">----</span> <span class="c c-PreProc">MODULE</span> <span class="c c-PreProc">scratch</span> <span class="c c-PreProc">----</span>
+<span class="kn">EXTENDS</span> <span class="n">Integers</span><span class="p">,</span> <span class="n">TLC</span><span class="p">,</span> <span class="n">Sequences</span>
+
+<span class="n">Eval</span> <span class="o">==</span> <span class="m">0</span>
+<span class="c c-PreProc">====</span>
+</pre></div>
+</div>
+<p>This is different from a normal TLA+ file in two ways. First, instead of having “What is the behavior spec” set to “Temporal formula”, I have it set to “no behavior spec”. Second, on the “model checking results” page, I put <code class="docutils literal notranslate"><span class="pre">Eval</span></code> in the “Evaluate Constant Expression” box.</p>
+<figure class="align-default">
+<img alt="../_images/scratch_eval.png" src="../_images/scratch_eval.png" />
+</figure>
+<p>Now whenever I run the model, the output of <code class="docutils literal notranslate"><span class="pre">Eval</span></code> will be placed in the “Value” box below. In this case, it will be 0. But if I change the <code class="docutils literal notranslate"><span class="pre">Eval</span></code> expression, I get something different.</p>
+<div class="highlight-diff notranslate"><div class="highlight"><pre><span></span><span class="gd">- Eval == 0</span><span class="w"></span>
+<span class="gi">+ Eval == &quot;hello world!&quot;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Now running <code class="docutils literal notranslate"><span class="pre">Eval</span></code> will put “hello world!”.</p>
+<p id="notation"><span id="index-0"></span>Having a scratch file is very useful and I recommend setting one up. In the guide itself I will occasionally post “expression evaluations” like this</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; 1+1
+
+2
+</pre></div>
+</div>
+<p>This just means that I set <code class="docutils literal notranslate"><span class="pre">Eval</span> <span class="pre">==</span> <span class="pre">1+1</span></code> and got <code class="docutils literal notranslate"><span class="pre">2</span></code> as the output. You can use this to check that you got the same results as me.</p>
+<p>And with that, we’re ready to start learning TLA+!</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&lt;</span><span>Page contents</span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&gt;</span><span>Page contents:</span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">Setup</a><ul>
+<li><a class="reference internal" href="#setting-up-a-project">Setting Up a Project</a></li>
+<li><a class="reference internal" href="#translating-specs">Translating Specs</a></li>
+<li><a class="reference internal" href="#running-models">Running Models</a></li>
+<li><a class="reference internal" href="#making-a-scratchfile">Making a Scratchfile</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+                <a href="index.html">
+                    <span class="icon">&lt;</span><span>Core</span></a>
+                
+            </div>
+
+            <div class="right">
+                
+                    <a href="operators.html"><span>Operators and Values</span><span class="icon">&gt;</span></a>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Hillel Wayne.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+    </div>
+
+<p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
+  </body>
+</html>

@@ -1,0 +1,93 @@
+@import 'basic_mod.css';
+
+dl.footnote {
+	border-top: 1px black solid;
+	padding-top: 1em;
+}
+
+/* Make the inline footnote links look like footnotes */
+.footnote-reference {
+  vertical-align: super;
+  font-size: smaller;
+}
+
+blockquote.quote {
+  border-left: .2em solid #bdbdbd;
+  font-style: italic;
+  padding-left: 0.5em;
+}
+
+div.document h2, div.document h3, div.document h4, .rubric {
+  font-weight: 100;
+  margin: 1rem 0 0.5rem 0;
+  border-left-style: solid;
+  border-left-width: thin;
+  border-bottom-style: solid;
+  border-bottom-width: thin;
+  border-color: gray;
+  padding-left: 0.3em;
+  display: inline-block;
+}
+
+div.document div.admonition.warning {
+  border-left: 5px solid crimson;
+}
+
+div.document div.admonition.warning p.admonition-title {
+  color: crimson;
+}
+
+/* These are inconsistent due to how I currently define the admonition */
+div.document div.admonition-troubleshooting {
+  border-left: 5px solid brown;
+}
+
+.exercise .hiddencontent {
+  padding: 0.5rem;
+}
+div.document div.admonition-troubleshooting p.admonition-title {
+  color: brown;
+}
+
+div.document div.admonition-todo {
+  border-left: 5px solid orange;
+}
+
+div.document div.admonition-todo p.admonition-title {
+  color: orange;
+}
+
+.caption-number {
+/* For some inane reason, the html writer ignores numfig = False when you use captions
+ * Best I can figure is to hide it entirely
+ */
+  display: none;
+}
+
+/* span.caption-text */
+.code-block-caption {
+  text-align: center;
+  font-size: 0.8em;
+}
+
+
+div.graphviz {
+  display: flex;
+  justify-content: center;
+}
+
+figure {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+figure img {
+  border: 1px;
+}
+
+figcaption p .caption-text {
+  margin-top: 8px;
+  text-align: center;
+  font-size: 0.8em;
+}

@@ -1,0 +1,685 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Operators and Values &#8212; Learn TLA+</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <script src="../_static/js/petite-vue.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Writing Specifications" href="pluscal.html" />
+    <link rel="prev" title="Setup" href="setup.html" /> 
+  </head><body data-dark_mode_code_blocks="true">
+
+<div id="top_nav">
+    
+
+    <nav>
+        
+            
+        
+
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+        <h1><a href="../index.html" title="Go to homepage">Learn TLA+</a></h1>
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="../search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew.html">What’s New</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/conceptual-overview.html">Conceptual Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">TLA+</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Core</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="setup.html">Setup</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Operators and Values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pluscal.html">Writing Specifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="invariants.html">Writing an Invariant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="constants.html">Parameterizing Specs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html">Structured Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nondeterminism.html">Nondeterminism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concurrency.html">Concurrency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="temporal-logic.html">Temporal Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced-operators.html">More Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="action-properties.html">Action Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tla.html">TLA+</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html">Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="next-steps.html">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../topics/index.html">Topics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html#pluscal-specs">PlusCal Specs</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/standard-library.html">Standard Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/other-resources.html">Other Resources</a></li>
+</ul>
+
+<ul>
+  <li class="toctree-l1"><a href= "../genindex.html">Index</a></li>
+</ul>
+        </div>
+      </div>
+
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="operators-and-values">
+<span id="operators"></span><h1>Operators and Values<a class="headerlink" href="#operators-and-values" title="Permalink to this headline">¶</a></h1>
+<section id="index-0">
+<span id="id1"></span><h2>Operators<a class="headerlink" href="#index-0" title="Permalink to this headline">¶</a></h2>
+<p>Operators are what you’d think of as a function in a programming language. They take arguments and evaluate to expressions.</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="kn">EXTENDS</span> <span class="n">Integers</span>
+
+<span class="n">MinutesToSeconds</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="o">==</span> <span class="n">m</span> <span class="o">*</span> <span class="m">60</span>
+</pre></div>
+</div>
+<div class="admonition-troubleshooting admonition" id="id2">
+<p class="admonition-title">Troubleshooting</p>
+<p>If you see an error like</p>
+<blockquote>
+<div><p>Was expecting “=====” or more Module Body, encountered <code class="docutils literal notranslate"><span class="pre">&quot;$Operator&quot;</span></code> at line $n…</p>
+</div></blockquote>
+<p>It’s likely because you used a single <code class="docutils literal notranslate"><span class="pre">=</span></code> instead of a double <code class="docutils literal notranslate"><span class="pre">==</span></code> when defining the operator.</p>
+</div>
+<p>Operators can take any number of arguments. There are no default values, overloaded definitions, or optional arguments. If an operator has two parameters, it must always take two values. If an operator takes no values, you can write it without the parens. In this case, it’s effectively a constant.</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">SecondsPerMinute</span> <span class="o">==</span> <span class="m">60</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There are a few special forms of operators, like higher-order operators, recursive operators, and lambdas, which we will cover <a class="reference internal" href="advanced-operators.html#chapter-advanced-operators"><span class="std std-ref">later</span></a>.</p>
+</div>
+<p>The right-hand side of an operator is called an <em class="dfn">expression</em>.</p>
+<section id="if-then-else">
+<span id="if-tla"></span><span id="index-1"></span><h3>IF-THEN-ELSE<a class="headerlink" href="#if-then-else" title="Permalink to this headline">¶</a></h3>
+<p>We have three keywords for structuring expressions. These are <a class="reference internal" href="#let"><span class="std std-ref">LET</span></a> statements, <a class="reference internal" href="advanced-operators.html#case"><span class="std std-ref">case statements</span></a>, and conditionals. We’ll be introducing the first two later: LET statements are much more useful after we can write some basic operators, while case statements aren’t used very often. That leaves conditionals:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">Abs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="k k-Conditional">IF</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="m">0</span> <span class="k k-Conditional">THEN</span> <span class="o">-</span><span class="n">x</span> <span class="k k-Conditional">ELSE</span> <span class="n">x</span>
+</pre></div>
+</div>
+<p>Expressions always equal <em>something</em>, so there must always be an <code class="docutils literal notranslate"><span class="pre">ELSE</span></code> branch. Otherwise, this works as you’d expect it to.</p>
+</section>
+</section>
+<section id="values">
+<h2>Values<a class="headerlink" href="#values" title="Permalink to this headline">¶</a></h2>
+<p>TLA+ is an “untyped” language, due to its roots in mathematics. In practice, the model checker recognizes four primitive types and four complex ones.</p>
+<ul class="simple">
+<li><p><strong>Primitive</strong>: <a class="reference internal" href="#string"><span class="std std-ref">strings</span></a>, <a class="reference internal" href="#boolean"><span class="std std-ref">booleans</span></a>, <a class="reference internal" href="#integer"><span class="std std-ref">integers</span></a>, and <a class="reference internal" href="constants.html#model-values"><span class="std std-ref">model values</span></a>.</p></li>
+<li><p><strong>Complex</strong>: <a class="reference internal" href="#set"><span class="std std-ref">sets</span></a>, <a class="reference internal" href="#sequence"><span class="std std-ref">sequences</span></a>, <a class="reference internal" href="functions.html#struct"><span class="std std-ref">structures</span></a>, and <a class="reference internal" href="functions.html#function"><span class="std std-ref">functions</span></a>.</p></li>
+</ul>
+<p id="index-2">Every value type in TLA+ has its own operators, with no overlap or overloading. The two exceptions to this are <code class="docutils literal notranslate"><span class="pre">=</span></code> and <code class="docutils literal notranslate"><span class="pre">#</span></code>, which “equals” and “not equals”, respectively. Values of different types cannot be tested for equality, and that will throw an error.</p>
+<div class="admonition-troubleshooting admonition" id="id3">
+<p class="admonition-title">Troubleshooting</p>
+<p>If you see an error like</p>
+<blockquote>
+<div><p>Encountered “Beginning of Definition” at line $n…</p>
+</div></blockquote>
+<p>It’s likely because you used a double <code class="docutils literal notranslate"><span class="pre">==</span></code> instead of a single <code class="docutils literal notranslate"><span class="pre">=</span></code> when testing for equality.</p>
+</div>
+<p>We’ll leave the more sophisticated types for later and focus now on just strings, booleans, integers, and sets.</p>
+<section id="the-obvious-ones">
+<span id="integer"></span><span id="string"></span><h3>The obvious ones<a class="headerlink" href="#the-obvious-ones" title="Permalink to this headline">¶</a></h3>
+<p>Integers and strings. To get the basic addition operators, you need <code class="docutils literal notranslate"><span class="pre">EXTENDS</span> <span class="pre">Integers</span></code>. Strings must use “double quotes” and cannot use single quotes. There are no operators for strings except <code class="docutils literal notranslate"><span class="pre">=</span></code> and <code class="docutils literal notranslate"><span class="pre">#</span></code>. In practice, they are used as opaque identifiers, similar to how some languages have a <a class="reference external" href="https://ruby-doc.org/core-2.5.0/Symbol.html">:symbol type</a>. If your system needs to manipulate strings, we instead store them in a <a class="reference internal" href="#sequence"><span class="std std-ref">sequence</span></a>.</p>
+<p>Note there is <strong>not</strong> a float type. Floats have complex semantics that are <em>extremely</em> hard to represent. Usually you can abstract them out, but if you absolutely <em>need</em> floats then TLA+ is the wrong tool for the job.</p>
+</section>
+<section id="booleans">
+<span id="boolean"></span><span id="index-3"></span><h3>Booleans<a class="headerlink" href="#booleans" title="Permalink to this headline">¶</a></h3>
+<p>The booleans are <code class="docutils literal notranslate"><span class="pre">TRUE</span></code> and <code class="docutils literal notranslate"><span class="pre">FALSE</span></code>.</p>
+<p>So why do they get their own section? First of all, the boolean operators look like mathematical symbols, not programming symbols. They are:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Logic</p></th>
+<th class="head"><p>TLA+ Symbol</p></th>
+<th class="head"><p>Math Symbol</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>and</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">/\</span></code></p></td>
+<td><p><span class="math notranslate nohighlight">\(\wedge\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>or</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">\/</span></code></p></td>
+<td><p><span class="math notranslate nohighlight">\(\vee\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>not</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">~</span></code></p></td>
+<td><p><span class="math notranslate nohighlight">\(\neg\)</span></p></td>
+</tr>
+</tbody>
+</table>
+<p>A quick mnemonic: <code class="docutils literal notranslate"><span class="pre">~</span></code> is a little flippy thing, so it’s “not”. <code class="docutils literal notranslate"><span class="pre">/\</span></code> looks like an “A”, so it’s “and”. <code class="docutils literal notranslate"><span class="pre">\/</span></code> is the other one. We can use these to build the other operators, like <code class="docutils literal notranslate"><span class="pre">Xor</span></code>:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">Xor</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span> <span class="o">==</span> <span class="n">A</span> <span class="o">=</span> <span class="o">~</span><span class="n">B</span>
+</pre></div>
+</div>
+<p id="id4"><span id="index-4"></span>There is one more boolean operator of note: <code class="docutils literal notranslate"><span class="pre">=&gt;</span></code>, or “implication”. <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">=&gt;</span> <span class="pre">B</span></code> means “A is at least as true as B”. <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">=&gt;</span> <span class="pre">B</span> <span class="pre">=</span> <span class="pre">FALSE</span></code> when false if A is true and B is false, otherwise it’s true. B is true or A is false (or both). You don’t see this very often in programming, as it’s pretty useless for control flow. But it’s <em>extremely</em> important for any kind of specification work. We’ll go into more detail about it <a class="reference internal" href="invariants.html#using"><span class="std std-ref">later</span></a>.<a class="footnote-reference brackets" href="#iff" id="id5">2</a></p>
+<div class="exercise admonition" id="ex-contrapositive">
+<p class="admonition-title">Exercise: Contrapositives</p>
+<ol class="arabic simple">
+<li><p>Rewrite <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">=&gt;</span> <span class="pre">B</span></code> using the “regular three” programming operators.</p></li>
+</ol>
+<blockquote>
+<div><div><details class="hiddencontent solution">
+      <summary>
+        Solution
+      </summary><p><div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="o">~</span><span class="n">A</span> <span class="o">\/</span> <span class="n">B</span>
+</pre></div>
+</div>
+</p>
+</details></div></div></blockquote>
+<ol class="arabic simple" start="2">
+<li><p>For what values of <code class="docutils literal notranslate"><span class="pre">A</span></code> and <code class="docutils literal notranslate"><span class="pre">B</span></code> is <code class="docutils literal notranslate"><span class="pre">~B</span> <span class="pre">=&gt;</span> <span class="pre">~A</span></code> true?</p></li>
+</ol>
+<blockquote>
+<div><div><details class="hiddencontent solution">
+      <summary>
+        Solution
+      </summary><p><p>Using the same rewrite rule as part 1, we get <code class="docutils literal notranslate"><span class="pre">~~B</span> <span class="pre">\/</span> <span class="pre">~A</span></code>, aka <code class="docutils literal notranslate"><span class="pre">~A</span> <span class="pre">\/</span> <span class="pre">B</span></code>, which means it has the same truth values as <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">=&gt;</span> <span class="pre">B</span></code>. <code class="docutils literal notranslate"><span class="pre">~B</span> <span class="pre">=&gt;</span> <span class="pre">~A</span></code> is called the <strong>contrapositive</strong> of <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">=&gt;</span> <span class="pre">B</span></code>.</p>
+</p>
+</details></div></div></blockquote>
+</div>
+<p>The other thing is that TLA+ has a “bullet point notation” for boolean logic. Let’s say you need an expression like <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">/\</span> <span class="pre">(B</span> <span class="pre">\/</span> <span class="pre">C)</span> <span class="pre">/\</span> <span class="pre">(D</span> <span class="pre">\/</span> <span class="pre">(E</span> <span class="pre">/\</span> <span class="pre">F))</span></code>. That’s really hard to read! So in TLA+ you can instead write it as:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="o">/\</span> <span class="n">A</span>
+<span class="o">/\</span> <span class="o">\/</span> <span class="n">B</span>
+   <span class="o">\/</span> <span class="n">C</span>
+<span class="o">/\</span> <span class="o">\/</span> <span class="n">D</span>
+   <span class="o">\/</span> <span class="o">/\</span> <span class="n">E</span>
+      <span class="o">/\</span> <span class="n">F</span>
+</pre></div>
+</div>
+<p>That makes it much clearer. Notice that we have an extra <code class="docutils literal notranslate"><span class="pre">/\</span></code> before <code class="docutils literal notranslate"><span class="pre">A</span></code>. That’s not necessary, but it makes the shape more pleasing, so we do it. <strong>This is also the only place in the language where whitespace matters.</strong> Lets say I instead wrote</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="o">/\</span> <span class="n">A</span>
+<span class="o">/\</span> <span class="o">\/</span> <span class="n">B</span>
+   <span class="o">\/</span> <span class="n">C</span>
+<span class="o">/\</span> <span class="o">\/</span> <span class="n">D</span>
+   <span class="o">\/</span> <span class="o">/\</span> <span class="n">E</span>
+<span class="o">/\</span> <span class="n">F</span>
+</pre></div>
+</div>
+<p>That means something different! It’s now <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">/\</span> <span class="pre">(B</span> <span class="pre">\/</span> <span class="pre">C)</span> <span class="pre">/\</span> <span class="pre">(D</span> <span class="pre">\/</span> <span class="pre">E)</span> <span class="pre">/\</span> <span class="pre">F</span></code>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>“Why would you even want something like that?” It makes complex <a class="reference internal" href="invariants.html"><span class="doc">invariants</span></a> <em>much</em> easier to read.</p>
+</div>
+</section>
+</section>
+<section id="sequences">
+<span id="sequence"></span><h2>Sequences<a class="headerlink" href="#sequences" title="Permalink to this headline">¶</a></h2>
+<p>A sequence is like a list in any other language. You write it like <code class="docutils literal notranslate"><span class="pre">&lt;&lt;a,</span> <span class="pre">b,</span> <span class="pre">c&gt;&gt;</span></code>, and the elements can be any other values (including other sequences). As with most other languages, you look up a value of the sequence with <code class="docutils literal notranslate"><span class="pre">seq[n]</span></code>, except that instead of the indices being <code class="docutils literal notranslate"><span class="pre">0..Len(seq)-1</span></code>, it’s <code class="docutils literal notranslate"><span class="pre">1..Len(seq)</span></code>. So yeah, they’re 1-indexed.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Did I mention they’re 1-indexed? Because they’re 1-indexed.</p>
+</div>
+<p>There’s also a <code class="docutils literal notranslate"><span class="pre">Sequences</span></code> module. If you <code class="docutils literal notranslate"><span class="pre">EXTENDS</span> <span class="pre">Sequences</span></code>, you also get (letting <code class="docutils literal notranslate"><span class="pre">S</span> <span class="pre">==</span> <span class="pre">&lt;&lt;&quot;a&quot;&gt;&gt;</span></code>):</p>
+<span class="target" id="index-5"></span><table class="docutils align-default" id="index-6">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Expression</p></th>
+<th class="head"><p>Gives</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Append(S,</span> <span class="pre">&quot;b&quot;)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&lt;&lt;&quot;a&quot;,</span> <span class="pre">&quot;b&quot;&gt;&gt;</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">S</span> <span class="pre">\o</span> <span class="pre">&lt;&lt;&quot;b&quot;,</span> <span class="pre">&quot;c&quot;&gt;&gt;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&lt;&lt;&quot;a&quot;,</span> <span class="pre">&quot;b&quot;,</span> <span class="pre">&quot;c&quot;&gt;&gt;</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Head(S)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;a&quot;</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Tail(&lt;&lt;1,</span> <span class="pre">2,</span> <span class="pre">3&gt;&gt;)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&lt;&lt;2,</span> <span class="pre">3&gt;&gt;</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Len(S)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">1</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">SubSeq(&lt;&lt;1,</span> <span class="pre">3,</span> <span class="pre">5&gt;&gt;,</span> <span class="pre">1,</span> <span class="pre">2)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&lt;&lt;1,</span> <span class="pre">3&gt;&gt;</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition-troubleshooting admonition" id="id7">
+<p class="admonition-title">Troubleshooting</p>
+<p>If you see an error like</p>
+<blockquote>
+<div><p>Encountered “EXTENDS” at line 3, column 1 and token “Sequences”</p>
+</div></blockquote>
+<p>It’s because you wrote two separate <code class="docutils literal notranslate"><span class="pre">EXTENDS</span></code> lines. TLA+ can only have one <code class="docutils literal notranslate"><span class="pre">EXTENDS</span></code> <em>line</em> per spec, but you can have multiple modules (separated by commas) on it. So instead write <code class="docutils literal notranslate"><span class="pre">EXTENDS</span> <span class="pre">Integers,</span> <span class="pre">Sequences</span></code> and you should be fine.</p>
+</div>
+<p>With sequences, we can represent a 24-hour clock as <code class="docutils literal notranslate"><span class="pre">&lt;&lt;hour,</span> <span class="pre">minute,</span> <span class="pre">second&gt;&gt;</span></code>.</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="kn">EXTENDS</span> <span class="n">Integers</span><span class="p">,</span> <span class="n">Sequences</span>
+
+<span class="n">ToSeconds</span><span class="p">(</span><span class="n">time</span><span class="p">)</span> <span class="o">==</span> <span class="n">time</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="o">*</span><span class="m">3600</span> <span class="o">+</span> <span class="n">time</span><span class="p">[</span><span class="m">2</span><span class="p">]</span><span class="o">*</span><span class="m">60</span> <span class="o">+</span> <span class="n">time</span><span class="p">[</span><span class="m">3</span><span class="p">]</span>
+<span class="n">Earlier</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">)</span> <span class="o">==</span> <span class="n">ToSeconds</span><span class="p">(</span><span class="n">t1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">ToSeconds</span><span class="p">(</span><span class="n">t2</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Fixed-length sequences are also called “tuples”. It’s the same syntax either way.</p>
+</div>
+</section>
+<section id="sets">
+<span id="set"></span><h2>Sets<a class="headerlink" href="#sets" title="Permalink to this headline">¶</a></h2>
+<p>A set is a collection of <em>unordered</em>, <em>unique</em> values. You write them with braces, like <code class="docutils literal notranslate"><span class="pre">{1,</span> <span class="pre">2,</span> <span class="pre">3}</span></code> or <code class="docutils literal notranslate"><span class="pre">{&lt;&lt;&quot;a&quot;&gt;&gt;,</span> <span class="pre">&lt;&lt;&quot;b&quot;,</span> <span class="pre">&quot;c&quot;&gt;&gt;}</span></code>. You can even have sets inside other sets, like <code class="docutils literal notranslate"><span class="pre">{{1},</span> <span class="pre">{2},</span> <span class="pre">{3}}</span></code>.</p>
+<p>Sets cannot contain elements of different types; <code class="docutils literal notranslate"><span class="pre">{1,</span> <span class="pre">&quot;a&quot;}</span></code> is invalid.</p>
+<span class="target" id="index-7"></span><span class="target" id="index-8"></span><section id="set-operators">
+<span id="index-9"></span><span id="id8"></span><h3>Set Operators<a class="headerlink" href="#set-operators" title="Permalink to this headline">¶</a></h3>
+<p>To check if <code class="docutils literal notranslate"><span class="pre">x</span></code> is an element of <code class="docutils literal notranslate"><span class="pre">set</span></code>, we write <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">\in</span> <span class="pre">set</span></code>. <code class="docutils literal notranslate"><span class="pre">\in</span></code> is used in a few other places as syntax, not just as an operator. There’s also the inverse, <code class="docutils literal notranslate"><span class="pre">\notin</span></code>. <code class="docutils literal notranslate"><span class="pre">set1</span> <span class="pre">\subseteq</span> <span class="pre">set2</span></code> tests if every element of <code class="docutils literal notranslate"><span class="pre">set1</span></code> is also an element of <code class="docutils literal notranslate"><span class="pre">set2</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>That’s “subset or equals”. It’s a way to sidestep the question “Is a set a subset of itself?”</p>
+</div>
+<p id="index-10">We also have ways of slicing and dicing sets:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">set1</span> <span class="pre">\union</span> <span class="pre">set2</span></code> is the set of all elements in <code class="docutils literal notranslate"><span class="pre">set1</span></code> or <code class="docutils literal notranslate"><span class="pre">set2</span></code> (or both).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">set1</span> <span class="pre">\intersect</span> <span class="pre">set2</span></code> is the set of all elements in <em>both</em> sets.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">set1</span> <span class="pre">\</span> <span class="pre">set2</span></code>, or “set difference” is the set of all elements in <code class="docutils literal notranslate"><span class="pre">set1</span></code> <em>but not</em> <code class="docutils literal notranslate"><span class="pre">set2</span></code>.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You might see <code class="docutils literal notranslate"><span class="pre">\cup</span></code> and <code class="docutils literal notranslate"><span class="pre">\cap</span></code> instead of <code class="docutils literal notranslate"><span class="pre">\union</span></code> and <code class="docutils literal notranslate"><span class="pre">\intersect</span></code>. This comes from the mathematical symbols for set union and intersection, which are <span class="math notranslate nohighlight">\(\cup\)</span> and <span class="math notranslate nohighlight">\(\cap\)</span>.</p>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; {1, 3} \union {1, 5}
+
+{1, 3, 5}
+
+&gt;&gt;&gt; {1, 3} \intersect {1, 5}
+
+{1}
+
+&gt;&gt;&gt; {1, 3} \ {1, 5}
+
+{3}
+</pre></div>
+</div>
+<p id="cardinality">If you <code class="docutils literal notranslate"><span class="pre">EXTEND</span> <span class="pre">FiniteSets</span></code>, you also get <code class="docutils literal notranslate"><span class="pre">Cardinality(set)</span></code>, which is the number of elements in the set.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The easiest way to test if a set is empty is by writing <code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">=</span> <span class="pre">{}</span></code>. Similarly, you can test if a sequence is empty by writing <code class="docutils literal notranslate"><span class="pre">seq</span> <span class="pre">=</span> <span class="pre">&lt;&lt;&gt;&gt;</span></code>.</p>
+</div>
+</section>
+<section id="sets-of-values">
+<span id="id9"></span><h3>Sets of Values<a class="headerlink" href="#sets-of-values" title="Permalink to this headline">¶</a></h3>
+<p>Now imagine we’re writing a spec which uses clock values, and we want a quick operator to add times. I might write this as</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">AddTimes</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">)</span> <span class="o">==</span> <span class="o">&lt;&lt;</span><span class="n">t1</span><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">t2</span><span class="p">[</span><span class="m">1</span><span class="p">],</span> <span class="n">t1</span><span class="p">[</span><span class="m">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">t2</span><span class="p">[</span><span class="m">2</span><span class="p">],</span> <span class="n">t1</span><span class="p">[</span><span class="m">3</span><span class="p">]</span> <span class="o">+</span> <span class="n">t2</span><span class="p">[</span><span class="m">3</span><span class="p">]</span><span class="o">&gt;&gt;</span>
+</pre></div>
+</div>
+<p>Then <code class="docutils literal notranslate"><span class="pre">AddTimes(&lt;&lt;2,</span> <span class="pre">0,</span> <span class="pre">1&gt;&gt;,</span> <span class="pre">&lt;&lt;1,</span> <span class="pre">2,</span> <span class="pre">3&gt;&gt;)</span> <span class="pre">=</span> <span class="pre">&lt;&lt;3,</span> <span class="pre">2,</span> <span class="pre">4&gt;&gt;</span></code>, and <code class="docutils literal notranslate"><span class="pre">AddTimes(&lt;&lt;2,</span> <span class="pre">0,</span> <span class="pre">1&gt;&gt;,</span> <span class="pre">&lt;&lt;1,</span> <span class="pre">2,</span> <span class="pre">80&gt;&gt;)</span> <span class="pre">=</span> <span class="pre">&lt;&lt;3,</span> <span class="pre">2,</span> <span class="pre">81&gt;&gt;</span></code>.</p>
+<p>Wait, 81 seconds? Our clock can’t show 81 seconds, the answer should be <code class="docutils literal notranslate"><span class="pre">&lt;&lt;3,</span> <span class="pre">3,</span> <span class="pre">21&gt;&gt;</span></code>. You can think of there being a set of valid clock values, all the way from <code class="docutils literal notranslate"><span class="pre">&lt;&lt;0,</span> <span class="pre">0,</span> <span class="pre">0&gt;&gt;</span></code> to <code class="docutils literal notranslate"><span class="pre">&lt;&lt;23,</span> <span class="pre">59,</span> <span class="pre">59&gt;&gt;</span></code>, and <code class="docutils literal notranslate"><span class="pre">AddTimes</span></code> should always return some value in that set, almost like it has a type signature. We can enforce this in TLA+, but first we need a way of generating sets of values from values. Fortunately, for every type of value in TLA+, there’s a method to generate sets of those values.<a class="footnote-reference brackets" href="#except-strings" id="id10">1</a></p>
+<p id="index-11">Let’s start with the easiest: to get the set of all booleans, just write <code class="docutils literal notranslate"><span class="pre">BOOLEAN</span></code>. That’s the set <code class="docutils literal notranslate"><span class="pre">{TRUE,</span> <span class="pre">FALSE}</span></code>. For integers, <code class="docutils literal notranslate"><span class="pre">a..b</span></code> is the set <code class="docutils literal notranslate"><span class="pre">{a,</span> <span class="pre">a+1,</span> <span class="pre">a+2,</span> <span class="pre">...</span> <span class="pre">,</span> <span class="pre">b}</span></code>. You need <code class="docutils literal notranslate"><span class="pre">EXTENDS</span> <span class="pre">Integers</span></code> for this to work.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&gt;</span> <span class="pre">b</span></code>, then <code class="docutils literal notranslate"><span class="pre">a..b</span></code> is empty. This makes a lot of things a lot simpler. For example, <code class="docutils literal notranslate"><span class="pre">1..Len(seq)</span></code> is the set of the indices of <code class="docutils literal notranslate"><span class="pre">seq</span></code>. If <code class="docutils literal notranslate"><span class="pre">seq</span> <span class="pre">=</span> <span class="pre">&lt;&lt;&gt;&gt;</span></code>, you get <code class="docutils literal notranslate"><span class="pre">1..0</span> <span class="pre">=</span> <span class="pre">{}</span></code>, which is what you’d expect.</p>
+</div>
+<p id="x"><span id="index-12"></span>Now for sequences. The <em class="dfn">Cartesian product</em> of two sets S and T is the set of all sequences where the first element is in S and the second is in T. It’s written with <code class="docutils literal notranslate"><span class="pre">\X</span></code>. For example, consider <code class="docutils literal notranslate"><span class="pre">LoginAttempt</span></code> containing who’s logging in, the time they attempted the login, and if it was successful or not. I can represent the set of all possible such values as <code class="docutils literal notranslate"><span class="pre">LoginAttempt</span> <span class="pre">==</span> <span class="pre">Person</span> <span class="pre">\X</span> <span class="pre">Time</span> <span class="pre">\X</span> <span class="pre">BOOLEAN</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">\X</span></code> is <em>not</em> associative:</p>
+<blockquote>
+<div><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>S == 1..3
+
+&gt;&gt; &lt;&lt;1, 2, 3&gt;&gt; \in S \X S \X S
+TRUE
+
+&gt;&gt; &lt;&lt;1, 2, 3&gt;&gt; \in (S \X S) \X S
+FALSE
+
+&gt;&gt; &lt;&lt;&lt;&lt;1, 2&gt;&gt;, 3&gt;&gt; \in (S \X S) \X S
+TRUE
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<p>Speaking of <code class="docutils literal notranslate"><span class="pre">Time</span></code>, we can combine <code class="docutils literal notranslate"><span class="pre">\X</span></code> and <code class="docutils literal notranslate"><span class="pre">..</span></code> to finally get our clock type:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">ClockType</span> <span class="o">==</span> <span class="p">(</span><span class="m">0</span><span class="o">..</span><span class="m">23</span><span class="p">)</span> <span class="s">\X</span> <span class="p">(</span><span class="m">0</span><span class="o">..</span><span class="m">59</span><span class="p">)</span> <span class="s">\X</span> <span class="p">(</span><span class="m">0</span><span class="o">..</span><span class="m">59</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>As a quick sanity check, run <code class="docutils literal notranslate"><span class="pre">Cardinality(ClockType)</span></code> in your <a class="reference internal" href="setup.html#scratch"><span class="std std-ref">Making a Scratchfile</span></a> (remember, you’ll need <code class="docutils literal notranslate"><span class="pre">EXTENDS</span> <span class="pre">FiniteSets</span></code>). You should see it has 86400 elements. We’re now one step closer to having a property for <code class="docutils literal notranslate"><span class="pre">AddTimes</span></code>: we want the result of it to always return a value in <code class="docutils literal notranslate"><span class="pre">ClockType</span></code>.</p>
+<p id="subset"><span id="index-13"></span>Finally, we can get all subsets of a set with <code class="docutils literal notranslate"><span class="pre">SUBSET</span> <span class="pre">S</span></code>. <code class="docutils literal notranslate"><span class="pre">SUBSET</span> <span class="pre">ClockType</span></code> will be all the sets containing a bunch of clock values… all 2^86400 of them. <em>Don’t do this.</em></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>I often see beginners try to test if “S is a subset of T” by writing <code class="docutils literal notranslate"><span class="pre">S</span> <span class="pre">\in</span> <span class="pre">SUBSET</span> <span class="pre">T</span></code>. This works but is very inefficient. Write <code class="docutils literal notranslate"><span class="pre">S</span> <span class="pre">\subseteq</span> <span class="pre">T</span></code> instead.</p>
+</div>
+<section id="map-and-filter">
+<span id="filter"></span><span id="map"></span><h4>Map and Filter<a class="headerlink" href="#map-and-filter" title="Permalink to this headline">¶</a></h4>
+<p>Sets can be mapped and filtered.</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="c">\* Map</span>
+<span class="n">Squares</span> <span class="o">==</span> <span class="n">{x</span><span class="o">*</span><span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="s">\in</span> <span class="m">1</span><span class="o">..</span><span class="m">4</span><span class="n">}</span>
+
+<span class="c">\* Filter</span>
+<span class="n">Evens</span> <span class="o">==</span> <span class="n">{x</span> <span class="s">\in</span> <span class="m">1</span><span class="o">..</span><span class="m">4</span><span class="p">:</span> <span class="n">x</span> <span class="o">%</span> <span class="m">2</span> <span class="o">=</span> <span class="m">0</span> <span class="n">}</span>
+</pre></div>
+</div>
+<p>I’ve found that the best way to remember which is which is by reading the colon as a “where”. So the map is “x squared where x in 1..4”, while the filter is “x in 1..4 where x is even”.</p>
+<p>To get all the times in the second half of each hour, we could write:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">{t</span> <span class="s">\in</span> <span class="n">ClockType</span><span class="p">:</span> <span class="n">t</span><span class="p">[</span><span class="m">2</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="m">30</span> <span class="o">/\</span> <span class="n">t</span><span class="p">[</span><span class="m">3</span><span class="p">]</span> <span class="o">=</span> <span class="m">0</span><span class="n">}</span>
+</pre></div>
+</div>
+<p>Map and filter are great for utility, too. The <em>range</em> of a sequence is the set of all elements in the sequence. We can get that with a set map:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">Range</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span> <span class="o">==</span> <span class="n">{seq</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span> <span class="n">i</span> <span class="s">\in</span> <span class="m">1</span><span class="o">..</span><span class="n">Len</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span><span class="n">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="choose">
+<span id="index-14"></span><span id="id11"></span><h3>CHOOSE<a class="headerlink" href="#choose" title="Permalink to this headline">¶</a></h3>
+<p>Getting the number of seconds past midnight from a clock value is straightforward. But what about going the other way? If we have a time in seconds, we can get the clock time by</p>
+<ol class="arabic simple">
+<li><p>Floor divide by 3600 to get the total hours.</p></li>
+<li><p>Floor divide again the remainder by 60 to get the total minutes.</p></li>
+<li><p>Take the remainder of the second division as seconds.</p></li>
+</ol>
+<p>This <em>constructs</em> a clock value from the total seconds. This is how we’d do it in a programming language, where we are implementing algorithms to do things. But it’s also error-prone. What happens if I pass in 90,000? Then this would give me <code class="docutils literal notranslate"><span class="pre">&lt;&lt;25,</span> <span class="pre">0,</span> <span class="pre">0&gt;&gt;</span></code> — a value outside of our <code class="docutils literal notranslate"><span class="pre">ClockType</span></code>.</p>
+<p>Here’s another thing we could do:</p>
+<ol class="arabic simple">
+<li><p>Take the set of all possible clock values.</p></li>
+<li><p>Pick the element in the set that, when converted to seconds, gives us the value.</p></li>
+</ol>
+<p>We don’t do it this way because “the set of all possible clock values” is over 80,000 elements long and doing a find on an 80,000 element list is a waste of resources. But it more closely matches the <em>definition</em> of the conversion, making it more useful for <em>specification</em>. In TLA+ we can write the selection like this:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">ToClock</span><span class="p">(</span><span class="n">seconds</span><span class="p">)</span> <span class="o">==</span> <span class="s">CHOOSE</span> <span class="n">x</span> <span class="s">\in</span> <span class="n">ClockType</span><span class="p">:</span> <span class="n">ToSeconds</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="n">seconds</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">CHOOSE</span> <span class="pre">x</span> <span class="pre">\in</span> <span class="pre">set:</span> <span class="pre">P(x)</span></code> is the generic “selection” syntax. Try it in <a class="reference internal" href="setup.html#scratch"><span class="std std-ref">Making a Scratchfile</span></a>.</p>
+<p>CHOOSE is useful whenever we need to pull a value from a set.</p>
+<p>Now what happens if we write <code class="docutils literal notranslate"><span class="pre">ToClock(86401)</span></code>? There are no clock times that have 86,401 seconds. If you try this, TLC will raise an error. This is in contrast to the implementation solution, which will instead give us a nonsense value. 99% of the time if it can’t find a corresponding element of the set, that’s a bug in the specification, an edge case you didn’t consider. Better to harden up the operator:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">ToClock</span><span class="p">(</span><span class="n">seconds</span><span class="p">)</span> <span class="o">==</span> <span class="s">CHOOSE</span> <span class="n">x</span> <span class="s">\in</span> <span class="n">ClockType</span><span class="p">:</span> <span class="n">ToSeconds</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="n">seconds</span> <span class="o">%</span> <span class="m">86400</span>
+</pre></div>
+</div>
+<div class="admonition-troubleshooting admonition" id="id12">
+<p class="admonition-title">Troubleshooting</p>
+<p>If you see an error like</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">Attempted to compute the value of an expression of form</div>
+<div class="line">CHOOSE x in S: P, but no element of S satisfied P.</div>
+</div>
+</div></blockquote>
+<p>It’s because you wrote a <code class="docutils literal notranslate"><span class="pre">CHOOSE</span></code> that couldn’t find any values.  Sometimes this just means you got the expression wrong. But other times, it points to an actual flaw in your system: you expected a value to exist, and it did not. Better write some error-handling logic or you’ll get a nasty surprise in production.</p>
+</div>
+<div class="admonition warning" id="choose-deterministic">
+<p class="admonition-title">Warning</p>
+<p>What if multiple values satisfy <code class="docutils literal notranslate"><span class="pre">CHOOSE</span></code>? In this case the only requirement is that the result is <em>deterministic</em>: the engine must always return the same value, no matter what. In practice this means that TLC will always choose the lowest value that matches the set.</p>
+</div>
+</section>
+</section>
+<section id="let">
+<span id="index-15"></span><span id="id13"></span><h2>LET<a class="headerlink" href="#let" title="Permalink to this headline">¶</a></h2>
+<p>As you can imagine, TLA+ operators can get quite complex! To make them easier to follow, we can break them into suboperators, using <code class="docutils literal notranslate"><span class="pre">LET</span></code>:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">ToClock</span><span class="p">(</span><span class="n">seconds</span><span class="p">)</span> <span class="o">==</span>
+  <span class="k k-Conditional">LET</span> <span class="n">seconds_per_day</span> <span class="o">==</span> <span class="m">86400</span>
+  <span class="n">IN</span> <span class="s">CHOOSE</span> <span class="n">x</span> <span class="s">\in</span> <span class="n">ClockType</span><span class="p">:</span> <span class="n">ToSeconds</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="n">seconds</span> <span class="o">%</span> <span class="n">seconds_per_day</span>
+</pre></div>
+</div>
+<p>The LET gives us a new definition, locally scoped to <code class="docutils literal notranslate"><span class="pre">ToClock</span></code>. <code class="docutils literal notranslate"><span class="pre">seconds_per_day</span></code> is an operator that only exists in the definition of this one.</p>
+<p>Wait, operator? Yes, we can add parameterized operators in <code class="docutils literal notranslate"><span class="pre">LET</span></code>, too!</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">ThreeMax</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span> <span class="o">==</span>
+   <span class="k k-Conditional">LET</span>
+     <span class="n">Max</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="o">==</span> <span class="k k-Conditional">IF</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span> <span class="k k-Conditional">THEN</span> <span class="n">x</span> <span class="k k-Conditional">ELSE</span> <span class="n">y</span>
+   <span class="n">IN</span>
+     <span class="n">Max</span><span class="p">(</span><span class="n">Max</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">),</span> <span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>And you can define multiple operators in the same LET:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">ThreeMax</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span> <span class="o">==</span>
+   <span class="k k-Conditional">LET</span>
+     <span class="n">Max</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="o">==</span> <span class="k k-Conditional">IF</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span> <span class="k k-Conditional">THEN</span> <span class="n">x</span> <span class="k k-Conditional">ELSE</span> <span class="n">y</span>
+     <span class="n">maxab</span> <span class="o">==</span> <span class="n">Max</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+   <span class="n">IN</span>
+     <span class="n">Max</span><span class="p">(</span><span class="n">maxab</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Each operator in the LET can refer to previously defined operators in that scope. With this we can construct solutions step-by-step.</p>
+<p>Let’s calculate <code class="docutils literal notranslate"><span class="pre">ToClock</span></code> the “programming way”:</p>
+<blockquote>
+<div><div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">ToClock2</span><span class="p">(</span><span class="n">seconds</span><span class="p">)</span> <span class="o">==</span>
+  <span class="k k-Conditional">LET</span>
+    <span class="n">h</span> <span class="o">==</span> <span class="n">seconds</span> <span class="nb">\div</span> <span class="m">3600</span>
+    <span class="n">h_left</span> <span class="o">==</span> <span class="n">seconds</span> <span class="o">%</span> <span class="m">3600</span>
+    <span class="n">m</span> <span class="o">==</span> <span class="n">h_left</span> <span class="nb">\div</span> <span class="m">60</span>
+    <span class="n">m_left</span> <span class="o">==</span> <span class="n">h_left</span> <span class="o">%</span> <span class="m">60</span>
+    <span class="n">s</span> <span class="o">==</span> <span class="n">m_left</span>
+  <span class="n">IN</span>
+    <span class="o">&lt;&lt;</span><span class="n">h</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">s</span><span class="o">&gt;&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; ToClock2(90000)
+
+&lt;&lt;25, 0, 0&gt;&gt;
+</pre></div>
+</div>
+<p>If you have to write a complex operator, breaking it into steps with LET is a great way to make it more understandable.</p>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Operators are top-level “functions”, and evaluate to expressions. They are written <code class="docutils literal notranslate"><span class="pre">Op(a,</span> <span class="pre">b)</span> <span class="pre">==</span> <span class="pre">expr</span></code>, with two equal-signs.</p>
+<ul>
+<li><p>Operators can have conditions with <code class="docutils literal notranslate"><span class="pre">IF-THEN-ELSE</span></code>, and suboperators with <code class="docutils literal notranslate"><span class="pre">LET-IN</span></code>.</p></li>
+</ul>
+</li>
+<li><p>Sequences are collections of ordered values, and are 1-indexed.</p></li>
+<li><p>Logic is <code class="docutils literal notranslate"><span class="pre">/\</span></code> for “and”, <code class="docutils literal notranslate"><span class="pre">\/</span></code> for “or”, and <code class="docutils literal notranslate"><span class="pre">~</span></code> for “not”.</p>
+<ul>
+<li><p>Logical statements can be written “bullet-points” style.</p></li>
+</ul>
+</li>
+<li><p>Sets are collections of unordered, unique values.</p>
+<ul>
+<li><p>We can test if an element is <code class="docutils literal notranslate"><span class="pre">\in</span></code> a set or if a set is a <code class="docutils literal notranslate"><span class="pre">\subseteq</span></code> of another set.</p></li>
+<li><p>We can <code class="docutils literal notranslate"><span class="pre">\union</span></code>, <code class="docutils literal notranslate"><span class="pre">\intersect</span></code>, and (set difference) two sets.</p></li>
+<li><p>We can CHOOSE elements of sets.</p></li>
+</ul>
+</li>
+<li><p>All types have “sets of” that type. For integers it’s <code class="docutils literal notranslate"><span class="pre">a..b</span></code>, for booleans it’s <code class="docutils literal notranslate"><span class="pre">BOOLEAN</span></code>, for sets it’s <code class="docutils literal notranslate"><span class="pre">SUBSET</span></code>, and for sequences it’s <code class="docutils literal notranslate"><span class="pre">S1</span> <span class="pre">\X</span> <span class="pre">S2</span></code>.</p>
+<ul>
+<li><p>We can map and filter sets.</p></li>
+</ul>
+</li>
+</ul>
+<dl class="footnote brackets">
+<dt class="label" id="except-strings"><span class="brackets"><a class="fn-backref" href="#id10">1</a></span></dt>
+<dd><p>Except strings. Well actually there is a keyword, <code class="docutils literal notranslate"><span class="pre">STRING</span></code>, but it represents all possible strings, which is an infinitely large set, so…</p>
+</dd>
+<dt class="label" id="iff"><span class="brackets"><a class="fn-backref" href="#id5">2</a></span></dt>
+<dd><p>There’s also <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">&lt;=&gt;</span> <span class="pre">B</span></code> for “A and B are both true or both false”, but it’s the same thing as writing <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">=</span> <span class="pre">B</span></code>.</p>
+</dd>
+</dl>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&lt;</span><span>Page contents</span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&gt;</span><span>Page contents:</span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">Operators and Values</a><ul>
+<li><a class="reference internal" href="#index-0">Operators</a><ul>
+<li><a class="reference internal" href="#if-then-else">IF-THEN-ELSE</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#values">Values</a><ul>
+<li><a class="reference internal" href="#the-obvious-ones">The obvious ones</a></li>
+<li><a class="reference internal" href="#booleans">Booleans</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#sequences">Sequences</a></li>
+<li><a class="reference internal" href="#sets">Sets</a><ul>
+<li><a class="reference internal" href="#set-operators">Set Operators</a></li>
+<li><a class="reference internal" href="#sets-of-values">Sets of Values</a><ul>
+<li><a class="reference internal" href="#map-and-filter">Map and Filter</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#choose">CHOOSE</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#let">LET</a></li>
+<li><a class="reference internal" href="#summary">Summary</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+                <a href="setup.html">
+                    <span class="icon">&lt;</span><span>Setup</span></a>
+                
+            </div>
+
+            <div class="right">
+                
+                    <a href="pluscal.html"><span>Writing Specifications</span><span class="icon">&gt;</span></a>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Hillel Wayne.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+    </div>
+
+<p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
+  </body>
+</html>

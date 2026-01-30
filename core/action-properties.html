@@ -1,0 +1,524 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Action Properties &#8212; Learn TLA+</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <script src="../_static/js/petite-vue.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="TLA+" href="tla.html" />
+    <link rel="prev" title="More Operators" href="advanced-operators.html" /> 
+  </head><body data-dark_mode_code_blocks="true">
+
+<div id="top_nav">
+    
+
+    <nav>
+        
+            
+        
+
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+        <h1><a href="../index.html" title="Go to homepage">Learn TLA+</a></h1>
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="../search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew.html">What’s New</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/conceptual-overview.html">Conceptual Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">TLA+</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Core</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="setup.html">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operators.html">Operators and Values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pluscal.html">Writing Specifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="invariants.html">Writing an Invariant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="constants.html">Parameterizing Specs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html">Structured Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nondeterminism.html">Nondeterminism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concurrency.html">Concurrency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="temporal-logic.html">Temporal Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced-operators.html">More Operators</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Action Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tla.html">TLA+</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html">Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="next-steps.html">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../topics/index.html">Topics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html#pluscal-specs">PlusCal Specs</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/standard-library.html">Standard Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/other-resources.html">Other Resources</a></li>
+</ul>
+
+<ul>
+  <li class="toctree-l1"><a href= "../genindex.html">Index</a></li>
+</ul>
+        </div>
+      </div>
+
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="action-properties">
+<span id="chapter-action-properties"></span><h1>Action Properties<a class="headerlink" href="#action-properties" title="Permalink to this headline">¶</a></h1>
+<section id="id2">
+<span id="action-property"></span><span id="index-0"></span><span id="id3"></span><h2>Action Properties<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>In the <a class="reference internal" href="temporal-logic.html"><span class="doc">last chapter</span></a> I said that all invariants are safety properties, but not all safety properties are invariants. Outside invariants, the biggest class of safety properties are “action properties”, which are restrictions on how the system is allowed to <em>change</em>.</p>
+<p>Let’s play a bit more with the threads spec:</p>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="c c-PreProc">----</span> <span class="c c-PreProc">MODULE</span> <span class="c c-PreProc">threads</span> <span class="c c-PreProc">----</span>
+<span class="kn">EXTENDS</span> <span class="n">TLC</span><span class="p">,</span> <span class="n">Integers</span>
+<span class="kn">CONSTANT</span> <span class="n">NULL</span>
+
+<span class="n">NumThreads</span> <span class="o">==</span> <span class="m">2</span>
+<span class="n">Threads</span> <span class="o">==</span> <span class="m">1</span><span class="o">..</span><span class="n">NumThreads</span>
+
+<span class="nf">(* --algorithm threads</span>
+
+<span class="n">variables</span> 
+  <span class="n">counter</span> <span class="o">=</span> <span class="m">0</span><span class="p">;</span>
+  <span class="n">lock</span> <span class="o">=</span> <span class="n">NULL</span><span class="p">;</span>
+
+<span class="nf">define</span>
+<span class="nf">end define</span><span class="p">;</span>  
+
+<span class="nt">process</span> <span class="n">thread</span> <span class="s">\in</span> <span class="n">Threads</span>
+<span class="n">variables</span> <span class="n">tmp</span> <span class="o">=</span> <span class="m">0</span><span class="p">;</span>
+<span class="nf">begin</span>
+<span class="nt">  GetLock:</span>
+    <span class="ld">await</span> <span class="n">lock</span> <span class="o">=</span> <span class="n">NULL</span><span class="p">;</span>
+    <span class="n">lock</span> <span class="o">:=</span> <span class="n">self</span><span class="p">;</span>
+
+<span class="nt">  GetCounter:</span>
+    <span class="n">tmp</span> <span class="o">:=</span> <span class="n">counter</span><span class="p">;</span>
+
+<span class="nt">  IncCounter:</span>
+    <span class="n">counter</span> <span class="o">:=</span> <span class="n">tmp</span> <span class="o">+</span> <span class="m">1</span><span class="p">;</span>
+<span class="nt">  </span>
+<span class="nt">  ReleaseLock:</span>
+    <span class="n">lock</span> <span class="o">:=</span> <span class="n">NULL</span><span class="p">;</span> 
+<span class="nf">end process</span><span class="p">;</span>
+<span class="nf">end algorithm; *)</span>
+<span class="c c-PreProc">====</span>
+</pre></div>
+</div>
+<div class="code-block-caption"><span class="caption-text"><span>19 states / 17 distinct</span> <a class="reference download internal" download="" href="../_downloads/45fa2c4748fce26daf4c10e10fe5bc43/threads.tla"><code class="xref download docutils literal notranslate"><span class="pre">spec</span></code></a></span><a class="headerlink" href="#id4" title="Permalink to this code">¶</a></div>
+</div>
+<p>Here are a couple of restrictions on the way the spec should be allowed to change:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">counter</span></code> should only increase.</p></li>
+<li><p>If a thread holds the lock, it <em>cannot</em> go to another thread without being unlocked first.</p></li>
+</ul>
+<p>Here’s how we write the first as an action property:</p>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="highlight-udiff notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>  lock = NULL;<span class="w"></span>
+<span class="w"> </span>
+<span class="w"> </span>define<span class="w"></span>
+<span class="gi">+  CounterOnlyIncreases ==</span><span class="w"></span>
+<span class="gi">+    [][counter&#39; &gt;= counter]_counter</span><span class="w"></span>
+<span class="w"> </span>end define;  <span class="w"></span>
+<span class="w"> </span>
+<span class="w"> </span>process thread \in Threads<span class="w"></span>
+</pre></div>
+</div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference download internal" download="" href="../_downloads/d9a3bda66a7b5e345e6787a0431c97f5/threads.tla"><code class="xref download docutils literal notranslate"><span class="pre">spec</span></code></a></span><a class="headerlink" href="#id5" title="Permalink to this code">¶</a></div>
+</div>
+<p>Wait, <em>what</em>?</p>
+<p>Don’t worry, I’ll explain this syntax in <a class="reference internal" href="#action-prop-syntax"><span class="std std-ref">the next section</span></a>. For now, let’s confirm that this actually breaks. First make a change where counter decreases:</p>
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="highlight-udiff notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>    tmp := counter;<span class="w"></span>
+<span class="w"> </span>
+<span class="w"> </span>  IncCounter:<span class="w"></span>
+<span class="gd">-    counter := tmp + 1;</span><span class="w"></span>
+<span class="gi">+    counter := tmp + IF tmp = 0 THEN 1 ELSE -1;</span><span class="w"></span>
+<span class="w"> </span>  <span class="w"></span>
+<span class="w"> </span>  ReleaseLock:<span class="w"></span>
+<span class="w"> </span>    lock := NULL; <span class="w"></span>
+</pre></div>
+</div>
+<div class="code-block-caption"><span class="caption-text">(fails) <a class="reference download internal" download="" href="../_downloads/f0daf60754e3936ac5c1b4d27f92934d/threads.tla"><code class="xref download docutils literal notranslate"><span class="pre">spec</span></code></a></span><a class="headerlink" href="#id6" title="Permalink to this code">¶</a></div>
+</div>
+<p>Now run this with <code class="docutils literal notranslate"><span class="pre">PROPERTY</span> <span class="pre">CounterOnlyIncreases</span></code> (<strong>not</strong> as an invariant). If set up right, you should see this error:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>\* some initial states
+State 7:
+  /\ counter = 1
+  /\ lock = 1
+  /\ pc = &lt;&lt;&quot;IncCounter&quot;, &quot;Done&quot;&gt;&gt;
+  /\ tmp = &lt;&lt;1, 0&gt;&gt;
+
+State 8:
+  /\ counter = 0
+  /\ lock = 1
+  /\ pc = &lt;&lt;&quot;ReleaseLock&quot;, &quot;Done&quot;&gt;&gt;
+  /\ tmp = &lt;&lt;1, 0&gt;&gt;
+</pre></div>
+</div>
+<p>This doesn’t fail because we have a state where the counter is 0. That’s a totally valid state for the spec, and is in fact the starting state! It fails because counter <em>changes from 1 to 0</em>. It’s the fact <em>counter decreases</em> that’s an error.</p>
+<figure class="align-default" id="id7">
+<div class="graphviz"><img src="../_images/graphviz-b3a7f04c54633b4128ec49509725338f7ecef62a.png" alt="digraph G {
+label=&quot;val: counter&quot;;
+0 -&gt; 1 -&gt; 2;
+1 -&gt; 0[color=tomato];
+}" class="graphviz" /></div>
+<figcaption>
+<p><span class="caption-text">None of these states are illegal, but the <em>transition</em> from <code class="docutils literal notranslate"><span class="pre">counter=1</span></code> to <code class="docutils literal notranslate"><span class="pre">counter=0</span></code> is.</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<section id="understanding-the-syntax">
+<span id="action-prop-syntax"></span><span id="index-1"></span><h3>Understanding the Syntax<a class="headerlink" href="#understanding-the-syntax" title="Permalink to this headline">¶</a></h3>
+<p>On one hand, cool trick. On the other, we now have to figure out what <code class="docutils literal notranslate"><span class="pre">[][counter'</span> <span class="pre">&gt;=</span> <span class="pre">counter]_counter</span></code> is supposed to mean.</p>
+<hr class="docutils" />
+<p>It’s finally time to talk about the “actions” in “Temporal Logic of Actions”.</p>
+<p id="prime"><span id="index-2"></span>So remember how way back I said that <a class="reference internal" href="operators.html#string"><span class="std std-ref">strings must use double quotes</span></a>? That’s because single quotes have a special role in TLA+. In any given step, <code class="docutils literal notranslate"><span class="pre">x'</span></code> is the value of x at the <em>end of the step</em> and the value x starts as in the <em>next</em> step. <code class="docutils literal notranslate"><span class="pre">[](x'</span> <span class="pre">&gt;=</span> <span class="pre">x)</span></code>, then, is “it is always true that the <em>next value of x</em> is larger than or equal to x”.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>you can use primed operators in the <a class="reference internal" href="../topics/toolbox.html#trace-explorer"><span class="std std-ref">trace explorer</span></a>. It’ll show you the value of the expression in the next step.</p>
+</div>
+<p id="index-3">But that’s not (yet) a valid TLA+ property. Consider the slightly different property <code class="docutils literal notranslate"><span class="pre">[](x'</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">+</span> <span class="pre">1)</span></code>: “x always increases by exactly one”. What happens if we insert a <a class="reference internal" href="temporal-logic.html#stuttering"><span class="std std-ref">stutter step</span></a>? Then x doesn’t change at all, which means that the property is false. But by the definition of TLA+, we can <em>always</em> insert a stutter step anywhere. So this property is <em>trivially</em> false. The more interesting property we actually wanted to check was <code class="docutils literal notranslate"><span class="pre">[](x'</span> <span class="pre">#</span> <span class="pre">x</span> <span class="pre">=&gt;</span> <span class="pre">x'</span> <span class="pre">+</span> <span class="pre">1)</span></code>. Alternatively, we can write this as <code class="docutils literal notranslate"><span class="pre">x'</span> <span class="pre">&gt;</span> <span class="pre">x</span> <span class="pre">\/</span> <span class="pre">UNCHANGED</span> <span class="pre">x</span></code>.</p>
+<p id="box-action"><span id="index-4"></span>As yet more syntactic sugar, we can write <code class="docutils literal notranslate"><span class="pre">[](x'</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">+</span> <span class="pre">1</span> <span class="pre">\/</span> <span class="pre">UNCHANGED</span> <span class="pre">x)</span></code> as <code class="docutils literal notranslate"><span class="pre">[][x'</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">+</span> <span class="pre">1]_x</span></code>. This is called a <em class="dfn">box action formula</em>. Box action formulas have a special role in TLA+, as we’ll see in <a class="reference internal" href="tla.html"><span class="doc">the next chapter</span></a>. TLC can only check action properties that are box action formulas.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The underscory bit (<code class="docutils literal notranslate"><span class="pre">_</span></code>) means that we could have written the property as <code class="docutils literal notranslate"><span class="pre">[][counter'</span> <span class="pre">&gt;</span> <span class="pre">counter]_counter</span></code>. Expanding all the steps:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[counter'</span> <span class="pre">&gt;</span> <span class="pre">counter]_counter</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">counter'</span> <span class="pre">&gt;</span> <span class="pre">counter</span> <span class="pre">\/</span> <span class="pre">UNCHANGED</span> <span class="pre">counter</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">counter'</span> <span class="pre">&gt;</span> <span class="pre">counter</span> <span class="pre">\/</span> <span class="pre">counter'</span> <span class="pre">=</span> <span class="pre">counter</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">counter'</span> <span class="pre">&gt;=</span> <span class="pre">counter</span></code></p></li>
+</ol>
+<p>But in general, you shouldn’t rely on that aspect of <code class="docutils literal notranslate"><span class="pre">[]_x</span></code> for your property. If it’s okay for counter to stay the same, make that explicit.</p>
+</div>
+</section>
+<section id="more-action-properties">
+<h3>More Action Properties<a class="headerlink" href="#more-action-properties" title="Permalink to this headline">¶</a></h3>
+<p>Let’s add another property that “the lock can’t go straight from one thread to another”:</p>
+<div class="literal-block-wrapper docutils container" id="id8">
+<div class="highlight-udiff notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>define<span class="w"></span>
+<span class="w"> </span>  CounterOnlyIncreases ==<span class="w"></span>
+<span class="w"> </span>    [][counter&#39; &gt;= counter]_counter<span class="w"></span>
+<span class="gi">+</span><span class="w"></span>
+<span class="gi">+  LockCantBeStolen ==</span><span class="w"></span>
+<span class="gi">+    [][lock # NULL =&gt; lock&#39; = NULL]_lock</span><span class="w"></span>
+<span class="w"> </span>end define;  <span class="w"></span>
+<span class="w"> </span>
+<span class="w"> </span>process thread \in Threads<span class="w"></span>
+<span class="gu">@@ -27,7 +30,7 @@</span><span class="w"></span>
+<span class="w"> </span>    tmp := counter;<span class="w"></span>
+<span class="w"> </span>
+<span class="w"> </span>  IncCounter:<span class="w"></span>
+<span class="gd">-    counter := tmp + IF tmp = 0 THEN 1 ELSE -1;</span><span class="w"></span>
+<span class="gi">+    counter := tmp + 1;</span><span class="w"></span>
+<span class="w"> </span>  <span class="w"></span>
+<span class="w"> </span>  ReleaseLock:<span class="w"></span>
+<span class="w"> </span>    lock := NULL; <span class="w"></span>
+</pre></div>
+</div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference download internal" download="" href="../_downloads/c657871a4135885366e7c313e72cf753/threads.tla"><code class="xref download docutils literal notranslate"><span class="pre">spec</span></code></a></span><a class="headerlink" href="#id8" title="Permalink to this code">¶</a></div>
+</div>
+<p>And now we’ll make a change that breaks this property:</p>
+<div class="literal-block-wrapper docutils container" id="id9">
+<div class="highlight-udiff notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>variables tmp = 0;<span class="w"></span>
+<span class="w"> </span>begin<span class="w"></span>
+<span class="w"> </span>  GetLock:<span class="w"></span>
+<span class="gd">-    await lock = NULL;</span><span class="w"></span>
+<span class="w"> </span>    lock := self;<span class="w"></span>
+<span class="w"> </span>
+<span class="w"> </span>  GetCounter:<span class="w"></span>
+</pre></div>
+</div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference download internal" download="" href="../_downloads/b69c7713edcf6927430a0cdd9fc22ddf/threads.tla"><code class="xref download docutils literal notranslate"><span class="pre">spec</span></code></a></span><a class="headerlink" href="#id9" title="Permalink to this code">¶</a></div>
+</div>
+<p>Running with <code class="docutils literal notranslate"><span class="pre">PROPERTY</span> <span class="pre">LockCantBeStolen</span></code> shows this fail.</p>
+<div align="center" class="align-center"><div class="graphviz"><img src="../_images/graphviz-d3ec244dfbe6ab5bdd9b36644b83c92ab1d933a7.png" alt="digraph LockCantBeStolen {
+rankdir=TB;
+label=&quot;val: lock&quot;;
+NULL -&gt; {t1 t2};
+{t1 t2} -&gt; NULL;
+t1 -&gt; t2[color=tomato];
+}" class="graphviz" /></div>
+</div>
+<p>Another way we could have written the property:</p>
+<div class="literal-block-wrapper docutils container" id="id10">
+<div class="highlight-udiff notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>
+<span class="w"> </span>  LockCantBeStolen ==<span class="w"></span>
+<span class="w"> </span>    [][lock # NULL =&gt; lock&#39; = NULL]_lock<span class="w"></span>
+<span class="gi">+</span><span class="w"></span>
+<span class="gi">+  LockNullBeforeAcquired ==</span><span class="w"></span>
+<span class="gi">+    [][lock&#39; # NULL =&gt; lock = NULL]_lock</span><span class="w"></span>
+<span class="w"> </span>end define;  <span class="w"></span>
+<span class="w"> </span>
+<span class="w"> </span>process thread \in Threads<span class="w"></span>
+</pre></div>
+</div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference download internal" download="" href="../_downloads/d3ef9e4778809b906055bd9e32eb8a4a/threads.tla"><code class="xref download docutils literal notranslate"><span class="pre">spec</span></code></a></span><a class="headerlink" href="#id10" title="Permalink to this code">¶</a></div>
+</div>
+<p>You <em>can</em> use helper actions in your action properties, so we could do something like</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">BecomesNull</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">==</span> <span class="n">x&#39;</span> <span class="o">=</span> <span class="n">NULL</span>
+
+<span class="n">LockCantBeStolen</span> <span class="o">==</span>
+   <span class="ni">[]</span><span class="p">[</span><span class="n">lock</span> <span class="o">#</span> <span class="n">NULL</span> <span class="o">=&gt;</span> <span class="n">BecomesNull</span><span class="p">(</span><span class="n">lock</span><span class="p">)]</span><span class="n">_lock</span>
+</pre></div>
+</div>
+</section>
+<section id="quantified-action-properties">
+<h3>Quantified Action Properties<a class="headerlink" href="#quantified-action-properties" title="Permalink to this headline">¶</a></h3>
+<p>I mentioned earlier that TLC can only check top-level action properties. This can make some things a little awkward. Let’s write a quick spec with several independent counters:</p>
+<div class="literal-block-wrapper docutils container" id="id11">
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="c c-PreProc">----</span> <span class="c c-PreProc">MODULE</span> <span class="c c-PreProc">counters</span> <span class="c c-PreProc">----</span>
+<span class="kn">EXTENDS</span> <span class="n">Integers</span>
+
+<span class="n">Counters</span> <span class="o">==</span> <span class="n">{</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="n">}</span>
+<span class="nf">(* --algorithm counters</span>
+<span class="n">variables</span> 
+  <span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="s">\in</span> <span class="n">Counters</span> <span class="o">|-&gt;</span> <span class="m">0</span><span class="p">];</span>
+
+<span class="nf">define</span>
+<span class="nf">end define</span><span class="p">;</span>  
+
+<span class="nf">macro</span> <span class="n">increment</span><span class="p">()</span> <span class="nf">begin</span>
+  <span class="n">values</span><span class="p">[</span><span class="n">self</span><span class="p">]</span> <span class="o">:=</span> <span class="n">values</span><span class="p">[</span><span class="n">self</span><span class="p">]</span> <span class="o">+</span> <span class="m">1</span><span class="p">;</span>
+<span class="nf">end macro</span>
+
+<span class="nt">process</span> <span class="n">counter</span> <span class="s">\in</span> <span class="n">Counters</span>
+<span class="nf">begin</span>
+<span class="nt">  A:</span>
+    <span class="n">increment</span><span class="p">();</span>
+<span class="nt">  B:</span>
+    <span class="n">increment</span><span class="p">();</span>
+<span class="nf">end process</span><span class="p">;</span>
+<span class="nf">end algorithm; *)</span>
+<span class="c c-PreProc">=====</span>
+</pre></div>
+</div>
+<div class="code-block-caption"><span class="caption-text"><span>14 states / 9 distinct</span> <a class="reference download internal" download="" href="../_downloads/b27d069eea8e69fe129adea9a4c13730/counters.tla"><code class="xref download docutils literal notranslate"><span class="pre">spec</span></code></a></span><a class="headerlink" href="#id11" title="Permalink to this code">¶</a></div>
+</div>
+<p>As before, we want an action property saying that the counters are monotonic. Unlike before, we have several counters we need to quantify over.</p>
+<div class="literal-block-wrapper docutils container" id="id12">
+<div class="highlight-udiff notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>  values = [i \in Counters |-&gt; 0];<span class="w"></span>
+<span class="w"> </span>
+<span class="w"> </span>define<span class="w"></span>
+<span class="gi">+  CounterOnlyIncreases == </span><span class="w"></span>
+<span class="gi">+      \A c \in Counters:</span><span class="w"></span>
+<span class="gi">+        [][values[c]&#39; &gt;= values[c]]_values[c]</span><span class="w"></span>
+<span class="w"> </span>end define;  <span class="w"></span>
+<span class="w"> </span>
+<span class="w"> </span>macro increment() begin<span class="w"></span>
+</pre></div>
+</div>
+<div class="code-block-caption"><span class="caption-text">(fails) <a class="reference download internal" download="" href="../_downloads/dcf7d20dab6b4fbffffdc9055297b3e8/counters.tla"><code class="xref download docutils literal notranslate"><span class="pre">spec</span></code></a></span><a class="headerlink" href="#id12" title="Permalink to this code">¶</a></div>
+</div>
+<p>Unfortunately, TLC can’t check this, due to limitations of the model checker.</p>
+<blockquote>
+<div><p>[] followed by action not of form [A]_v.</p>
+</div></blockquote>
+<p>(The error is a little confusing, but it happens whenever we put our action property inside a quantifier).</p>
+<p>What we can do in this case is pull the quantifier <em>inside</em> the action property. It turns out that <code class="docutils literal notranslate"><span class="pre">[]</span></code> commutes with <code class="docutils literal notranslate"><span class="pre">\A</span></code>! In other words, any equation written <code class="docutils literal notranslate"><span class="pre">\A</span> <span class="pre">x:</span> <span class="pre">[]P(x)</span></code> is <em>equivalent</em> to the formula <code class="docutils literal notranslate"><span class="pre">[](\A</span> <span class="pre">x:</span> <span class="pre">P(x))</span></code>.</p>
+<div class="literal-block-wrapper docutils container" id="id13">
+<div class="highlight-udiff notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>
+<span class="w"> </span>define<span class="w"></span>
+<span class="w"> </span>  CounterOnlyIncreases == <span class="w"></span>
+<span class="gi">+    [][</span><span class="w"></span>
+<span class="w"> </span>      \A c \in Counters:<span class="w"></span>
+<span class="gd">-        [][values[c]&#39; &gt;= values[c]]_values[c]</span><span class="w"></span>
+<span class="gi">+        values[c]&#39; &gt;= values[c]</span><span class="w"></span>
+<span class="gi">+      ]_values</span><span class="w"></span>
+<span class="w"> </span>end define;  <span class="w"></span>
+<span class="w"> </span>
+<span class="w"> </span>macro increment() begin<span class="w"></span>
+</pre></div>
+</div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference download internal" download="" href="../_downloads/52b1dfb65d3ab5493cf4854bbb46f31d/counters.tla"><code class="xref download docutils literal notranslate"><span class="pre">spec</span></code></a></span><a class="headerlink" href="#id13" title="Permalink to this code">¶</a></div>
+</div>
+</section>
+</section>
+<section id="using-action-properties">
+<h2>Using Action Properties<a class="headerlink" href="#using-action-properties" title="Permalink to this headline">¶</a></h2>
+<p>Most of the specs I write have more invariants than action properties and more action properties than liveness properties. But liveness properties are arguably more “important” than action properties, as every spec needs at least one. Action props are powerful but optional.</p>
+<p>Nonetheless, I love using action properties. They give you an incredible amount of flexibility for defining new properties.</p>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Action properties are properties on <em>transitions</em> of a system, and are checked as temporal properties.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x'</span></code> is the value of <code class="docutils literal notranslate"><span class="pre">x</span></code> in the <em>next</em> state. Operators with primes in them are called <strong>Actions</strong>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[P]_x</span></code> means  <code class="docutils literal notranslate"><span class="pre">P</span> <span class="pre">\/</span> <span class="pre">UNCHANGED</span> <span class="pre">x</span></code>.</p></li>
+</ul>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&lt;</span><span>Page contents</span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&gt;</span><span>Page contents:</span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">Action Properties</a><ul>
+<li><a class="reference internal" href="#id2">Action Properties</a><ul>
+<li><a class="reference internal" href="#understanding-the-syntax">Understanding the Syntax</a></li>
+<li><a class="reference internal" href="#more-action-properties">More Action Properties</a></li>
+<li><a class="reference internal" href="#quantified-action-properties">Quantified Action Properties</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#using-action-properties">Using Action Properties</a></li>
+<li><a class="reference internal" href="#summary">Summary</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+                <a href="advanced-operators.html">
+                    <span class="icon">&lt;</span><span>More Operators</span></a>
+                
+            </div>
+
+            <div class="right">
+                
+                    <a href="tla.html"><span>TLA+</span><span class="icon">&gt;</span></a>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Hillel Wayne.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+    </div>
+
+<p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
+  </body>
+</html>

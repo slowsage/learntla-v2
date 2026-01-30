@@ -1,0 +1,475 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>General Tips &#8212; Learn TLA+</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <script src="../_static/js/petite-vue.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Using the Toolbox" href="toolbox.html" />
+    <link rel="prev" title="Topics" href="index.html" /> 
+  </head><body data-dark_mode_code_blocks="true">
+
+<div id="top_nav">
+    
+
+    <nav>
+        
+            
+        
+
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+        <h1><a href="../index.html" title="Go to homepage">Learn TLA+</a></h1>
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="../search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew.html">What’s New</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/conceptual-overview.html">Conceptual Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">TLA+</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../core/index.html">Core</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Topics</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">General Tips</a></li>
+<li class="toctree-l2"><a class="reference internal" href="toolbox.html">Using the Toolbox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cli.html">Beyond the Toolbox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="aux-vars.html">Auxiliary Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="refinement.html">Refinement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="unbound-models.html">Handling Unbound Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimization.html">Optimizing Model Checking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="message-queues.html">Message Queues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="state-machines.html">Finite State Machines</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html#pluscal-specs">PlusCal Specs</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/standard-library.html">Standard Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/other-resources.html">Other Resources</a></li>
+</ul>
+
+<ul>
+  <li class="toctree-l1"><a href= "../genindex.html">Index</a></li>
+</ul>
+        </div>
+      </div>
+
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="general-tips">
+<span id="topic-tips"></span><h1>General Tips<a class="headerlink" href="#general-tips" title="Permalink to this headline">¶</a></h1>
+<p>General small things for writing better specs.</p>
+<section id="both-tla-and-pluscal">
+<h2>Both TLA+ and PlusCal<a class="headerlink" href="#both-tla-and-pluscal" title="Permalink to this headline">¶</a></h2>
+<section id="use-assume">
+<h3>Use ASSUME<a class="headerlink" href="#use-assume" title="Permalink to this headline">¶</a></h3>
+<p>Every <code class="docutils literal notranslate"><span class="pre">CONSTANT</span></code> should have an <code class="docutils literal notranslate"><span class="pre">ASSUME</span></code> to communicate what values are expected of the constant. For model values, it usually suffices to make the <code class="docutils literal notranslate"><span class="pre">ASSUME</span></code> say it’s <em>not</em> part of a set. To say something is a certain data type, compare it to the empty value of that type. If it’s <em>not</em> that type TLC will crash the <code class="docutils literal notranslate"><span class="pre">ASSUME</span></code>, which serves the same purpose as it legitimiately failing.</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="kn">CONSTANT</span> <span class="n">Threads</span><span class="p">,</span> <span class="n">NULL</span>
+<span class="kn">ASSUME</span> <span class="n">Threads</span> <span class="o">#</span> <span class="n">{}</span>
+<span class="kn">ASSUME</span> <span class="n">NULL</span> <span class="s">\notin</span> <span class="n">Threads</span>
+</pre></div>
+</div>
+<p>From this it’s clear that Threads is a set and NULL is not a thread.</p>
+</section>
+<section id="model-tagged-unions-with-structs">
+<h3>Model tagged unions with structs<a class="headerlink" href="#model-tagged-unions-with-structs" title="Permalink to this headline">¶</a></h3>
+<p>TLC can’t have a set of strings and integers. If you need that, you can instead use structs with a <code class="docutils literal notranslate"><span class="pre">type</span></code> and <code class="docutils literal notranslate"><span class="pre">val</span></code> field.</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">{</span>
+ <span class="p">[</span><span class="n">type</span> <span class="o">|-&gt;</span> <span class="s">&quot;int&quot;</span><span class="p">,</span> <span class="n">val</span> <span class="o">|-&gt;</span> <span class="m">1</span><span class="p">],</span>
+ <span class="p">[</span><span class="n">type</span> <span class="o">|-&gt;</span> <span class="s">&quot;str&quot;</span><span class="p">,</span> <span class="n">val</span> <span class="o">|-&gt;</span> <span class="s">&quot;1&quot;</span><span class="p">]</span> <span class="c">\* ok</span>
+<span class="n">}</span>
+</pre></div>
+</div>
+</section>
+<section id="decompose-functions-of-structs">
+<span id="decompose-structs"></span><h3>Decompose functions of structs<a class="headerlink" href="#decompose-functions-of-structs" title="Permalink to this headline">¶</a></h3>
+<p>I often see people encode variables that are functions of structures:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="kn">VARIABLE</span> <span class="n">state</span>
+<span class="n">WorkerState</span> <span class="o">==</span> <span class="p">[</span><span class="n">queue</span><span class="p">:</span> <span class="n">Seq</span><span class="p">(</span><span class="n">Msg</span><span class="p">),</span> <span class="n">online</span><span class="p">:</span> <span class="bp">BOOLEAN</span><span class="p">]</span>
+<span class="n">Types</span> <span class="o">==</span>
+  <span class="n">state</span> <span class="s">\in</span> <span class="p">[</span><span class="n">Worker</span> <span class="o">-&gt;</span> <span class="n">WorkerState</span><span class="p">]</span>
+
+<span class="c">\* ...</span>
+</pre></div>
+</div>
+<p>This more closely matches how we do things in programming languages. It’s harder to work with in TLA+, though, because you can only update a variable once per step. So if you want to both <code class="docutils literal notranslate"><span class="pre">online</span></code> <em>and</em> <code class="docutils literal notranslate"><span class="pre">queue</span></code> in one step, you have to do them in the same expression. ie you can’t write</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="nt">Label:</span>
+  <span class="n">state</span><span class="p">[</span><span class="n">w</span><span class="p">]</span><span class="o">.</span><span class="n">online</span> <span class="o">=</span> <span class="bp">FALSE</span><span class="p">;</span>
+  <span class="n">state</span><span class="p">[</span><span class="n">w</span><span class="p">]</span><span class="o">.</span><span class="n">queue</span> <span class="o">=</span> <span class="o">&lt;&lt;&gt;&gt;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>It’s easier to instead break the variable into two other variables, like this:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="kn">VARIABLES</span> <span class="n">worker_queue</span><span class="p">,</span> <span class="n">worker_online</span>
+
+<span class="n">Types</span> <span class="o">==</span>
+  <span class="o">/\</span> <span class="n">worker_queue</span> <span class="s">\in</span> <span class="p">[</span><span class="n">Worker</span> <span class="o">-&gt;</span> <span class="n">Seq</span><span class="p">(</span><span class="n">Msg</span><span class="p">)]</span>
+  <span class="o">/\</span> <span class="n">worker_online</span> <span class="s">\in</span> <span class="p">[</span><span class="n">Worker</span> <span class="o">-&gt;</span> <span class="bp">BOOLEAN</span><span class="p">]</span>
+
+<span class="c">\* ...</span>
+</pre></div>
+</div>
+<p>Then you can update <code class="docutils literal notranslate"><span class="pre">worker_queue</span></code> and <code class="docutils literal notranslate"><span class="pre">worker_online</span></code> separately.</p>
+<p>The downsides of this are 1) when working in pure TLA+, your <code class="docutils literal notranslate"><span class="pre">UNCHANGED</span></code> statements get a bit more cluttered, and 2) it’s a little further from what your implementation will look like. But the upsides are enough to make it worth it.</p>
+<p>In general, I mostly use structures for immutable values, like the bodies of messages.</p>
+</section>
+<section id="separate-safety-and-liveness-models">
+<h3>Separate Safety and Liveness Models<a class="headerlink" href="#separate-safety-and-liveness-models" title="Permalink to this headline">¶</a></h3>
+<p>Since liveness properties take a lot longer to check (and can’t use <a class="reference internal" href="../core/constants.html#symmetry-set"><span class="std std-ref">symmetry sets</span></a>), I use a separate model for just checking liveness properties, which uses smaller constants.</p>
+</section>
+<section id="use-the-extra-space-in-a-module">
+<h3>Use the extra space in a module<a class="headerlink" href="#use-the-extra-space-in-a-module" title="Permalink to this headline">¶</a></h3>
+<p>All modules have to take the form</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="c">\* top area</span>
+<span class="c c-PreProc">----</span> <span class="c c-PreProc">MODULE</span> <span class="c c-PreProc">name</span> <span class="c c-PreProc">----</span>
+<span class="c">\* actual module</span>
+<span class="c c-PreProc">====</span>
+<span class="c">\* bottom area</span>
+</pre></div>
+</div>
+<p>Everything in the top space and the bottom space is ignored. I like using the bottom area as a “scratch space” and put various TLA+ code there. I use the top area to write more about the problem domain and requirements we’re trying to model, as well as information about the spec itself.</p>
+<p>More recently I’ve been experimenting with putting configuration data in the top area, which I then target with scripts. I used that to generate a lot of the <a class="reference external" href="https://github.com/hwayne/learntla-v2/tree/master/raw-specs">spec diffs</a> for this guide.</p>
+</section>
+<section id="theorem">
+<h3>THEOREM<a class="headerlink" href="#theorem" title="Permalink to this headline">¶</a></h3>
+<p>TLA+ has a <code class="docutils literal notranslate"><span class="pre">THEOREM</span></code> keyword, which <em>ostensibly</em> declares the properties of the spec:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">THEOREM</span> <span class="n">Spec</span> <span class="o">=&gt;</span> <span class="ni">[]</span><span class="n">TypeInvariant</span>
+</pre></div>
+</div>
+<p>This doesn’t do anything to the model checker, but it can be useful for documenting the properties of your system.</p>
+</section>
+<section id="typeinvariants-and-modelinvariants">
+<h3>TypeInvariants and ModelInvariants<a class="headerlink" href="#typeinvariants-and-modelinvariants" title="Permalink to this headline">¶</a></h3>
+<p>We’ve used TypeInvariants a lot already. They’re a good invariant for any system, and it’s good to always cover all of your variables in TypeInvariants. As a principle, I like the TypeInvariant to only cover the <em>possible</em> values of a variable, as opposed to the <em>legitimate values</em>. IE if two sets of numbers have to be disjoint, I’d split that into two invariants:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">TypeInvariant</span> <span class="o">==</span>
+  <span class="o">/\</span> <span class="n">set1</span> <span class="nb">\subseteq</span> <span class="n">Int</span>
+  <span class="o">/\</span> <span class="n">set2</span> <span class="nb">\subseteq</span> <span class="n">Int</span>
+
+<span class="n">SetsAreDisjoint</span> <span class="o">==</span>
+  <span class="o">/\</span> <span class="n">set1</span> <span class="nb">\intersect</span> <span class="n">set2</span> <span class="o">=</span> <span class="n">{}</span>
+</pre></div>
+</div>
+<p>I wouldn’t put <code class="docutils literal notranslate"><span class="pre">SetsAreDisjoint</span></code> into my TypeInvariant because I see that more as a “correctness” property of the system instead of just a bounds-check.</p>
+<p>Model invariants are like TypeInvariants, except that they used to check the state space is finite. For example:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="kn">CONSTANTS</span> <span class="n">MinInt</span><span class="p">,</span> <span class="n">MaxInt</span>
+<span class="kn">ASSUME</span> <span class="n">{MinInt</span><span class="p">,</span> <span class="n">MaxInt}</span> <span class="nb">\subseteq</span> <span class="n">Int</span>
+
+<span class="n">ModelInt</span> <span class="o">==</span> <span class="n">MinInt</span> <span class="o">..</span> <span class="n">MaxInt</span>
+<span class="n">ModelInvariant</span> <span class="o">==</span>
+  <span class="o">/\</span> <span class="n">set1</span> <span class="nb">\subseteq</span> <span class="n">ModelInt</span>
+  <span class="o">/\</span> <span class="n">set2</span> <span class="nb">\subseteq</span> <span class="n">ModelInt</span>
+</pre></div>
+</div>
+<p>Then you can write your spec to satisfy <code class="docutils literal notranslate"><span class="pre">ModelInvariant</span></code>, or at a <a class="reference internal" href="toolbox.html#state-constraint"><span class="std std-ref">state constraint</span></a> to your model runs.</p>
+</section>
+</section>
+<section id="pluscal">
+<h2>PlusCal<a class="headerlink" href="#pluscal" title="Permalink to this headline">¶</a></h2>
+<section id="use-macros">
+<h3>Use macros<a class="headerlink" href="#use-macros" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference internal" href="../core/pluscal.html#macro"><span class="std std-ref">Macros</span></a> are your main form of statement reuse in PlusCal.</p>
+</section>
+<section id="while-loops-considered-harmful">
+<h3>While loops considered harmful<a class="headerlink" href="#while-loops-considered-harmful" title="Permalink to this headline">¶</a></h3>
+<p>A <a class="reference internal" href="../core/pluscal.html#while"><span class="std std-ref">while</span></a> loop creates a new state for <em>every</em> loop iteration, adding a lot of concurrency and state-space explosion to your spec. Sometimes this is what you want, when say reading from a queue. But I often see beginners use while loops to do <em>computations</em>, like this:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="nt">Double:</span>
+  <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">Len</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span> <span class="k">do</span>
+    <span class="n">seq</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">:=</span> <span class="n">seq</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="m">2</span><span class="p">;</span>
+    <span class="n">i</span> <span class="o">:=</span> <span class="n">i</span> <span class="o">+</span> <span class="m">1</span><span class="p">;</span>
+  <span class="k">end</span> <span class="k">while</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Instead, reassign the entire sequence in one step:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="nt">Double:</span>
+  <span class="n">seq</span> <span class="o">:=</span> <span class="p">[</span><span class="n">i</span> <span class="s">\in</span> <span class="m">1</span><span class="o">..</span><span class="n">Len</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span> <span class="o">|-&gt;</span> <span class="n">seq</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="m">2</span><span class="p">];</span>
+</pre></div>
+</div>
+</section>
+<section id="state-sweeping">
+<h3>State sweeping<a class="headerlink" href="#state-sweeping" title="Permalink to this headline">¶</a></h3>
+<p>Discussed <a class="reference internal" href="../core/functions.html#state-sweeping"><span class="std std-ref">here</span></a>.</p>
+</section>
+</section>
+<section id="tla">
+<h2>TLA+<a class="headerlink" href="#tla" title="Permalink to this headline">¶</a></h2>
+<section id="managing-unchanged">
+<h3>Managing UNCHANGED<a class="headerlink" href="#managing-unchanged" title="Permalink to this headline">¶</a></h3>
+<p>If you have a lot of variables, <a class="reference internal" href="../core/tla.html#unchanged"><span class="std std-ref">Everything must be defined</span></a> statements get unweildy quickly. Fortunately, you can group variables as sequences and then use UNCHANGED on a sequence of groups.</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="kn">VARIABLE</span> <span class="n">worker_queue</span><span class="p">,</span> <span class="n">worker_online</span>
+<span class="kn">VARIABLE</span> <span class="n">topic_subscribers</span><span class="p">,</span> <span class="n">topic_id</span>
+
+<span class="n">worker_state</span> <span class="o">==</span> <span class="o">&lt;&lt;</span><span class="n">worker_queue</span><span class="p">,</span> <span class="n">worker_online</span><span class="o">&gt;&gt;</span>
+<span class="n">topic_state</span> <span class="o">==</span> <span class="o">&lt;&lt;</span><span class="n">topic_subscribers</span><span class="p">,</span> <span class="n">topic_id</span><span class="o">&gt;&gt;</span>
+
+<span class="n">SomeAction</span> <span class="o">==</span>
+  <span class="o">/\</span> <span class="n">x&#39;</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="m">1</span>
+  <span class="o">/\</span> <span class="n">UNCHANGED</span> <span class="o">&lt;&lt;</span><span class="n">worker_state</span><span class="p">,</span> <span class="n">topic_state</span><span class="o">&gt;&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="helper-actions">
+<h3>Helper Actions<a class="headerlink" href="#helper-actions" title="Permalink to this headline">¶</a></h3>
+<p>It’s okay to split the next-state relations across multiple actions. One thing I do a lot is write a helper to update <code class="docutils literal notranslate"><span class="pre">pc</span></code>:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">Trans</span><span class="p">(</span><span class="n">agent</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="o">==</span>
+  <span class="o">/\</span> <span class="n">pc</span><span class="p">[</span><span class="n">agent</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span>
+  <span class="o">/\</span> <span class="n">pc&#39;</span> <span class="o">=</span> <span class="p">[</span><span class="n">pc</span> <span class="n">EXCEPT</span> <span class="n">!</span><span class="p">[</span><span class="n">agent</span><span class="p">]</span> <span class="o">=</span> <span class="n">b</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Then I can write <code class="docutils literal notranslate"><span class="pre">Trans(agent,</span> <span class="pre">&quot;state1&quot;,</span> <span class="pre">&quot;state2&quot;)</span></code> inside another action.</p>
+</section>
+<section id="id4">
+<h3>&#64;<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>In a function update, <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> refers to the old value.</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="c">\* Verbose</span>
+<span class="n">f&#39;</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="n">EXCEPT</span> <span class="n">!</span><span class="p">[</span><span class="m">1</span><span class="p">][</span><span class="m">2</span><span class="p">]</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="n">f</span><span class="p">[</span><span class="m">1</span><span class="p">][</span><span class="m">2</span><span class="p">]</span><span class="o">.</span><span class="n">a</span> <span class="o">+</span> <span class="m">1</span><span class="p">]</span>
+
+<span class="c">\* Clean</span>
+<span class="n">f&#39;</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="n">EXCEPT</span> <span class="n">!</span><span class="p">[</span><span class="m">1</span><span class="p">][</span><span class="m">2</span><span class="p">]</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="o">@</span> <span class="o">+</span> <span class="m">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="parameterize-your-actions">
+<h3>Parameterize your actions<a class="headerlink" href="#parameterize-your-actions" title="Permalink to this headline">¶</a></h3>
+<p>Instead of</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">Add</span> <span class="o">==</span>
+  <span class="s">\E</span> <span class="n">w</span> <span class="s">\in</span> <span class="n">Worker</span><span class="p">:</span> <span class="n">s&#39;</span> <span class="o">=</span> <span class="n">s</span> <span class="nb">\union</span> <span class="n">{w}</span>
+
+<span class="n">Remove</span> <span class="o">==</span>
+  <span class="s">\E</span> <span class="n">w</span> <span class="s">\in</span> <span class="n">Worker</span><span class="p">:</span> <span class="n">s&#39;</span> <span class="o">=</span> <span class="n">s</span> <span class="o">\</span> <span class="n">{w}</span>
+
+<span class="n">Next</span> <span class="o">==</span> <span class="n">Add</span> <span class="o">\/</span> <span class="n">Remove</span>
+</pre></div>
+</div>
+<p>Write</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">Add</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="o">==</span> <span class="n">s&#39;</span> <span class="o">=</span> <span class="n">s</span> <span class="nb">\union</span> <span class="n">{w}</span>
+<span class="n">Remove</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="o">==</span> <span class="n">s&#39;</span> <span class="o">=</span> <span class="n">s</span> <span class="o">\</span> <span class="n">{w}</span>
+
+<span class="n">Next</span> <span class="o">==</span>
+  <span class="s">\E</span> <span class="n">w</span> <span class="s">\in</span> <span class="n">Worker</span><span class="p">:</span>
+    <span class="o">\/</span> <span class="n">Add</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+    <span class="o">\/</span> <span class="n">Remove</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Move the <code class="docutils literal notranslate"><span class="pre">\E</span></code> to the bottom layer and pass a value into your actions. This is better because it lets you <em>reuse the same value</em> in multiple actions. Say you want to log every worker that’s added or removed. You can’t easily do this in the first version of the spec, but in the second you could write</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">Log</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="o">==</span> <span class="n">log&#39;</span> <span class="o">=</span> <span class="n">Append</span><span class="p">(</span><span class="n">log</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
+
+<span class="n">Next</span> <span class="o">==</span>
+  <span class="s">\E</span> <span class="n">w</span> <span class="s">\in</span> <span class="n">Worker</span><span class="p">:</span>
+    <span class="o">/\</span> <span class="o">\/</span> <span class="n">Add</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+       <span class="o">\/</span> <span class="n">Remove</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+    <span class="o">/\</span> <span class="n">Log</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="refactor-with-action-properties">
+<span id="action-refactoring"></span><h3>Refactor with Action Properties<a class="headerlink" href="#refactor-with-action-properties" title="Permalink to this headline">¶</a></h3>
+<p>If we’re simplifying an action, we want to make sure that our simplification doesn’t change it.</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">OldAction</span><span class="p">(</span><span class="n">user</span><span class="p">)</span> <span class="o">==</span>
+  <span class="n">seq&#39;</span> <span class="o">=</span> <span class="n">seq</span> <span class="nb">\o</span> <span class="o">&lt;&lt;</span><span class="n">user</span><span class="o">&gt;&gt;</span>
+
+<span class="n">NewAction</span><span class="p">(</span><span class="n">user</span><span class="p">)</span> <span class="o">==</span>
+  <span class="n">seq&#39;</span> <span class="o">=</span> <span class="n">Append</span><span class="p">(</span><span class="n">seq</span><span class="p">,</span> <span class="n">user</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We can check that by adding an <a class="reference internal" href="../core/action-properties.html#action-property"><span class="std std-ref">action property</span></a> that checks the two are equivalent:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">RefactorProp</span> <span class="o">==</span> <span class="ni">[]</span><span class="p">[</span>
+  <span class="s">\A</span> <span class="n">u</span> <span class="s">\in</span> <span class="n">User</span><span class="p">:</span>
+    <span class="n">OldAction</span><span class="p">(</span><span class="n">user</span><span class="p">)</span> <span class="o">=</span> <span class="n">NewAction</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+<span class="p">]</span><span class="n">_vars</span>
+</pre></div>
+</div>
+<p>If we’re trying to <em>expand</em> an action, then we only care that <code class="docutils literal notranslate"><span class="pre">NewAction</span></code> does a superset of the things <code class="docutils literal notranslate"><span class="pre">OldAction</span></code> does. In that case, we can loosen our requirements by using <code class="docutils literal notranslate"><span class="pre">=&gt;</span></code> instead of <code class="docutils literal notranslate"><span class="pre">=</span></code>.</p>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&lt;</span><span>Page contents</span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&gt;</span><span>Page contents:</span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">General Tips</a><ul>
+<li><a class="reference internal" href="#both-tla-and-pluscal">Both TLA+ and PlusCal</a><ul>
+<li><a class="reference internal" href="#use-assume">Use ASSUME</a></li>
+<li><a class="reference internal" href="#model-tagged-unions-with-structs">Model tagged unions with structs</a></li>
+<li><a class="reference internal" href="#decompose-functions-of-structs">Decompose functions of structs</a></li>
+<li><a class="reference internal" href="#separate-safety-and-liveness-models">Separate Safety and Liveness Models</a></li>
+<li><a class="reference internal" href="#use-the-extra-space-in-a-module">Use the extra space in a module</a></li>
+<li><a class="reference internal" href="#theorem">THEOREM</a></li>
+<li><a class="reference internal" href="#typeinvariants-and-modelinvariants">TypeInvariants and ModelInvariants</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pluscal">PlusCal</a><ul>
+<li><a class="reference internal" href="#use-macros">Use macros</a></li>
+<li><a class="reference internal" href="#while-loops-considered-harmful">While loops considered harmful</a></li>
+<li><a class="reference internal" href="#state-sweeping">State sweeping</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tla">TLA+</a><ul>
+<li><a class="reference internal" href="#managing-unchanged">Managing UNCHANGED</a></li>
+<li><a class="reference internal" href="#helper-actions">Helper Actions</a></li>
+<li><a class="reference internal" href="#id4">&#64;</a></li>
+<li><a class="reference internal" href="#parameterize-your-actions">Parameterize your actions</a></li>
+<li><a class="reference internal" href="#refactor-with-action-properties">Refactor with Action Properties</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+                <a href="index.html">
+                    <span class="icon">&lt;</span><span>Topics</span></a>
+                
+            </div>
+
+            <div class="right">
+                
+                    <a href="toolbox.html"><span>Using the Toolbox</span><span class="icon">&gt;</span></a>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Hillel Wayne.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+    </div>
+
+<p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
+  </body>
+</html>

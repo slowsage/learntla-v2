@@ -1,0 +1,733 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Concurrency &#8212; Learn TLA+</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <script src="../_static/js/petite-vue.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Temporal Properties" href="temporal-logic.html" />
+    <link rel="prev" title="Nondeterminism" href="nondeterminism.html" /> 
+  </head><body data-dark_mode_code_blocks="true">
+
+<div id="top_nav">
+    
+
+    <nav>
+        
+            
+        
+
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+        <h1><a href="../index.html" title="Go to homepage">Learn TLA+</a></h1>
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="../search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew.html">What’s New</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/conceptual-overview.html">Conceptual Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">TLA+</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Core</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="setup.html">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operators.html">Operators and Values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pluscal.html">Writing Specifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="invariants.html">Writing an Invariant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="constants.html">Parameterizing Specs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html">Structured Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nondeterminism.html">Nondeterminism</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Concurrency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="temporal-logic.html">Temporal Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced-operators.html">More Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="action-properties.html">Action Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tla.html">TLA+</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html">Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="next-steps.html">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../topics/index.html">Topics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html#pluscal-specs">PlusCal Specs</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/standard-library.html">Standard Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/other-resources.html">Other Resources</a></li>
+</ul>
+
+<ul>
+  <li class="toctree-l1"><a href= "../genindex.html">Index</a></li>
+</ul>
+        </div>
+      </div>
+
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="concurrency">
+<span id="chapter-concurrency"></span><h1>Concurrency<a class="headerlink" href="#concurrency" title="Permalink to this headline">¶</a></h1>
+<p>So far we’ve only worked with single-process algorithms. But the selling point for formal methods is dealing with concurrency. Concurrency is both very common and very hard to reason about, so we get a tool to reason about it for us. A tool like TLA+!</p>
+<section id="processes">
+<span id="process"></span><span id="index-0"></span><h2>Processes<a class="headerlink" href="#processes" title="Permalink to this headline">¶</a></h2>
+<p>Processes are the main agents of concurrency. They can represent different OS processes, or different threads, or different programs on different machines, or even different people. Let’s start with one process.</p>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="c c-PreProc">----</span> <span class="c c-PreProc">MODULE</span> <span class="c c-PreProc">reader_writer</span> <span class="c c-PreProc">----</span>
+<span class="kn">EXTENDS</span> <span class="n">Integers</span><span class="p">,</span> <span class="n">Sequences</span><span class="p">,</span> <span class="n">TLC</span>
+
+<span class="nf">(* --algorithm reader_writer</span>
+<span class="n">variables</span>
+  <span class="n">queue</span> <span class="o">=</span> <span class="o">&lt;&lt;&gt;&gt;</span><span class="p">;</span>
+  <span class="n">total</span> <span class="o">=</span> <span class="m">0</span><span class="p">;</span>
+
+
+<span class="nt">process</span> <span class="n">writer</span> <span class="o">=</span> <span class="m">1</span>
+<span class="nf">begin</span>
+<span class="nt">  AddToQueue:</span>
+    <span class="n">queue</span> <span class="o">:=</span> <span class="n">Append</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="m">1</span><span class="p">);</span>
+<span class="nf">end process</span><span class="p">;</span>
+<span class="nf">end algorithm; *)</span>
+<span class="c c-PreProc">====</span>
+</pre></div>
+</div>
+<div class="code-block-caption"><span class="caption-text"><span>3 states / 2 distinct</span> <a class="reference download internal" download="" href="../_downloads/d34de37e0e3253e75f5272b36eef1ee7/reader_writer.tla"><code class="xref download docutils literal notranslate"><span class="pre">spec</span></code></a></span><a class="headerlink" href="#id3" title="Permalink to this code">¶</a></div>
+</div>
+<p>This is identical to no processes, except the <code class="docutils literal notranslate"><span class="pre">end</span> <span class="pre">process</span></code>. Note it’s assigned to a value, <code class="docutils literal notranslate"><span class="pre">1</span></code>. This will be important later.</p>
+<p>Now let’s add another process that reads from the queue.</p>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="highlight-udiff notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>  AddToQueue:<span class="w"></span>
+<span class="w"> </span>    queue := Append(queue, 1);<span class="w"></span>
+<span class="w"> </span>end process;<span class="w"></span>
+<span class="gi">+</span><span class="w"></span>
+<span class="gi">+process reader = 0</span><span class="w"></span>
+<span class="gi">+begin</span><span class="w"></span>
+<span class="gi">+  ReadFromQueue:</span><span class="w"></span>
+<span class="gi">+    total := total + Head(queue);</span><span class="w"></span>
+<span class="gi">+    queue := Tail(queue);</span><span class="w"></span>
+<span class="gi">+end process;</span><span class="w"></span>
+<span class="w"> </span>end algorithm; *)<span class="w"></span>
+<span class="w"> </span>====<span class="w"></span>
+</pre></div>
+</div>
+<div class="code-block-caption"><span class="caption-text">(fails) <a class="reference download internal" download="" href="../_downloads/62927f2a99d2c6a47415cdf5bb914053/reader_writer.tla"><code class="xref download docutils literal notranslate"><span class="pre">spec</span></code></a></span><a class="headerlink" href="#id4" title="Permalink to this code">¶</a></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>All processes must have comparable types: all integers, all strings, all sequences, etc. The one exception is that processes can also be <a class="reference internal" href="constants.html#model-values"><span class="std std-ref">model values</span></a>.</p>
+<p>Different processes cannot share label names.</p>
+</div>
+<p>The writer has a single action, <code class="docutils literal notranslate"><span class="pre">Write</span></code>, and the reader has a single action, <code class="docutils literal notranslate"><span class="pre">Read</span></code>. We haven’t specified which should happen first, so the two can happen in any order. Either we (1) write to the queue and then read from it, or (2) read from the queue and then write to it.</p>
+<p>Behavior (2) doesn’t make any sense: how can we read from the queue if there’s nothing already in it? And if you try to run the spec, TLC will raise this as an error.</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">Error: TLC threw an unexpected exception.</div>
+<div class="line">This was probably caused by an error in the spec or model.</div>
+<div class="line">See the User Output or TLC Console for clues to what happened.</div>
+<div class="line">The exception was a tlc2.tool.EvalException</div>
+<div class="line">: Attempted to apply Head to the empty sequence.</div>
+</div>
+</div></blockquote>
+<figure class="align-default" id="id5">
+<div class="graphviz"><img src="../_images/graphviz-4ccafb5c64365bee5eaa79ed91e07eed727d68d9.png" alt="digraph rw_error {
+Init[label=&quot;&lt;&lt;&gt;&gt;&quot;];
+Bad[label=&quot;!?&quot;, color=tomato];
+Good1[label=&quot;&lt;&lt;1&gt;&gt;&quot;];
+Good2[label=&quot;&lt;&lt;&gt;&gt;&quot;];
+Init -&gt; Bad[label=Read];
+Init -&gt; Good1[label=&quot;Write&quot;];
+Good1 -&gt; Good2[label=&quot;Read&quot;];
+}" class="graphviz" /></div>
+<figcaption>
+<p><span class="caption-text">Reading before reading is ill-defined, so counts as an error.</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>It’s an “unexpected exception”, but it points to a real flaw in our system: we don’t specify what should be possible in the case of attempting to read from an empty queue. There’s a lot of different things we could <em>choose</em> to do:</p>
+<ul class="simple">
+<li><p>We could simply skip the dequeueing logic and continue the process.</p></li>
+<li><p>We could block the reader until the queue is nonempty.</p></li>
+<li><p>We could substitute in a default value.</p></li>
+<li><p>We could raise an error <em>as part of the system</em>, as opposed to having TLC treat it as a flaw in the system.</p></li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Regularly model check your specs, even if you haven’t figured out your invariants yet. It’s good to catch these kinds of ambiguous cases early.</p>
+</div>
+<p>The point is that we decide what’s the right choice based on what we need from the system. For now, let’s have the reader ignore empty queues, by wrapping the logic in an <code class="docutils literal notranslate"><span class="pre">if</span></code> block.</p>
+<div class="literal-block-wrapper docutils container" id="rw-3">
+<div class="highlight-udiff notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>process reader = 0<span class="w"></span>
+<span class="w"> </span>begin<span class="w"></span>
+<span class="w"> </span>  ReadFromQueue:<span class="w"></span>
+<span class="gd">-    total := total + Head(queue);</span><span class="w"></span>
+<span class="gd">-    queue := Tail(queue);</span><span class="w"></span>
+<span class="gi">+    if queue # &lt;&lt;&gt;&gt; then</span><span class="w"></span>
+<span class="gi">+      total := total + Head(queue);</span><span class="w"></span>
+<span class="gi">+      queue := Tail(queue);</span><span class="w"></span>
+<span class="gi">+    end if;</span><span class="w"></span>
+<span class="w"> </span>end process;<span class="w"></span>
+<span class="w"> </span>end algorithm; *)<span class="w"></span>
+<span class="w"> </span>====<span class="w"></span>
+</pre></div>
+</div>
+<div class="code-block-caption"><span class="caption-text"><span>7 states / 5 distinct</span> <a class="reference download internal" download="" href="../_downloads/fed31f14c119b5e401cff778931fc7fd/reader_writer.tla"><code class="xref download docutils literal notranslate"><span class="pre">spec</span></code></a></span><a class="headerlink" href="#rw-3" title="Permalink to this code">¶</a></div>
+</div>
+<p>This passes.</p>
+<figure class="align-default" id="id6">
+<div class="graphviz"><img src="../_images/graphviz-6c2d3db38eadffe4da0c6c649514663488a5ed95.png" alt="digraph rw_good {
+Init[label=&quot;&lt;&lt;&gt;&gt;&quot;];
+Nah1[label=&quot;&lt;&lt;&gt;&gt;&quot;];
+Nah2[label=&quot;&lt;&lt;1&gt;&gt;&quot;];
+Good1[label=&quot;&lt;&lt;1&gt;&gt;&quot;];
+Good2[label=&quot;&lt;&lt;&gt;&gt;&quot;];
+Init -&gt; {Nah1}[label=Read];
+Init -&gt; Good1[label=&quot;Write&quot;];
+Good1 -&gt; Good2[label=&quot;Read&quot;];
+Nah1 -&gt; Nah2[label=&quot;Write&quot;];
+}" class="graphviz" /></div>
+<figcaption>
+<p><span class="caption-text">Now reading an empty queue is a noop, so the spec passes.</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p class="rubric">pc</p>
+<p>In our single process specs, we used a string variable called <a class="reference internal" href="invariants.html#pc"><span class="std std-ref">pc</span></a> (“program counter”) to track the value. To model multiple processes, the translator “lifts” <code class="docutils literal notranslate"><span class="pre">pc</span></code> to be a function from process values to strings. So if you’re writing an invariant that depends on the reader’s current label, you can retrieve it with <code class="docutils literal notranslate"><span class="pre">pc[0]</span></code>.</p>
+<section id="local-variables">
+<span id="index-1"></span><h3>local variables<a class="headerlink" href="#local-variables" title="Permalink to this headline">¶</a></h3>
+<p>Let’s modify the writer so it can write twice, instead of once.</p>
+<div class="literal-block-wrapper docutils container" id="rw-local-1">
+<div class="highlight-udiff notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>variables<span class="w"></span>
+<span class="w"> </span>  queue = &lt;&lt;&gt;&gt;;<span class="w"></span>
+<span class="w"> </span>  total = 0;<span class="w"></span>
+<span class="gd">-</span><span class="w"></span>
+<span class="gi">+  i = 0;</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w"> </span>process writer = 1<span class="w"></span>
+<span class="w"> </span>begin<span class="w"></span>
+<span class="w"> </span>  AddToQueue:<span class="w"></span>
+<span class="gd">-    queue := Append(queue, 1);</span><span class="w"></span>
+<span class="gi">+    while i &lt; 2 do</span><span class="w"></span>
+<span class="gi">+      queue := Append(queue, 1);</span><span class="w"></span>
+<span class="gi">+      i := i + 1;</span><span class="w"></span>
+<span class="gi">+    end while;</span><span class="w"></span>
+<span class="w"> </span>end process;<span class="w"></span>
+<span class="w"> </span>
+<span class="w"> </span>process reader = 0<span class="w"></span>
+</pre></div>
+</div>
+<div class="code-block-caption"><span class="caption-text"><span>15 states / 11 distinct</span> <a class="reference download internal" download="" href="../_downloads/ded4a70c13b0aaae8fd255ff0d49f0c8/reader_writer.tla"><code class="xref download docutils literal notranslate"><span class="pre">spec</span></code></a></span><a class="headerlink" href="#rw-local-1" title="Permalink to this code">¶</a></div>
+</div>
+<p>Notice how many more states we have. The <code class="docutils literal notranslate"><span class="pre">while</span></code> loop is nonatomic, and every iteration counts as a separate <code class="docutils literal notranslate"><span class="pre">Write</span></code> action. So there are now three possible orderings: Read-Write-Write, Write-Read-Write, and Write-Write-Read.</p>
+<p><code class="docutils literal notranslate"><span class="pre">i</span></code> is only used in the writer, so we don’t necessarily need to expose it to the reader. We can make a variable local to the process, like this:</p>
+<div class="literal-block-wrapper docutils container" id="id7">
+<div class="highlight-udiff notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>variables<span class="w"></span>
+<span class="w"> </span>  queue = &lt;&lt;&gt;&gt;;<span class="w"></span>
+<span class="w"> </span>  total = 0;<span class="w"></span>
+<span class="gd">-  i = 0;</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w"> </span>process writer = 1<span class="w"></span>
+<span class="gi">+variables</span><span class="w"></span>
+<span class="gi">+  i = 0;</span><span class="w"></span>
+<span class="w"> </span>begin<span class="w"></span>
+<span class="w"> </span>  AddToQueue:<span class="w"></span>
+<span class="w"> </span>    while i &lt; 2 do<span class="w"></span>
+</pre></div>
+</div>
+<div class="code-block-caption"><span class="caption-text"><span>15 states / 11 distinct</span> <a class="reference download internal" download="" href="../_downloads/9b0410aef2c3a765d16f0677e2b0c11f/reader_writer.tla"><code class="xref download docutils literal notranslate"><span class="pre">spec</span></code></a></span><a class="headerlink" href="#id7" title="Permalink to this code">¶</a></div>
+</div>
+<p>As with global variables, we can have multiple starting local variables— <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">\in</span> <span class="pre">1..3</span></code> is valid.</p>
+<p>In practice, local variables aren’t often used, as operators in <a class="reference internal" href="invariants.html#define"><span class="std std-ref">define</span></a> blocks can’t use them. This means you can’t easily typecheck them, write helper operators, etc. Generally we use local variables as <a class="reference internal" href="../topics/aux-vars.html#topic-aux-vars"><span class="std std-ref">auxiliary</span></a> or “bookkeeping” variables, like loop iterations and model bounding.</p>
+<p>For now let’s pull out the <code class="docutils literal notranslate"><span class="pre">while</span></code> loop and go back to our <a class="reference internal" href="#rw-3"><span class="std std-ref">previous version</span></a>.</p>
+</section>
+<section id="process-sets">
+<span id="index-2"></span><h3>Process Sets<a class="headerlink" href="#process-sets" title="Permalink to this headline">¶</a></h3>
+<p>Once we have a single process, we can extend it into a process set. Instead of saying <code class="docutils literal notranslate"><span class="pre">process</span> <span class="pre">name</span> <span class="pre">=</span> <span class="pre">val</span></code>, we write <code class="docutils literal notranslate"><span class="pre">process</span> <span class="pre">name</span> <span class="pre">\in</span> <span class="pre">val</span></code>. Then PlusCal will create one distinct process for <em>each</em> value in the set.</p>
+<div class="literal-block-wrapper docutils container" id="id8">
+<div class="highlight-udiff notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>---- MODULE reader_writer ----<span class="w"></span>
+<span class="w"> </span>EXTENDS Integers, Sequences, TLC<span class="w"></span>
+<span class="gi">+</span><span class="w"></span>
+<span class="gi">+Writers == {1, 2, 3}</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w"> </span>(* --algorithm reader_writer<span class="w"></span>
+<span class="w"> </span>variables<span class="w"></span>
+<span class="w"> </span>  queue = &lt;&lt;&gt;&gt;;<span class="w"></span>
+<span class="w"> </span>  total = 0;<span class="w"></span>
+<span class="w"> </span>
+<span class="gd">-</span><span class="w"></span>
+<span class="gd">-process writer = 1</span><span class="w"></span>
+<span class="gi">+process writer \in Writers</span><span class="w"></span>
+<span class="w"> </span>begin<span class="w"></span>
+<span class="w"> </span>  AddToQueue:<span class="w"></span>
+<span class="w"> </span>    queue := Append(queue, 1);<span class="w"></span>
+</pre></div>
+</div>
+<div class="code-block-caption"><span class="caption-text"><span>44 states / 23 distinct</span> <a class="reference download internal" download="" href="../_downloads/b1c36107268c839a0140362275c96cc7/reader_writer.tla"><code class="xref download docutils literal notranslate"><span class="pre">spec</span></code></a></span><a class="headerlink" href="#id8" title="Permalink to this code">¶</a></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>This is where <a class="reference internal" href="constants.html#model-set"><span class="std std-ref">Sets of Model Values</span></a> become extremely useful. If we also wanted multiple readers, we’d have to make sure that <code class="docutils literal notranslate"><span class="pre">Readers</span></code> and <code class="docutils literal notranslate"><span class="pre">Writers</span></code> were the same type but didn’t overlap. The easiest way to do that is to use two sets of model values.</p>
+</div>
+<p>Concurrency is one of the main sources of state space explosion. With three writers and one reader, there are <span class="math notranslate nohighlight">\(4! = 24\)</span> different ways to order their four actions. If we added a fifth writer (or a second reader), that would jump to 120 orderings.</p>
+<p>We’re now adding up to three values to the queue, but we’re only reading one value. Let’s make the reader run forever.</p>
+<div class="literal-block-wrapper docutils container" id="id9">
+<div class="highlight-udiff notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>      total := total + Head(queue);<span class="w"></span>
+<span class="w"> </span>      queue := Tail(queue);<span class="w"></span>
+<span class="w"> </span>    end if;<span class="w"></span>
+<span class="gi">+    goto ReadFromQueue;</span><span class="w"></span>
+<span class="w"> </span>end process;<span class="w"></span>
+<span class="w"> </span>end algorithm; *)<span class="w"></span>
+<span class="w"> </span>====<span class="w"></span>
+</pre></div>
+</div>
+<div class="code-block-caption"><span class="caption-text"><span>45 states / 20 distinct</span> <a class="reference download internal" download="" href="../_downloads/91f85bc31fea6b3e977b69755e3a2e0d/reader_writer.tla"><code class="xref download docutils literal notranslate"><span class="pre">spec</span></code></a></span><a class="headerlink" href="#id9" title="Permalink to this code">¶</a></div>
+</div>
+<p>This is equivalent to putting the label in a <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">TRUE</span></code> loop.</p>
+<p class="rubric" id="self"><span id="index-3"></span><code class="docutils literal notranslate"><span class="pre">self</span></code></p>
+<p>In process sets we have a special keyword <code class="docutils literal notranslate"><span class="pre">self</span></code>, which retrieves the “value” of the process. So for the writers, the values of the process would be <code class="docutils literal notranslate"><span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">2</span></code>. If we tell the writers to put <code class="docutils literal notranslate"><span class="pre">self</span></code> on instead of <code class="docutils literal notranslate"><span class="pre">1</span></code>, we’d expect the end total to be 6.</p>
+<div class="literal-block-wrapper docutils container" id="id10">
+<div class="highlight-udiff notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>process writer \in Writers<span class="w"></span>
+<span class="w"> </span>begin<span class="w"></span>
+<span class="w"> </span>  AddToQueue:<span class="w"></span>
+<span class="gd">-    queue := Append(queue, 1);</span><span class="w"></span>
+<span class="gi">+    queue := Append(queue, self);</span><span class="w"></span>
+<span class="w"> </span>end process;<span class="w"></span>
+<span class="w"> </span>
+<span class="w"> </span>process reader = 0<span class="w"></span>
+</pre></div>
+</div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference download internal" download="" href="../_downloads/f82245679d5d5b3ce7de3a8def4dbc0e/reader_writer.tla"><code class="xref download docutils literal notranslate"><span class="pre">spec</span></code></a></span><a class="headerlink" href="#id10" title="Permalink to this code">¶</a></div>
+</div>
+<p>If you run this, you’ll see the state space increase a little and the distinct states more than double <span>69 states / 38 distinct</span>.  To see why, consider what happens when writers 1 and 2 have run in some order. Before the queue would have been <code class="docutils literal notranslate"><span class="pre">&lt;&lt;1,</span> <span class="pre">1&gt;&gt;</span></code>, regardless of which writer ran first. But now, since they enqueue different values, there are <em>two</em> possible queues: <code class="docutils literal notranslate"><span class="pre">&lt;&lt;1,</span> <span class="pre">2&gt;&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;&lt;2,</span> <span class="pre">1&gt;&gt;</span></code>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Macros <em>can</em> use the value of <code class="docutils literal notranslate"><span class="pre">self</span></code> inside of them. So you can write</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="nf">macro</span> <span class="n">write</span><span class="p">()</span> <span class="nf">begin</span>
+  <span class="n">queue</span> <span class="o">:=</span> <span class="n">Append</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="n">self</span><span class="p">)</span>
+<span class="nf">end macro</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Singly-defined processes can’t use this macro because they don’t have an internal <code class="docutils literal notranslate"><span class="pre">self</span></code>. To get around this, replace the assignment with selecting from a single-element set:</p>
+<div class="highlight-diff notranslate"><div class="highlight"><pre><span></span><span class="gd">- process P = val</span><span class="w"></span>
+<span class="gi">+ process P \in {val}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="await">
+<span id="index-4"></span><span id="id1"></span><h3>await<a class="headerlink" href="#await" title="Permalink to this headline">¶</a></h3>
+<p>In real systems you often have <em>bounded</em> queues, which prevent writes when they’re over a certain size. The strictest possible bound would be “you can only write if the queue is empty”. Let’s add that:</p>
+<div class="literal-block-wrapper docutils container" id="id11">
+<div class="highlight-udiff notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>process writer \in Writers<span class="w"></span>
+<span class="w"> </span>begin<span class="w"></span>
+<span class="w"> </span>  AddToQueue:<span class="w"></span>
+<span class="gi">+    await queue = &lt;&lt;&gt;&gt;;</span><span class="w"></span>
+<span class="w"> </span>    queue := Append(queue, self);<span class="w"></span>
+<span class="w"> </span>end process;<span class="w"></span>
+<span class="w"> </span>
+</pre></div>
+</div>
+<div class="code-block-caption"><span class="caption-text"><span>33 states / 20 distinct</span> <a class="reference download internal" download="" href="../_downloads/2a0467b0b27413901613d15d6ac8468c/reader_writer.tla"><code class="xref download docutils literal notranslate"><span class="pre">spec</span></code></a></span><a class="headerlink" href="#id11" title="Permalink to this code">¶</a></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">await</span></code> is a <em>restriction</em> on when the label can run. The label can only run— the state “committed”, if you will— if <em>every</em> <code class="docutils literal notranslate"><span class="pre">await</span></code> statement in the label evaluates to true.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><a class="reference internal" href="nondeterminism.html#nondet-with"><span class="std std-ref">with</span></a> <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">\in</span> <span class="pre">set</span></code> also blocks if the set is empty.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><code class="docutils literal notranslate"><span class="pre">await</span></code> interacts a little oddly with variable updates— it will be based on the updated value if directly embedded but not if the variable is used via a <code class="docutils literal notranslate"><span class="pre">defined</span></code> operator. This is due to the PlusCal-&gt;TLA+ translation grammar. As a general precaution, don’t use updated variables in <code class="docutils literal notranslate"><span class="pre">await</span></code> statements.</p>
+</div>
+<p id="deadlock"><span id="index-5"></span>What if we also add an <code class="docutils literal notranslate"><span class="pre">await</span></code> to the Reader? We’ll see something interesting happen:</p>
+<div class="literal-block-wrapper docutils container" id="id12">
+<div class="highlight-udiff notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>process reader = 0<span class="w"></span>
+<span class="w"> </span>begin<span class="w"></span>
+<span class="w"> </span>  ReadFromQueue:<span class="w"></span>
+<span class="gd">-    if queue # &lt;&lt;&gt;&gt; then</span><span class="w"></span>
+<span class="gi">+    await queue # &lt;&lt;&gt;&gt;;</span><span class="w"></span>
+<span class="w"> </span>      total := total + Head(queue);<span class="w"></span>
+<span class="w"> </span>      queue := Tail(queue);<span class="w"></span>
+<span class="gd">-    end if;</span><span class="w"></span>
+<span class="w"> </span>    goto ReadFromQueue;<span class="w"></span>
+<span class="w"> </span>end process;<span class="w"></span>
+<span class="w"> </span>end algorithm; *)<span class="w"></span>
+</pre></div>
+</div>
+<div class="code-block-caption"><span class="caption-text">(fails) <a class="reference download internal" download="" href="../_downloads/812d98db1b650e38ac3cb974d4576608/reader_writer.tla"><code class="xref download docutils literal notranslate"><span class="pre">spec</span></code></a></span><a class="headerlink" href="#id12" title="Permalink to this code">¶</a></div>
+</div>
+<p>If you run this, TLC will report a “deadlock” as an error. Once every writer has finished running, the reader is stuck at <code class="docutils literal notranslate"><span class="pre">ReadFromQueue</span></code> forever, waiting for a condition that’ll never happen again. Since no processes can make any progress (the writers because they are done, the reader because it’s trapped awaiting), we have a deadlock. Usually this is an error, but if it’s not for your particular spec, you disable it here:</p>
+<figure class="align-default">
+<img alt="../_images/deadlock.png" src="../_images/deadlock.png" />
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>All processes finishing (reaching the “Done” state) doesn’t cause a deadlock because the PlusCal translator inserts an extra “everything’s complete and nothing happens” action. You can see it in the translation as <code class="docutils literal notranslate"><span class="pre">Terminating</span></code>.</p>
+</div>
+</section>
+<section id="procedures">
+<span id="procedure"></span><span id="index-6"></span><h3>Procedures<a class="headerlink" href="#procedures" title="Permalink to this headline">¶</a></h3>
+<p><em>Note: this is both fairly complicated and fairly niche, so feel free to skip this and come back to it later.</em></p>
+<p>If you want two separate processes to share some spec, you can extract the common bit into a macro. But what if you want to extract something more complicated, with labels? For this, instead of macros we use <strong>procedures</strong>. They’re like macros, except they can contain labels, and they’re a little more complicated to write and use.</p>
+<p>To use procedures, you must extend <code class="docutils literal notranslate"><span class="pre">Sequences</span></code>. This is because the translator needs to store a call stack for control flow, which it does in a tuple.</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="nf">procedure</span> <span class="n">Name</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+<span class="n">variables</span> <span class="n">var1</span> <span class="o">=</span> <span class="o">...</span>
+<span class="nf">begin</span>
+<span class="nt">  Label1:</span>
+    <span class="c">\* stuff</span>
+<span class="nt">  Label2:</span>
+    <span class="c">\* more stuff</span>
+    <span class="nf">return</span><span class="p">;</span>
+<span class="nf">end procedure</span><span class="p">;</span>
+</pre></div>
+</div>
+<p id="return">On reaching a <code class="docutils literal notranslate"><span class="pre">return</span></code>, the procedure terminates and returns control back to the calling process. Nothing is “returned” as per the programming definition. If a procedure terminates without reaching a <code class="docutils literal notranslate"><span class="pre">return</span></code>, then TLC will raise an error. The <code class="docutils literal notranslate"><span class="pre">return</span></code> just ends the procedure. If your procedure never reaches it, then TLC raises an error.</p>
+<p>In order to call a procedure, you have to write <code class="docutils literal notranslate"><span class="pre">call</span> <span class="pre">Name(val1,</span> <span class="pre">...);</span></code>. A procedure call must be followed by a <a class="reference internal" href="pluscal.html#goto"><span class="std std-ref">goto</span></a>, a label, or another <code class="docutils literal notranslate"><span class="pre">return</span></code> (if you called it from another procedure).</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="nt">process</span> <span class="n">p</span> <span class="o">=</span> <span class="s">&quot;process&quot;</span>
+<span class="nf">begin</span>
+<span class="nt">  A:</span>
+    <span class="k">call</span> <span class="n">my_procedure</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
+    <span class="c">\* Must be followed by a label</span>
+<span class="nt">  B:</span>
+</pre></div>
+</div>
+<p>Procedures must be defined after any macros and before any processes.</p>
+</section>
+</section>
+<section id="example-threads">
+<span id="threads"></span><h2>Example: Threads<a class="headerlink" href="#example-threads" title="Permalink to this headline">¶</a></h2>
+<p>Let’s go through another example of concurrency. We have two threads incrementing a single counter. At first, we’ll have them do this atomically, and show that we get the expected value. Then, we’ll make the updates nonatomic and show a race condition exists.</p>
+<div class="literal-block-wrapper docutils container" id="id13">
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="c c-PreProc">----</span> <span class="c c-PreProc">MODULE</span> <span class="c c-PreProc">threads</span> <span class="c c-PreProc">----</span>
+<span class="kn">EXTENDS</span> <span class="n">TLC</span><span class="p">,</span> <span class="n">Sequences</span><span class="p">,</span> <span class="n">Integers</span>
+
+<span class="n">NumThreads</span> <span class="o">==</span> <span class="m">2</span>
+<span class="n">Threads</span> <span class="o">==</span> <span class="m">1</span><span class="o">..</span><span class="n">NumThreads</span>
+
+<span class="nf">(* --algorithm threads</span>
+
+<span class="n">variables</span> 
+  <span class="n">counter</span> <span class="o">=</span> <span class="m">0</span><span class="p">;</span>
+
+<span class="nf">define</span>
+  <span class="n">AllDone</span> <span class="o">==</span> 
+    <span class="s">\A</span> <span class="n">t</span> <span class="s">\in</span> <span class="n">Threads</span><span class="p">:</span> <span class="n">pc</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;Done&quot;</span>
+
+  <span class="n">Correct</span> <span class="o">==</span>
+      <span class="n">AllDone</span> <span class="o">=&gt;</span> <span class="n">counter</span> <span class="o">=</span> <span class="n">NumThreads</span>
+<span class="nf">end define</span><span class="p">;</span>  
+
+<span class="nt">process</span> <span class="n">thread</span> <span class="s">\in</span> <span class="n">Threads</span>
+<span class="nf">begin</span>
+<span class="nt">  IncCounter:</span>
+    <span class="n">counter</span> <span class="o">:=</span> <span class="n">counter</span> <span class="o">+</span> <span class="m">1</span><span class="p">;</span>
+<span class="nf">end process</span><span class="p">;</span>
+<span class="nf">end algorithm; *)</span>
+<span class="c c-PreProc">====</span>
+</pre></div>
+</div>
+<div class="code-block-caption"><span class="caption-text"><span>6 states / 4 distinct</span> <a class="reference download internal" download="" href="../_downloads/c2d5af0b4c9c057cd28a5e4b1f8c56b6/threads.tla"><code class="xref download docutils literal notranslate"><span class="pre">spec</span></code></a></span><a class="headerlink" href="#id13" title="Permalink to this code">¶</a></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Correct</span></code> is similar to our invariants in the duplicates spec we wrote. <em>Once every thread is done running</em>, each thread should have incremented <code class="docutils literal notranslate"><span class="pre">counter</span></code> once, which means that <code class="docutils literal notranslate"><span class="pre">counter</span> <span class="pre">=</span> <span class="pre">NumThreads</span></code>. Confirm that the spec passes with <code class="docutils literal notranslate"><span class="pre">INVARIANT</span> <span class="pre">Correct</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>I’m hardcoding <code class="docutils literal notranslate"><span class="pre">NumThreads</span></code> to make running the example easier. In a real spec NumThreads would be a constant.</p>
+</div>
+<p>Now let’s assume we can’t atomically update <code class="docutils literal notranslate"><span class="pre">counter</span></code>: maybe our hardware doesn’t support it, maybe <code class="docutils literal notranslate"><span class="pre">counter</span></code> is on a separate machine of the network, or maybe the increment is just a stand-in for something more complex. Regardless, we now have to update it in two steps: first we assign it to a thread-local variable, then we compute the next value and assign it to <code class="docutils literal notranslate"><span class="pre">counter</span></code>. To model this, we’ll split the label in two, creating a point of concurrency.</p>
+<p>The thread-local variable is an “internal implementation detail”, and I don’t think we’ll be doing global operations on it, so this is a good place to use a process var.</p>
+<div class="literal-block-wrapper docutils container" id="id14">
+<div class="highlight-udiff notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>end define;  <span class="w"></span>
+<span class="w"> </span>
+<span class="w"> </span>process thread \in Threads<span class="w"></span>
+<span class="gi">+variables tmp = 0;</span><span class="w"></span>
+<span class="w"> </span>begin<span class="w"></span>
+<span class="gi">+  GetCounter:</span><span class="w"></span>
+<span class="gi">+    tmp := counter;</span><span class="w"></span>
+<span class="gi">+</span><span class="w"></span>
+<span class="w"> </span>  IncCounter:<span class="w"></span>
+<span class="gd">-    counter := counter + 1;</span><span class="w"></span>
+<span class="gi">+    counter := tmp + 1;</span><span class="w"></span>
+<span class="w"> </span>end process;<span class="w"></span>
+<span class="w"> </span>end algorithm; *)<span class="w"></span>
+<span class="w"> </span>====<span class="w"></span>
+</pre></div>
+</div>
+<div class="code-block-caption"><span class="caption-text">(fails) <a class="reference download internal" download="" href="../_downloads/f802bd434a90aa8509f48f3be7f1e3a6/threads.tla"><code class="xref download docutils literal notranslate"><span class="pre">spec</span></code></a></span><a class="headerlink" href="#id14" title="Permalink to this code">¶</a></div>
+</div>
+<p>Before we continue, I want to recommend a good exercise to improve your modeling skills. You know, based on how I’m presenting this example, that this will fail. But <em>how</em> will it fail? Before you run the model checker, try to figure out what error it will give you and why. See if you can guess the number of steps it will take, and what order the processes will run.</p>
+<p>This is will help you get better with TLA+, but it does something else, too. As you write more specifications, you’ll start to see errors <em>without</em> running the model checker. One reason why concurrency is so unintuitive is we normally don’t get rapid feedback on the mistakes we make. If you had a race condition to your code, it could be days or weeks before bites you, and then it takes even longer to fully understand it. Whereas in a specification, the model checker shows you immediately. This trains your intuition for race conditions much more quickly than normal.</p>
+<p>…</p>
+<p>Okay, so the error should look something like this:</p>
+<figure class="align-default">
+<img alt="../_images/concurrency_threads_error.png" src="../_images/concurrency_threads_error.png" />
+</figure>
+<p>Both threads read the value of <code class="docutils literal notranslate"><span class="pre">counter</span></code> when it’s 0, meaning they both set <code class="docutils literal notranslate"><span class="pre">tmp</span></code> to 0, meaning they both assign <code class="docutils literal notranslate"><span class="pre">counter</span> <span class="pre">:=</span> <span class="pre">0</span> <span class="pre">+</span> <span class="pre">1</span></code>. Let’s add a lock.</p>
+<div class="literal-block-wrapper docutils container" id="threads-3">
+<div class="highlight-udiff notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>---- MODULE threads ----<span class="w"></span>
+<span class="w"> </span>EXTENDS TLC, Sequences, Integers<span class="w"></span>
+<span class="gi">+CONSTANT NULL</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w"> </span>NumThreads == 2<span class="w"></span>
+<span class="w"> </span>Threads == 1..NumThreads<span class="w"></span>
+<span class="gu">@@ -8,6 +9,7 @@</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w"> </span>variables <span class="w"></span>
+<span class="w"> </span>  counter = 0;<span class="w"></span>
+<span class="gi">+  lock = NULL;</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w"> </span>define<span class="w"></span>
+<span class="w"> </span>  AllDone == <span class="w"></span>
+<span class="gu">@@ -20,11 +22,18 @@</span><span class="w"></span>
+<span class="w"> </span>process thread \in Threads<span class="w"></span>
+<span class="w"> </span>variables tmp = 0;<span class="w"></span>
+<span class="w"> </span>begin<span class="w"></span>
+<span class="gi">+  GetLock:</span><span class="w"></span>
+<span class="gi">+    await lock = NULL;</span><span class="w"></span>
+<span class="gi">+    lock := self;</span><span class="w"></span>
+<span class="gi">+</span><span class="w"></span>
+<span class="w"> </span>  GetCounter:<span class="w"></span>
+<span class="w"> </span>    tmp := counter;<span class="w"></span>
+<span class="w"> </span>
+<span class="w"> </span>  IncCounter:<span class="w"></span>
+<span class="w"> </span>    counter := tmp + 1;<span class="w"></span>
+<span class="gi">+  </span><span class="w"></span>
+<span class="gi">+  ReleaseLock:</span><span class="w"></span>
+<span class="gi">+    lock := NULL; </span><span class="w"></span>
+<span class="w"> </span>end process;<span class="w"></span>
+<span class="w"> </span>end algorithm; *)<span class="w"></span>
+<span class="w"> </span>====<span class="w"></span>
+</pre></div>
+</div>
+<div class="code-block-caption"><span class="caption-text"><span>19 states / 17 distinct</span> <a class="reference download internal" download="" href="../_downloads/26b80e4bc61aec1f8368c3d8284c840a/threads.tla"><code class="xref download docutils literal notranslate"><span class="pre">spec</span></code></a></span><a class="headerlink" href="#threads-3" title="Permalink to this code">¶</a></div>
+</div>
+<p>(You can make <code class="docutils literal notranslate"><span class="pre">NULL</span> <span class="pre">&lt;-</span> <span class="pre">-1</span></code> or <code class="docutils literal notranslate"><span class="pre">NULL</span> <span class="pre">&lt;-</span> <span class="pre">[model</span> <span class="pre">value]</span></code> here. I <em>strongly</em> recommend using a model value, as then there’s no chance of accidentally using it as a number!)</p>
+<p>Now the spec passes again.</p>
+<section id="finding-more-invariants">
+<h3>Finding More Invariants<a class="headerlink" href="#finding-more-invariants" title="Permalink to this headline">¶</a></h3>
+<p>Here’s another exercise I like to do with people I teach: what are some <em>other</em> properties of the system?</p>
+<p>One you should always think about: the type invariant. This should be loose and simple and just be the general sets each value can take.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Since this references the private variable <code class="docutils literal notranslate"><span class="pre">tmp</span></code>, it’ll need to go <em>below</em> the TLA+ translation. Look for the <code class="docutils literal notranslate"><span class="pre">\*</span> <span class="pre">END</span> <span class="pre">TRANSLATION</span></code> line and put it after that (and before the <code class="docutils literal notranslate"><span class="pre">====</span></code>).</p>
+</div>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="c">\* Needs to be below translation</span>
+<span class="n">TypeInvariant</span> <span class="o">==</span>
+  <span class="o">/\</span> <span class="n">counter</span> <span class="s">\in</span> <span class="m">0</span><span class="o">..</span><span class="n">NumThreads</span>
+  <span class="o">/\</span> <span class="n">tmp</span> <span class="s">\in</span> <span class="p">[</span><span class="n">Threads</span> <span class="o">-&gt;</span> <span class="m">0</span><span class="o">..</span><span class="n">NumThreads</span><span class="p">]</span>
+  <span class="o">/\</span> <span class="n">lock</span> <span class="s">\in</span> <span class="n">Threads</span> <span class="nb">\union</span> <span class="n">{NULL}</span>
+</pre></div>
+</div>
+<p>A more complex property is that <code class="docutils literal notranslate"><span class="pre">counter</span></code> is never smaller than any thread’s <code class="docutils literal notranslate"><span class="pre">tmp</span></code> value. There’s a couple of ways we can write this:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">CounterNotLtTmp1</span> <span class="o">==</span>
+  <span class="n">tmp</span> <span class="s">\in</span> <span class="p">[</span><span class="n">Threads</span> <span class="o">-&gt;</span> <span class="m">0</span><span class="o">..</span><span class="n">counter</span><span class="p">]</span>
+
+<span class="c">\* or</span>
+
+<span class="n">CounterNotLtTmp2</span> <span class="o">==</span>
+  <span class="s">\A</span> <span class="n">t</span> <span class="s">\in</span> <span class="n">Threads</span><span class="p">:</span>
+    <span class="n">tmp</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">counter</span>
+</pre></div>
+</div>
+<p>Go with whatever feels more comfortable to you.</p>
+<p>If I was doing this as a production spec, I’d also add a quick error-check in the form of an assert, just to make sure that a thread actually has the lock before releasing it.</p>
+<div class="literal-block-wrapper docutils container" id="id15">
+<div class="highlight-udiff notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>    counter := tmp + 1;<span class="w"></span>
+<span class="w"> </span>  <span class="w"></span>
+<span class="w"> </span>  ReleaseLock:<span class="w"></span>
+<span class="gi">+    assert lock = self;</span><span class="w"></span>
+<span class="w"> </span>    lock := NULL; <span class="w"></span>
+<span class="w"> </span>end process;<span class="w"></span>
+<span class="w"> </span>end algorithm; *)<span class="w"></span>
+</pre></div>
+</div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference download internal" download="" href="../_downloads/6b02f6c10f61f8709e0f970622982c2e/threads.tla"><code class="xref download docutils literal notranslate"><span class="pre">spec</span></code></a></span><a class="headerlink" href="#id15" title="Permalink to this code">¶</a></div>
+</div>
+<p class="rubric">The limits of invariants</p>
+<p>These are all the interesting invariants I see right now. But I also see some properties that <em>aren’t</em> invariants. First of all, notice that <code class="docutils literal notranslate"><span class="pre">counter</span></code> and <code class="docutils literal notranslate"><span class="pre">tmp</span></code> can only increase; it’d be good to have our model checker test that, too. Second, it should be impossible for one thread to “steal” the lock from another. If a thread has the lock, that thread must release the lock before another one acquires it. Neither of these are invariants because violations wouldn’t be invalid states, but rather invalid transitions between valid states.</p>
+<p>For those reasons alone, invariants are insufficient to fully model our system properties. But there’s a deeper problem here. <code class="docutils literal notranslate"><span class="pre">AllDone</span></code> only says that if the processes finish, we have the correct result. If we change the spec in a way that lets a thread noop-loop forever, then the invariant trivially passes. What we really want to say is that no matter what, <em>eventually</em> we get the correct result.</p>
+<p>This is an entirely different class of requirement! Instead of saying that our system does the wrong thing, we want to show it always does the right thing. In the <a class="reference internal" href="temporal-logic.html"><span class="doc">next chapter</span></a>, we’ll learn how to write and check these kinds of properties.</p>
+</section>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Concurrency is when multiple different independent agents are interacting in a spec.</p></li>
+<li><p>In PlusCal, the base unit of concurrency is the <em>process</em>. All processes must have the same type (or be a model value).</p></li>
+<li><p>Processes can belong to Process Sets. TLC will make one process for each element of the set. The value of a process in a process set can be retrieved with <code class="docutils literal notranslate"><span class="pre">self</span></code>.</p></li>
+<li><p>Processes can have local variables. In a process set, each process may start with a different value in the local variable. Local variables cannot be referenced in other processes, or in a <code class="docutils literal notranslate"><span class="pre">define</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">await</span> <span class="pre">expr</span></code> prevents a label from running if <code class="docutils literal notranslate"><span class="pre">expr</span></code> is false. If no labels in a spec can run, the spec deadlocks.</p></li>
+</ul>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&lt;</span><span>Page contents</span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&gt;</span><span>Page contents:</span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">Concurrency</a><ul>
+<li><a class="reference internal" href="#processes">Processes</a><ul>
+<li><a class="reference internal" href="#local-variables">local variables</a></li>
+<li><a class="reference internal" href="#process-sets">Process Sets</a></li>
+<li><a class="reference internal" href="#await">await</a></li>
+<li><a class="reference internal" href="#procedures">Procedures</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#example-threads">Example: Threads</a><ul>
+<li><a class="reference internal" href="#finding-more-invariants">Finding More Invariants</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#summary">Summary</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+                <a href="nondeterminism.html">
+                    <span class="icon">&lt;</span><span>Nondeterminism</span></a>
+                
+            </div>
+
+            <div class="right">
+                
+                    <a href="temporal-logic.html"><span>Temporal Properties</span><span class="icon">&gt;</span></a>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Hillel Wayne.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+    </div>
+
+<p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
+  </body>
+</html>

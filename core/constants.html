@@ -1,0 +1,398 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Parameterizing Specs &#8212; Learn TLA+</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <script src="../_static/js/petite-vue.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Structured Data" href="functions.html" />
+    <link rel="prev" title="Writing an Invariant" href="invariants.html" /> 
+  </head><body data-dark_mode_code_blocks="true">
+
+<div id="top_nav">
+    
+
+    <nav>
+        
+            
+        
+
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+        <h1><a href="../index.html" title="Go to homepage">Learn TLA+</a></h1>
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="../search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew.html">What’s New</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/conceptual-overview.html">Conceptual Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">TLA+</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Core</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="setup.html">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operators.html">Operators and Values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pluscal.html">Writing Specifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="invariants.html">Writing an Invariant</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Parameterizing Specs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html">Structured Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nondeterminism.html">Nondeterminism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concurrency.html">Concurrency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="temporal-logic.html">Temporal Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced-operators.html">More Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="action-properties.html">Action Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tla.html">TLA+</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html">Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="next-steps.html">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../topics/index.html">Topics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html#pluscal-specs">PlusCal Specs</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/standard-library.html">Standard Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/other-resources.html">Other Resources</a></li>
+</ul>
+
+<ul>
+  <li class="toctree-l1"><a href= "../genindex.html">Index</a></li>
+</ul>
+        </div>
+      </div>
+
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="parameterizing-specs">
+<span id="chapter-constants"></span><h1>Parameterizing Specs<a class="headerlink" href="#parameterizing-specs" title="Permalink to this headline">¶</a></h1>
+<section id="model-constants">
+<span id="constant"></span><span id="index-0"></span><h2>Model Constants<a class="headerlink" href="#model-constants" title="Permalink to this headline">¶</a></h2>
+<p>In the last chapter, we made a complete specification of the duplicate checker, adding a property to our implementation. By using initial states, we can check all 4-digit lists of single digits. If we wanted to be more thorough, we could check a wider range of inputs, for example <code class="docutils literal notranslate"><span class="pre">S</span> <span class="pre">==</span> <span class="pre">1..100</span></code>. By my estimate, this would kick the number of found states from 70,000 to over 500,000,000. That would take a lot more time to check! If we were writing this as a “real” spec, we’d want to do most of our writing with a smaller value of S, like <code class="docutils literal notranslate"><span class="pre">1..10</span></code>, so we can get faster feedback from the model checker. It’s only when we’ve shaken out the obvious issues that we’d switch a large value of S, like <code class="docutils literal notranslate"><span class="pre">1..100</span></code>.</p>
+<p>This means we don’t want <code class="docutils literal notranslate"><span class="pre">S</span></code> to be a hardcoded value in the spec. It should instead be something we can dynamically pick per model run. Think of how, in a programming language, you have command line flags for passing in arguments. In TLA+, values that can be configured per model run are called “Constants”.<a class="footnote-reference brackets" href="#footnote-constant" id="id1">1</a> Let’s make <code class="docutils literal notranslate"><span class="pre">S</span></code> a constant:</p>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="highlight-udiff notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>---- MODULE duplicates ----<span class="w"></span>
+<span class="w"> </span>EXTENDS Integers, Sequences, TLC<span class="w"></span>
+<span class="gd">-</span><span class="w"></span>
+<span class="gd">-S == 1..10</span><span class="w"></span>
+<span class="gi">+CONSTANT S</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w"> </span>(*--algorithm dup<span class="w"></span>
+<span class="gd">-variable </span><span class="w"></span>
+<span class="gd">-  seq \in S \X S \X S \X S;</span><span class="w"></span>
+<span class="gi">+  variable seq \in S \X S \X S \X S;</span><span class="w"></span>
+<span class="w"> </span>  index = 1;<span class="w"></span>
+<span class="w"> </span>  seen = {};<span class="w"></span>
+<span class="w"> </span>  is_unique = TRUE;<span class="w"></span>
+<span class="gu">@@ -18,7 +16,7 @@</span><span class="w"></span>
+<span class="w"> </span>    <span class="w"></span>
+<span class="w"> </span>  IsUnique(s) == <span class="w"></span>
+<span class="w"> </span>    \A i, j \in 1..Len(s): <span class="w"></span>
+<span class="gd">-      i # j =&gt; s[i] # s[j]</span><span class="w"></span>
+<span class="gi">+      i # j =&gt; seq[i] # seq[j] </span><span class="w"></span>
+<span class="w"> </span>
+<span class="w"> </span>  IsCorrect == pc = &quot;Done&quot; =&gt; is_unique = IsUnique(seq)<span class="w"></span>
+<span class="w"> </span>end define; <span class="w"></span>
+</pre></div>
+</div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference download internal" download="" href="../_downloads/0e652e2a9fba234868702fa6c90cbe17/duplicates.tla"><code class="xref download docutils literal notranslate"><span class="pre">spec</span></code></a></span><a class="headerlink" href="#id4" title="Permalink to this code">¶</a></div>
+</div>
+<p>You can put several constants on the same line; when we make the length configurable (in the <a class="reference internal" href="functions.html#chapter-functions"><span class="std std-ref">next chapter</span></a>), we’ll write <code class="docutils literal notranslate"><span class="pre">CONSTANT</span> <span class="pre">S,</span> <span class="pre">Length</span></code>. If we now try to run our spec, the toolbox will say that we haven’t defined the constant <code class="docutils literal notranslate"><span class="pre">S</span></code>:</p>
+<img alt="../_images/missing_constant.png" src="../_images/missing_constant.png" />
+<p>We do that over here:</p>
+<img alt="../_images/missing_constant_annotated.png" src="../_images/missing_constant_annotated.png" />
+<p>Which opens this box:</p>
+<img alt="../_images/model_modal.png" src="../_images/model_modal.png" />
+<p>There are three options for constants: ordinary assignments, model values, and sets of model values. We’ll talk about the other two later, for now let’s just look at ordinary assignments. This lets you assign any valid TLA+ expression to the constant. Since showing screenshots of every single assignment is annoying, I’ll write <code class="docutils literal notranslate"><span class="pre">S</span> <span class="pre">&lt;-</span> <span class="pre">1..10</span></code> to mean “we do an ordinary assignment of <code class="docutils literal notranslate"><span class="pre">1..10</span></code> to S.” Now we can make separate models with a small <code class="docutils literal notranslate"><span class="pre">S</span></code> for iterative development and one with a large <code class="docutils literal notranslate"><span class="pre">S</span></code> for final testing.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It’s good practice to use constants in your TLA+ specs. To keep the examples simple, though, I’ll hardcode more values than I normally would.</p>
+</div>
+<section id="preventing-nonsense-constants">
+<span id="assume"></span><span id="index-1"></span><h3>Preventing Nonsense Constants<a class="headerlink" href="#preventing-nonsense-constants" title="Permalink to this headline">¶</a></h3>
+<p>Not all values of <code class="docutils literal notranslate"><span class="pre">S</span></code> are meaningful for our spec. For example, what if we do <code class="docutils literal notranslate"><span class="pre">S</span> <span class="pre">&lt;-</span> <span class="pre">{}</span></code>? Then there’s no possible values for <code class="docutils literal notranslate"><span class="pre">seq</span></code>, so there’s no possible duplicates, so the entire model is pointless. Or what about <code class="docutils literal notranslate"><span class="pre">S</span> <span class="pre">&lt;-</span> <span class="pre">{1,</span> <span class="pre">2}</span></code>? While there are now possible values of <code class="docutils literal notranslate"><span class="pre">seq</span></code>, they will <em>always</em> contain duplicates, so running the spec isn’t particularly interesting.</p>
+<p>We can rule these pathological values out with the <code class="docutils literal notranslate"><span class="pre">ASSUME</span></code> keyword. ASSUME expressions are checks to make sure we put in correct constants.</p>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="highlight-udiff notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>---- MODULE duplicates ----<span class="w"></span>
+<span class="gd">-EXTENDS Integers, Sequences, TLC</span><span class="w"></span>
+<span class="gi">+EXTENDS Integers, Sequences, TLC, FiniteSets</span><span class="w"></span>
+<span class="w"> </span>CONSTANT S<span class="w"></span>
+<span class="gi">+ASSUME Cardinality(S) &gt;= 4</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w"> </span>(*--algorithm dup<span class="w"></span>
+<span class="w"> </span>  variable seq \in S \X S \X S \X S;<span class="w"></span>
+</pre></div>
+</div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference download internal" download="" href="../_downloads/3c408b27272468c05dd64c21080001c5/duplicates.tla"><code class="xref download docutils literal notranslate"><span class="pre">spec</span></code></a></span><a class="headerlink" href="#id5" title="Permalink to this code">¶</a></div>
+</div>
+<p>The expression inside an ASSUME can depend on operators and constants, but not variables. The ASSUME is checked before the model run even starts. If we try running the spec with <code class="docutils literal notranslate"><span class="pre">S</span> <span class="pre">&lt;-</span> <span class="pre">{1}</span></code>, we get an error:</p>
+<blockquote>
+<div><p>Error: Assumption %line% is false.</p>
+</div></blockquote>
+<p>If you have a spec with constants, you should put constraining assumptions on them. In addition to preventing errors, they also help readers of the spec understand what the constants are supposed to be.</p>
+</section>
+<section id="model-values">
+<span id="model-value"></span><span id="index-2"></span><span id="id2"></span><h3>Model Values<a class="headerlink" href="#model-values" title="Permalink to this headline">¶</a></h3>
+<p>That takes care of ordinary assignments, what about “model values”? Model values are a special type of value in TLA+. A model value has no operations and can only be tested for equality, and is only equal to itself. IE</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="c">\* Given</span>
+<span class="n">X</span> <span class="o">&lt;-</span> <span class="p">[</span><span class="n">model</span> <span class="n">value</span><span class="p">]</span>
+<span class="n">Y</span> <span class="o">&lt;-</span> <span class="p">[</span><span class="n">model</span> <span class="n">value</span><span class="p">]</span>
+
+<span class="c">\* Then</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">X</span>
+<span class="n">X</span> <span class="o">#</span> <span class="n">Y</span>
+<span class="n">X</span> <span class="o">#</span> <span class="m">1</span>
+<span class="n">X</span> <span class="o">#</span> <span class="s">&quot;a&quot;</span>
+<span class="n">X</span> <span class="o">#</span> <span class="o">&lt;&lt;</span><span class="m">1</span><span class="p">,</span> <span class="n">Y</span><span class="o">&gt;&gt;</span>
+</pre></div>
+</div>
+<p>Why would you want this? Because in TLC, comparing incompatible types produces an error. Say you want to represent a nullable value, like <code class="docutils literal notranslate"><span class="pre">last_access_time</span></code>. You can’t write <code class="docutils literal notranslate"><span class="pre">IF</span> <span class="pre">last_access_time</span> <span class="pre">=</span> <span class="pre">&quot;null&quot;</span></code> because if the variable is currently non-null, then you’re comparing a string to an integer, which is an error. If you use a sentinel value, like <code class="docutils literal notranslate"><span class="pre">IF</span> <span class="pre">last_access_time</span> <span class="pre">=</span> <span class="pre">-1</span></code>, then you’re risking logic errors if you accidentally use it in any other numerical context.</p>
+<p>What you can do instead is define a new constant, like <code class="docutils literal notranslate"><span class="pre">NULL</span></code> or <code class="docutils literal notranslate"><span class="pre">NotYetAccessed</span></code>, and set it to a model value. Then you can do <code class="docutils literal notranslate"><span class="pre">IF</span> <span class="pre">last_access_time</span> <span class="pre">=</span> <span class="pre">NULL</span></code>, which will be false if the value is already a number. Similarly, you can add them to sets that already have a elements. Model values are incredibly useful as sentinel and placeholder values in organizing larger specs.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Once you have a model value, you can use it in ordinary assignments. For example:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="kn">CONSTANT</span> <span class="n">X</span><span class="p">,</span> <span class="n">Set</span>
+
+<span class="n">X</span> <span class="o">&lt;-</span> <span class="p">[</span><span class="n">model</span> <span class="n">value</span><span class="p">]</span>
+<span class="n">Set</span> <span class="o">&lt;-</span> <span class="n">{</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="n">X}</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="sets-of-model-values">
+<span id="model-set"></span><span id="index-3"></span><h3>Sets of Model Values<a class="headerlink" href="#sets-of-model-values" title="Permalink to this headline">¶</a></h3>
+<p>We can also assign constants to sets of model values. Put it in as a normal set, but without quotes.</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">S</span> <span class="o">&lt;-</span> <span class="p">[</span><span class="n">model</span> <span class="n">value</span><span class="p">]</span> <span class="n">{s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">,</span> <span class="n">s3</span><span class="p">,</span> <span class="n">s4</span><span class="p">,</span> <span class="n">s5}</span>
+</pre></div>
+</div>
+<p>Sets of model values will become <em>extremely</em> useful when we start modeling <a class="reference internal" href="concurrency.html"><span class="doc">concurrency</span></a>, but there’s still one cool trick we can do with them right now. If you run the model with that value of <code class="docutils literal notranslate"><span class="pre">S</span></code>, you will get 4,375 states total— the same as if you did <code class="docutils literal notranslate"><span class="pre">S</span> <span class="pre">&lt;-</span> <span class="pre">1..5</span></code>. But notice this other option below the “set of model values” bar:</p>
+<img alt="../_images/symmetry_set.png" src="../_images/symmetry_set.png" />
+<p id="symmetry-set"><span id="index-4"></span>“Symmetry set” is a special TLC optimization. By making <code class="docutils literal notranslate"><span class="pre">S</span></code> a symmetry set, the number of states drops to only 715. Symmetry sets are a very powerful optimization technique!</p>
+<p>To illustrate what’s going on, let’s look at four possible values for <code class="docutils literal notranslate"><span class="pre">seq</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(1) &lt;&lt;s1, s2, s3&gt;&gt;
+(2) &lt;&lt;s2, s1, s3&gt;&gt;
+
+(3) &lt;&lt;s1, s2, s2&gt;&gt;
+(4) &lt;&lt;s2, s3, s3&gt;&gt;
+</pre></div>
+</div>
+<p>Normally we’d think of these as four separate initial states. But is that necessarily true? The only difference between (1) and (2) is that we swapped every <code class="docutils literal notranslate"><span class="pre">s1</span></code> with <code class="docutils literal notranslate"><span class="pre">s2</span></code>. Similarly, the only difference between (3) and (4) is that in (4) we replaced every s1 with s2 and every s2 with s3. So we can tell TLC to treat these “symmetric” values as identical.</p>
+<p>Notice this only works because we’re working with model values, which only support equality checks. If we instead had <code class="docutils literal notranslate"><span class="pre">&lt;&lt;1,</span> <span class="pre">2,</span> <span class="pre">2&gt;&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;&lt;2,</span> <span class="pre">3,</span> <span class="pre">3&gt;&gt;</span></code> the results would <em>not</em> be symmetric, as they’d give different results for <code class="docutils literal notranslate"><span class="pre">s[1]</span> <span class="pre">+</span> <span class="pre">s[2]</span></code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Symmetry sets don’t always make the spec run faster. TLC has some overhead in figuring out all the symmetries; with very large sets, that can take longer than actually checking the model. On my computer, checking <code class="docutils literal notranslate"><span class="pre">duplicates</span></code> with an 8-element symmetry set takes two minutes longer than checking it with a regular model set.</p>
+</div>
+</section>
+<section id="other-uses-for-constants">
+<h3>Other Uses for Constants<a class="headerlink" href="#other-uses-for-constants" title="Permalink to this headline">¶</a></h3>
+<p>You can also use constants to control the flow of your spec. When working on complicated specs, I sometimes like to make a <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code> constant:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="kn">CONSTANT</span> <span class="n">DEBUG</span>
+<span class="kn">ASSUME</span> <span class="n">DEBUG</span> <span class="s">\in</span> <span class="bp">BOOLEAN</span>
+
+<span class="c">\* ...</span>
+
+<span class="nf">macro</span> <span class="n">print_if_debug</span><span class="p">(</span><span class="n">str</span><span class="p">)</span> <span class="nf">begin</span>
+  <span class="k">if</span> <span class="n">DEBUG</span> <span class="k">then</span>
+    <span class="n">print</span> <span class="n">str</span><span class="p">;</span>
+  <span class="k">end</span> <span class="k">if</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Another thing you can do is restrict multiple starting states with <code class="docutils literal notranslate"><span class="pre">DEBUG</span></code>:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">Inputs</span> <span class="o">==</span>
+<span class="k k-Conditional">IF</span> <span class="n">DEBUG</span>
+<span class="k k-Conditional">THEN</span> <span class="n">{</span><span class="o">&lt;&lt;</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="o">&gt;&gt;</span><span class="n">}</span>
+<span class="k k-Conditional">ELSE</span> <span class="n">S</span> <span class="s">\X</span> <span class="n">S</span> <span class="s">\X</span> <span class="n">S</span> <span class="s">\X</span> <span class="n">S</span>
+</pre></div>
+</div>
+<p>Don’t be afraid to make helper constants!</p>
+</section>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#constant"><span class="std std-ref">Constants</span></a> let you use different values of something for different models.</p></li>
+<li><p>Constants can be assigned ordinary TLA+ expressions, or model values or sets of model values.</p></li>
+<li><p><a class="reference internal" href="#assume"><span class="std std-ref">ASSUME</span></a> checks that you assign meaningful values to your constants.</p></li>
+<li><p>Model values compare equal to themselves and nothing else. They are useful as sentinel values.</p></li>
+<li><p>Sets of model values can be made into symmetry sets, which (usually) speeds up model checking.</p></li>
+</ul>
+<dl class="footnote brackets">
+<dt class="label" id="footnote-constant"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>This is different from how we use constant in programming languages, as well as other specification languages. AFAICT it’s an idiosyncrasy of TLA+. Constants as in “values that never change” are just 0-arity operators.</p>
+</dd>
+</dl>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&lt;</span><span>Page contents</span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&gt;</span><span>Page contents:</span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">Parameterizing Specs</a><ul>
+<li><a class="reference internal" href="#model-constants">Model Constants</a><ul>
+<li><a class="reference internal" href="#preventing-nonsense-constants">Preventing Nonsense Constants</a></li>
+<li><a class="reference internal" href="#model-values">Model Values</a></li>
+<li><a class="reference internal" href="#sets-of-model-values">Sets of Model Values</a></li>
+<li><a class="reference internal" href="#other-uses-for-constants">Other Uses for Constants</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#summary">Summary</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+                <a href="invariants.html">
+                    <span class="icon">&lt;</span><span>Writing an Invariant</span></a>
+                
+            </div>
+
+            <div class="right">
+                
+                    <a href="functions.html"><span>Structured Data</span><span class="icon">&gt;</span></a>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Hillel Wayne.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+    </div>
+
+<p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
+  </body>
+</html>

@@ -1,0 +1,354 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Conceptual Overview &#8212; Learn TLA+</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <script src="../_static/js/petite-vue.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Core" href="../core/index.html" />
+    <link rel="prev" title="What’s New" href="../whatsnew.html" /> 
+  </head><body data-dark_mode_code_blocks="true">
+
+<div id="top_nav">
+    
+
+    <nav>
+        
+            
+        
+
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+        <h1><a href="../index.html" title="Go to homepage">Learn TLA+</a></h1>
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="../search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew.html">What’s New</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Conceptual Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">TLA+</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../core/index.html">Core</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topics/index.html">Topics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html#pluscal-specs">PlusCal Specs</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/standard-library.html">Standard Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/other-resources.html">Other Resources</a></li>
+</ul>
+
+<ul>
+  <li class="toctree-l1"><a href= "../genindex.html">Index</a></li>
+</ul>
+        </div>
+      </div>
+
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="conceptual-overview">
+<span id="chapter-overview"></span><h1>Conceptual Overview<a class="headerlink" href="#conceptual-overview" title="Permalink to this headline">¶</a></h1>
+<p>To justify the value of TLA+, let’s talk about how it’s useful, and how it’s different from programming languages.</p>
+<p>Imagine we’re building a wire transfer service for a bank. Users can make transfers to other users. As a requirement, we don’t allow any wires that would overdraft the user’s account, or make it go below zero dollars. At a high level, the code would look like this:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">def</span> <span class="n">transfer</span><span class="p">(</span><span class="n">from</span><span class="p">,</span> <span class="n">to</span><span class="p">,</span> <span class="n">amount</span><span class="p">)</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">from</span><span class="o">.</span><span class="n">balance</span> <span class="o">&gt;=</span> <span class="n">amount</span><span class="p">)</span> <span class="o">#</span> <span class="n">guard</span>
+    <span class="n">from</span><span class="o">.</span><span class="n">balance</span> <span class="o">-=</span> <span class="n">amount</span><span class="p">;</span>   <span class="o">#</span> <span class="n">withdraw</span>
+    <span class="n">to</span><span class="o">.</span><span class="n">balance</span> <span class="o">+=</span> <span class="n">amount</span><span class="p">;</span>     <span class="o">#</span> <span class="n">deposit</span>
+</pre></div>
+</div>
+<p>This would satisfy the requirement: if you try to transfer more than you have, the guard prevents you.</p>
+<p>Now consider two changes:</p>
+<ol class="arabic simple">
+<li><p>Users can start more than one transfer at a time.</p></li>
+<li><p>Transfer steps are nonatomic. One transfer can start and (potentially) finish while another transfer is ongoing.</p></li>
+</ol>
+<p>Neither change by itself causes a problem. But both of them <em>together</em> leads to a possible race condition:</p>
+<ol class="arabic simple">
+<li><p>Alice has 6 dollars in her account, and makes two transfers to Bob. Transfer X is for 3 dollars, and transfer Y is for 4 dollars.</p></li>
+<li><p>Guard(X) runs. Because 3 &lt; 6, we go on to Withdraw(X).</p></li>
+<li><p><em>Before Withdraw(X) happens</em>, Guard(Y) runs. Because 4 &lt; 6, we go on to Withdraw(Y).</p></li>
+<li><p>Both withdrawals run, taking 7 dollars out of Alice’s account and leaving her with -1.</p></li>
+</ol>
+<p>If Withdraw(X) happens before Guard(Y), then there’s no problem; transfer Y will simply fail. Race conditions like this are fundamentally rare: <em>most</em> of the time, the program will behave as expected and maintain our properties. It’s only in very particular orderings of events that we have a bug. That’s why concurrency errors are so hard to find.</p>
+<p>That’s also why they’re hard to fix. Imagine if we added a third feature, say a lock in the right place, to fix the bug. Does the issue go away because we’ve solved it, or because we’ve made it rarer? Without being able to explore the actual consequences of the designs, we can’t guarantee we’ve solved anything.</p>
+<p>The purpose of TLA+, then, is to programmatically explore these design issues. We want to give the tooling a system and a requirement and it can tell us whether or not we can break the requirement. If it can, then we know to change our design. If it can’t, we can be more confident that we’re correct.</p>
+<section id="structure">
+<h2>Structure<a class="headerlink" href="#structure" title="Permalink to this headline">¶</a></h2>
+<p>So there’s three parts to the conceptual framework of TLA+.</p>
+<p>First, we need to describe the system and what it can do. This is called the <strong>specification</strong>, or spec. Our design might look like this:</p>
+<ul class="simple">
+<li><p>We have a set of accounts. Each account has a number, representing the balance.</p></li>
+<li><p>Any account can attempt to transfer any amount of money to any other account.</p></li>
+<li><p>A transfer first checks if there are sufficient funds. If there are, the amount is subtracted from the first account and added to the second.</p></li>
+<li><p>Transfers are nonatomic. Multiple transfers can happen concurrently.</p></li>
+</ul>
+<p>The specification has a set of “behaviors”, or possible distinct executions. For the spec to be correct, every behavior must satisfy all of our system requirements, or <strong>properties</strong>. “No account can overdraft” is an example property, and is violated if there’s a behavior of the spec has a state where an account has a negative balance. It doesn’t matter if all of the other possible behaviors <em>don’t</em> have overdrafts. We’re looking for rare design error, so just one violation is enough.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>“No account can overdraft” is an <strong>invariant</strong> property, which is one that must be true of every single state of every single behavior. There are other, more advanced properties, like <a class="reference internal" href="../core/temporal-logic.html#chapter-temporal-logic"><span class="std std-ref">liveness</span></a> and <a class="reference internal" href="../core/action-properties.html#chapter-action-properties"><span class="std std-ref">action</span></a> properties, which we’ll cover in time.</p>
+</div>
+<p>Once we’ve written a spec and properties, we feed them into a “model checker”. The model checker takes the spec, generates <em>every possible</em> behavior, and sees if they all satisfy all of our properties. If one doesn’t, it will return an “error trace” showing how to reproduce the violation. There are a couple different model checkers for TLA+, but the most popular one is TLC, which is bundled with the toolbox. Unless I say otherwise, when I talk about model checkers I’m referring to TLC.</p>
+<p>Now we can’t check <em>every</em> possible behavior. In fact there’s an infinite number of them, since we can also add more accounts and transfers to the system. So we instead check all the behaviors under certain constraints, such as “all behaviors for three accounts, of up to 10 dollars in each account, and two transfers, of up to 10 dollars in each transfer.” We call this set of runtime parameters, along with all the other model checker configuration we do, the <strong>model</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This means that a passing model doesn’t guarantee the spec is correct. Maybe there’s an error that only appears with larger parameters. But empirically, in specification we’ve found that most errors appear with very small scopes: if a system works with 3 workers, it’ll probably also work with 25 workers.</p>
+</div>
+</section>
+<section id="specifications">
+<h2>Specifications<a class="headerlink" href="#specifications" title="Permalink to this headline">¶</a></h2>
+<p>So what does this all look like in practice? Let’s present a spec for wire transfers, first with hardcoded parameters and then with model-parameterizable ones.</p>
+<div class="literal-block-wrapper docutils container" id="wire">
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="c c-PreProc">----</span> <span class="c c-PreProc">MODULE</span> <span class="c c-PreProc">wire</span> <span class="c c-PreProc">----</span>
+<span class="kn">EXTENDS</span> <span class="n">TLC</span><span class="p">,</span> <span class="n">Integers</span>
+
+<span class="n">People</span> <span class="o">==</span> <span class="n">{</span><span class="s">&quot;alice&quot;</span><span class="p">,</span> <span class="s">&quot;bob&quot;</span><span class="n">}</span>
+<span class="n">Money</span> <span class="o">==</span> <span class="m">1</span><span class="o">..</span><span class="m">10</span>
+<span class="n">NumTransfers</span> <span class="o">==</span> <span class="m">2</span>
+
+<span class="nf">(* --algorithm wire</span>
+<span class="n">variables</span>
+  <span class="n">acct</span> <span class="s">\in</span> <span class="p">[</span><span class="n">People</span> <span class="o">-&gt;</span> <span class="n">Money</span><span class="p">];</span>
+
+<span class="nf">define</span>
+  <span class="n">NoOverdrafts</span> <span class="o">==</span>
+    <span class="s">\A</span> <span class="n">p</span> <span class="s">\in</span> <span class="n">People</span><span class="p">:</span>
+      <span class="n">acct</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="m">0</span>
+<span class="nf">end define</span><span class="p">;</span>
+
+<span class="nt">process</span> <span class="n">wire</span> <span class="s">\in</span> <span class="m">1</span><span class="o">..</span><span class="n">NumTransfers</span>
+<span class="n">variable</span>
+  <span class="n">amnt</span> <span class="s">\in</span> <span class="m">1</span><span class="o">..</span><span class="m">5</span><span class="p">;</span>
+  <span class="n">from</span> <span class="s">\in</span> <span class="n">People</span><span class="p">;</span>
+  <span class="n">to</span> <span class="s">\in</span> <span class="n">People</span>
+<span class="nf">begin</span>
+<span class="nt">  Check:</span>
+    <span class="k">if</span> <span class="n">acct</span><span class="p">[</span><span class="n">from</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">amnt</span> <span class="k">then</span>
+<span class="nt">      Withdraw:</span>
+        <span class="n">acct</span><span class="p">[</span><span class="n">from</span><span class="p">]</span> <span class="o">:=</span> <span class="n">acct</span><span class="p">[</span><span class="n">from</span><span class="p">]</span> <span class="o">-</span> <span class="n">amnt</span><span class="p">;</span>
+<span class="nt">      Deposit:</span>
+        <span class="n">acct</span><span class="p">[</span><span class="n">to</span><span class="p">]</span> <span class="o">:=</span> <span class="n">acct</span><span class="p">[</span><span class="n">to</span><span class="p">]</span> <span class="o">+</span> <span class="n">amnt</span><span class="p">;</span>
+    <span class="k">end</span> <span class="k">if</span><span class="p">;</span>
+<span class="nf">end process</span><span class="p">;</span>
+<span class="nf">end algorithm; *)</span>
+
+<span class="c c-PreProc">====</span>
+</pre></div>
+</div>
+<div class="code-block-caption"><span class="caption-text">(fails) <a class="reference download internal" download="" href="../_downloads/2cca4adf74013f5a8cb6d46b36fa28d8/wire.tla"><code class="xref download docutils literal notranslate"><span class="pre">spec</span></code></a></span><a class="headerlink" href="#wire" title="Permalink to this code">¶</a></div>
+</div>
+<p>Over the rest of the book I’ll be covering how all of this works syntactically. For now I just want to call attention to various parts that TLA+ does different from code:</p>
+<ul class="simple">
+<li><p>Definitions use <code class="docutils literal notranslate"><span class="pre">==</span></code>. Sorry I don’t make the rules</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">People</span></code> and <code class="docutils literal notranslate"><span class="pre">Money</span></code> are <a class="reference internal" href="../core/operators.html#set"><span class="std std-ref">sets</span></a>, collections of unique and unordered values. While programming languages mostly use arrays and key-value maps (<a class="reference internal" href="../core/operators.html#sequence"><span class="std std-ref">Sequences</span></a> and <a class="reference internal" href="../core/functions.html#struct"><span class="std std-ref">Structures</span></a> respectively), sets are a lot more foundational in specification.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[People</span> <span class="pre">-&gt;</span> <span class="pre">Money]</span></code> is also a set (in this case, a <a class="reference internal" href="../core/functions.html#function-set"><span class="std std-ref">function set</span></a>). It represents <em>all possible assignments</em> of people to money amounts: alice has 5 dollars and bob 1, alice 10 dollars and bob 6, etc.</p></li>
+<li><p>The variable <code class="docutils literal notranslate"><span class="pre">acct</span></code> isn’t a fixed value, it is one of 100 different values, one for each element of <code class="docutils literal notranslate"><span class="pre">[People</span> <span class="pre">-&gt;</span> <span class="pre">Money]</span></code>. When we model check this, TLC will explore every possible behavior starting from every one of these 100 possible initial values.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NoOverdrafts</span></code> is a <a class="reference internal" href="../core/invariants.html#a"><span class="std std-ref">quantifier</span></a>. It’s true if <em>every</em> account is &gt;= 0 and false otherwise. In python, this might be equivalent to <code class="docutils literal notranslate"><span class="pre">all([acct[p]</span> <span class="pre">&gt;=</span> <span class="pre">0</span> <span class="pre">for</span> <span class="pre">p</span> <span class="pre">in</span> <span class="pre">People])</span></code>. Quantifiers are an extremely powerful feature of TLA+, making it easy to write very complex properties.</p></li>
+<li><p>We have more than one <code class="docutils literal notranslate"><span class="pre">wire</span></code> <a class="reference internal" href="../core/concurrency.html"><span class="doc">process</span></a> running simultaneously. With <code class="docutils literal notranslate"><span class="pre">NumTransfers</span> <span class="pre">==</span> <span class="pre">2</span></code>, there are two processes in the spec. But we can choose to have ten, a hundred, or a thousand processes if we really wanted, with only our patience and our RAM as limiting factors.</p></li>
+<li><p>Each step of the algorithm belongs to a separate <a class="reference internal" href="../core/pluscal.html#label"><span class="std std-ref">label</span></a>. The labels determine what happens atomically and what can be interrupted by another process. That way we can represent race conditions.</p></li>
+</ul>
+<section id="models">
+<h3>Models<a class="headerlink" href="#models" title="Permalink to this headline">¶</a></h3>
+<p>Once we have our design, we can model check it against some requirements. We can make a model and say that <code class="docutils literal notranslate"><span class="pre">NoOverdrafts</span></code> is an invariant. Then running the model will check <em>every possible</em> way the system can evolve. If any of those ways leads to a state where <code class="docutils literal notranslate"><span class="pre">NoOverdrafts</span></code> is false, then the model checker will raise an error.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you want to run this yourself, see <a class="reference internal" href="../core/setup.html#setup"><span class="std std-ref">Setup</span></a>.</p>
+</div>
+<p>We checked it with two transfers. But what if we wanted to check it with four transfers? TLA+ makes it very easy to change our designs. We can parameterize any value, and then have different models check with different values.</p>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="highlight-udiff notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>---- MODULE wire ----<span class="w"></span>
+<span class="w"> </span>EXTENDS TLC, Integers<span class="w"></span>
+<span class="gd">-</span><span class="w"></span>
+<span class="gd">-People == {&quot;alice&quot;, &quot;bob&quot;}</span><span class="w"></span>
+<span class="gd">-Money == 1..10</span><span class="w"></span>
+<span class="gd">-NumTransfers == 2</span><span class="w"></span>
+<span class="gi">+CONSTANTS People, Money, NumTransfers</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w"> </span>(* --algorithm wire<span class="w"></span>
+<span class="w"> </span>variables<span class="w"></span>
+</pre></div>
+</div>
+<div class="code-block-caption"><span class="caption-text">(fails) <a class="reference download internal" download="" href="../_downloads/b692ff855bdd8f086b800915f92367e4/wire.tla"><code class="xref download docutils literal notranslate"><span class="pre">spec</span></code></a></span><a class="headerlink" href="#id5" title="Permalink to this code">¶</a></div>
+</div>
+<p>Now I can make separate models, with the same invariant, but different numbers of simultaneous transfers. So I can see that it works correctly with one transfer but not two.</p>
+<section id="discussion">
+<h4>Discussion<a class="headerlink" href="#discussion" title="Permalink to this headline">¶</a></h4>
+<p>There’s a few concepts I haven’t introduced here: temporal properties, fairness, stutter-invariance, etc. All of these will be covered later. Hopefully, though, this is enough to give you a sense of what, if you decide to learn TLA+, you’ll actually be able to <em>do</em> with it. If you’re interested in continuing, check out the <a class="reference internal" href="../core/index.html"><span class="doc">Core</span></a> and <a class="reference internal" href="../core/setup.html#setup"><span class="std std-ref">Setup</span></a>.</p>
+</section>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&lt;</span><span>Page contents</span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&gt;</span><span>Page contents:</span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">Conceptual Overview</a><ul>
+<li><a class="reference internal" href="#structure">Structure</a></li>
+<li><a class="reference internal" href="#specifications">Specifications</a><ul>
+<li><a class="reference internal" href="#models">Models</a><ul>
+<li><a class="reference internal" href="#discussion">Discussion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+                <a href="../whatsnew.html">
+                    <span class="icon">&lt;</span><span>What’s New</span></a>
+                
+            </div>
+
+            <div class="right">
+                
+                    <a href="../core/index.html"><span>Core</span><span class="icon">&gt;</span></a>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Hillel Wayne.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+    </div>
+
+<p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
+  </body>
+</html>

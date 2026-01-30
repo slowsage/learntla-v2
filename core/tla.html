@@ -1,0 +1,688 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>TLA+ &#8212; Learn TLA+</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <script src="../_static/js/petite-vue.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Modules" href="modules.html" />
+    <link rel="prev" title="Action Properties" href="action-properties.html" /> 
+  </head><body data-dark_mode_code_blocks="true">
+
+<div id="top_nav">
+    
+
+    <nav>
+        
+            
+        
+
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+        <h1><a href="../index.html" title="Go to homepage">Learn TLA+</a></h1>
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="../search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew.html">What’s New</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/conceptual-overview.html">Conceptual Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">TLA+</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Core</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="setup.html">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operators.html">Operators and Values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pluscal.html">Writing Specifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="invariants.html">Writing an Invariant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="constants.html">Parameterizing Specs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html">Structured Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nondeterminism.html">Nondeterminism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concurrency.html">Concurrency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="temporal-logic.html">Temporal Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced-operators.html">More Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="action-properties.html">Action Properties</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">TLA+</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html">Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="next-steps.html">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../topics/index.html">Topics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html#pluscal-specs">PlusCal Specs</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/standard-library.html">Standard Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/other-resources.html">Other Resources</a></li>
+</ul>
+
+<ul>
+  <li class="toctree-l1"><a href= "../genindex.html">Index</a></li>
+</ul>
+        </div>
+      </div>
+
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="tla">
+<span id="chapter-tla"></span><h1>TLA+<a class="headerlink" href="#tla" title="Permalink to this headline">¶</a></h1>
+<p>PlusCal is a formalism designed to make using formal methods easier. By learning PlusCal first, we can focus on teaching first logic and model checking, leaving temporal logic for later. Another advantage is that can bootstrap TLA+ from it by looking at what the PlusCal generates, and infer the TLA+. We know that the PlusCal generated is valid TLA+, so we can use it to understand the TLA+.</p>
+<p id="index-0">There are two concepts in the <a class="reference internal" href="action-properties.html"><span class="doc">last chapter</span></a> that you should review in order to understand TLA+:</p>
+<ul class="simple">
+<li><p>The prime operator: <code class="docutils literal notranslate"><span class="pre">x'</span></code> is the value of x <em>in the next state</em>.</p></li>
+<li><p>The box operator: <code class="docutils literal notranslate"><span class="pre">[P]_x</span></code> is <code class="docutils literal notranslate"><span class="pre">P</span> <span class="pre">\/</span> <span class="pre">UNCHANGED</span> <span class="pre">x</span></code>.</p></li>
+</ul>
+<p>Now let’s learn us some TLA+!</p>
+<section id="learning-from-pluscal">
+<h2>Learning from PlusCal<a class="headerlink" href="#learning-from-pluscal" title="Permalink to this headline">¶</a></h2>
+<p>I find the easiest way to explain what’s going on with TLA+ is to relate it to what the PlusCal does. In his original book <a class="reference external" href="https://lamport.azurewebsites.net/tla/book-02-08-08.pdf">Specifying Systems</a>, Leslie Lamport introduces TLA+ with a specification of an hour clock, and I’d be remiss to break with tradition. The PlusCal is a <em>mostly</em> faithful translation of his TLA+ spec.</p>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="c c-PreProc">----</span> <span class="c c-PreProc">MODULE</span> <span class="c c-PreProc">hourclock</span> <span class="c c-PreProc">----</span>
+<span class="kn">EXTENDS</span> <span class="n">Naturals</span>
+<span class="c">\* TODO: two clocks</span>
+<span class="nf">(*--algorithm hourclock</span>
+<span class="n">variable</span> <span class="n">hr</span> <span class="o">=</span> <span class="m">1</span><span class="p">;</span> <span class="c">\* hour</span>
+
+<span class="nf">begin</span>
+<span class="nt">  A:</span>
+    <span class="k">while</span> <span class="bp">TRUE</span> <span class="k">do</span>
+        <span class="k">if</span> <span class="n">hr</span> <span class="o">=</span> <span class="m">12</span> <span class="k">then</span>
+          <span class="n">hr</span> <span class="o">:=</span> <span class="m">1</span><span class="p">;</span>
+        <span class="k">else</span>
+            <span class="n">hr</span> <span class="o">:=</span> <span class="n">hr</span> <span class="o">+</span> <span class="m">1</span><span class="p">;</span>
+        <span class="k">end</span> <span class="k">if</span><span class="p">;</span>
+    <span class="k">end</span> <span class="k">while</span><span class="p">;</span>
+<span class="nf">end algorithm; *)</span>
+<span class="c c-PreProc">====</span>
+</pre></div>
+</div>
+<div class="code-block-caption"><span class="caption-text"><span>13 states / 12 distinct</span> <a class="reference download internal" download="" href="../_downloads/76376bac0de73a66baf5f5b9aa1c1c8d/hourclock.tla"><code class="xref download docutils literal notranslate"><span class="pre">spec</span></code></a></span><a class="headerlink" href="#id5" title="Permalink to this code">¶</a></div>
+</div>
+<p>You should be able to look at this spec and run it in your head. <code class="docutils literal notranslate"><span class="pre">hr</span></code> starts at 1, and then increment, wrapping at 12 back to 1. The TLA+ translation <em>must</em> do the same thing. Let’s take a look at it:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="kn">VARIABLE</span> <span class="n">hr</span>
+
+<span class="n">vars</span> <span class="o">==</span> <span class="o">&lt;&lt;</span> <span class="n">hr</span> <span class="o">&gt;&gt;</span>
+
+<span class="n">Init</span> <span class="o">==</span> <span class="cm">(* Global variables *)</span>
+        <span class="o">/\</span> <span class="n">hr</span> <span class="o">=</span> <span class="m">1</span>
+
+<span class="n">Next</span> <span class="o">==</span> <span class="k k-Conditional">IF</span> <span class="n">hr</span> <span class="o">=</span> <span class="m">12</span>
+           <span class="k k-Conditional">THEN</span> <span class="o">/\</span> <span class="n">hr&#39;</span> <span class="o">=</span> <span class="m">1</span>
+           <span class="k k-Conditional">ELSE</span> <span class="o">/\</span> <span class="n">hr&#39;</span> <span class="o">=</span> <span class="n">hr</span> <span class="o">+</span> <span class="m">1</span>
+
+<span class="n">Spec</span> <span class="o">==</span> <span class="n">Init</span> <span class="o">/\</span> <span class="ni">[]</span><span class="p">[</span><span class="n">Next</span><span class="p">]</span><span class="n">_vars</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The spec doesn’t <em>yet</em> reference the <code class="docutils literal notranslate"><span class="pre">A</span></code> label. We’ll see how it plays in later.</p>
+</div>
+<p>First, we need to define the <code class="docutils literal notranslate"><span class="pre">VARIABLES</span></code>, same way we define <code class="docutils literal notranslate"><span class="pre">CONSTANTS</span></code>. Then there are operators: <code class="docutils literal notranslate"><span class="pre">Init</span></code>, <code class="docutils literal notranslate"><span class="pre">Next</span></code>, and <code class="docutils literal notranslate"><span class="pre">Spec</span></code>. <code class="docutils literal notranslate"><span class="pre">Spec</span></code> is what we always put as “the temporal property to run”, so that’s the core of the TLA+ specification.</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">Next</span></code>, we’ve replaced <code class="docutils literal notranslate"><span class="pre">hr</span> <span class="pre">:=</span> <span class="pre">1</span></code> with <code class="docutils literal notranslate"><span class="pre">hr'</span> <span class="pre">=</span> <span class="pre">1</span></code>. As we learned in the <a class="reference internal" href="action-properties.html"><span class="doc">last chapter</span></a>, <code class="docutils literal notranslate"><span class="pre">hr'</span></code> is the value of <code class="docutils literal notranslate"><span class="pre">hr</span></code> in the <em>next</em> state. <code class="docutils literal notranslate"><span class="pre">hr'</span> <span class="pre">=</span> <span class="pre">1</span></code> is a <em>boolean</em> statement, which is true or false. In fact, <code class="docutils literal notranslate"><span class="pre">Next</span></code> is a boolean operator: it’s either true or false. It is true if it accurately describes the value of <code class="docutils literal notranslate"><span class="pre">hr</span></code> in the next state, and false if it does not.</p>
+<p>So for these choices of <code class="docutils literal notranslate"><span class="pre">&lt;&lt;hr,</span> <span class="pre">hr'&gt;&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">Next</span></code> is <em>true</em>:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&lt;&lt;1, 2&gt;&gt;
+&lt;&lt;3, 4&gt;&gt;
+&lt;&lt;12, 1&gt;&gt;
+</pre></div>
+</div>
+<p>And for these choices of <code class="docutils literal notranslate"><span class="pre">&lt;&lt;hr,</span> <span class="pre">hr'&gt;&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">Next</span></code> is <em>false</em>:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&lt;&lt;1, 1&gt;&gt;
+&lt;&lt;12, 13&gt;&gt;
+&lt;&lt;4, 6&gt;&gt;
+&lt;&lt;9, &quot;corn&quot;&gt;&gt;
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>And this gets to why = vs <code class="docutils literal notranslate"><span class="pre">:=</span></code> distinction in PlusCal is so weird, why we use <code class="docutils literal notranslate"><span class="pre">=</span></code> for initial variable assignment and equivalence checking and <code class="docutils literal notranslate"><span class="pre">:=</span></code> for updating. In TLA+, <em>it’s all comparison</em>. <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">5</span></code> is true if x is 5 in <em>this</em> state. <code class="docutils literal notranslate"><span class="pre">x'</span> <span class="pre">=</span> <span class="pre">5</span></code> is true if x is five in <em>the next</em> state.</p>
+</div>
+<p id="index-1">A boolean operator that contains primed variables is called an <strong>action</strong>. It’s the titular action in <em>Temporal Logic of Actions</em> (plus).<a class="footnote-reference brackets" href="#plus" id="id1">1</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">Next</span></code> is used in <code class="docutils literal notranslate"><span class="pre">Spec</span></code>, as part of <code class="docutils literal notranslate"><span class="pre">[][Next]_vars</span></code>. Recall <a class="reference internal" href="action-properties.html#box-action"><span class="std std-ref">the definition of []_x</span></a>. Expanding the definition:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">Spec</span> <span class="o">==</span> <span class="n">Init</span> <span class="o">/\</span> <span class="ni">[]</span><span class="p">(</span><span class="n">Next</span> <span class="o">\/</span> <span class="n">UNCHANGED</span> <span class="n">vars</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>By convention, in a temporal formula, anything outside a temporal operator (<a class="reference internal" href="temporal-logic.html#always"><span class="std std-ref">[]</span></a> or <a class="reference internal" href="temporal-logic.html#eventually"><span class="std std-ref">&lt;&gt;</span></a>) is tested as true in the initial state. So <code class="docutils literal notranslate"><span class="pre">Spec</span></code> is true iff:</p>
+<ul class="simple">
+<li><p>In the initial state, <code class="docutils literal notranslate"><span class="pre">Init</span></code> is true, and</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Next</span> <span class="pre">\/</span> <span class="pre">UNCHANGED</span> <span class="pre">vars</span></code> is always true in every step.</p></li>
+</ul>
+<p>Since <code class="docutils literal notranslate"><span class="pre">Next</span></code> is an action, to be “always true” it must always accurately describe the new values of the system. Formally, we call it the <em class="dfn">Next State Relationship</em>. This gives us the blueprint for what spec is.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Technically speaking, we can use TLA+ to describe <strong>any possible set of behaviors</strong>. This is technically a valid spec:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Init == x = 1
+Next == x&#39; &gt;= x
+Spec == Init /\ [][Next]_x
+</pre></div>
+</div>
+<p>This is a valid tla+ spec, and the behavior 1 → 9 → 17 → 17.1 → 84 is a valid behavior of this spec. It’s just not a spec that TLC can generate. It’s a tool made by mortal men.</p>
+</div>
+<section id="everything-must-be-defined">
+<span id="unchanged"></span><span id="index-2"></span><h3>Everything must be defined<a class="headerlink" href="#everything-must-be-defined" title="Permalink to this headline">¶</a></h3>
+<p>Before we add more elaborate logic, let’s make a small noop change:</p>
+<div class="literal-block-wrapper docutils container" id="id6">
+<div class="highlight-udiff notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>---- MODULE hourclock ----<span class="w"></span>
+<span class="gi">+\* TODO: two clocks</span><span class="w"></span>
+<span class="w"> </span>EXTENDS Naturals<span class="w"></span>
+<span class="gd">-\* TODO: two clocks</span><span class="w"></span>
+<span class="w"> </span>(*--algorithm hourclock<span class="w"></span>
+<span class="w"> </span>variable hr = 1; \* hour<span class="w"></span>
+<span class="gi">+ x = 1;</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w"> </span>begin<span class="w"></span>
+<span class="w"> </span>  A:<span class="w"></span>
+</pre></div>
+</div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference download internal" download="" href="../_downloads/0256b7067ebbf7fddf6226c721d4a97e/hourclock.tla"><code class="xref download docutils literal notranslate"><span class="pre">spec</span></code></a></span><a class="headerlink" href="#id6" title="Permalink to this code">¶</a></div>
+</div>
+<p>Notice we’re not <em>using</em> x, just defining it. Nothing about the output should change except the initialization, right?</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">Next</span> <span class="o">==</span> <span class="o">/\</span> <span class="k k-Conditional">IF</span> <span class="n">hr</span> <span class="o">=</span> <span class="m">12</span>
+              <span class="k k-Conditional">THEN</span> <span class="o">/\</span> <span class="n">hr&#39;</span> <span class="o">=</span> <span class="m">1</span>
+              <span class="k k-Conditional">ELSE</span> <span class="o">/\</span> <span class="n">hr&#39;</span> <span class="o">=</span> <span class="n">hr</span> <span class="o">+</span> <span class="m">1</span>
+        <span class="o">/\</span> <span class="n">x&#39;</span> <span class="o">=</span> <span class="n">x</span>
+</pre></div>
+</div>
+<p>Despite x not appearing anywhere, the translator added the <code class="docutils literal notranslate"><span class="pre">x'</span> <span class="pre">=</span> <span class="pre">x</span></code> line. This is because of a <em>foundational</em> rule of TLA+ specs: <strong>The next action must fully describe all variables</strong>. If you remove that line and run the spec (without retranslating), you’ll get something like this:</p>
+<blockquote>
+<div><p>Error: Successor state is not completely specified by the next-state action. The following variable is not assigned: x.</p>
+</div></blockquote>
+<p>In typical TLA+ usage, we’d instead write <code class="docutils literal notranslate"><span class="pre">UNCHANGED</span> <span class="pre">x</span></code>. We can also write <code class="docutils literal notranslate"><span class="pre">UNCHANGED</span> <span class="pre">&lt;&lt;x,</span> <span class="pre">y,</span> <span class="pre">z&gt;&gt;</span></code> to mean “none of x, y, or z change”.</p>
+</section>
+<section id="with">
+<h3>with<a class="headerlink" href="#with" title="Permalink to this headline">¶</a></h3>
+<p>First, let’s see what happens when we do a deterministic with:</p>
+<div class="literal-block-wrapper docutils container" id="id7">
+<div class="highlight-udiff notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>EXTENDS Naturals<span class="w"></span>
+<span class="w"> </span>(*--algorithm hourclock<span class="w"></span>
+<span class="w"> </span>variable hr = 1; \* hour<span class="w"></span>
+<span class="gd">- x = 1;</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w"> </span>begin<span class="w"></span>
+<span class="w"> </span>  A:<span class="w"></span>
+<span class="gu">@@ -11,7 +10,9 @@</span><span class="w"></span>
+<span class="w"> </span>        if hr = 12 then<span class="w"></span>
+<span class="w"> </span>          hr := 1;<span class="w"></span>
+<span class="w"> </span>        else<span class="w"></span>
+<span class="gd">-            hr := hr + 1;</span><span class="w"></span>
+<span class="gi">+          with x = 1 do</span><span class="w"></span>
+<span class="gi">+            hr := hr + x;</span><span class="w"></span>
+<span class="gi">+          end with;</span><span class="w"></span>
+<span class="w"> </span>        end if;<span class="w"></span>
+<span class="w"> </span>    end while;<span class="w"></span>
+<span class="w"> </span>end algorithm; *)<span class="w"></span>
+</pre></div>
+</div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference download internal" download="" href="../_downloads/0668ac941a3766214d21e1a7833a7adb/hourclock.tla"><code class="xref download docutils literal notranslate"><span class="pre">spec</span></code></a></span><a class="headerlink" href="#id7" title="Permalink to this code">¶</a></div>
+</div>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">Next</span> <span class="o">==</span> <span class="k k-Conditional">IF</span> <span class="n">hr</span> <span class="o">=</span> <span class="m">12</span>
+           <span class="k k-Conditional">THEN</span> <span class="o">/\</span> <span class="n">hr&#39;</span> <span class="o">=</span> <span class="m">1</span>
+           <span class="k k-Conditional">ELSE</span> <span class="o">/\</span> <span class="k k-Conditional">LET</span> <span class="n">x</span> <span class="o">==</span> <span class="m">1</span> <span class="n">IN</span>
+                     <span class="n">hr&#39;</span> <span class="o">=</span> <span class="n">hr</span> <span class="o">+</span> <span class="m">1</span>
+</pre></div>
+</div>
+<p>Okay, that’s done through a <a class="reference internal" href="operators.html#let"><span class="std std-ref">LET</span></a>, which makes sense. It’s a 1-1 translation. It also explains why you can’t put labels inside a <code class="docutils literal notranslate"><span class="pre">with</span></code> statement, since <code class="docutils literal notranslate"><span class="pre">LET</span></code> is just a temporary binding.</p>
+<p>Now for nondeterministic with:</p>
+<div class="literal-block-wrapper docutils container" id="id8">
+<div class="highlight-udiff notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>        if hr = 12 then<span class="w"></span>
+<span class="w"> </span>          hr := 1;<span class="w"></span>
+<span class="w"> </span>        else<span class="w"></span>
+<span class="gd">-          with x = 1 do</span><span class="w"></span>
+<span class="gi">+          with x \in 1..2 do</span><span class="w"></span>
+<span class="w"> </span>            hr := hr + x;<span class="w"></span>
+<span class="w"> </span>          end with;<span class="w"></span>
+<span class="w"> </span>        end if;<span class="w"></span>
+</pre></div>
+</div>
+<div class="code-block-caption"><span class="caption-text"><a class="reference download internal" download="" href="../_downloads/148bdcbbec03267f2a9e389fc05ff863/hourclock.tla"><code class="xref download docutils literal notranslate"><span class="pre">spec</span></code></a></span><a class="headerlink" href="#id8" title="Permalink to this code">¶</a></div>
+</div>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">Next</span> <span class="o">==</span> <span class="k k-Conditional">IF</span> <span class="n">hr</span> <span class="o">=</span> <span class="m">12</span>
+           <span class="k k-Conditional">THEN</span> <span class="o">/\</span> <span class="n">hr&#39;</span> <span class="o">=</span> <span class="m">1</span>
+           <span class="k k-Conditional">ELSE</span> <span class="o">/\</span> <span class="s">\E</span> <span class="n">x</span> <span class="s">\in</span> <span class="m">1</span><span class="o">..</span><span class="m">2</span><span class="p">:</span>
+                     <span class="n">hr&#39;</span> <span class="o">=</span> <span class="n">hr</span> <span class="o">+</span> <span class="n">x</span>
+</pre></div>
+</div>
+<p>This is more interesting! We “assign” <code class="docutils literal notranslate"><span class="pre">hr'</span></code> inside the quantifier.</p>
+<p>That should tell us the following is also ok:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">Next</span> <span class="o">==</span> <span class="k k-Conditional">IF</span> <span class="n">hr</span> <span class="o">=</span> <span class="m">12</span>
+           <span class="k k-Conditional">THEN</span> <span class="o">/\</span> <span class="n">hr&#39;</span> <span class="o">=</span> <span class="m">1</span>
+           <span class="k k-Conditional">ELSE</span> <span class="o">\/</span> <span class="n">hr&#39;</span> <span class="o">=</span> <span class="n">hr</span> <span class="o">+</span> <span class="m">1</span>
+                <span class="o">\/</span> <span class="n">hr&#39;</span> <span class="o">=</span> <span class="n">hr</span> <span class="o">+</span> <span class="m">2</span>
+</pre></div>
+</div>
+<p>And that’s in fact how <code class="docutils literal notranslate"><span class="pre">either</span></code> is translated.</p>
+</section>
+<section id="except">
+<h3>EXCEPT<a class="headerlink" href="#except" title="Permalink to this headline">¶</a></h3>
+<p>Before we go onto concurrency, there’s one thing I want to get out of the way first. What’s wrong with the following spec?</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>VARIABLE s
+
+Init == s = &lt;&lt;TRUE, FALSE&gt;&gt;
+
+Next == s[1]&#39; = FALSE
+
+Spec == Init /\ [][Next]_s
+</pre></div>
+</div>
+<p>(I mean, besides the missing module name.)</p>
+<p>If you run it, you will get this <em>very helpful error</em>:</p>
+<blockquote>
+<div><p>In evaluation, the identifier s is either undefined or not an operator.</p>
+</div></blockquote>
+<p>But s <em>is</em> defined, it’s a variable right there!</p>
+<p>The problem is actually a subtle nuance of assigning to functions. In <code class="docutils literal notranslate"><span class="pre">Next</span></code>, we’re only giving the next state of <code class="docutils literal notranslate"><span class="pre">s[1]</span></code>. Here are some values of <code class="docutils literal notranslate"><span class="pre">s'</span></code> that would satisfy <code class="docutils literal notranslate"><span class="pre">Next</span></code>:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;&lt;FALSE,</span> <span class="pre">FALSE&gt;&gt;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;&lt;FALSE,</span> <span class="pre">TRUE&gt;&gt;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;&lt;FALSE,</span> <span class="pre">186&gt;&gt;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;&lt;FALSE&gt;&gt;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span> <span class="pre">:&gt;</span> <span class="pre">🌽</span> <span class="pre">&#64;&#64;</span> <span class="pre">1</span> <span class="pre">:&gt;</span> <span class="pre">FALSE</span> <span class="pre">&#64;&#64;</span> <span class="pre">🌽</span> <span class="pre">:&gt;</span> <span class="pre">🌽🌽🌽</span></code></p></li>
+</ol>
+<p>Remember, TLA+ wants you to be as precise as possible. If you didn’t specify that <code class="docutils literal notranslate"><span class="pre">s[2]'</span></code> is the same as <code class="docutils literal notranslate"><span class="pre">s[2]</span></code>, it doesn’t have to be. TLC automatically considers this an error.</p>
+<p id="index-3">What we actually wanted to write is that <code class="docutils literal notranslate"><span class="pre">s'</span></code> is the same as <code class="docutils literal notranslate"><span class="pre">s</span></code> <em>except</em> that <code class="docutils literal notranslate"><span class="pre">s'[1]</span></code> is false. Here’s the syntax for that:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">Next</span> <span class="o">==</span> <span class="n">s&#39;</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span> <span class="n">EXCEPT</span> <span class="n">!</span><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="o">=</span> <span class="bp">FALSE</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>In <code class="docutils literal notranslate"><span class="pre">![1]</span></code>, <code class="docutils literal notranslate"><span class="pre">!</span></code> is the “selector” and <code class="docutils literal notranslate"><span class="pre">[1]</span></code> is the element. So this creates a copy of s, looks up <code class="docutils literal notranslate"><span class="pre">copy_s[1]</span></code>, replaces that value with <code class="docutils literal notranslate"><span class="pre">FALSE</span></code>, and assigns the whole mess to <code class="docutils literal notranslate"><span class="pre">s'</span></code>.</p>
+<p>Yes, I know it’s really awkward. No, I can’t think of anything better.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><code class="docutils literal notranslate"><span class="pre">EXCEPT</span></code> has some syntactic sugar to make using it more pleasant. First of all, we can assign multiple keys in the same statement:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">Next</span> <span class="o">==</span> <span class="n">s&#39;</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span> <span class="n">EXCEPT</span> <span class="n">!</span><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="o">=</span> <span class="bp">FALSE</span><span class="p">,</span> <span class="n">!</span><span class="p">[</span><span class="m">2</span><span class="p">]</span> <span class="o">=</span> <span class="m">17</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Second, we can reference the original value of the key with <code class="docutils literal notranslate"><span class="pre">&#64;</span></code>.</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">IncCounter</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">==</span>
+  <span class="n">counter&#39;</span> <span class="o">=</span> <span class="p">[</span><span class="n">counter</span> <span class="n">EXCEPT</span> <span class="n">!</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="o">@</span> <span class="o">+</span> <span class="m">1</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Finally, we can do nested lookups in the <code class="docutils literal notranslate"><span class="pre">EXCEPT</span></code>:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">Init</span> <span class="o">==</span> <span class="n">s</span> <span class="o">=</span> <span class="o">&lt;&lt;</span><span class="p">[</span><span class="n">x</span> <span class="o">|-&gt;</span> <span class="bp">TRUE</span><span class="p">],</span> <span class="bp">FALSE</span><span class="o">&gt;&gt;</span>
+
+<span class="n">Next</span> <span class="o">==</span> <span class="n">s&#39;</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span> <span class="n">EXCEPT</span> <span class="n">!</span><span class="p">[</span><span class="m">1</span><span class="p">]</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="o">~@</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>PlusCal will naturally convert function assignments to <code class="docutils literal notranslate"><span class="pre">EXCEPT</span></code> statements. This means you can use <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> in them, too:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">counter</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">:=</span> <span class="o">@</span> <span class="o">+</span> <span class="m">1</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="modeling-concurrency">
+<h3>Modeling Concurrency<a class="headerlink" href="#modeling-concurrency" title="Permalink to this headline">¶</a></h3>
+<p>Enough with the damn clocks. Let’s switch a somewhat more interesting spec: our very very first <a class="reference internal" href="concurrency.html#threads"><span class="std std-ref">threads</span></a> spec.</p>
+<div class="literal-block-wrapper docutils container" id="id9">
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="c c-PreProc">----</span> <span class="c c-PreProc">MODULE</span> <span class="c c-PreProc">threads</span> <span class="c c-PreProc">----</span>
+<span class="kn">EXTENDS</span> <span class="n">TLC</span><span class="p">,</span> <span class="n">Sequences</span><span class="p">,</span> <span class="n">Integers</span>
+
+<span class="n">NumThreads</span> <span class="o">==</span> <span class="m">2</span>
+<span class="n">Threads</span> <span class="o">==</span> <span class="m">1</span><span class="o">..</span><span class="n">NumThreads</span>
+
+<span class="nf">(* --algorithm threads</span>
+
+<span class="n">variables</span> 
+  <span class="n">counter</span> <span class="o">=</span> <span class="m">0</span><span class="p">;</span>
+
+<span class="nf">define</span>
+  <span class="n">AllDone</span> <span class="o">==</span> 
+    <span class="s">\A</span> <span class="n">t</span> <span class="s">\in</span> <span class="n">Threads</span><span class="p">:</span> <span class="n">pc</span><span class="p">[</span><span class="n">t</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;Done&quot;</span>
+
+  <span class="n">Correct</span> <span class="o">==</span>
+      <span class="n">AllDone</span> <span class="o">=&gt;</span> <span class="n">counter</span> <span class="o">=</span> <span class="n">NumThreads</span>
+<span class="nf">end define</span><span class="p">;</span>  
+
+<span class="nt">process</span> <span class="n">thread</span> <span class="s">\in</span> <span class="n">Threads</span>
+<span class="nf">begin</span>
+<span class="nt">  IncCounter:</span>
+    <span class="n">counter</span> <span class="o">:=</span> <span class="n">counter</span> <span class="o">+</span> <span class="m">1</span><span class="p">;</span>
+<span class="nf">end process</span><span class="p">;</span>
+<span class="nf">end algorithm; *)</span>
+<span class="c c-PreProc">====</span>
+</pre></div>
+</div>
+<div class="code-block-caption"><span class="caption-text"><span>6 states / 4 distinct</span> <a class="reference download internal" download="" href="../_downloads/c2d5af0b4c9c057cd28a5e4b1f8c56b6/threads.tla"><code class="xref download docutils literal notranslate"><span class="pre">spec</span></code></a></span><a class="headerlink" href="#id9" title="Permalink to this code">¶</a></div>
+</div>
+<p>This has two separate processes, meaning that it’ll showcase for us how TLA+ handles concurrency. I cleaned up the translation a little, but it should have all these elements:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="kn">VARIABLES</span> <span class="n">counter</span><span class="p">,</span> <span class="n">pc</span>
+
+<span class="n">vars</span> <span class="o">==</span> <span class="o">&lt;&lt;</span> <span class="n">counter</span><span class="p">,</span> <span class="n">pc</span> <span class="o">&gt;&gt;</span>
+
+<span class="n">ProcSet</span> <span class="o">==</span> <span class="p">(</span><span class="n">Threads</span><span class="p">)</span>
+
+<span class="n">Init</span> <span class="o">==</span> <span class="cm">(* Global variables *)</span>
+        <span class="o">/\</span> <span class="n">counter</span> <span class="o">=</span> <span class="m">0</span>
+        <span class="o">/\</span> <span class="n">pc</span> <span class="o">=</span> <span class="p">[</span><span class="n">self</span> <span class="s">\in</span> <span class="n">ProcSet</span> <span class="o">|-&gt;</span> <span class="s">&quot;IncCounter&quot;</span><span class="p">]</span>
+
+<span class="n">IncCounter</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="o">==</span> <span class="o">/\</span> <span class="n">pc</span><span class="p">[</span><span class="n">self</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;IncCounter&quot;</span>
+                    <span class="o">/\</span> <span class="n">counter&#39;</span> <span class="o">=</span> <span class="n">counter</span> <span class="o">+</span> <span class="m">1</span>
+                    <span class="o">/\</span> <span class="n">pc&#39;</span> <span class="o">=</span> <span class="p">[</span><span class="n">pc</span> <span class="n">EXCEPT</span> <span class="n">!</span><span class="p">[</span><span class="n">self</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;Done&quot;</span><span class="p">]</span>
+
+<span class="n">thread</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="o">==</span> <span class="n">IncCounter</span><span class="p">(</span><span class="n">self</span><span class="p">)</span>
+
+<span class="cm">(* Allow infinite stuttering to prevent deadlock on termination. *)</span>
+<span class="n">Terminating</span> <span class="o">==</span> <span class="o">/\</span> <span class="s">\A</span> <span class="n">self</span> <span class="s">\in</span> <span class="n">ProcSet</span><span class="p">:</span> <span class="n">pc</span><span class="p">[</span><span class="n">self</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;Done&quot;</span>
+               <span class="o">/\</span> <span class="n">UNCHANGED</span> <span class="n">vars</span>
+
+<span class="n">Next</span> <span class="o">==</span> <span class="p">(</span><span class="s">\E</span> <span class="n">self</span> <span class="s">\in</span> <span class="n">Threads</span><span class="p">:</span> <span class="n">thread</span><span class="p">(</span><span class="n">self</span><span class="p">))</span>
+           <span class="o">\/</span> <span class="n">Terminating</span>
+
+<span class="n">Spec</span> <span class="o">==</span> <span class="n">Init</span> <span class="o">/\</span> <span class="ni">[]</span><span class="p">[</span><span class="n">Next</span><span class="p">]</span><span class="n">_vars</span>
+</pre></div>
+</div>
+<p>Looking it at piece-by-piece:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">Init</span> <span class="o">==</span> <span class="cm">(* Global variables *)</span>
+        <span class="o">/\</span> <span class="n">counter</span> <span class="o">=</span> <span class="m">0</span>
+        <span class="o">/\</span> <span class="n">pc</span> <span class="o">=</span> <span class="p">[</span><span class="n">self</span> <span class="s">\in</span> <span class="n">ProcSet</span> <span class="o">|-&gt;</span> <span class="s">&quot;IncCounter&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">pc</span></code> is defined as a function from process values to labels. Each thread starts at the “IncCounter” label. Then the <code class="docutils literal notranslate"><span class="pre">IncCounter</span></code> label is mapped to this:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">IncCounter</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="o">==</span> <span class="o">/\</span> <span class="n">pc</span><span class="p">[</span><span class="n">self</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;IncCounter&quot;</span>
+                    <span class="o">/\</span> <span class="n">counter&#39;</span> <span class="o">=</span> <span class="n">counter</span> <span class="o">+</span> <span class="m">1</span>
+                    <span class="o">/\</span> <span class="n">pc&#39;</span> <span class="o">=</span> <span class="p">[</span><span class="n">pc</span> <span class="n">EXCEPT</span> <span class="n">!</span><span class="p">[</span><span class="n">self</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;Done&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>The action is only enabled when <code class="docutils literal notranslate"><span class="pre">pc[self]</span> <span class="pre">=</span> <span class="pre">&quot;IncCounter&quot;</span></code>, and then as part of it, it sets <code class="docutils literal notranslate"><span class="pre">pc[self]</span></code> to “Done”. That’s how we emulate sequentiality in TLA+ algorithm— it’s like going from the “IncCounter” label to the “Done” label. Each label corresponds to exactly one action, and vice versa.</p>
+<div class="admonition tip" id="trans">
+<p class="admonition-title">Tip</p>
+<p>The PlusCal to TLA+ translator is very simple. If we were writing the TLA+ from scatch, we could use a helper action to these transitions look cleaner:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">Trans</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">from</span><span class="p">,</span> <span class="n">to</span><span class="p">)</span> <span class="o">==</span>
+  <span class="o">/\</span> <span class="n">pc</span><span class="p">[</span><span class="n">state</span><span class="p">]</span> <span class="o">=</span> <span class="n">from</span>
+  <span class="o">/\</span> <span class="n">pc&#39;</span> <span class="o">=</span> <span class="p">[</span><span class="n">pc</span> <span class="n">EXCEPT</span> <span class="n">!</span><span class="p">[</span><span class="n">state</span><span class="p">]</span> <span class="o">=</span> <span class="n">to</span><span class="p">]</span>
+
+<span class="n">IncCounter</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="o">==</span>
+  <span class="o">/\</span> <span class="n">Trans</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="s">&quot;IncCounter&quot;</span><span class="p">,</span> <span class="s">&quot;Done&quot;</span><span class="p">)</span>
+  <span class="o">/\</span> <span class="n">counter&#39;</span> <span class="o">=</span> <span class="n">counter</span> <span class="o">+</span> <span class="m">1</span>
+</pre></div>
+</div>
+</div>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">Next</span> <span class="o">==</span> <span class="p">(</span><span class="s">\E</span> <span class="n">self</span> <span class="s">\in</span> <span class="n">Threads</span><span class="p">:</span> <span class="n">thread</span><span class="p">(</span><span class="n">self</span><span class="p">))</span>
+         <span class="o">\/</span> <span class="n">Terminating</span>
+</pre></div>
+</div>
+<p>Concurrency is “just” saying there exists an element of the Thread set where <code class="docutils literal notranslate"><span class="pre">thread</span></code> is true. And that’s it! That’s how you get concurrency!</p>
+<p>To see how <code class="docutils literal notranslate"><span class="pre">await</span></code> statements are modeled, let’s look at how TLA+ translates <a class="reference internal" href="concurrency.html#threads-3"><span class="std std-ref">await lock</span></a>:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">GetLock</span><span class="p">(</span><span class="n">self</span><span class="p">)</span> <span class="o">==</span> <span class="o">/\</span> <span class="n">pc</span><span class="p">[</span><span class="n">self</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;GetLock&quot;</span>
+                 <span class="o">/\</span> <span class="n">lock</span> <span class="o">=</span> <span class="n">NULL</span>
+                 <span class="o">/\</span> <span class="n">lock&#39;</span> <span class="o">=</span> <span class="n">self</span>
+                 <span class="o">/\</span> <span class="n">pc&#39;</span> <span class="o">=</span> <span class="p">[</span><span class="n">pc</span> <span class="n">EXCEPT</span> <span class="n">!</span><span class="p">[</span><span class="n">self</span><span class="p">]</span> <span class="o">=</span> <span class="s">&quot;GetCounter&quot;</span><span class="p">]</span>
+                 <span class="o">/\</span> <span class="n">UNCHANGED</span> <span class="o">&lt;&lt;</span> <span class="n">counter</span><span class="p">,</span> <span class="n">tmp</span> <span class="o">&gt;&gt;</span>
+</pre></div>
+</div>
+<p>So <code class="docutils literal notranslate"><span class="pre">await</span> <span class="pre">lock</span> <span class="pre">=</span> <span class="pre">NULL</span></code> just becomes <code class="docutils literal notranslate"><span class="pre">/\</span> <span class="pre">lock</span> <span class="pre">=</span> <span class="pre">NULL</span></code>.</p>
+</section>
+</section>
+<section id="fairness-in-tla">
+<span id="index-4"></span><h2>Fairness in TLA+<a class="headerlink" href="#fairness-in-tla" title="Permalink to this headline">¶</a></h2>
+<p>That leaves just one topic left to discuss: how we model <a class="reference internal" href="temporal-logic.html#fairness"><span class="std std-ref">fairness</span></a> in pure TLA+. First, two final keywords to introduce:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ENABLED</span> <span class="pre">A</span></code> is true if <code class="docutils literal notranslate"><span class="pre">A</span></code> <em>can</em> be true this step, ie it can describe the next step.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;&lt;A&gt;&gt;_v</span></code> means that <code class="docutils literal notranslate"><span class="pre">A</span></code> is true <em>and</em> v changes. Compare to <code class="docutils literal notranslate"><span class="pre">[A]_v</span></code> being “<code class="docutils literal notranslate"><span class="pre">A</span></code> is true <em>or</em> v doesn’t change”.</p></li>
+</ol>
+<p>Fairness is formally defined in TLA+ as follows:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">WF_v</span><span class="p">(</span><span class="n">A</span><span class="p">)</span> <span class="o">==</span> <span class="ni">&lt;&gt;[</span><span class="p">](</span><span class="n">ENABLED</span> <span class="o">&lt;&lt;</span><span class="n">A</span><span class="o">&gt;&gt;</span><span class="n">_v</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="ni">[]&lt;&gt;&lt;</span><span class="o">&lt;</span><span class="n">A</span><span class="o">&gt;&gt;</span><span class="n">_v</span>
+<span class="n">SF_v</span><span class="p">(</span><span class="n">A</span><span class="p">)</span> <span class="o">==</span> <span class="ni">[]&lt;&gt;(</span><span class="n">ENABLED</span> <span class="o">&lt;&lt;</span><span class="n">A</span><span class="o">&gt;&gt;</span><span class="n">_v</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="ni">[]&lt;&gt;&lt;</span><span class="o">&lt;</span><span class="n">A</span><span class="o">&gt;&gt;</span><span class="n">_v</span>
+</pre></div>
+</div>
+<p>In English:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">WF_v(A)</span></code> (A is weakly fair): If it is <em>eventually always</em> true that the A action <em>can happen</em> (in a way that changes v), then it <em>will</em> eventually happen (and change v).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SF_v(A)</span></code> (A is strongly fair): If it is <em>always eventually</em> true that the A action <em>can happen</em> (in a way that changes v), then it <em>will</em> eventually happen (and change v).</p></li>
+</ul>
+<p>Fairness constraints are appended to the definition of <code class="docutils literal notranslate"><span class="pre">Spec</span></code>. You can see this in the translation of our prior <a class="reference internal" href="temporal-logic.html#strong-fairness-spec"><span class="std std-ref">strong fairness example</span></a>:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">Spec</span> <span class="o">==</span> <span class="o">/\</span> <span class="n">Init</span> <span class="o">/\</span> <span class="ni">[]</span><span class="p">[</span><span class="n">Next</span><span class="p">]</span><span class="n">_vars</span>
+        <span class="o">/\</span> <span class="s">\A</span> <span class="n">self</span> <span class="s">\in</span> <span class="n">Threads</span> <span class="p">:</span> <span class="n">SF_vars</span><span class="p">(</span><span class="n">thread</span><span class="p">(</span><span class="n">self</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>(Remember, <code class="docutils literal notranslate"><span class="pre">Spec</span></code> defines what <em>counts as a valid trace</em>. Fairness is an additional constraint, ruling out things like infinite stutters.)</p>
+<p>Notice that by writing <code class="docutils literal notranslate"><span class="pre">\A</span> <span class="pre">self</span> <span class="pre">\in</span> <span class="pre">Threads</span> <span class="pre">:</span> <span class="pre">SF_vars(thread(self))</span></code>, we’re effectively making every thread fair. If we instead wrote <code class="docutils literal notranslate"><span class="pre">\E</span></code>, we’d be saying that at least one thread is fair, but the rest may be unfair. If both those conditions are syntactically intuitive to you, I’d say you fully understand how pure TLA+ works.</p>
+<section id="fairness-is-more-useful-in-tla">
+<span id="fairness-status-example"></span><h3>Fairness is more useful in TLA+<a class="headerlink" href="#fairness-is-more-useful-in-tla" title="Permalink to this headline">¶</a></h3>
+<p>In pluscal, we can only apply fairness conditions to labels, which correspond to top-level actions. In TLA+, we can apply the fairness condition to subactions, which gives us the branches of labels.</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="kn">VARIABLES</span> <span class="n">status</span>
+
+<span class="n">Init</span> <span class="o">==</span> <span class="n">status</span> <span class="o">=</span> <span class="s">&quot;start&quot;</span>
+
+<span class="n">Trans</span><span class="p">(</span><span class="n">from</span><span class="p">,</span> <span class="n">to</span><span class="p">)</span> <span class="o">==</span>
+  <span class="o">/\</span> <span class="n">status</span> <span class="o">=</span> <span class="n">from</span>
+  <span class="o">/\</span> <span class="n">status&#39;</span> <span class="o">=</span> <span class="n">to</span>
+
+<span class="n">Succeed</span> <span class="o">==</span> <span class="n">Trans</span><span class="p">(</span><span class="s">&quot;start&quot;</span><span class="p">,</span> <span class="s">&quot;done&quot;</span><span class="p">)</span>
+<span class="n">Fail</span> <span class="o">==</span> <span class="n">Trans</span><span class="p">(</span><span class="s">&quot;start&quot;</span><span class="p">,</span> <span class="s">&quot;fail&quot;</span><span class="p">)</span>
+<span class="n">Retry</span> <span class="o">==</span> <span class="n">Trans</span><span class="p">(</span><span class="s">&quot;fail&quot;</span><span class="p">,</span> <span class="s">&quot;start&quot;</span><span class="p">)</span>
+
+<span class="n">Next</span> <span class="o">==</span> <span class="n">Succeed</span> <span class="o">\/</span> <span class="n">Fail</span> <span class="o">\/</span> <span class="n">Retry</span> <span class="o">\/</span> <span class="n">UNCHANGED</span> <span class="n">status</span>
+
+<span class="n">Fairness</span> <span class="o">==</span>
+  <span class="o">/\</span> <span class="n">SF_status</span><span class="p">(</span><span class="n">Succeed</span><span class="p">)</span>
+  <span class="o">/\</span> <span class="n">WF_status</span><span class="p">(</span><span class="n">Retry</span><span class="p">)</span>
+
+<span class="n">Spec</span> <span class="o">==</span> <span class="n">Init</span> <span class="o">/\</span> <span class="ni">[]</span><span class="p">[</span><span class="n">Next</span><span class="p">]</span><span class="n">_status</span> <span class="o">/\</span> <span class="n">Fairness</span>
+
+<span class="n">Liveness</span> <span class="o">==</span> <span class="ni">&lt;&gt;(</span><span class="n">status</span> <span class="o">=</span> <span class="s">&quot;done&quot;</span><span class="p">)</span>
+
+<span class="c c-PreProc">====</span>
+</pre></div>
+</div>
+<p>This spec can fail an arbitrary number of times, but is guaranteed to eventually succeed.</p>
+</section>
+</section>
+<section id="why-use-tla">
+<h2>Why use TLA+?<a class="headerlink" href="#why-use-tla" title="Permalink to this headline">¶</a></h2>
+<p>So now that we have a brief overview of TLA+, let’s come around to a basic question: <em>why bother</em>?  While TLA+ has a steeper learning curve than PlusCal, it also has a higher power ceiling. There are lots of things you can do in pure TLA+ that would be difficult or impossible to do in PlusCal. Some examples:</p>
+<ul>
+<li><p>Writing <a class="reference internal" href="#trans"><span class="std std-ref">helper actions</span></a>.</p></li>
+<li><p>Using fairness <a class="reference internal" href="#fairness-status-example"><span class="std std-ref">in subtle ways</span></a>.</p></li>
+<li><p>Verifying a <a class="reference internal" href="../topics/tips.html#action-refactoring"><span class="std std-ref">refactored spec has the same behavior</span></a>.</p></li>
+<li><p>Interruptable algorithms. Say I have the sequence of steps <span class="math notranslate nohighlight">\(Start \to A \to B \to C \to D\)</span>, and A,B,C can all “reset” to start. In PlusCal I’d have to model that by duplicated <a class="reference internal" href="nondeterminism.html#either"><span class="std std-ref">either</span></a> blocks:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="nt">A:</span>
+  <span class="k">either</span>
+    <span class="c">\* A step stuff</span>
+  <span class="k">or</span>
+    <span class="k">goto</span> <span class="n">Start</span><span class="p">;</span>
+  <span class="k">end</span> <span class="k">either</span><span class="p">;</span>
+<span class="nt">B:</span>
+  <span class="k">either</span>
+    <span class="c">\* B step stuff</span>
+  <span class="k">or</span>
+    <span class="k">goto</span> <span class="n">Start</span><span class="p">;</span>
+  <span class="k">end</span> <span class="k">either</span><span class="p">;</span>
+<span class="c">\* ...</span>
+</pre></div>
+</div>
+<p>In TLA+, I can more easily write this as</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="o">\/</span> <span class="o">\/</span> <span class="n">A</span>
+   <span class="o">\/</span> <span class="n">B</span>
+   <span class="o">\/</span> <span class="n">C</span>
+   <span class="o">\/</span> <span class="n">D</span>
+<span class="o">\/</span> <span class="n">pc&#39;</span> <span class="o">=</span> <span class="s">&quot;Start&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Systems that would map onto having multiple processes in PlusCal with the same values. For example, if each worker can run multiple sequential tasks in parallel.</p></li>
+<li><p><a class="reference internal" href="../topics/refinement.html"><span class="doc">Refinement properties</span></a>.</p></li>
+</ul>
+<p>At the same time, it’s okay to stick with PlusCal. Plenty of people never learn pure TLA+ and get along fine with just PlusCal. Just know that it has limits, and know when you’re pushing against those limits.</p>
+<dl class="footnote brackets">
+<dt class="label" id="plus"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>The “plus” is for the addition of ZF set theory.</p>
+</dd>
+</dl>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&lt;</span><span>Page contents</span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&gt;</span><span>Page contents:</span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">TLA+</a><ul>
+<li><a class="reference internal" href="#learning-from-pluscal">Learning from PlusCal</a><ul>
+<li><a class="reference internal" href="#everything-must-be-defined">Everything must be defined</a></li>
+<li><a class="reference internal" href="#with">with</a></li>
+<li><a class="reference internal" href="#except">EXCEPT</a></li>
+<li><a class="reference internal" href="#modeling-concurrency">Modeling Concurrency</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#fairness-in-tla">Fairness in TLA+</a><ul>
+<li><a class="reference internal" href="#fairness-is-more-useful-in-tla">Fairness is more useful in TLA+</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#why-use-tla">Why use TLA+?</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+                <a href="action-properties.html">
+                    <span class="icon">&lt;</span><span>Action Properties</span></a>
+                
+            </div>
+
+            <div class="right">
+                
+                    <a href="modules.html"><span>Modules</span><span class="icon">&gt;</span></a>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Hillel Wayne.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+    </div>
+
+<p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
+  </body>
+</html>

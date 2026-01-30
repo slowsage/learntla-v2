@@ -1,0 +1,608 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Writing an Invariant &#8212; Learn TLA+</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <script src="../_static/js/petite-vue.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Parameterizing Specs" href="constants.html" />
+    <link rel="prev" title="Writing Specifications" href="pluscal.html" /> 
+  </head><body data-dark_mode_code_blocks="true">
+
+<div id="top_nav">
+    
+
+    <nav>
+        
+            
+        
+
+        <p id="toggle_sidebar">
+            <a href="#" title="Toggle sidebar">|||</a>
+        </p>
+        <h1><a href="../index.html" title="Go to homepage">Learn TLA+</a></h1>
+
+        <a id="mode_toggle" href="#" @click.prevent="handleClick" :title="mode">
+    <template v-if="mode == 'light'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_light"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M67.48,18.073c1.913,-1.912 1.913,-5.018 0,-6.931c-1.912,-1.912 -5.018,-1.912 -6.931,0l-6.798,6.799c-1.912,1.912 -1.912,5.018 0,6.931c1.913,1.912 5.018,1.912 6.931,-0l6.798,-6.799Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.728,61.108c1.912,-1.913 1.912,-5.018 -0,-6.931c-1.913,-1.913 -5.019,-1.913 -6.931,-0l-6.799,6.798c-1.912,1.913 -1.912,5.019 0,6.931c1.913,1.913 5.019,1.913 6.931,0l6.799,-6.798Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.682,54.177c-1.913,-1.913 -5.018,-1.913 -6.931,-0c-1.912,1.913 -1.912,5.018 0,6.931l6.798,6.798c1.913,1.913 5.019,1.913 6.931,0c1.913,-1.912 1.913,-5.018 0,-6.931l-6.798,-6.798Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M4.901,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901l-0,9.614c-0,2.705 2.196,4.901 4.9,4.901c2.705,-0 4.901,-2.196 4.901,-4.901l0,-9.614Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M18.929,11.142c-1.912,-1.912 -5.018,-1.912 -6.931,0c-1.912,1.913 -1.912,5.019 0,6.931l6.799,6.799c1.912,1.912 5.018,1.912 6.931,-0c1.912,-1.913 1.912,-5.019 -0,-6.931l-6.799,-6.799Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.108,34.623c-2.705,0 -4.901,2.196 -4.901,4.901c-0,2.705 2.196,4.901 4.901,4.901l9.614,0c2.705,0 4.901,-2.196 4.901,-4.901c-0,-2.705 -2.196,-4.901 -4.901,-4.901l-9.614,0Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'dark'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_dark"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><circle cx="39.311" cy="39.524" r="15.734" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.212,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.901,2.196 -4.901,4.901c0,2.705 2.197,4.901 4.901,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.662,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.989,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.732,61.103c1.91,-1.91 1.91,-5.011 0,-6.921l-0.009,-0.01c-1.91,-1.91 -5.012,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.909,1.91 5.011,1.91 6.92,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.672,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.52,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l-0,-0.01c-0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.212,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.901,2.196 -4.901,4.901c0,2.704 2.197,4.9 4.901,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.73,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 -0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.098,34.623c-2.699,0 -4.891,2.192 -4.891,4.892l-0,0.019c-0,2.699 2.192,4.891 4.891,4.891c2.7,0 4.892,-2.192 4.892,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.892,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+
+    <template v-if="mode == 'darkest'">
+        <svg width="100%" height="100%" viewBox="0 0 79 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><g id="mode_darkest"><rect id="Bounds" x="0" y="-0" width="78.623" height="79.049" style="fill:none;"/><path d="M39.315,23.791c8.684,-0 15.734,7.05 15.734,15.733c0,8.684 -7.05,15.734 -15.734,15.734c-8.683,0 -15.733,-7.05 -15.733,-15.734c-0,-8.683 7.05,-15.733 15.733,-15.733Zm0,4.737c6.069,0 10.997,4.927 10.997,10.996c-0,6.069 -4.928,10.996 -10.997,10.996c-6.068,0 -10.996,-4.927 -10.996,-10.996c0,-6.069 4.928,-10.996 10.996,-10.996Z" style="fill:#fff;"/><g id="beams"><g id="beam"><path id="beam1" serif:id="beam" d="M44.216,14.515c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,0 -4.9,2.196 -4.9,4.901c-0,2.705 2.196,4.901 4.9,4.901c2.705,0 4.901,-2.196 4.901,-4.901Z" style="fill:#fff;"/></g><g id="beam2" serif:id="beam"><path id="beam3" serif:id="beam" d="M60.666,24.892c1.902,-1.902 1.902,-4.99 0,-6.892l-0.04,-0.039c-1.901,-1.902 -4.989,-1.902 -6.891,-0c-1.901,1.901 -1.901,4.989 0,6.891l0.04,0.04c1.902,1.901 4.99,1.901 6.891,-0Z" style="fill:#fff;"/></g><g id="beam4" serif:id="beam"><path id="beam5" serif:id="beam" d="M25.737,61.103c1.909,-1.91 1.909,-5.011 -0,-6.921l-0.01,-0.01c-1.91,-1.91 -5.011,-1.91 -6.921,-0c-1.91,1.91 -1.91,5.011 -0,6.921l0.01,0.01c1.91,1.91 5.011,1.91 6.921,-0Z" style="fill:#fff;"/></g><g id="beam6" serif:id="beam"><path id="beam7" serif:id="beam" d="M60.676,54.167c-1.907,-1.907 -5.004,-1.907 -6.911,0l-0.02,0.02c-1.907,1.907 -1.907,5.004 0,6.911c1.907,1.907 5.004,1.907 6.911,-0l0.02,-0.02c1.907,-1.907 1.907,-5.004 0,-6.911Z" style="fill:#fff;"/></g><g id="beam8" serif:id="beam"><path id="beam9" serif:id="beam" d="M14.524,34.623c-2.702,0 -4.896,2.194 -4.896,4.896l0,0.01c0,2.702 2.194,4.896 4.896,4.896c2.702,0 4.896,-2.194 4.896,-4.896l0,-0.01c0,-2.702 -2.194,-4.896 -4.896,-4.896Z" style="fill:#fff;"/></g><g id="beam10" serif:id="beam"><path id="beam11" serif:id="beam" d="M44.216,64.534c0,-2.705 -2.196,-4.901 -4.901,-4.901c-2.704,-0 -4.9,2.196 -4.9,4.901c-0,2.704 2.196,4.9 4.9,4.9c2.705,0 4.901,-2.196 4.901,-4.9Z" style="fill:#fff;"/></g><g id="beam12" serif:id="beam"><path id="beam13" serif:id="beam" d="M25.734,17.943c-1.911,-1.911 -5.015,-1.911 -6.926,0l-0.005,0.005c-1.911,1.911 -1.911,5.015 0,6.926c1.911,1.911 5.015,1.911 6.926,0l0.005,-0.005c1.911,-1.911 1.911,-5.014 0,-6.926Z" style="fill:#fff;"/></g><g id="beam14" serif:id="beam"><path id="beam15" serif:id="beam" d="M64.103,34.623c-2.7,0 -4.892,2.192 -4.892,4.892l-0,0.019c-0,2.699 2.192,4.891 4.892,4.891c2.699,0 4.891,-2.192 4.891,-4.891l0,-0.019c0,-2.7 -2.192,-4.892 -4.891,-4.892Z" style="fill:#fff;"/></g></g></g></svg>
+    </template>
+</a>
+
+<script>
+(function() {
+    const LOCAL_STORAGE_KEY = 'piccoloThemeMode'
+
+    var initialMode = localStorage.getItem(LOCAL_STORAGE_KEY)
+
+    if (initialMode) {
+        // Make sure the value in local storage is valid
+        if (['light', 'dark', 'darkest'].indexOf(initialMode) == -1) {
+            initialMode = 'light'
+            localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+        }
+    } else {
+        // Check if the client prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            initialMode = 'dark'
+        } else {
+            initialMode = 'light'
+        }
+        localStorage.setItem(LOCAL_STORAGE_KEY, initialMode)
+    }
+
+    document.documentElement.dataset.mode = initialMode
+
+    PetiteVue.createApp({
+        'mode': initialMode,
+        handleClick() {
+            let currentMode = this.mode
+
+            if (currentMode == 'light') {
+                this.mode = 'dark'
+            } else if (currentMode == 'dark') {
+                this.mode = 'darkest'
+            } else if (currentMode == 'darkest') {
+                this.mode = 'light'
+            }
+
+            document.documentElement.dataset.mode = this.mode
+            localStorage.setItem(LOCAL_STORAGE_KEY, this.mode)
+
+            console.log(this.mode)
+        }
+    }).mount('#mode_toggle')
+})()
+</script>
+            <p class="mobile_search_link">
+                <a href="../search.html" title="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 64" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2">
+                        <path d="M14.873 40.009c-2.315-3.943-3.642-8.532-3.642-13.429C11.231 11.91 23.141 0 37.811 0s26.58 11.91 26.58 26.58-11.91 26.58-26.58 26.58a26.44 26.44 0 0 1-14.277-4.161L9.739 62.794a3.12 3.12 0 0 1-4.413 0L.913 58.382c-1.217-1.218-1.217-3.196 0-4.413l13.96-13.96zM37.811 8.054c10.225 0 18.526 8.301 18.526 18.526s-8.301 18.526-18.526 18.526-18.526-8.301-18.526-18.526S27.586 8.054 37.811 8.054z" fill="#fff" />
+                    </svg>
+                </a>
+            </p>
+        
+
+        <div class="searchbox_wrapper">
+            
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+    </nav>
+</div>
+
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew.html">What’s New</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/conceptual-overview.html">Conceptual Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">TLA+</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Core</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="setup.html">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="operators.html">Operators and Values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pluscal.html">Writing Specifications</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Writing an Invariant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="constants.html">Parameterizing Specs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="functions.html">Structured Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nondeterminism.html">Nondeterminism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="concurrency.html">Concurrency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="temporal-logic.html">Temporal Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced-operators.html">More Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="action-properties.html">Action Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tla.html">TLA+</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html">Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="next-steps.html">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../topics/index.html">Topics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html#pluscal-specs">PlusCal Specs</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/glossary.html">Glossary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/standard-library.html">Standard Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/other-resources.html">Other Resources</a></li>
+</ul>
+
+<ul>
+  <li class="toctree-l1"><a href= "../genindex.html">Index</a></li>
+</ul>
+        </div>
+      </div>
+
+
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="writing-an-invariant">
+<span id="chapter-invariants"></span><h1>Writing an Invariant<a class="headerlink" href="#writing-an-invariant" title="Permalink to this headline">¶</a></h1>
+<section id="invariants">
+<span id="invariant"></span><span id="index-0"></span><h2>Invariants<a class="headerlink" href="#invariants" title="Permalink to this headline">¶</a></h2>
+<p>In the last chapter, we wrote a simple specification for finding duplicates in a sequence. How do we know it’s working, though? Here’s another spec for finding duplicates that also runs without error:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="nf">(*--algorithm find_duplicates</span>
+<span class="n">variables</span>
+  <span class="n">seq</span> <span class="s">\in</span> <span class="n">S</span> <span class="s">\X</span> <span class="n">S</span> <span class="s">\X</span> <span class="n">S</span> <span class="s">\X</span> <span class="n">S</span><span class="p">;</span>
+  <span class="n">is_unique</span> <span class="o">=</span> <span class="bp">TRUE</span><span class="p">;</span>
+<span class="nf">begin</span>
+  <span class="n">is_unique</span> <span class="o">:=</span> <span class="bp">FALSE</span><span class="p">;</span>
+<span class="nf">end algorithm; *)</span>
+</pre></div>
+</div>
+<p>This just says that every single sequence has duplicates! So, like in programming, we want to write some kind of automated test to verify this is correct.</p>
+<p>In TLA+, the basic test we have is the <em>invariant</em>. An invariant is something that must be true on every single step of the program, regardless of the initial values, regardless of where we are.</p>
+<p>The most common invariant we use in programming: static types! When I have a variable of type <code class="docutils literal notranslate"><span class="pre">boolean</span></code>, I’m saying that all points in the program, the value of that variable is always true or false, never a string or 17. We can write that as a TLA+ operator:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">TypeInvariant</span> <span class="o">==</span>
+  <span class="o">/\</span> <span class="n">is_unique</span> <span class="s">\in</span> <span class="bp">BOOLEAN</span>
+</pre></div>
+</div>
+<p id="define"><span id="index-1"></span>This operator needs to know about the <code class="docutils literal notranslate"><span class="pre">is_unique</span></code> variable, so we have to put it after the definition in PlusCal. There’s a special block, the <code class="docutils literal notranslate"><span class="pre">define</span></code> block, we can put between variable definition and the algorithm proper. A define block contains pure TLA+ operators, and the operators may reference the values of PlusCal variables.</p>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="highlight-udiff notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>S == 1..10<span class="w"></span>
+<span class="w"> </span>
+<span class="w"> </span>(*--algorithm dup<span class="w"></span>
+<span class="gd">-  variable seq \in S \X S \X S \X S;</span><span class="w"></span>
+<span class="gi">+variable </span><span class="w"></span>
+<span class="gi">+  seq \in S \X S \X S \X S;</span><span class="w"></span>
+<span class="w"> </span>  index = 1;<span class="w"></span>
+<span class="w"> </span>  seen = {};<span class="w"></span>
+<span class="w"> </span>  is_unique = TRUE;<span class="w"></span>
+<span class="gi">+</span><span class="w"></span>
+<span class="gi">+define</span><span class="w"></span>
+<span class="gi">+  TypeInvariant ==</span><span class="w"></span>
+<span class="gi">+    /\ is_unique \in BOOLEAN</span><span class="w"></span>
+<span class="gi">+    /\ seen \subseteq S</span><span class="w"></span>
+<span class="gi">+    /\ index \in 1..Len(seq)+1</span><span class="w"></span>
+<span class="gi">+    </span><span class="w"></span>
+<span class="gi">+end define; </span><span class="w"></span>
+<span class="w"> </span>
+<span class="w"> </span>begin<span class="w"></span>
+<span class="w"> </span>  Iterate:<span class="w"></span>
+</pre></div>
+</div>
+<div class="code-block-caption"><span class="caption-text"><span>70000 states / 60000 distinct</span> <a class="reference download internal" download="" href="../_downloads/4588e26ffb88a45d6a78cbb34d956baf/duplicates.tla"><code class="xref download docutils literal notranslate"><span class="pre">spec</span></code></a></span><a class="headerlink" href="#id3" title="Permalink to this code">¶</a></div>
+</div>
+<p>To check this, we add it as an <a class="reference internal" href="setup.html"><span class="doc">invariant</span></a>. TLC will check it at every possible state. All of the invariants passing looks the same as us not having any invariants— TLC will only do something interesting if the invariant fails. Here’s what happens if we instead change the invariant to <code class="docutils literal notranslate"><span class="pre">is_unique</span> <span class="pre">=</span> <span class="pre">TRUE</span></code>:</p>
+<figure class="align-default">
+<img alt="../_images/invariants_fail.png" src="../_images/invariants_fail.png" />
+</figure>
+<p>This shows a series of steps, starting from the initial state. The top box shows which invariant was violated (useful if we have several), and the bottom box is the sequences of steps that lead to the invariant being violated. Let’s look at the first two states in more detail:</p>
+<figure class="align-default">
+<img alt="../_images/invariants_fail_annotated.png" src="../_images/invariants_fail_annotated.png" />
+</figure>
+<ol class="arabic simple">
+<li><p>This box shows the action that happened in that step. For the first one, no action happened, so it instead says <code class="docutils literal notranslate"><span class="pre">&lt;Initial</span> <span class="pre">Predicate&gt;</span></code>.</p></li>
+<li><p>These are the values of each variable after the action happens. For <code class="docutils literal notranslate"><span class="pre">&lt;Initial</span> <span class="pre">Predicate&gt;</span></code>, these are the starting values of the error trace. Notice how <code class="docutils literal notranslate"><span class="pre">seq</span></code> is now a <em>fixed</em> value, one of the values in the set we said it could be.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pc</span></code> is an extra variable the translator makes to track what label we’re on. We’ll talk about it <a class="reference internal" href="#pc"><span class="std std-ref">in a little bit</span></a>.</p></li>
+<li><p>An <code class="docutils literal notranslate"><span class="pre">Iterate</span></code> action happens. This changes the values of <code class="docutils literal notranslate"><span class="pre">index</span></code> and <code class="docutils literal notranslate"><span class="pre">seen</span></code>. Values changed in a step are shown in red.</p></li>
+<li><p>When an invariant fails, the last step will be the one it failed on. Here we can see that after we check the second element, <code class="docutils literal notranslate"><span class="pre">is_unique</span></code> is false, breaking the invariant.</p></li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If an <a class="reference internal" href="pluscal.html#assert"><span class="std std-ref">assert</span></a> fails instead of an invariant, the error trace will end with the step <em>before</em> the assertion failed.</p>
+</div>
+<p>(There’s a little more we can do with the error trace, see <a class="reference internal" href="../topics/toolbox.html"><span class="doc">here</span></a>.)</p>
+<p>So back to the nature of the invariant. We say <code class="docutils literal notranslate"><span class="pre">is_unique</span></code> is the boolean type by writing that it’s an element of the set of all booleans. “Types” in TLA+ are just arbitrary sets of values. We could say that <code class="docutils literal notranslate"><span class="pre">i</span></code> is an integer, but we can be even more exact than that. We know that the it represents an index of <code class="docutils literal notranslate"><span class="pre">seq</span></code>, or one past the sequence length. Its “type” is the set <code class="docutils literal notranslate"><span class="pre">1..Len(seq)+1</span></code>. Similarly, we know <code class="docutils literal notranslate"><span class="pre">seen</span></code> can’t have any values not in <code class="docutils literal notranslate"><span class="pre">S</span></code>. Expanding our type invariant:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">TypeInvariant</span> <span class="o">==</span>
+  <span class="o">/\</span> <span class="n">is_unique</span> <span class="s">\in</span> <span class="bp">BOOLEAN</span>
+  <span class="o">/\</span> <span class="n">seen</span> <span class="nb">\subseteq</span> <span class="n">S</span>
+  <span class="o">/\</span> <span class="n">index</span> <span class="s">\in</span> <span class="m">1</span><span class="o">..</span><span class="n">Len</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span><span class="o">+</span><span class="m">1</span>
+</pre></div>
+</div>
+<p>I think that’s enough of an introduction to invariants. Now let’s write one that proves our algorithm correct.</p>
+<section id="testing-duplicates">
+<span id="index-2"></span><h3>Testing Duplicates<a class="headerlink" href="#testing-duplicates" title="Permalink to this headline">¶</a></h3>
+<p>When the algorithm finishes, <code class="docutils literal notranslate"><span class="pre">is_unique</span></code> is either true or false. If it’s true, then every index of the value is unique. If it’s false, then there must be duplicates. So we’re looking at something like</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">IsCorrect</span> <span class="o">==</span> <span class="k k-Conditional">IF</span> <span class="n">is_unique</span> <span class="k k-Conditional">THEN</span> <span class="n">IsUnique</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span> <span class="k k-Conditional">ELSE</span> <span class="o">~</span><span class="n">IsUnique</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We can simplify this by just using <code class="docutils literal notranslate"><span class="pre">=</span></code>.</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">IsCorrect</span> <span class="o">==</span> <span class="n">is_unique</span> <span class="o">=</span> <span class="n">IsUnique</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now the next two steps:</p>
+<ol class="arabic simple">
+<li><p>Actually implement <code class="docutils literal notranslate"><span class="pre">IsUnique(s)</span></code>.</p></li>
+<li><p>Currently, <code class="docutils literal notranslate"><span class="pre">is_unique</span></code> starts out true and flips to false if we find a duplicate. If the sequence <em>isn’t</em> unique, then the invariant would fail as soon as we start— <code class="docutils literal notranslate"><span class="pre">is_unique</span></code> is true but <code class="docutils literal notranslate"><span class="pre">IsUnique(seq)</span></code> will be false. So we only want to check the “invariant” after the algorithm finishes running.</p></li>
+</ol>
+<p>Writing <code class="docutils literal notranslate"><span class="pre">IsUnique(s)</span></code> <em>properly</em> requires learning some things. Writing it <em>improperly</em> is possible though, so let’s start with that, then cover (2), the double back to doing <code class="docutils literal notranslate"><span class="pre">IsUnique</span></code> properly.</p>
+<p>Here’s the improper solution for <code class="docutils literal notranslate"><span class="pre">IsUnique</span></code>:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">IsUnique</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">==</span> <span class="n">Cardinality</span><span class="p">(</span><span class="n">seen</span><span class="p">)</span> <span class="o">=</span> <span class="n">Len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If the sequence has duplicates, then we won’t run the <code class="docutils literal notranslate"><span class="pre">\union</span></code> line every single time, so it will have a different cardinality. In the next section, we’ll see why this is “improper” and implement it properly, but for now this opens up our ability to discuss (2).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This works because sets are unique.</p>
+</div>
+<section id="pc">
+<span id="index-3"></span><span id="id1"></span><h4>pc<a class="headerlink" href="#pc" title="Permalink to this headline">¶</a></h4>
+<p>Time for a quick leaky abstraction. We talk about the labels as being the units of atomicity. That’s a PlusCal abstraction to help developers. These are translated to the “actions” in TLA+. To track the label, the PlusCal translator adds an additional variable called <code class="docutils literal notranslate"><span class="pre">pc</span></code>. The value of <code class="docutils literal notranslate"><span class="pre">pc</span></code> is a string matching the name of the current label we are about to evaluate.</p>
+<p>You can see this in the error trace. When we start the algorithm, <code class="docutils literal notranslate"><span class="pre">pc</span> <span class="pre">=</span> <span class="pre">&quot;Iterate&quot;</span></code>. After the algorithm completes, <code class="docutils literal notranslate"><span class="pre">pc</span> <span class="pre">=</span> <span class="pre">&quot;Done&quot;</span></code>. So we can test our invariant at just the end with</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">IsCorrect</span> <span class="o">==</span> <span class="k k-Conditional">IF</span> <span class="n">pc</span> <span class="o">=</span> <span class="s">&quot;Done&quot;</span> <span class="k k-Conditional">THEN</span> <span class="n">is_unique</span> <span class="o">=</span> <span class="n">IsUnique</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span> <span class="k k-Conditional">ELSE</span> <span class="bp">TRUE</span>
+</pre></div>
+</div>
+<p>On every label <em>except</em> “Done”, this evaluates to TRUE and the invariant passes. When it <em>is</em> “Done”, then we check the condition we care about.</p>
+<p id="index-4"><code class="docutils literal notranslate"><span class="pre">IF</span> <span class="pre">A</span> <span class="pre">THEN</span> <span class="pre">B</span> <span class="pre">ELSE</span> <span class="pre">TRUE</span></code> conditionals come up a lot, cases where we only want to check B if A is true. We can write that as <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">=&gt;</span> <span class="pre">B</span></code>: “if A is true, then B is true, otherwise we don’t care”. Now we have</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">IsCorrect</span> <span class="o">==</span> <span class="n">pc</span> <span class="o">=</span> <span class="s">&quot;Done&quot;</span> <span class="o">=&gt;</span> <span class="n">is_unique</span> <span class="o">=</span> <span class="n">IsUnique</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>I said <code class="docutils literal notranslate"><span class="pre">=&gt;</span></code> was really important earlier. This is one of those ways: it lets us say invariants should only apply under certain conditions.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><code class="docutils literal notranslate"><span class="pre">=&gt;</span></code> follows the same indentation rules as other boolean operators. This means that</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="o">/\</span> <span class="n">A</span>
+<span class="o">/\</span> <span class="n">B</span>
+ <span class="o">=&gt;</span> <span class="n">C</span>
+</pre></div>
+</div>
+<p>Is interpreted as <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">/\</span> <span class="pre">(B</span> <span class="pre">=&gt;</span> <span class="pre">C)</span></code>, <em>not</em> <code class="docutils literal notranslate"><span class="pre">(A</span> <span class="pre">/\</span> <span class="pre">B)</span> <span class="pre">=&gt;</span> <span class="pre">C</span></code>. When it doubt, add in parenthesis.</p>
+</div>
+<p>We can now run this as our full invariant; the spec will still pass.</p>
+</section>
+</section>
+</section>
+<section id="quantifiers">
+<span id="quantifier"></span><span id="e"></span><span id="a"></span><span id="index-5"></span><h2>Quantifiers<a class="headerlink" href="#quantifiers" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you’ve been working in your own spec, I recommend switching to <a class="reference internal" href="setup.html#scratch"><span class="std std-ref">scratch</span></a> for now, since we’ll be testing a lot of simple operators.</p>
+</div>
+<p>Here’s our current version of <code class="docutils literal notranslate"><span class="pre">IsUnique</span></code>.</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">IsUnique</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">==</span> <span class="n">Cardinality</span><span class="p">(</span><span class="n">seen</span><span class="p">)</span> <span class="o">=</span> <span class="n">Len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>I said that this is the improper way. That’s for three reasons. First of all, it’s tying the definition of uniqueness to <code class="docutils literal notranslate"><span class="pre">seen</span></code>, which is a variable. Whether a sequence is unique or not should be independent of our actual behavior. It is or it isn’t. The <code class="docutils literal notranslate"><span class="pre">IsUnique</span></code> operator should rely on the values in <code class="docutils literal notranslate"><span class="pre">s</span></code> and nothing else.</p>
+<p>Second, this isn’t really the <em>definition</em> of uniqueness. We’re just using a clever trick involving set cardinalities. It’d be better if our operator captured the meaning of uniqueness, not use a weird side-channel which is coincidentally identical to uniqueness.</p>
+<p>Finally, this doesn’t give us anywhere to go. We could represent uniqueness this way, but what about, say, sortedness?</p>
+<p>For all these reasons, it’s time to introduce <em class="dfn">quantifiers</em>. A quantifier is a statement about the elements in a set. There are two: <code class="docutils literal notranslate"><span class="pre">\A</span></code>, or “forall”, tests if a statement is true about <em>every</em> element in the set. <code class="docutils literal notranslate"><span class="pre">\E</span></code>, or “exists”, tests if it’s true for <em>at least one</em> element. If I write</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="s">\A</span> <span class="n">x</span> <span class="s">\in</span> <span class="n">{</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="n">}</span><span class="p">:</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="m">2</span>
+</pre></div>
+</div>
+<p>That’s equivalent to “every element in the set is less than 2”, which is false. If I wrote <code class="docutils literal notranslate"><span class="pre">\E</span> <span class="pre">x</span> <span class="pre">\in</span> <span class="pre">{1,</span> <span class="pre">2,</span> <span class="pre">3}:</span> <span class="pre">x</span> <span class="pre">&lt;</span> <span class="pre">3</span></code>, that would instead be true.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><code class="docutils literal notranslate"><span class="pre">\A</span> <span class="pre">x</span> <span class="pre">\in</span> <span class="pre">{}:</span> <span class="pre">...</span></code> is always true, and <code class="docutils literal notranslate"><span class="pre">\E</span></code> is always false. All zero elements satisfy the statement, while not one does! In fact, this is the only case where “forall” can be true when “exists” is not.</p>
+</div>
+<p>We can pull multiple elements from the same quantifier. Example: a <em>composite</em> number is divisible by a number besides one and itself. I can write <code class="docutils literal notranslate"><span class="pre">IsComposite</span></code> as</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">IsComposite</span><span class="p">(</span><span class="n">num</span><span class="p">)</span> <span class="o">==</span>
+  <span class="s">\E</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span> <span class="s">\in</span> <span class="m">2</span><span class="o">..</span><span class="n">num</span><span class="p">:</span>
+    <span class="n">m</span> <span class="o">*</span> <span class="n">n</span> <span class="o">=</span> <span class="n">num</span>
+</pre></div>
+</div>
+<p>Notice that m and n can be the same number: <code class="docutils literal notranslate"><span class="pre">IsComposite(9)</span> <span class="pre">=</span> <span class="pre">TRUE</span></code> when we pick <code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">=</span> <span class="pre">n</span> <span class="pre">=</span> <span class="pre">3</span></code>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can also pull from several <em>different</em> sets in the same quantifier: <code class="docutils literal notranslate"><span class="pre">\A</span> <span class="pre">x</span> <span class="pre">\in</span> <span class="pre">S,</span> <span class="pre">y</span> <span class="pre">\in</span> <span class="pre">T:</span> <span class="pre">P(x,</span> <span class="pre">y)</span></code>.</p>
+</div>
+<p>We can’t use a quantifier on a sequence, since that’s not a set. But we <em>can</em> use it on the sequence’s indices.</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">Contains</span><span class="p">(</span><span class="n">seq</span><span class="p">,</span> <span class="n">elem</span><span class="p">)</span> <span class="o">==</span>
+  <span class="s">\E</span> <span class="n">i</span> <span class="s">\in</span> <span class="m">1</span><span class="o">..</span><span class="n">Len</span><span class="p">(</span><span class="n">seq</span><span class="p">):</span>
+    <span class="n">seq</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">elem</span>
+</pre></div>
+</div>
+<p>That suggests we can write <code class="docutils literal notranslate"><span class="pre">IsUnique</span></code> as</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">IsUnique</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">==</span>
+<span class="c">\* Warning, this is wrong!</span>
+<span class="c">\* We&#39;ll see why in the next part.</span>
+  <span class="s">\A</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="s">\in</span> <span class="m">1</span><span class="o">..</span><span class="n">Len</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">#</span> <span class="n">s</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+</pre></div>
+</div>
+<section id="the-power-of-rightarrow">
+<span id="using"></span><span id="index-6"></span><h3>The power of <span class="math notranslate nohighlight">\(\Rightarrow\)</span><a class="headerlink" href="#the-power-of-rightarrow" title="Permalink to this headline">¶</a></h3>
+<p>Let’s add this new version of <code class="docutils literal notranslate"><span class="pre">IsUnique</span></code> to our duplicates spec:</p>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="highlight-udiff notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>---- MODULE duplicates ----<span class="w"></span>
+<span class="gd">-EXTENDS Integers, Sequences, TLC, FiniteSets</span><span class="w"></span>
+<span class="gi">+EXTENDS Integers, Sequences, TLC</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w"> </span>S == 1..10<span class="w"></span>
+<span class="w"> </span>
+<span class="gu">@@ -16,7 +16,9 @@</span><span class="w"></span>
+<span class="w"> </span>    /\ seen \subseteq S<span class="w"></span>
+<span class="w"> </span>    /\ index \in 1..Len(seq)+1<span class="w"></span>
+<span class="w"> </span>    <span class="w"></span>
+<span class="gd">-  IsUnique(s) == Cardinality(seen) = Len(s)</span><span class="w"></span>
+<span class="gi">+  IsUnique(s) == </span><span class="w"></span>
+<span class="gi">+    \A i, j \in 1..Len(s): </span><span class="w"></span>
+<span class="gi">+      s[i] # s[j]</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w"> </span>  IsCorrect == pc = &quot;Done&quot; =&gt; is_unique = IsUnique(seq)<span class="w"></span>
+<span class="w"> </span>end define; <span class="w"></span>
+</pre></div>
+</div>
+<div class="code-block-caption"><span class="caption-text">(fails) <a class="reference download internal" download="" href="../_downloads/7e985388d98ea7714e2f4d1f3977bcb7/duplicates.tla"><code class="xref download docutils literal notranslate"><span class="pre">spec</span></code></a></span><a class="headerlink" href="#id4" title="Permalink to this code">¶</a></div>
+</div>
+<p>If you run this, you will see it <em>fail</em>. And it fails in the oddest way, by saying a unique sequence has duplicates. In my case I got <code class="docutils literal notranslate"><span class="pre">seq</span> <span class="pre">=</span> <span class="pre">&lt;&lt;1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4&gt;&gt;</span></code>, but the exact one TLC finds may differ on your computer.</p>
+<p>Let’s use <a class="reference internal" href="operators.html#choose"><span class="std std-ref">CHOOSE</span></a> to ask TLC <em>what</em> indices it picked. Back in <a class="reference internal" href="setup.html#scratch"><span class="std std-ref">scratch</span></a>:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">Test</span> <span class="o">==</span> <span class="k k-Conditional">LET</span>
+  <span class="n">seq</span> <span class="o">==</span> <span class="o">&lt;&lt;</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="o">&gt;&gt;</span>
+  <span class="n">s</span> <span class="o">==</span> <span class="m">1</span><span class="o">..</span><span class="m">4</span>
+<span class="n">IN</span>
+  <span class="s">CHOOSE</span> <span class="n">p</span> <span class="s">\in</span> <span class="n">s</span> <span class="s">\X</span> <span class="n">s</span><span class="p">:</span> <span class="n">seq</span><span class="p">[</span><span class="n">p</span><span class="p">[</span><span class="m">1</span><span class="p">]]</span> <span class="o">=</span> <span class="n">seq</span><span class="p">[</span><span class="n">p</span><span class="p">[</span><span class="m">2</span><span class="p">]]</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Test</span>
+<span class="o">&lt;&lt;</span><span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="o">&gt;&gt;</span>
+</pre></div>
+</div>
+<p><strong>We never said the indices had to be different.</strong> Obviously every index is going to be equal to itself!</p>
+<blockquote>
+<div><p>Here’s one way to fix it:</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">IsUnique</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">==</span>
+  <span class="s">\A</span> <span class="n">i</span> <span class="s">\in</span> <span class="m">1</span><span class="o">..</span><span class="n">Len</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    <span class="s">\A</span> <span class="n">j</span> <span class="s">\in</span> <span class="p">(</span><span class="m">1</span><span class="o">..</span><span class="n">Len</span><span class="p">(</span><span class="n">s</span><span class="p">))</span> <span class="o">\</span> <span class="n">{i}</span><span class="p">:</span>
+      <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">#</span> <span class="n">s</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>The best way to fix it, conveniently enough, really showcases the power of <code class="docutils literal notranslate"><span class="pre">=&gt;</span></code>: <strong>it lets us rule out unwanted combinations in quantifiers.</strong> Let’s say we write</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">IsUnique</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">==</span>
+  <span class="s">\A</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="s">\in</span> <span class="m">1</span><span class="o">..</span><span class="n">Len</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    <span class="n">i</span> <span class="o">#</span> <span class="n">j</span> <span class="o">=&gt;</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">#</span> <span class="n">s</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Then we pass in <code class="docutils literal notranslate"><span class="pre">&lt;&lt;&quot;a&quot;,</span> <span class="pre">&quot;b&quot;&gt;&gt;</span></code>. There are four possible combinations of values for i and j. Let’s write out the full truth table for every combination:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>i, j</p></th>
+<th class="head"><p>s[i], s[j]</p></th>
+<th class="head"><p>P == i # j</p></th>
+<th class="head"><p>Q == s[i] # s[j]</p></th>
+<th class="head"><p>P =&gt; Q</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1, 1</p></td>
+<td><p>a, a</p></td>
+<td><p>F</p></td>
+<td><p>F</p></td>
+<td><p><strong>T</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>1, 2</p></td>
+<td><p>a, b</p></td>
+<td><p>T</p></td>
+<td><p>T</p></td>
+<td><p><strong>T</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>2, 1</p></td>
+<td><p>b, a</p></td>
+<td><p>T</p></td>
+<td><p>T</p></td>
+<td><p><strong>T</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>2, 2</p></td>
+<td><p>b, b</p></td>
+<td><p>F</p></td>
+<td><p>F</p></td>
+<td><p><strong>T</strong></p></td>
+</tr>
+</tbody>
+</table>
+<p>For every combination, <code class="docutils literal notranslate"><span class="pre">P</span> <span class="pre">=&gt;</span> <span class="pre">Q</span></code> is true. This means the <code class="docutils literal notranslate"><span class="pre">\A</span></code> is true, and <code class="docutils literal notranslate"><span class="pre">IsUnique(&lt;&lt;a,</span> <span class="pre">b&gt;&gt;)</span></code>, as expected.</p>
+<p>Now let’s do the same for <code class="docutils literal notranslate"><span class="pre">&lt;&lt;a,</span> <span class="pre">a&gt;&gt;</span></code>:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>i, j</p></th>
+<th class="head"><p>s[i], s[j]</p></th>
+<th class="head"><p>P == i # j</p></th>
+<th class="head"><p>Q == s[i] # s[j]</p></th>
+<th class="head"><p>P =&gt; Q</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1, 1</p></td>
+<td><p>a, a</p></td>
+<td><p>F</p></td>
+<td><p>F</p></td>
+<td><p><strong>T</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>1, 2</p></td>
+<td><p>a, a</p></td>
+<td><p>T</p></td>
+<td><p>F</p></td>
+<td><p><strong>F</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>2, 1</p></td>
+<td><p>a, a</p></td>
+<td><p>T</p></td>
+<td><p>F</p></td>
+<td><p><strong>F</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>2, 2</p></td>
+<td><p>a, a</p></td>
+<td><p>F</p></td>
+<td><p>F</p></td>
+<td><p><strong>T</strong></p></td>
+</tr>
+</tbody>
+</table>
+<p>Since <code class="docutils literal notranslate"><span class="pre">1,</span> <span class="pre">2</span></code> gives us <code class="docutils literal notranslate"><span class="pre">T</span> <span class="pre">=&gt;</span> <span class="pre">F</span></code>, there’s a case where the quantifier fails, and <code class="docutils literal notranslate"><span class="pre">~IsUnique(&lt;&lt;a,</span> <span class="pre">a&gt;&gt;)</span></code>, as we want it to be. <code class="docutils literal notranslate"><span class="pre">=&gt;</span></code> is an <em>incredibly</em> powerful tool for writing invariants.</p>
+<p>So we just make that change, and:</p>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="highlight-udiff notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>    <span class="w"></span>
+<span class="w"> </span>  IsUnique(s) == <span class="w"></span>
+<span class="w"> </span>    \A i, j \in 1..Len(s): <span class="w"></span>
+<span class="gd">-      s[i] # s[j]</span><span class="w"></span>
+<span class="gi">+      i # j =&gt; s[i] # s[j]</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w"> </span>  IsCorrect == pc = &quot;Done&quot; =&gt; is_unique = IsUnique(seq)<span class="w"></span>
+<span class="w"> </span>end define; <span class="w"></span>
+</pre></div>
+</div>
+<div class="code-block-caption"><span class="caption-text"><span>70000 states / 60000 distinct</span> <a class="reference download internal" download="" href="../_downloads/7a4ac98569a9fd47090c2c9490794d15/duplicates.tla"><code class="xref download docutils literal notranslate"><span class="pre">spec</span></code></a></span><a class="headerlink" href="#id5" title="Permalink to this code">¶</a></div>
+</div>
+<p>This now passes! And with that, we’ve made a complete version of our specification: we have an algorithm, an invariant that determines its correctness, and a model that checks one against the other.</p>
+<p>This is a common idiom for modeling simple CS algorithms. We can use the same pattern to model binary search, or topological sorting, or a SAT solver. This can be useful when trying to optimize an algorithm, since you can test that your optimizations don’t make the implementation incorrect.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do not use <code class="docutils literal notranslate"><span class="pre">=&gt;</span></code> with <code class="docutils literal notranslate"><span class="pre">\E</span></code>! Imagine I wanted to an operator that checks if a sequence has duplicates, and wrote</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">HasDuplicates</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span> <span class="o">==</span>
+  <span class="s">\E</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="s">\in</span> <span class="m">1</span><span class="o">..</span><span class="n">Len</span><span class="p">(</span><span class="n">seq</span><span class="p">):</span>
+    <span class="n">i</span> <span class="o">#</span> <span class="n">j</span> <span class="o">=&gt;</span> <span class="n">seq</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">seq</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>If I picked <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">=</span> <span class="pre">j</span> <span class="pre">=</span> <span class="pre">1</span></code>, then the left-hand side would be false, meaning the expression is true, meaning the whole quantifier is true. <em>This holds regardless of the right-hand side!</em> Instead I should write</p>
+<div class="highlight-tla notranslate"><div class="highlight"><pre><span></span><span class="n">HasDuplicates</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span> <span class="o">==</span>
+  <span class="s">\E</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="s">\in</span> <span class="m">1</span><span class="o">..</span><span class="n">Len</span><span class="p">(</span><span class="n">seq</span><span class="p">):</span>
+    <span class="n">i</span> <span class="o">#</span> <span class="n">j</span> <span class="o">/\</span> <span class="n">seq</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">seq</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>An Invariant is something that must be true of every state in our specification.</p>
+<ul>
+<li><p>A common invariant is the <em>Type Invariant</em>, which checks that all of your variable values belong to strict sets.</p></li>
+</ul>
+</li>
+<li><p>When our spec violates an invariant, TLC produces a step by step error trace to show us how to reproduce the violation.</p></li>
+<li><p>Quantifiers test a predicate over a set. <code class="docutils literal notranslate"><span class="pre">\A</span></code> checks if something is true for every element, and <code class="docutils literal notranslate"><span class="pre">\E</span></code> checks if it’s true for at least one element.</p></li>
+<li><p>Implication can be used to put “preconditions” on invariants, like “only check this when we’ve reached the end”.</p></li>
+</ul>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+    
+        <div id="show_right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&lt;</span><span>Page contents</span></a></p>
+        </div>
+
+        <div id="right_sidebar">
+            <p><a class="toggle_right_sidebar" href="#"><span class="icon">&gt;</span><span>Page contents:</span></a></p>
+            <div class="page_toc">
+                <ul>
+<li><a class="reference internal" href="#">Writing an Invariant</a><ul>
+<li><a class="reference internal" href="#invariants">Invariants</a><ul>
+<li><a class="reference internal" href="#testing-duplicates">Testing Duplicates</a><ul>
+<li><a class="reference internal" href="#pc">pc</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#quantifiers">Quantifiers</a><ul>
+<li><a class="reference internal" href="#the-power-of-rightarrow">The power of <span class="math notranslate nohighlight">\(\Rightarrow\)</span></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#summary">Summary</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </div>
+    
+
+      <div class="clearer"></div>
+    </div>
+    <div class="button_nav_wrapper">
+        <div class="button_nav">
+            <div class="left">
+                
+                <a href="pluscal.html">
+                    <span class="icon">&lt;</span><span>Writing Specifications</span></a>
+                
+            </div>
+
+            <div class="right">
+                
+                    <a href="constants.html"><span>Parameterizing Specs</span><span class="icon">&gt;</span></a>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, Hillel Wayne.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.4.0.
+    </div>
+
+<p id="theme_credit">Styled using the <a href="https://github.com/piccolo-orm/piccolo_theme">Piccolo Theme</a></p>
+  </body>
+</html>
